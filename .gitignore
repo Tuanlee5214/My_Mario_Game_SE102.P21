@@ -1,0 +1,14 @@
+# Ignore Visual Studio build files
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.db
+*.suo
+*.idb
+*.vs/
+Debug/
+Release/
+.vscode/
