@@ -1,4 +1,5 @@
 #include "Sprite.h"
+#include "debug.h"
 
 #include "Game.h"
 
@@ -47,7 +48,7 @@ void CSprite::Draw(float x, float y)
 	y = (FLOAT)floor(y);
 
 	D3DXMatrixTranslation(&matTranslation, x - cx, g->GetBackBufferHeight() - y + cy, 0.1f);
-
+	DebugOut(L"Ground Position: x = %f, cx = %f, x - cx = %f\n", x, cx, x - cx);
 	this->sprite.matWorld = (this->matScaling * matTranslation);
 
 	g->GetSpriteHandler()->DrawSpritesImmediate(&sprite, 1, 0, 0);
