@@ -2,6 +2,7 @@
 
 #include "Sprite.h"
 #include "Sprites.h"
+#include "debug.h"
 
 #include "Textures.h"
 #include "Game.h"
@@ -37,8 +38,9 @@ void CGround::Render()
 	for (int i = 0; i < this->length; i++)
 	{
 		LPSPRITE X = s->Get(this->spriteGroundID);
-		if (X) {
+		if (s->Get(61000) != NULL) {
 			X->Draw(xx, y);
+			DebugOut(L"[ERROR] 61000 %d found!\n");
 		}
 		xx += this->cellWidth;
 	}
@@ -51,7 +53,7 @@ void CGround::Render()
 	//if (length > 1)
 		//s->Get(this->spriteIdEnd)->Draw(xx, y);
 
-	//RenderBoundingBox();
+	RenderBoundingBox();
 }
 
 void CGround::GetBoundingBox(float& l, float& t, float& r, float& b)

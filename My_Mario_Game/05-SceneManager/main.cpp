@@ -30,6 +30,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Game.h"
 #include "GameObject.h"
 #include "Textures.h"
+#include "Sprites.h"
 #include "Animation.h"
 #include "Animations.h"
 
@@ -48,6 +49,11 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define WINDOW_ICON_PATH L"mario.ico"
 
 #define BACKGROUND_COLOR D3DXCOLOR(156.0f/255, 252.0f/255, 240.0f/255, 0.0f)
+
+#define TEXTURES_DIR L"texture1"
+//#define TEXTURE_PATH_MARIO TEXTURES_DIR "\\mario.png"
+#define TEXTURE_PATH_MAINMAP TEXTURES_DIR "\\mainmap.png"
+#define TEXTURE_PATH_MAP TEXTURES_DIR "\\map.png"
 
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 240
@@ -97,6 +103,27 @@ void Render()
 
 	spriteHandler->End();
 	pSwapChain->Present(0, 0);
+}
+void LoadResourceForGame() {
+	CTextures* textures = CTextures::GetInstance();
+	textures->Add(ID_TEX_MAP, TEXTURE_PATH_MAP);
+	textures->Add(ID_TEX_MAINMAP, TEXTURE_PATH_MAINMAP);
+	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
+
+	CSprites* sprites = CSprites::GetInstance();
+	sprites->Add(ID_SPRITE_GROUND2, 1151, 417, 1503, 432, texMainMap);
+	sprites->Add(ID_SPRITE_GROUND3, 1535, 417, 1615, 432, texMainMap);
+	sprites->Add(ID_SPRITE_GROUND4, 1663, 417, 2239, 432, texMainMap);
+	sprites->Add(ID_SPRITE_GROUND5, 2255, 417, 2815, 432, texMainMap);
+	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
+	{
+		DebugOut(L"[ERROR] Sprite ID %d not found!\n", ID_SPRITE_GROUND2);
+		return;
+	}
+	else
+	{
+		DebugOut(L"[INFO] Sprite ID %d loaded successfully\n", ID_SPRITE_GROUND2);
+	}
 }
 
 HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int ScreenHeight)
@@ -195,17 +222,17 @@ int WINAPI WinMain(
 	HWND hWnd = CreateGameWindow(hInstance, nCmdShow, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	SetDebugWindow(hWnd);
-
 	LPGAME game = CGame::GetInstance();
 	game->Init(hWnd, hInstance);
 	game->InitKeyboard();
-
+	
 
 	//IMPORTANT: this is the only place where a hardcoded file name is allowed ! 
 	game->Load(L"mario-sample.txt");  
+	LoadResourceForGame();
 
 	SetWindowPos(hWnd, 0, 0, 0, SCREEN_WIDTH*2, SCREEN_HEIGHT*2, SWP_NOMOVE | SWP_NOOWNERZORDER | SWP_NOZORDER);
-
+	
 	Run();
 
 	return 0;
