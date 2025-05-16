@@ -22,6 +22,8 @@ class CGoomba : public CGameObject
 protected:
 	float ax;				
 	float ay; 
+	bool isActive;
+	float activationDistance;
 
 	ULONGLONG die_start;
 
