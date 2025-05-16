@@ -133,6 +133,22 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_CLOUD1, 126, 0, 159, 22, texMap);
 	sprites->Add(ID_SPRITE_CLOUD2, 120, 272, 167, 295, texMainMap);
 	sprites->Add(ID_SPRITE_CLOUD3, 728, 304, 791, 327, texMainMap);
+
+	//Sprite Box
+	sprites->Add(ID_SPRITE_BOX1, 240, 368, 287, 415, texMainMap);
+	sprites->Add(ID_SPRITE_BOX2, 270, 336, 328, 415, texMainMap);
+	sprites->Add(ID_SPRITE_BOX3, 400, 368, 479, 415, texMainMap);
+	sprites->Add(ID_SPRITE_BOX4, 464, 336, 528, 415, texMainMap);
+	sprites->Add(ID_SPRITE_BOX5, 343, 37, 416, 148, texMap);
+	sprites->Add(ID_SPRITE_BOX6, 343, 117, 447, 149, texMap);
+	sprites->Add(ID_SPRITE_BOX7, 151, 216, 263, 249, texMap);
+	sprites->Add(ID_SPRITE_BOX8, 184, 185, 294, 249, texMap);
+	sprites->Add(ID_SPRITE_BOX9, 216, 154, 326, 249, texMap);
+	sprites->Add(ID_SPRITE_BOX10, 1312, 142, 1375, 174, texMainMap);
+	sprites->Add(ID_SPRITE_BOX11, 2144, 367, 2191, 415, texMainMap);
+	sprites->Add(ID_SPRITE_BOX12, 2177, 272, 2223, 415, texMainMap);
+
+
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
 	{
 		DebugOut(L"[ERROR] Sprite ID %d not found!\n", ID_SPRITE_GROUND2);
