@@ -1,2 +1,3 @@
 ﻿  main.cpp
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\main.cpp(155,38): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   05-SceneManager.vcxproj -> D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\Debug\05-SceneManager.exe
