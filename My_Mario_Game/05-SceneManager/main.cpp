@@ -128,6 +128,11 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_TransTREE2, 3, 145, 50, 193, texMap);
 	sprites->Add(ID_SPRITE_BLACKBACKGROUND, 2480, 0, 2816, 417, texMainMap);
 	sprites->Add(ID_SPRITE_BUSH, 160, 399, 176, 416, texMainMap);
+
+	//Sprite Cloud
+	sprites->Add(ID_SPRITE_CLOUD1, 126, 0, 159, 22, texMap);
+	sprites->Add(ID_SPRITE_CLOUD2, 120, 272, 167, 295, texMainMap);
+	sprites->Add(ID_SPRITE_CLOUD3, 728, 304, 791, 327, texMainMap);
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
 	{
 		DebugOut(L"[ERROR] Sprite ID %d not found!\n", ID_SPRITE_GROUND2);

@@ -11,6 +11,7 @@
 #include "Platform.h"
 #include "Ground.h"
 #include "Tree.h"
+#include "Cloud.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -164,6 +165,13 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	{
 		int spriteTreeID = atoi(tokens[3].c_str());
 		obj = new CTree(x, y, spriteTreeID);
+		break;
+	}
+
+	case OBJECT_TYPE_CLOUD:
+	{
+		int spriteCloudID = atoi(tokens[3].c_str());
+		obj = new CCloud(x, y, spriteCloudID);
 		break;
 	}
 
