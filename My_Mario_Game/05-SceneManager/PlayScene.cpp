@@ -52,8 +52,13 @@ void CPlayScene::_ParseSection_SPRITES(string line)
 		DebugOut(L"[ERROR] Texture ID %d not found!\n", texID);
 		return; 
 	}
-
+	
 	CSprites::GetInstance()->Add(ID, l, t, r, b, tex);
+	if (CSprites::GetInstance()->Get(ID) == NULL)
+	{
+		DebugOut(L"[ERROR] Sprite ID %d not found!\n", ID);
+		return;
+	}
 }
 
 void CPlayScene::_ParseSection_ASSETS(string line)
@@ -146,10 +151,11 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		float cell_height = (float)atof(tokens[4].c_str());
 		int length = atoi(tokens[5].c_str());
 		int sprite_id = atoi(tokens[6].c_str());
+		int type = atoi(tokens[7].c_str());
 		obj = new CGround(
 			x, y,
 			cell_width, cell_height, length,
-			sprite_id
+			sprite_id, type
 		);
 		break;
 	}

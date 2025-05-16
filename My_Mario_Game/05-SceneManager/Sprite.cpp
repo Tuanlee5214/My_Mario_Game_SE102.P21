@@ -35,6 +35,7 @@ CSprite::CSprite(int id, int left, int top, int right, int bottom, LPTEXTURE tex
 
 void CSprite::Draw(float x, float y)
 {
+	if (this->texture == NULL) return;
 	CGame* g = CGame::GetInstance();
 	float cx, cy;
 	g->GetCamPos(cx, cy);

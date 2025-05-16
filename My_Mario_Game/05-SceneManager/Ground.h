@@ -8,16 +8,18 @@ protected:
 	float cellWidth;
 	float cellHeight;
 	int spriteGroundID;
+	int type; // 0: ground, 1: groungBig
 
 public:
 	CGround(float x, float y,
 		float cell_width, float cell_height, int length,
-		int spriteGroundID) :CGameObject(x, y)
+		int spriteGroundID, int type) :CGameObject(x, y)
 	{
 		this->length = length;
 		this->cellWidth = cell_width;
 		this->cellHeight = cell_height;
 		this->spriteGroundID = spriteGroundID;
+		this->type = type;
 	}
 
 	void Render();

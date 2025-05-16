@@ -5,6 +5,7 @@ coin.txt
 cloud.txt
 brick.txt
 ground.txt
+groundBig.txt
 #
 [OBJECTS]
 # type	x	y	extra_settings per object type
@@ -42,8 +43,8 @@ ground.txt
 #5	140	140	16	16	26	51000	52000	53000
 
 #Ground
-6	160	195	624	16	1	60000
-6	784	180	463	32	1	65000
+6	310	190	624	16	2	60000	0
+6	850	175	150	32	1	70000	1
 
 #Portal 
 #50	200	160	216	180	1

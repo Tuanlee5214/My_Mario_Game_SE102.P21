@@ -542,6 +542,15 @@ void CGame::_ParseSection_TEXTURES(string line)
 	wstring path = ToWSTR(tokens[1]);
 
 	CTextures::GetInstance()->Add(texID, path.c_str());
+	if (CTextures::GetInstance()->Get(texID) == NULL)
+	{
+		DebugOut(L"[ERROR] Texture ID %d not found!\n", texID);
+		return;
+	}
+	else
+	{
+		DebugOut(L"[INFO] Texture ID %d loaded successfully\n", texID);
+	}
 }
 
 
