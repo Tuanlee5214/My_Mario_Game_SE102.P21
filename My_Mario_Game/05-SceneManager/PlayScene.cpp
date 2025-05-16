@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 #include "AssetIDs.h"
 
@@ -316,19 +316,25 @@ void CPlayScene::Update(DWORD dt)
 	}
 
 	// skip the rest if scene was already unloaded (Mario::Update might trigger PlayScene::Unload)
-	if (player == NULL) return; 
+	if (player == NULL) return;
 
 	// Update camera to follow mario
 	float cx, cy;
 	player->GetPosition(cx, cy);
+	float y1 = cy;
 
-	CGame *game = CGame::GetInstance();
+	CGame* game = CGame::GetInstance();
 	cx -= game->GetBackBufferWidth() / 2;
-	cy -= (game->GetBackBufferHeight() /2);
+	cy -= (game->GetBackBufferHeight() / 2);
 	float verticalPoint = 30.0f;
 	//if (cy >= verticalPoint) cy = 0.0f;
 	if (cx < 0) cx = 0;
-	//if (cy < 0) cy = 0;
+	if (cx > 2463) cx = 2463;
+	DebugOut(L"game->GetBackBufferHeight() : %d", game->GetBackBufferHeight());
+	if (cy > 0) cy = 0;
+	
+
+
 
 	CGame::GetInstance()->SetCamPos(cx, cy);
 
