@@ -10,6 +10,7 @@
 #include "Coin.h"
 #include "Platform.h"
 #include "Ground.h"
+#include "Tree.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -157,6 +158,12 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 			cell_width, cell_height, length,
 			sprite_id, type
 		);
+		break;
+	}
+	case OBJECT_TYPE_TREE:
+	{
+		int spriteTreeID = atoi(tokens[3].c_str());
+		obj = new CTree(x, y, spriteTreeID);
 		break;
 	}
 

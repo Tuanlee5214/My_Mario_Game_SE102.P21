@@ -109,12 +109,24 @@ void LoadResourceForGame() {
 	textures->Add(ID_TEX_MAP, TEXTURE_PATH_MAP);
 	textures->Add(ID_TEX_MAINMAP, TEXTURE_PATH_MAINMAP);
 	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
+	LPTEXTURE texMap = textures->Get(ID_TEX_MAP);
 
 	CSprites* sprites = CSprites::GetInstance();
+	//Sprite Ground
 	sprites->Add(ID_SPRITE_GROUND2, 1151, 417, 1503, 432, texMainMap);
 	sprites->Add(ID_SPRITE_GROUND3, 1535, 417, 1615, 432, texMainMap);
 	sprites->Add(ID_SPRITE_GROUND4, 1663, 417, 2239, 432, texMainMap);
 	sprites->Add(ID_SPRITE_GROUND5, 2255, 417, 2815, 432, texMainMap);
+
+	//Sprite Tree
+	sprites->Add(ID_SPRITE_TREE1, 15, 351, 143, 416, texMainMap);
+	sprites->Add(ID_SPRITE_TREE3, 79, 26, 143, 74, texMap);
+	sprites->Add(ID_SPRITE_TREE2, 0, 79, 128, 143, texMap);
+	sprites->Add(ID_SPRITE_TREE4, 1889, 367, 1951, 416, texMainMap);
+	sprites->Add(ID_SPRITE_TREE5, 2367, 287, 2463, 416, texMainMap);
+	sprites->Add(ID_SPRITE_TransTREE1, 0, 208, 78, 304, texMap);
+	sprites->Add(ID_SPRITE_TransTREE2, 3, 145, 50, 193, texMap);
+	sprites->Add(ID_SPRITE_BLACKBACKGROUND, 2480, 0, 2816, 417, texMainMap);
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
 	{
 		DebugOut(L"[ERROR] Sprite ID %d not found!\n", ID_SPRITE_GROUND2);
