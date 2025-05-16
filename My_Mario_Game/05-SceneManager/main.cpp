@@ -141,12 +141,13 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_BOX4, 464, 336, 528, 415, texMainMap);
 	sprites->Add(ID_SPRITE_BOX5, 343, 37, 416, 148, texMap);
 	sprites->Add(ID_SPRITE_BOX6, 343, 117, 447, 149, texMap);
-	sprites->Add(ID_SPRITE_BOX7, 151, 216, 263, 249, texMap);
-	sprites->Add(ID_SPRITE_BOX8, 184, 185, 294, 249, texMap);
-	sprites->Add(ID_SPRITE_BOX9, 216, 154, 326, 249, texMap);
-	sprites->Add(ID_SPRITE_BOX10, 1312, 142, 1375, 174, texMainMap);
+	sprites->Add(ID_SPRITE_BOX7, 151, 217, 262, 249, texMap);
+	sprites->Add(ID_SPRITE_BOX8, 182, 185, 294, 249, texMap);
+	sprites->Add(ID_SPRITE_BOX9, 215, 153, 336, 249, texMap);
+	sprites->Add(ID_SPRITE_BOX10, 1312, 142, 1384, 182, texMainMap);
 	sprites->Add(ID_SPRITE_BOX11, 2144, 367, 2191, 415, texMainMap);
-	sprites->Add(ID_SPRITE_BOX12, 2177, 272, 2223, 415, texMainMap);
+	sprites->Add(ID_SPRITE_BOX12, 2176, 272, 2223, 415, texMainMap);
+	sprites->Add(ID_SPRITE_BOX12, 2176, 272, 2223, 415, texMainMap);
 
 
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)

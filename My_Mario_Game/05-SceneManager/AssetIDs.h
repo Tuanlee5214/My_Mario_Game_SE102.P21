@@ -25,6 +25,8 @@
 
 #define OBJECT_TYPE_PORTAL	50
 
+#define SCENE_WIDTH 2654
+
 
 #pragma region MARIO 
 
