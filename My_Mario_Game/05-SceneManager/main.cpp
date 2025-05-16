@@ -117,7 +117,11 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_GROUND3, 1535, 417, 1615, 432, texMainMap);
 	sprites->Add(ID_SPRITE_GROUND4, 1663, 417, 2239, 432, texMainMap);
 	sprites->Add(ID_SPRITE_GROUND5, 2255, 417, 2815, 432, texMainMap);
-
+	sprites->Add(ID_SPRITE_GROUND1_1, 1599, 367, 1616, 383, texMainMap);
+	sprites->Add(ID_SPRITE_GROUND1_2, 1503, 335, 1536, 351, texMainMap);
+	sprites->Add(ID_SPRITE_GROUND1_3, 1567, 400, 1618, 416, texMainMap);
+	sprites->Add(ID_SPRITE_GROUND1_4, 1408, 191, 1471, 208, texMainMap);
+	sprites->Add(ID_SPRITE_GROUND1_5, 1487, 174, 1697, 192, texMainMap);
 	//Sprite Tree
 	sprites->Add(ID_SPRITE_TREE1, 15, 351, 143, 416, texMainMap);
 	sprites->Add(ID_SPRITE_TREE3, 79, 26, 143, 74, texMap);

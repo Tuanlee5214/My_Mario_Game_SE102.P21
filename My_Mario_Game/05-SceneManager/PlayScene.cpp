@@ -14,6 +14,7 @@
 #include "Cloud.h"
 #include "Box.h"
 #include "Pipe.h"
+#include "debug.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -324,11 +325,12 @@ void CPlayScene::Update(DWORD dt)
 	CGame *game = CGame::GetInstance();
 	cx -= game->GetBackBufferWidth() / 2;
 	cy -= (game->GetBackBufferHeight() /2);
-
+	float verticalPoint = 30.0f;
+	//if (cy >= verticalPoint) cy = 0.0f;
 	if (cx < 0) cx = 0;
 	//if (cy < 0) cy = 0;
 
-	CGame::GetInstance()->SetCamPos(cx, 0);
+	CGame::GetInstance()->SetCamPos(cx, cy);
 
 	PurgeDeletedObjects();
 }
