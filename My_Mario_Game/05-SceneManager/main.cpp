@@ -171,7 +171,7 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_LEFT2, 46, 65, 63, 91, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT1, 603, 66, 620, 91, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT2, 584, 64, 600, 91, texEnemies1);
-	sprites->Add(ID_SPRITE_KOOPA_DIE, 71, 73, 88, 90, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE, 71, 95, 88, 110, texEnemies1);
 
 
 	CAnimations* animations = CAnimations::GetInstance();

@@ -95,7 +95,7 @@ void CKoopa::Render()
 	}
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
-	RenderBoundingBox();
+	//RenderBoundingBox();
 }
 
 void CKoopa::SetState(int state)
@@ -107,7 +107,7 @@ void CKoopa::SetState(int state)
 		die_start = GetTickCount64();
 		y += (KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE) / 2;
 		vx = 0;
-		vy = 0;
+		vy = KOOPA_GRAVITY;
 		ay = 0;
 		break;
 	case KOOPA_STATE_WALKING:
