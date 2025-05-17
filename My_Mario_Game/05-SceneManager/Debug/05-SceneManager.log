@@ -1,23 +1,4 @@
-﻿  Box.cpp
-  Brick.cpp
-  Cloud.cpp
-  Coin.cpp
-  Collision.cpp
-  Game.cpp
-  GameObject.cpp
-  Goomba.cpp
-  Ground.cpp
+﻿  Koopa.cpp
   Mario.cpp
-  Pipe.cpp
-  Platform.cpp
-  PlayScene.cpp
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(91,20): warning C4018: '<': signed/unsigned mismatch
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(346,20): warning C4018: '<': signed/unsigned mismatch
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(371,20): warning C4018: '<': signed/unsigned mismatch
-  Portal.cpp
-  SampleKeyEventHandler.cpp
-  Tree.cpp
-  main.cpp
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\main.cpp(159,38): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Generating Code...
   05-SceneManager.vcxproj -> D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\Debug\05-SceneManager.exe

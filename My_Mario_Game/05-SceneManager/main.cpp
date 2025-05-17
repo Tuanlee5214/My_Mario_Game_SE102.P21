@@ -39,6 +39,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Goomba.h"
 #include "Coin.h"
 #include "Platform.h"
+#include "Koopa.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -54,6 +55,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 //#define TEXTURE_PATH_MARIO TEXTURES_DIR "\\mario.png"
 #define TEXTURE_PATH_MAINMAP TEXTURES_DIR "\\mainmap.png"
 #define TEXTURE_PATH_MAP TEXTURES_DIR "\\map.png"
+#define TEXTURE_PATH_ENEMIES1 TEXTURES_DIR "\\enemies1.png"
 
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 240
@@ -108,8 +110,11 @@ void LoadResourceForGame() {
 	CTextures* textures = CTextures::GetInstance();
 	textures->Add(ID_TEX_MAP, TEXTURE_PATH_MAP);
 	textures->Add(ID_TEX_MAINMAP, TEXTURE_PATH_MAINMAP);
+	textures->Add(ID_TEX_ENEMIES1, TEXTURE_PATH_ENEMIES1);
+
 	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
 	LPTEXTURE texMap = textures->Get(ID_TEX_MAP);
+	LPTEXTURE texEnemies1 = textures->Get(ID_TEX_ENEMIES1);
 
 	CSprites* sprites = CSprites::GetInstance();
 	//Sprite Ground
@@ -161,6 +166,30 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_PIPE5, 2255, 111, 2287, 304, texMainMap);
 	sprites->Add(ID_SPRITE_PIPE6, 2320, 383, 2351, 416, texMainMap);
 
+	//Sprite Koopa
+	sprites->Add(ID_SPRITE_KOOPA_WALKING_LEFT1, 28, 65, 44, 91, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_WALKING_LEFT2, 46, 65, 63, 91, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT1, 603, 66, 620, 91, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT2, 584, 64, 600, 91, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE, 71, 73, 88, 90, texEnemies1);
+
+
+	CAnimations* animations = CAnimations::GetInstance();
+	LPANIMATION ani;
+	
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_KOOPA_WALKING_LEFT1);
+	ani->Add(ID_SPRITE_KOOPA_WALKING_LEFT2);	
+	animations->Add(ID_ANI_KOOPA_WALKING_L, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_KOOPA_WALKING_RIGHT1);
+	ani->Add(ID_SPRITE_KOOPA_WALKING_RIGHT2);
+	animations->Add(ID_ANI_KOOPA_WALKING_R, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_KOOPA_DIE);
+	animations->Add(ID_ANI_KOOPA_DIE, ani);
 
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
 	{
