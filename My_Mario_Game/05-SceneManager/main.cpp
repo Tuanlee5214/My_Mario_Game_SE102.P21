@@ -173,6 +173,10 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT2, 584, 64, 600, 91, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_DIE, 71, 95, 88, 110, texEnemies1);
 
+	//Sprite Question
+	sprites->Add(ID_SPRITE_QUESTION1, 415, 319, 432, 336, texMainMap);
+	sprites->Add(ID_SPRITE_QUESTION2, 175, 351, 208, 368, texMainMap);
+
 
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
