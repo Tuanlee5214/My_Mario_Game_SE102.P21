@@ -1,10 +1,13 @@
 ﻿#include "Goomba.h"
+#include "GameObject.h"
 
-CGoomba::CGoomba(float x, float y):CGameObject(x, y)
+CGoomba::CGoomba(float x, float y, float leftBound, float rightBound): CGameObject(x, y)
 {
 	this->ax = 0;
 	this->ay = GOOMBA_GRAVITY;
 	die_start = -1;
+	this->leftBound = leftBound;
+	this->rightBound = rightBound;
 	SetState(GOOMBA_STATE_WALKING);
 
 }
@@ -36,7 +39,8 @@ void CGoomba::OnNoCollision(DWORD dt)
 void CGoomba::OnCollisionWith(LPCOLLISIONEVENT e)
 {
 	if (!e->obj->IsBlocking()) return; 
-	if (dynamic_cast<CGoomba*>(e->obj)) return; 
+	if (dynamic_cast<CGoomba*>(e->obj))
+		return;
 
 	if (e->ny != 0 )
 	{
@@ -57,6 +61,16 @@ void CGoomba::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	{
 		isDeleted = true;
 		return;
+	}
+	if (x < leftBound)
+	{
+		x = leftBound;
+		vx = GOOMBA_WALKING_SPEED;
+	}
+	else if (x > rightBound)
+	{
+		x = rightBound;
+		vx = -GOOMBA_WALKING_SPEED;
 	}
 
 	CGameObject::Update(dt, coObjects);

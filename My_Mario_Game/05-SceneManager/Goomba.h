@@ -24,6 +24,8 @@ protected:
 	float ay; 
 	bool isActive;
 	float activationDistance;
+	float rightBound;
+	float leftBound;
 
 	ULONGLONG die_start;
 
@@ -38,6 +40,6 @@ protected:
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 
 public: 	
-	CGoomba(float x, float y);
+	CGoomba(float x, float y, float leftBound, float rightBound);
 	virtual void SetState(int state);
 };
