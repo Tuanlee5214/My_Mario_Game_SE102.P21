@@ -192,7 +192,12 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_QUESTION1, 415, 319, 432, 336, texMainMap);
 	sprites->Add(ID_SPRITE_QUESTION2, 175, 351, 208, 368, texMainMap);
 
-
+	//Sprite Coin
+	sprites->Add(ID_SPRITE_COIN1, 227, 6, 241, 22, texMap);
+	sprites->Add(ID_SPRITE_COIN2, 245, 6, 257, 22, texMap);
+	sprites->Add(ID_SPRITE_COIN3, 258, 6, 264, 22, texMap);
+	sprites->Add(ID_SPRITE_COIN4, 268, 6, 279, 22, texMap);
+	sprites->Add(ID_SPRITE_COIN5, 283, 6, 297, 22, texMap);
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
 	
@@ -209,6 +214,13 @@ void LoadResourceForGame() {
 	ani = new CAnimation(200);
 	ani->Add(ID_SPRITE_KOOPA_DIE);
 	animations->Add(ID_ANI_KOOPA_DIE, ani);
+
+	ani = new CAnimation(350);
+	ani->Add(ID_SPRITE_COIN1);
+	ani->Add(ID_SPRITE_COIN2);
+	ani->Add(ID_SPRITE_COIN3);
+	ani->Add(ID_SPRITE_COIN4);
+	animations->Add(11000, ani);
 
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
 	{
