@@ -96,8 +96,16 @@ void Render()
 	ID3D10RenderTargetView* pRenderTargetView = g->GetRenderTargetView();
 	ID3DX10Sprite* spriteHandler = g->GetSpriteHandler();
 
-	
-	pD3DDevice->ClearRenderTargetView(pRenderTargetView, BACKGROUND_COLOR);
+	int idScene = g->GetCurrentScene()->GetId();
+	if (idScene == 5)
+	{
+		pD3DDevice->ClearRenderTargetView(pRenderTargetView, BACKGROUND_COLOR);
+	}
+	else if (idScene == 2)
+	{
+		pD3DDevice->ClearRenderTargetView(pRenderTargetView, BACKGROUND_COLOR2);
+	}
+	//pD3DDevice->ClearRenderTargetView(pRenderTargetView, BACKGROUND_COLOR);
 
 	spriteHandler->Begin(D3DX10_SPRITE_SORT_TEXTURE);
 
