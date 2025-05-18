@@ -282,7 +282,7 @@ void CPlayScene::Load()
 	f.open(sceneFilePath);
 
 	// current resource section flag
-	int section = SCENE_SECTION_UNKNOWN;					
+	int section = SCENE_SECTION_UNKNOWN;
 
 	char str[MAX_SCENE_LINE];
 	while (f.getline(str, MAX_SCENE_LINE))
@@ -292,15 +292,15 @@ void CPlayScene::Load()
 		if (line[0] == '#') continue;	// skip comment lines	
 		if (line == "[ASSETS]") { section = SCENE_SECTION_ASSETS; continue; };
 		if (line == "[OBJECTS]") { section = SCENE_SECTION_OBJECTS; continue; };
-		if (line[0] == '[') { section = SCENE_SECTION_UNKNOWN; continue; }	
+		if (line[0] == '[') { section = SCENE_SECTION_UNKNOWN; continue; }
 
 		//
 		// data section
 		//
 		switch (section)
-		{ 
-			case SCENE_SECTION_ASSETS: _ParseSection_ASSETS(line); break;
-			case SCENE_SECTION_OBJECTS: _ParseSection_OBJECTS(line); break;
+		{
+		case SCENE_SECTION_ASSETS: _ParseSection_ASSETS(line); break;
+		case SCENE_SECTION_OBJECTS: _ParseSection_OBJECTS(line); break;
 		}
 	}
 
@@ -342,11 +342,17 @@ void CPlayScene::Update(DWORD dt)
 	if (cx > 2463) cx = 2463;
 	DebugOut(L"game->GetBackBufferHeight() : %d", game->GetBackBufferHeight());
 	if (cy > 0) cy = 0;
-	
 
 
 
-	CGame::GetInstance()->SetCamPos(cx, 0);
+	if (game->GetCurrentScene()->GetId() == 5)
+	{
+		CGame::GetInstance()->SetCamPos(cx, cy);
+
+	}
+	else {
+		CGame::GetInstance()->SetCamPos(cx, 0);
+	}
 
 	PurgeDeletedObjects();
 }
