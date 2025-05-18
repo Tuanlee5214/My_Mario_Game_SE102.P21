@@ -5,6 +5,7 @@
 
 #include "Textures.h"
 #include "Game.h"
+#include "debug.h"
 
 void CPlatform::RenderBoundingBox()
 {
@@ -32,8 +33,12 @@ void CPlatform::RenderBoundingBox()
 void CPlatform::Render()
 {
 	if (this->length <= 0) return; 
+	CSprites* s = CSprites::GetInstance();
+	if (s->Get(60001) == NULL) {
+		DebugOut(L"[ERROR] Sprite ID %d not found!\n", 60001);
+		return;
+	}
 	float xx = x; 
-	CSprites * s = CSprites::GetInstance();
 
 	s->Get(this->spriteIdBegin)->Draw(xx, y);
 	xx += this->cellWidth;
@@ -42,7 +47,7 @@ void CPlatform::Render()
 		s->Get(this->spriteIdMiddle)->Draw(xx, y);
 		xx += this->cellWidth;
 	}
-	if (length>1)
+	if (length>1)	
 		s->Get(this->spriteIdEnd)->Draw(xx, y);
 
 	//RenderBoundingBox();
@@ -59,6 +64,7 @@ void CPlatform::GetBoundingBox(float& l, float& t, float& r, float& b)
 
 int CPlatform::IsDirectionColliable(float nx, float ny)
 {
-	if (nx == 0 && ny == -1) return 1;
+	if (nx == 0 && (ny == -1 || ny == 1)) return 1;
+	if ((nx == -1 || nx == 1) && ny == 0) return 1;
 	else return 0;
 }

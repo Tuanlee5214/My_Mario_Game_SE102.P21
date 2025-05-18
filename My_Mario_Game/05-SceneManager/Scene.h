@@ -20,6 +20,8 @@ public:
 		this->key_handler = NULL;
 	}
 
+	virtual int GetId() { return id; }
+
 	LPKEYEVENTHANDLER GetKeyEventHandler() { return key_handler; }
 	virtual void Load() = 0;
 	virtual void Unload() = 0;

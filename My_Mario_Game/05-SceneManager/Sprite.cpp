@@ -40,7 +40,7 @@ void CSprite::Draw(float x, float y)
 	float cx, cy;
 	g->GetCamPos(cx, cy);
 
-	cx = (FLOAT)floor(cx);
+	cx = (FLOAT)floor(cx);	
 	cy = (FLOAT)floor(cy);
 
 	D3DXMATRIX matTranslation;

@@ -40,6 +40,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Coin.h"
 #include "Platform.h"
 #include "Koopa.h"
+#include "Scene.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -50,6 +51,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define WINDOW_ICON_PATH L"mario.ico"
 
 #define BACKGROUND_COLOR D3DXCOLOR(156.0f/255, 252.0f/255, 240.0f/255, 0.0f)
+#define BACKGROUND_COLOR2 D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f)
 
 #define TEXTURES_DIR L"texture1"
 //#define TEXTURE_PATH_MARIO TEXTURES_DIR "\\mario.png"
@@ -73,7 +75,7 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 
-/*
+/*	
 	Update world status for this frame
 	dt: time period between beginning of last frame and beginning of this frame
 */
@@ -94,6 +96,7 @@ void Render()
 	ID3D10RenderTargetView* pRenderTargetView = g->GetRenderTargetView();
 	ID3DX10Sprite* spriteHandler = g->GetSpriteHandler();
 
+	
 	pD3DDevice->ClearRenderTargetView(pRenderTargetView, BACKGROUND_COLOR);
 
 	spriteHandler->Begin(D3DX10_SPRITE_SORT_TEXTURE);
@@ -127,6 +130,9 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_GROUND1_3, 1567, 400, 1618, 416, texMainMap);
 	sprites->Add(ID_SPRITE_GROUND1_4, 1408, 191, 1471, 208, texMainMap);
 	sprites->Add(ID_SPRITE_GROUND1_5, 1487, 174, 1697, 192, texMainMap);
+	sprites->Add(ID_SPRITE_BLUEBRICK, 1968, 464, 1984, 480, texMainMap);
+	sprites->Add(ID_SPRITE_GROUP_BLUEBRICK, 1967, 463, 2096, 656, texMainMap);
+
 	//Sprite Tree
 	sprites->Add(ID_SPRITE_TREE1, 15, 351, 143, 416, texMainMap);
 	sprites->Add(ID_SPRITE_TREE3, 79, 26, 143, 74, texMap);
@@ -165,6 +171,7 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_PIPE4, 2257, 383, 2286, 416, texMainMap);
 	sprites->Add(ID_SPRITE_PIPE5, 2255, 111, 2287, 304, texMainMap);
 	sprites->Add(ID_SPRITE_PIPE6, 2320, 383, 2351, 416, texMainMap);
+	sprites->Add(ID_SPRITE_BLACKPIPE, 2095.7, 463, 2129, 495, texMainMap);
 
 	//Sprite Koopa
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_LEFT1, 28, 65, 44, 91, texEnemies1);
