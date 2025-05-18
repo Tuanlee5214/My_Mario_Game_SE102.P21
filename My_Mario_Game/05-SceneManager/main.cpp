@@ -60,7 +60,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define TEXTURE_PATH_ENEMIES1 TEXTURES_DIR "\\enemies1.png"
 
 #define SCREEN_WIDTH 400
-#define SCREEN_HEIGHT 240
+#define SCREEN_HEIGHT 230
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -314,7 +314,9 @@ int WINAPI WinMain(
 	_In_ LPSTR lpCmdLine,
 	_In_ int nCmdShow
 ) {
+	
 	HWND hWnd = CreateGameWindow(hInstance, nCmdShow, SCREEN_WIDTH, SCREEN_HEIGHT);
+	
 
 	SetDebugWindow(hWnd);
 	LPGAME game = CGame::GetInstance();

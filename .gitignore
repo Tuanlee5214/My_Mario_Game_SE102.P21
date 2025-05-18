@@ -12,3 +12,25 @@
 Debug/
 Release/
 .vscode/
+# Ignore Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build output
+Debug/
+Release/
+*.obj
+*.pdb
+*.idb
+*.ilk
+*.exe
+*.tlog
+*.log
+*.db
+
+# Ignore any temp files
+*.tmp
+*.cache

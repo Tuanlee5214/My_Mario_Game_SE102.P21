@@ -346,7 +346,7 @@ void CPlayScene::Update(DWORD dt)
 
 
 
-	CGame::GetInstance()->SetCamPos(cx, cy);
+	CGame::GetInstance()->SetCamPos(cx, 0);
 
 	PurgeDeletedObjects();
 }
