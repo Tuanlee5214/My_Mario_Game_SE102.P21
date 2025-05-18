@@ -339,6 +339,14 @@ void CPlayScene::Update(DWORD dt)
 	float verticalPoint = 30.0f;
 	//if (cy >= verticalPoint) cy = 0.0f;
 	if (cx < 0) cx = 0;
+	if (game->GetCurrentScene()->GetId() == 5)
+	{
+		if (cx > 2463) cx = 2463;
+	}
+	else if (game->GetCurrentScene()->GetId() == 2)
+	{
+		if (cx > 127) cx = 127;
+	}
 	if (cx > 2463) cx = 2463;
 	DebugOut(L"game->GetBackBufferHeight() : %d", game->GetBackBufferHeight());
 	if (cy > 0) cy = 0;
