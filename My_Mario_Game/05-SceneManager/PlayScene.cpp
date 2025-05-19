@@ -17,6 +17,7 @@
 #include "debug.h"
 #include "Koopa.h"
 #include "GameData.h"
+#include "RedGoomba.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -138,6 +139,11 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		float leftBound = (float)atof(tokens[3].c_str());
 		float rightBound = (float)atof(tokens[4].c_str());
 		obj = new CGoomba(x, y, leftBound, rightBound); break;
+	}
+	case OBJECT_TYPE_REDGOOMBA: {
+		float leftBound = (float)atof(tokens[3].c_str());
+		float rightBound = (float)atof(tokens[4].c_str());
+		obj = new CRedGoomba(x, y, leftBound, rightBound); break;
 	}
 	case OBJECT_TYPE_BRICK: obj = new CBrick(x,y); break;
 	case OBJECT_TYPE_COIN: obj = new CCoin(x, y); break;
