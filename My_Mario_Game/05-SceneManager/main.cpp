@@ -41,6 +41,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Platform.h"
 #include "Koopa.h"
 #include "Scene.h"
+#include "RedGoomba.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -210,6 +211,7 @@ void LoadResourceForGame() {
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
 	
+	//Koopa ani
 	ani = new CAnimation(200);
 	ani->Add(ID_SPRITE_KOOPA_WALKING_LEFT1);
 	ani->Add(ID_SPRITE_KOOPA_WALKING_LEFT2);	
@@ -224,12 +226,36 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_KOOPA_DIE);
 	animations->Add(ID_ANI_KOOPA_DIE, ani);
 
+	//Coin ani
 	ani = new CAnimation(350);
 	ani->Add(ID_SPRITE_COIN1);
 	ani->Add(ID_SPRITE_COIN2);
 	ani->Add(ID_SPRITE_COIN3);
 	ani->Add(ID_SPRITE_COIN4);
 	animations->Add(11000, ani);
+
+
+	//RedGoomba ani
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_REDGOOMBA_DIE1);
+	animations->Add(ID_ANI_REDGOOMBA_DIE, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK1_1);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK1_2);
+	animations->Add(ID_ANI_REDGOOMBA_WALKING, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_2);
+	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_1);
+	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_2);
+
+	ani = new CAnimation(50);
+	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_1);
+	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_2);
+
+
 
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
 	{
