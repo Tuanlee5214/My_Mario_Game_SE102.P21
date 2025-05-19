@@ -16,6 +16,7 @@
 #include "Pipe.h"
 #include "debug.h"
 #include "Koopa.h"
+#include "GameData.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -235,8 +236,14 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	// General object setup
 	obj->SetPosition(x, y);
 
-
+	int objectIndex = objects.size();
+	int sceneID = CGame::GetInstance()->GetCurrentScene()->GetId();
+	if (GameData::GetInstance()->IsObjectDeleted(sceneID, objectIndex)) {
+		objects.push_back(NULL);
+		return;
+	}
 	objects.push_back(obj);
+
 }
 
 void CPlayScene::LoadAssets(LPCWSTR assetFile)
@@ -317,12 +324,16 @@ void CPlayScene::Update(DWORD dt)
 	vector<LPGAMEOBJECT> coObjects;
 	for (size_t i = 1; i < objects.size(); i++)
 	{
-		coObjects.push_back(objects[i]);
+		if (objects[i] != NULL) {
+		    coObjects.push_back(objects[i]);
+		}
 	}
 
 	for (size_t i = 0; i < objects.size(); i++)
 	{
-		objects[i]->Update(dt, &coObjects);
+		if (objects[i] != NULL) {
+			objects[i]->Update(dt, &coObjects);
+		}
 	}
 
 	// skip the rest if scene was already unloaded (Mario::Update might trigger PlayScene::Unload)
@@ -366,7 +377,9 @@ void CPlayScene::Update(DWORD dt)
 void CPlayScene::Render()
 {
 	for (int i = 0; i < objects.size(); i++)
-		objects[i]->Render();
+		if (objects[i] != NULL) {
+			objects[i]->Render();
+		}
 }
 
 /*
@@ -377,7 +390,9 @@ void CPlayScene::Clear()
 	vector<LPGAMEOBJECT>::iterator it;
 	for (it = objects.begin(); it != objects.end(); it++)
 	{
-		delete (*it);
+		if (*it != NULL) {
+			delete (*it);
+		}
 	}
 	objects.clear();
 }
@@ -391,12 +406,15 @@ void CPlayScene::Clear()
 void CPlayScene::Unload()
 {
 	for (int i = 0; i < objects.size(); i++)
-		delete objects[i];
+		if (objects[i] != NULL)
+		{
+			delete objects[i];
 
-	objects.clear();
-	player = NULL;
+			objects.clear();
+			player = NULL;
 
-	DebugOut(L"[INFO] Scene %d unloaded! \n", id);
+			DebugOut(L"[INFO] Scene %d unloaded! \n", id);
+		}
 }
 
 bool CPlayScene::IsGameObjectDeleted(const LPGAMEOBJECT& o) { return o == NULL; }
@@ -404,19 +422,24 @@ bool CPlayScene::IsGameObjectDeleted(const LPGAMEOBJECT& o) { return o == NULL; 
 void CPlayScene::PurgeDeletedObjects()
 {
 	vector<LPGAMEOBJECT>::iterator it;
-	for (it = objects.begin(); it != objects.end(); it++)
+	GameData* gameData = GameData::GetInstance();
+	int sceneID = CGame::GetInstance()->GetCurrentScene()->GetId();
+	for (int i = 0; i < objects.size(); i++)
 	{
-		LPGAMEOBJECT o = *it;
-		if (o->IsDeleted())
-		{
-			delete o;
-			*it = NULL;
+		if (objects[i] != NULL) {
+			LPGAMEOBJECT o = objects[i];
+			if (o->IsDeleted())
+			{
+				gameData->MarkObjectDeleted(sceneID, i);
+				delete o;
+				objects[i] = NULL;
+			}
 		}
 	}
 
 	// NOTE: remove_if will swap all deleted items to the end of the vector
 	// then simply trim the vector, this is much more efficient than deleting individual items
-	objects.erase(
+	/*objects.erase(
 		std::remove_if(objects.begin(), objects.end(), CPlayScene::IsGameObjectDeleted),
-		objects.end());
+		objects.end());*/
 }
