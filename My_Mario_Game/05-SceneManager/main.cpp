@@ -198,6 +198,15 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_COIN3, 258, 6, 264, 22, texMap);
 	sprites->Add(ID_SPRITE_COIN4, 268, 6, 279, 22, texMap);
 	sprites->Add(ID_SPRITE_COIN5, 283, 6, 297, 22, texMap);
+
+	//Sprite RedGoomba
+	sprites->Add(ID_SPRITE_REDGOOMBA_DIE1, 144, 68, 161, 84, texEnemies1);
+	sprites->Add(ID_SPRITE_REDGOOMBA_WALK1_1, 102, 68, 118, 84, texEnemies1);
+	sprites->Add(ID_SPRITE_REDGOOMBA_WALK1_2, 124, 68, 140, 84, texEnemies1);
+	sprites->Add(ID_SPRITE_REDGOOMBA_WALK2_1, 140, 37, 158, 57, texEnemies1);
+	sprites->Add(ID_SPRITE_REDGOOMBA_WALK2_2, 115, 37, 134, 57, texEnemies1);
+	sprites->Add(ID_SPRITE_REDGOOMBA_FLY2_1, 88, 33, 108, 57, texEnemies1);
+	sprites->Add(ID_SPRITE_REDGOOMBA_FLY2_2, 65, 33, 85, 57, texEnemies1);
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
 	

@@ -431,6 +431,9 @@ void CPlayScene::PurgeDeletedObjects()
 			if (o->IsDeleted())
 			{
 				gameData->MarkObjectDeleted(sceneID, i);
+				if (sceneID == 5) {
+					gameData->MarkObjectDeleted(1, i);
+				}
 				delete o;
 				objects[i] = NULL;
 			}
