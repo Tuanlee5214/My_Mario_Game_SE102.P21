@@ -1,5 +1,5 @@
 ﻿  PlayScene.cpp
 D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(92,20): warning C4018: '<': signed/unsigned mismatch
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(370,20): warning C4018: '<': signed/unsigned mismatch
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(395,20): warning C4018: '<': signed/unsigned mismatch
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(368,20): warning C4018: '<': signed/unsigned mismatch
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(393,20): warning C4018: '<': signed/unsigned mismatch
   05-SceneManager.vcxproj -> D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\Debug\05-SceneManager.exe

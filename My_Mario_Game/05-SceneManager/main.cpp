@@ -97,7 +97,7 @@ void Render()
 	ID3DX10Sprite* spriteHandler = g->GetSpriteHandler();
 
 	int idScene = g->GetCurrentScene()->GetId();
-	if (idScene == 5)
+	if (idScene == 5 || idScene == 1)
 	{
 		pD3DDevice->ClearRenderTargetView(pRenderTargetView, BACKGROUND_COLOR);
 	}

@@ -105,7 +105,7 @@ public:
 	void SetPointSamplerState();
 
 	void SetCamPos(float x, float y) {
-		if (this->GetCurrentScene()->GetId() == 5)
+		if (this->GetCurrentScene()->GetId() == 5 || this->GetCurrentScene()->GetId() == 1)
 		{
 			cam_x = x; cam_y = y + 10;
 			return;
