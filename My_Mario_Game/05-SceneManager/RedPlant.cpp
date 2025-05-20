@@ -1,208 +1,179 @@
-#include "RedPlant.h"
+﻿#include "RedPlant.h"
 #include "GameObject.h"
 #include "debug.h"
+#include "Mario.h"
+#include "PlayScene.h"
+#include "cmath"
+
+#define REDPLANT_IDLE_TIME 2000
+#define REDPLANT_AIM_TIME 2000
+#define REDPLANT_SAFE_DISTANCE 23
 
 CRedPlant::CRedPlant(float x, float y) : CGameObject(x, y)
 {
-	this->ax = 0;
-	this->ay = 0;
-	SetState(REDPLANT_STATE_IDLE);
-
+    SetState(REDPLANT_STATE_IDLE);
+    start_Y = y;
+    startTime = GetTickCount64();
 }
 
 void CRedPlant::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	left = x - REDPLANT_BBOX_WIDTH / 2;
-	top = y - REDPLANT_BBOX_HEIGHT / 2;
-	right = left + REDPLANT_BBOX_WIDTH;
-	bottom = top + REDPLANT_BBOX_HEIGHT;
+    left = x - REDPLANT_BBOX_WIDTH / 2;
+    top = y - REDPLANT_BBOX_HEIGHT / 2;
+    right = left + REDPLANT_BBOX_WIDTH;
+    bottom = top + REDPLANT_BBOX_HEIGHT;
 }
 
 void CRedPlant::OnNoCollision(DWORD dt)
 {
-	x += vx * dt;
-	y += vy * dt;
-};
+    x += vx * dt;
+    y += vy * dt;
+}
 
 void CRedPlant::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-	if (!e->obj->IsBlocking()) return;
-	if (dynamic_cast<CRedPlant*>(e->obj))
-		return;
+    if (dynamic_cast<CRedPlant*>(e->obj))
+        return;
 
-	if (e->ny != 0 && e->obj->IsBlocking())
-	{
-		vy = 0;
-	}
-	else if (e->nx != 0)
-	{
-		vx = -vx;
-
-	}
+    if (e->ny != 0 && e->obj->IsBlocking())
+    {
+        //vy = 0;
+    }
 }
 
 void CRedPlant::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
-	vy += ay * dt;
-	vx += ax * dt;
+    CPlayScene* playScene = dynamic_cast<CPlayScene*>(CGame::GetInstance()->GetCurrentScene());
+    if (!playScene)
+        return;
 
-	switch (state)
-	{
-	case REDPLANT_STATE_LEFTBOTTOM:
-		if (GetTickCount64() - startTime > 1150)
-		{
-			SetState(REDGOOMBA_STATE_JUMPLOW);
-		}
-		break;
-	case REDGOOMBA_STATE_JUMPLOW:
-		if (GetTickCount64() - startTime > 1000)
-		{
-			SetState(REDGOOMBA_STATE_JUMP);
-		}
-		break;
-	case REDGOOMBA_STATE_JUMP:
-		if (isOnPlatform)
-		{
-			SetState(REDGOOMBA_STATE_JUMP_WALKING);
-		}
-		break;
-	}
+    CMario* player = dynamic_cast<CMario*>(playScene->GetPlayer());
+    if (!player)
+        return;
 
-	if (x < leftBound)
-	{
-		x = leftBound;
-		if (state == REDGOOMBA_STATE_JUMP_WALKING)
-		{
-			vx = REDGOOMBA_JUMP_WALKING_SPEED;
-		}
-		else if (state == REDGOOMBA_STATE_JUMPLOW)
-		{
-			vx = REDGOOMBA_JUMP_WALKING_SPEED;
-			//vy = -REDGOOMBA_JUMPLOW_SPEED;
-		}
-		else if (state == REDGOOMBA_STATE_JUMP)
-		{
-			vx = REDGOOMBA_JUMP_WALKING_SPEED;
-			//vy = -REDGOOMBA_JUMP_SPEED;
-		}
-		else if (state == REDGOOMBA_STATE_WALKING)
-		{
-			vx = REDGOOMBA_WALKING_SPEED;
-		}
-	}
-	else if (x > rightBound)
-	{
-		x = rightBound;
-		if (state == REDGOOMBA_STATE_JUMP_WALKING)
-		{
-			vx = -REDGOOMBA_JUMP_WALKING_SPEED;
-		}
-		else if (state == REDGOOMBA_STATE_JUMPLOW)
-		{
-			vx = -REDGOOMBA_JUMP_WALKING_SPEED;
-			//vy = -REDGOOMBA_JUMPLOW_SPEED;
-		}
-		else if (state == REDGOOMBA_STATE_JUMP)
-		{
-			vx = -REDGOOMBA_JUMP_WALKING_SPEED;
-			//vy = -REDGOOMBA_JUMP_SPEED;
-		}
-		else if (state == REDGOOMBA_STATE_WALKING)
-		{
-			vx = -REDGOOMBA_WALKING_SPEED;
-		}
-	}
+    float marioX, marioY;
+    player->GetPosition(marioX, marioY);
 
-	CGameObject::Update(dt, coObjects);
-	CCollision::GetInstance()->Process(this, dt, coObjects);
+    switch (state)
+    {
+    case REDPLANT_STATE_IDLE:
+        if (abs(this->x - marioX) >= REDPLANT_SAFE_DISTANCE && GetTickCount64() - startTime > REDPLANT_IDLE_TIME)
+        {
+            SetState(marioX > this->x ? REDPLANT_STATE_RISE_RIGHT : REDPLANT_STATE_RISE_LEFT);
+        }
+        break;
+
+    case REDPLANT_STATE_RISE_LEFT:
+    case REDPLANT_STATE_RISE_RIGHT:
+        if (this->y <= top_Y)
+        {
+            y = top_Y;
+            vy = 0;
+            if (this->x > marioX)
+            {
+                SetState(marioY > this->y ? REDPLANT_STATE_AIM_LEFTTOP : REDPLANT_STATE_AIM_LEFTBOTTOM);
+            }
+            else
+            {
+                SetState(marioY > this->y ? REDPLANT_STATE_AIM_RIGHTTOP : REDPLANT_STATE_AIM_RIGHTBOTTOM);
+            }
+        }
+        break;
+
+    case REDPLANT_STATE_AIM_LEFTTOP:
+    case REDPLANT_STATE_AIM_LEFTBOTTOM:
+    case REDPLANT_STATE_AIM_RIGHTTOP:
+    case REDPLANT_STATE_AIM_RIGHTBOTTOM:
+        if (GetTickCount64() - startTime > REDPLANT_AIM_TIME || abs(this->x - marioX) < REDPLANT_SAFE_DISTANCE)
+        {
+            SetState(marioX > this->x ? REDPLANT_STATE_HIDE_RIGHT : REDPLANT_STATE_HIDE_LEFT);
+        }
+        break;
+
+    case REDPLANT_STATE_HIDE_LEFT:
+    case REDPLANT_STATE_HIDE_RIGHT:
+        if (this->y >= start_Y)
+        {
+            y = start_Y;
+            SetState(REDPLANT_STATE_IDLE);
+        }
+        break;
+    }
+
+    // Giới hạn vị trí y
+    if (y < top_Y) y = top_Y;
+    if (y > start_Y) y = start_Y;
+
+    CGameObject::Update(dt, coObjects);
+    if (coObjects && !coObjects->empty())
+    {
+        CCollision::GetInstance()->Process(this, dt, coObjects);
+    }
 }
-
 
 void CRedPlant::Render()
 {
-	int aniId = ID_ANI_REDGOOMBA_WALKING;
-	if (state == REDGOOMBA_STATE_DIE)
-	{
-		aniId = ID_ANI_REDGOOMBA_DIE;
-		DebugOut(L"Set state DIE");
-	}
-	else if (state == REDGOOMBA_STATE_JUMP_WALKING)
-	{
-		aniId = ID_ANI_REDGOOMBA_JUMP_WALKING;
-		DebugOut(L"Set state JUMP WALKING");
-	}
-	else if (state == REDGOOMBA_STATE_JUMPLOW)
-	{
-		aniId = ID_ANI_REDGOOMBA_JUMPLOW;
-	}
-	else if (state == REDGOOMBA_STATE_JUMP)
-	{
-		aniId = ID_ANI_REDGOOMBA_JUMP;
-	}
-	else if (state == REDGOOMBA_STATE_WALKING)
-	{
-		aniId = ID_ANI_REDGOOMBA_WALKING;
-		DebugOut(L"Set state WALKING");
-	}
+    int aniId;
+    switch (state)
+    {
+    case REDPLANT_STATE_IDLE:
+    case REDPLANT_STATE_RISE_LEFT:
+    case REDPLANT_STATE_HIDE_LEFT:
+    case REDPLANT_STATE_AIM_LEFTBOTTOM:
+        aniId = ID_ANI_REDPLANT_LEFTBOTTOM;
+        break;
+    case REDPLANT_STATE_RISE_RIGHT:
+    case REDPLANT_STATE_HIDE_RIGHT:
+    case REDPLANT_STATE_AIM_RIGHTBOTTOM:
+        aniId = ID_ANI_REDPLANT_RIGHTBOTTOM;
+        break;
+    case REDPLANT_STATE_AIM_LEFTTOP:
+        aniId = ID_ANI_REDPLANT_LEFTTOP;
+        break;
+    case REDPLANT_STATE_AIM_RIGHTTOP:
+        aniId = ID_ANI_REDPLANT_RIGHTTOP;
+        break;
+    default:
+        aniId = ID_ANI_REDPLANT_LEFTBOTTOM;
+    }
 
-
-	auto ani = CAnimations::GetInstance()->Get(aniId);
-	if (ani)
-	{
-		ani->Render(x, y);
-	}
-	//RenderBoundingBox();
+    auto ani = CAnimations::GetInstance()->Get(aniId);
+    if (ani)
+    {
+        ani->Render(x, y);
+    }
+    else
+    {
+        DebugOut(L"[ERROR] Animation ID %d not found\n", aniId);
+    }
 }
 
 void CRedPlant::SetState(int state)
 {
-	CGameObject::SetState(state);
-	startTime = GetTickCount64();
-	switch (state)
-	{
-	case REDGOOMBA_STATE_DIE:
-		die_start = GetTickCount64();
-		y += (REDGOOMBA_BBOX_HEIGHT_WALK - REDGOOMBA_BBOX_HEIGHT_DIE) / 2;
-		vx = 0;
-		vy = 0;
-		ay = 0;
-		break;
-	case REDGOOMBA_STATE_WALKING:
-		vx = -REDGOOMBA_WALKING_SPEED;
-		break;
-	case REDGOOMBA_STATE_JUMP_WALKING:
-		if (vx > 0)
-		{
-			vx = REDGOOMBA_JUMP_WALKING_SPEED;
-		}
-		else
-		{
-			vx = -REDGOOMBA_JUMP_WALKING_SPEED;
-		}
-		break;
-	case REDGOOMBA_STATE_JUMPLOW:
-		if (vx > 0)
-		{
-			vx = REDGOOMBA_JUMP_WALKING_SPEED;
-		}
-		else
-		{
-			vx = -REDGOOMBA_JUMP_WALKING_SPEED;
-		}
-		vy = -REDGOOMBA_JUMPLOW_SPEED;
-		break;
-	case REDGOOMBA_STATE_JUMP:
-		if (vx > 0)
-		{
-			vx = REDGOOMBA_JUMP_WALKING_SPEED;
-		}
-		else
-		{
-			vx = -REDGOOMBA_JUMP_WALKING_SPEED;
-		}
-		vy = -REDGOOMBA_JUMP_SPEED;
-		break;
-	}
-
-
+    CGameObject::SetState(state);
+    startTime = GetTickCount64();
+    switch (state)
+    {
+    case REDPLANT_STATE_IDLE:
+        vx = 0;
+        vy = 0;
+        break;
+    case REDPLANT_STATE_RISE_LEFT:
+    case REDPLANT_STATE_RISE_RIGHT:
+        vx = 0;
+        vy = -speed_Y;
+        break;
+    case REDPLANT_STATE_AIM_LEFTTOP:
+    case REDPLANT_STATE_AIM_LEFTBOTTOM:
+    case REDPLANT_STATE_AIM_RIGHTTOP:
+    case REDPLANT_STATE_AIM_RIGHTBOTTOM:
+        vx = 0;
+        vy = 0;
+        break;
+    case REDPLANT_STATE_HIDE_LEFT:
+    case REDPLANT_STATE_HIDE_RIGHT:
+        vx = 0;
+        vy = speed_Y;
+        break;
+    }
 }

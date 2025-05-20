@@ -1,9 +1,8 @@
 #pragma once
 #include "GameObject.h"
 
-#define TOP_Y 95
-#define SPEED_Y 20.0f
-#define startY 175
+#define top_Y 131
+#define speed_Y 0.018f
 
 #define REDPLANT_BBOX_WIDTH 16
 #define REDPLANT_BBOX_HEIGHT 32
@@ -27,9 +26,9 @@
 class CRedPlant : public CGameObject
 {
 protected:
-	float ax;
-	float ay;
+
 	ULONGLONG startTime = 0;
+	float start_Y;
 
 
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);

@@ -18,6 +18,7 @@
 #include "Koopa.h"
 #include "GameData.h"
 #include "RedGoomba.h"
+#include "RedPlant.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -187,6 +188,9 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		obj = new CTree(x, y, spriteTreeID);
 		break;
 	}
+	case OBJECT_TYPE_REDPLANT:
+		obj = new CRedPlant(x, y);
+		break;
 
 	case OBJECT_TYPE_CLOUD:
 	{
