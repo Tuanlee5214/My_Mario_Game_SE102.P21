@@ -10,6 +10,7 @@
 #include "Koopa.h"
 #include "Collision.h"
 #include "RedGoomba.h"
+#include "RedPlant.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -58,6 +59,8 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithKoopa(e);
 	else if (dynamic_cast<CRedGoomba*>(e->obj))
 		OnCollisionWithRedGoomba(e);
+	else if (dynamic_cast<CRedPlant*>(e->obj))
+		OnCollisionWithRedPlant(e);
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
@@ -163,6 +166,27 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 					DebugOut(L">>> Mario DIE >>> \n");
 					SetState(MARIO_STATE_DIE);
 				}
+			}
+		}
+	}
+}
+
+void CMario::OnCollisionWithRedPlant(LPCOLLISIONEVENT e)
+{
+	CRedPlant* redPlant = dynamic_cast<CRedPlant*>(e->obj);
+	if (e->ny != 0 || e->nx != 0)
+	{
+		if (untouchable == 0)
+		{
+			if (level > MARIO_LEVEL_SMALL)
+			{
+				level = MARIO_LEVEL_SMALL;
+				StartUntouchable();
+			}
+			else
+			{
+				DebugOut(L"Mario die >>> \n");
+				SetState(MARIO_STATE_DIE);
 			}
 		}
 	}

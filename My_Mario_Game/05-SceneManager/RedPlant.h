@@ -1,17 +1,22 @@
 #pragma once
 #include "GameObject.h"
 
-#define REDPLANT_GRAVITY 0.0009f
-
-
+#define TOP_Y 95
+#define SPEED_Y 20.0f
+#define startY 175
 
 #define REDPLANT_BBOX_WIDTH 16
 #define REDPLANT_BBOX_HEIGHT 32
 
-#define REDPLANT_STATE_LEFTTOP 100
-#define REDPLANT_STATE_LEFTBOTTOM 200
-#define REDPLANT_STATE_RIGHTTOP 300
-#define REDPLANT_STATE_RIGHTBOTTOM 400
+#define REDPLANT_STATE_IDLE 100
+#define REDPLANT_STATE_RISE_LEFT 200
+#define REDPLANT_STATE_RISE_RIGHT 300
+#define REDPLANT_STATE_AIM_LEFTTOP 400
+#define REDPLANT_STATE_AIM_RIGHTTOP 500
+#define REDPLANT_STATE_AIM_LEFTBOTTOM 600
+#define REDPLANT_STATE_AIM_RIGHTBOTTOM 700
+#define REDPLANT_STATE_HIDE_LEFT 800
+#define REDPLANT_STATE_HIDE_RIGHT 900
 
 #define ID_ANI_REDPLANT_LEFTTOP 5110
 #define ID_ANI_REDPLANT_LEFTBOTTOM 5120
@@ -24,12 +29,8 @@ class CRedPlant : public CGameObject
 protected:
 	float ax;
 	float ay;
-	float rightBound;
-	float leftBound;
-	bool isOnPlatform;
 	ULONGLONG startTime = 0;
 
-	ULONGLONG die_start;
 
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
@@ -42,6 +43,6 @@ protected:
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 
 public:
-	CRedPlant(float x, float y, float leftBound, float rightBound);
+	CRedPlant(float x, float y);
 	virtual void SetState(int state);
 };
