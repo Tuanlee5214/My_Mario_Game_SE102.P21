@@ -1,14 +1,2 @@
-﻿  Game.cpp
-  Koopa.cpp
-  Mario.cpp
-  PlayScene.cpp
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(94,20): warning C4018: '<': signed/unsigned mismatch
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(385,20): warning C4018: '<': signed/unsigned mismatch
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(414,20): warning C4018: '<': signed/unsigned mismatch
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(433,20): warning C4018: '<': signed/unsigned mismatch
-  SampleKeyEventHandler.cpp
-  main.cpp
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\main.cpp(179,38): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\main.cpp(183,36): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  Generating Code...
+﻿  RedGoomba.cpp
   05-SceneManager.vcxproj -> D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\Debug\05-SceneManager.exe

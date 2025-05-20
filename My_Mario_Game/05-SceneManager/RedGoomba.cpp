@@ -8,7 +8,7 @@ CRedGoomba::CRedGoomba(float x, float y, float leftBound, float rightBound) : CG
 	die_start = -1;
 	this->leftBound = leftBound;
 	this->rightBound = rightBound;
-	SetState(REDGOOMBA_STATE_WALKING);
+	SetState(REDGOOMBA_STATE_JUMP_WALKING);
 
 }
 
@@ -20,6 +20,20 @@ void CRedGoomba::GetBoundingBox(float& left, float& top, float& right, float& bo
 		top = y - REDGOOMBA_BBOX_HEIGHT_DIE / 2;
 		right = left + REDGOOMBA_BBOX_WIDTH;
 		bottom = top + REDGOOMBA_BBOX_HEIGHT_DIE;
+	}
+	else if (state == REDGOOMBA_STATE_JUMP_WALKING)
+	{
+		left = x - REDGOOMBA_BBOX_WIDTH / 2;
+		top = y - REDGOOMBA_BBOX_HEIGHT_JUMP_WALK / 2;
+		right = left + REDGOOMBA_BBOX_WIDTH;
+		bottom = top + REDGOOMBA_BBOX_HEIGHT_JUMP_WALK;
+	}
+	else if (state == REDGOOMBA_STATE_JUMPLOW || state == REDGOOMBA_STATE_JUMP)
+	{
+		left = x - REDGOOMBA_BBOX_WIDTH / 2;
+		top = y - REDGOOMBA_BBOX_HEIGHT_FLY / 2;
+		right = left + REDGOOMBA_BBOX_WIDTH;
+		bottom = top + REDGOOMBA_BBOX_HEIGHT_FLY;
 	}
 	else
 	{
@@ -80,14 +94,32 @@ void CRedGoomba::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 
 void CRedGoomba::Render()
 {
-	int aniId = ID_ANI_REDGOOMBA_WALKING;
+	int aniId = ID_ANI_REDGOOMBA_JUMP_WALKING;
 	if (state == REDGOOMBA_STATE_DIE)
 	{
 		aniId = ID_ANI_REDGOOMBA_DIE;
 	}
+	else if (state == REDGOOMBA_STATE_JUMP_WALKING)
+	{
+		aniId = ID_ANI_REDGOOMBA_JUMP_WALKING;
+	}
+	else if (state == REDGOOMBA_STATE_JUMPLOW)
+	{
+		aniId = ID_ANI_REDGOOMBA_JUMPLOW;
+	}
+	else if (state == REDGOOMBA_STATE_JUMP)
+	{
+		aniId = ID_ANI_REDGOOMBA_JUMP;
+	}
+	else if (state == ID_ANI_REDGOOMBA_WALKING)
+	{
+		aniId = ID_ANI_REDGOOMBA_WALKING;
+	}
+	
+
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
-	//RenderBoundingBox();
+	RenderBoundingBox();
 }
 
 void CRedGoomba::SetState(int state)
@@ -105,5 +137,9 @@ void CRedGoomba::SetState(int state)
 	case REDGOOMBA_STATE_WALKING:
 		vx = -REDGOOMBA_WALKING_SPEED;
 		break;
+	case REDGOOMBA_STATE_JUMP_WALKING:
+		vx = -(REDGOOMBA_WALKING_SPEED + 5);
+		break;
 	}
+	
 }
