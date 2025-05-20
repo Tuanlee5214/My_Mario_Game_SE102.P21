@@ -42,6 +42,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Koopa.h"
 #include "Scene.h"
 #include "RedGoomba.h"
+#include "RedPlant.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -208,6 +209,21 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_REDGOOMBA_WALK2_2, 115, 37, 134, 58, texEnemies1);
 	sprites->Add(ID_SPRITE_REDGOOMBA_FLY2_1, 88, 33, 109, 58, texEnemies1);
 	sprites->Add(ID_SPRITE_REDGOOMBA_FLY2_2, 65, 33, 88, 58, texEnemies1);
+
+	//Sprite RedPlant
+	sprites->Add(ID_SPRITE_REDPLANT_LEFTBOTTOM, 7, 30, 22, 64, texEnemies1);
+	sprites->Add(ID_SPRITE_REDPLANT_LEFTTOP, 7, 69, 22, 102, texEnemies1);
+	sprites->Add(ID_SPRITE_REDPLANT_RIGHTTOP, 624, 68, 640, 102, texEnemies1);
+	sprites->Add(ID_SPRITE_REDPLANT_RIGHTBOTTOM, 624, 30, 640, 63, texEnemies1);
+
+	//Sprite GreenPlant
+	sprites->Add(ID_SPRITE_GREENPLANT_LEFTTOP, 6, 192, 22, 217, texEnemies1);
+	sprites->Add(ID_SPRITE_GREENPLANT_LEFTBOTTOM, 6, 164, 22, 188, texEnemies1);
+	sprites->Add(ID_SPRITE_GREENPLANT_RIGHTTOP, 625, 193, 642, 218, texEnemies1);
+	sprites->Add(ID_SPRITE_GREENPLANT_RIGHTBOTTOM, 625, 164, 642, 189, texEnemies1);
+
+	
+
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
 	
@@ -227,7 +243,7 @@ void LoadResourceForGame() {
 	animations->Add(ID_ANI_KOOPA_DIE, ani);
 
 	//Coin ani
-	ani = new CAnimation(350);
+	ani = new CAnimation(210);
 	ani->Add(ID_SPRITE_COIN1);
 	ani->Add(ID_SPRITE_COIN2);
 	ani->Add(ID_SPRITE_COIN3);
@@ -268,6 +284,7 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_1);
 	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
 	animations->Add(ID_ANI_REDGOOMBA_JUMP, ani);
+
 
 
 

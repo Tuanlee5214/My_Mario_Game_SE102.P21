@@ -34,8 +34,6 @@ class CRedGoomba : public CGameObject
 protected:
 	float ax;
 	float ay;
-	bool isActive;
-	float activationDistance;
 	float rightBound;
 	float leftBound;
 	bool isOnPlatform;
