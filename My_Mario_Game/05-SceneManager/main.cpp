@@ -295,7 +295,22 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
 	animations->Add(ID_ANI_REDGOOMBA_JUMP, ani);
 
+	//RedPlant ani
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_REDPLANT_LEFTTOP);
+	animations->Add(ID_ANI_REDPLANT_LEFTTOP, ani);
 
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_REDPLANT_LEFTBOTTOM);
+	animations->Add(ID_ANI_REDPLANT_LEFTBOTTOM, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_REDPLANT_RIGHTTOP);
+	animations->Add(ID_ANI_REDPLANT_RIGHTTOP, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_REDPLANT_RIGHTBOTTOM);
+	animations->Add(ID_ANI_REDPLANT_RIGHTBOTTOM, ani);
 
 
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
