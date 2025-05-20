@@ -222,6 +222,16 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_GREENPLANT_RIGHTTOP, 625, 193, 642, 218, texEnemies1);
 	sprites->Add(ID_SPRITE_GREENPLANT_RIGHTBOTTOM, 625, 164, 642, 189, texEnemies1);
 
+	//Sprite Parinha
+	sprites->Add(ID_SPRITE_PARINHA_OPEN, 7, 106, 22, 130, texEnemies1);
+	sprites->Add(ID_SPRITE_PARINHA_CLOSE, 6, 135, 22, 159, texEnemies1);
+
+	//Sprite Bullet
+	sprites->Add(ID_SPRITE_BULLET1, 35, 34, 43, 42, texEnemies1);
+	sprites->Add(ID_SPRITE_BULLET2, 49, 34, 57, 42, texEnemies1);
+	sprites->Add(ID_SPRITE_BULLET3, 34, 48, 42, 56, texEnemies1);
+	sprites->Add(ID_SPRITE_BULLET4, 49, 48, 57, 56, texEnemies1);
+
 	
 
 	CAnimations* animations = CAnimations::GetInstance();
