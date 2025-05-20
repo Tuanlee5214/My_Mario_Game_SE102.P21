@@ -204,8 +204,8 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_REDGOOMBA_DIE1, 144, 68, 161, 85, texEnemies1);
 	sprites->Add(ID_SPRITE_REDGOOMBA_WALK1_1, 102, 68, 119, 85, texEnemies1);
 	sprites->Add(ID_SPRITE_REDGOOMBA_WALK1_2, 124, 68, 141, 85, texEnemies1);
-	sprites->Add(ID_SPRITE_REDGOOMBA_WALK2_1, 140, 37, 158, 58, texEnemies1);
-	sprites->Add(ID_SPRITE_REDGOOMBA_WALK2_2, 115, 37, 134, 58, texEnemies1);
+	sprites->Add(ID_SPRITE_REDGOOMBA_WALK2_1, 140, 37, 158, 57, texEnemies1);
+	sprites->Add(ID_SPRITE_REDGOOMBA_WALK2_2, 115, 37, 134, 57, texEnemies1);
 	sprites->Add(ID_SPRITE_REDGOOMBA_FLY2_1, 88, 33, 109, 57, texEnemies1);
 	sprites->Add(ID_SPRITE_REDGOOMBA_FLY2_2, 65, 33, 86, 57, texEnemies1);
 	CAnimations* animations = CAnimations::GetInstance();
@@ -248,16 +248,23 @@ void LoadResourceForGame() {
 	ani = new CAnimation(200);
 	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
 	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_2);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_2);
 	animations->Add(ID_ANI_REDGOOMBA_JUMP_WALKING, ani);
 
-	ani = new CAnimation(50);
+	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_1);
-	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_2);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
+
 	animations->Add(ID_ANI_REDGOOMBA_JUMPLOW, ani);
 	
-	ani = new CAnimation(50);
+	ani = new CAnimation(30);
 	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_1);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
 	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_2);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_2);
+	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_1);
+	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
 	animations->Add(ID_ANI_REDGOOMBA_JUMP, ani);
 
 

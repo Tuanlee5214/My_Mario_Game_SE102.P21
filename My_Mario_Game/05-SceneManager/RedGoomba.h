@@ -2,7 +2,10 @@
 #include "GameObject.h"
 
 #define REDGOOMBA_GRAVITY 0.002f
-#define REDGOOMBA_WALKING_SPEED 0.05f
+#define REDGOOMBA_WALKING_SPEED 0.038f
+#define REDGOOMBA_JUMP_WALKING_SPEED 0.045f
+#define REDGOOMBA_JUMPLOW_SPEED 0.12f;
+#define REDGOOMBA_JUMP_SPEED 0.32f;
 
 
 #define REDGOOMBA_BBOX_WIDTH 16
@@ -35,6 +38,8 @@ protected:
 	float activationDistance;
 	float rightBound;
 	float leftBound;
+	bool isOnPlatform;
+	ULONGLONG startTime = 0;
 
 	ULONGLONG die_start;
 
