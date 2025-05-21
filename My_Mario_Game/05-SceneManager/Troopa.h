@@ -12,6 +12,8 @@
 
 #define TROOPA_STATE_WALKING 100
 #define TROOPA_STATE_DIE 200
+#define TROOPA_STATE_DIE_RUNL 300
+#define TROOPA_STATE_DIE_RUNR 400
 
 #define ID_ANI_TROOPA_WALKING_R 6011
 #define ID_ANI_TROOPA_WALKING_L 6012
@@ -23,12 +25,14 @@ protected:
 	float ay;
 	float rightBound;
 	float leftBound;
+	bool isOnPlatform;
 
 	ULONGLONG die_start;
 
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
 	virtual void Render();
+	void RenderBoundingBox();
 
 	virtual int IsCollidable() { return 1; };
 	virtual int IsBlocking() { return 0; }

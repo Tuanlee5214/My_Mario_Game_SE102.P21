@@ -240,6 +240,17 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 					SetState(MARIO_STATE_DIE);
 				}
 			}
+			else if (troopa->GetState() == TROOPA_STATE_DIE)
+			{
+				if (e->nx < 0)
+				{
+					troopa->SetState(TROOPA_STATE_DIE_RUNR);
+				}
+				else if (e->nx > 0)
+				{
+					troopa->SetState(TROOPA_STATE_DIE_RUNL);
+				}
+			}
 		}
 	}
 }

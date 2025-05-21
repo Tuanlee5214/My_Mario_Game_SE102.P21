@@ -238,7 +238,7 @@ void LoadResourceForGame() {
 
 	//Sprite Troopa
 	sprites->Add(ID_SPRITE_TROOPA_WALKING_LEFT1, 30, 117, 46, 144, texEnemies1);
-	sprites->Add(ID_SPRITE_TROOPA_WALKING_LEFT2, 49, 116, 66, 144, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_WALKING_LEFT2, 49, 117, 66, 144, texEnemies1);
 	sprites->Add(ID_SPRITE_TROOPA_WALKING_RIGHT1, 601, 117, 617, 144, texEnemies1);
 	sprites->Add(ID_SPRITE_TROOPA_WALKING_RIGHT2, 581, 117, 598, 144, texEnemies1);
 	sprites->Add(ID_SPRITE_TROOPA_DIE, 31, 147, 48, 163, texEnemies1);

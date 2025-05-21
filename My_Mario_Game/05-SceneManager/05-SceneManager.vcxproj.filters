@@ -111,6 +111,9 @@
     <ClCompile Include="Parinha.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Troopa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -216,6 +219,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Parinha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Troopa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

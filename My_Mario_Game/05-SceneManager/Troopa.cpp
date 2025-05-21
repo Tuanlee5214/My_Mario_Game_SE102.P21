@@ -1,13 +1,16 @@
-#include "Goomba.h"
+﻿#include "Goomba.h"
 #include "Troopa.h"
 #include "GameObject.h"
 #include "Mario.h"
+#include "Game.h"
+#include "Textures.h"
 
 CTroopa::CTroopa(float x, float y, float leftBound, float rightBound) :CGameObject(x, y)
 {
 	this->ax = 0;
-	this->ay = 0;
+	this->ay = TROOPA_GRAVITY;
 	die_start = -1;
+	isOnPlatform = true;
 	this->leftBound = leftBound;
 	this->rightBound = rightBound;
 	SetState(TROOPA_STATE_WALKING);
@@ -15,7 +18,8 @@ CTroopa::CTroopa(float x, float y, float leftBound, float rightBound) :CGameObje
 
 void CTroopa::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	if (state == TROOPA_STATE_DIE)
+	if (state == TROOPA_STATE_DIE || state == TROOPA_STATE_DIE_RUNR || 
+		state == TROOPA_STATE_DIE_RUNL)
 	{
 		left = x - TROOPA_BBOX_WIDTH / 2;
 		top = y - TROOPA_BBOX_HEIGHT_DIE / 2;
@@ -31,6 +35,29 @@ void CTroopa::GetBoundingBox(float& left, float& top, float& right, float& botto
 	}
 }
 
+void CTroopa::RenderBoundingBox()
+{
+	D3DXVECTOR3 p(x, y, 0);
+	RECT rect;
+
+	LPTEXTURE bbox = CTextures::GetInstance()->Get(ID_TEX_BBOX);
+
+	float l, t, r, b;
+
+	GetBoundingBox(l, t, r, b);
+	rect.left = 0;
+	rect.top = 0;
+	rect.right = (int)r - (int)l;
+	rect.bottom = (int)b - (int)t;
+
+	float cx, cy;
+	CGame::GetInstance()->GetCamPos(cx, cy);
+
+	float xx = x - (r - l) / 2 + rect.right / 2;
+
+	CGame::GetInstance()->Draw(xx - cx, y - cy, bbox, nullptr, BBOX_ALPHA, rect.right - 1, rect.bottom - 1);
+}
+
 void CTroopa::OnNoCollision(DWORD dt)
 {
 	x += vx * dt;
@@ -44,13 +71,14 @@ void CTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 		SetState(TROOPA_STATE_DIE);
 		return;
 	}
-	if (!e->obj->IsBlocking()) return;
+	//if (!e->obj->IsBlocking()) return;
 	if (dynamic_cast<CTroopa*>(e->obj)) return;
 
 	if (e->ny != 0)
 	{
 		vy = 0;
 	}
+	//else if (e->ny == 0 && nx == 0) vy = TROOPA_GRAVITY * 50;
 	else if (e->nx != 0)
 	{
 		vx = -vx;
@@ -66,6 +94,11 @@ void CTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	{
 		isDeleted = true;
 		return;
+	}
+	if ((state == TROOPA_STATE_DIE_RUNL || state == TROOPA_STATE_DIE_RUNR) && (GetTickCount64() - die_start > TROOPA_DIE_TIMEOUT))
+	{
+		//isDeleted = true;
+		//return;
 	}
 
 	if (x < leftBound) {
@@ -86,6 +119,10 @@ void CTroopa::Render()
 	int aniId;
 
 	if (state == TROOPA_STATE_DIE) {
+		aniId = ID_ANI_TROOPA_DIE;
+	}
+	else if (state == TROOPA_STATE_DIE_RUNL || state == TROOPA_STATE_DIE_RUNR)
+	{
 		aniId = ID_ANI_TROOPA_DIE;
 	}
 	else {
@@ -110,6 +147,16 @@ void CTroopa::SetState(int state)
 		break;
 	case TROOPA_STATE_WALKING:
 		vx = -TROOPA_WALKING_SPEED;
+		break;	
+	case TROOPA_STATE_DIE_RUNL:
+		vx = -TROOPA_WALKING_SPEED * 10;
+		ay = TROOPA_GRAVITY * 2;
+		//y += (TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2;
+		break;
+	case TROOPA_STATE_DIE_RUNR:
+		vx = TROOPA_WALKING_SPEED * 10;
+		ay = TROOPA_GRAVITY * 2;
+		//y += (TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2;
 		break;
 	}
 }
