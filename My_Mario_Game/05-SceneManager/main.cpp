@@ -235,6 +235,23 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_BULLET3, 33, 47, 43, 57, texEnemies1);
 	sprites->Add(ID_SPRITE_BULLET4, 48, 47, 58, 57, texEnemies1);
 
+	//Sprite Troopa
+	sprites->Add(ID_SPRITE_TROOPA_WALKING_LEFT1, 30, 117, 46, 144, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_WALKING_LEFT2, 49, 116, 66, 144, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_WALKING_RIGHT1, 601, 117, 617, 144, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_WALKING_RIGHT2, 581, 117, 598, 144, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_DIE, 31, 147, 48, 163, texEnemies1);
+
+	//Sprite ParaTroopa
+	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_LEFT1, 146, 128, 163, 155, texEnemies1);
+	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_LEFT2, 125, 128, 141, 155, texEnemies1);
+	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_LEFT3, 104, 128, 120, 155, texEnemies1);
+	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT1, 484, 128, 501, 155, texEnemies1);
+	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT2, 505, 128, 521, 155, texEnemies1);
+	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT3, 527, 128, 543, 155, texEnemies1);
+
+
+
 	
 
 	CAnimations* animations = CAnimations::GetInstance();
