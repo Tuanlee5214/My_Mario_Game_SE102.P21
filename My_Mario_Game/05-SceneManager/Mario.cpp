@@ -14,6 +14,7 @@
 #include "Bullet.h"
 #include "Parinha.h"
 #include "GreenPlant.h"
+#include "Troopa.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -70,6 +71,8 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithParinha(e);
 	else if (dynamic_cast<CGreenPlant*>(e->obj))
 		OnCollisionWithGreenPlant(e);
+	else if (dynamic_cast<CTroopa*>(e->obj))
+		OnCollisionWithTroopa(e);
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
@@ -205,6 +208,40 @@ void CMario::OnCollisionWithCoin(LPCOLLISIONEVENT e)
 {
 	e->obj->Delete();
 	coin++;
+}
+
+void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
+{
+	CTroopa* troopa = dynamic_cast<CTroopa*>(e->obj);
+	DebugOut(L"[INFO] Mario va cham Koopa, ny = %d\n", e->ny);
+	// jump on top >> kill troopa and deflect a bit 
+	if (e->ny < 0)
+	{
+		if (troopa->GetState() != TROOPA_STATE_DIE)
+		{
+			troopa->SetState(TROOPA_STATE_DIE);
+			vy = -MARIO_JUMP_DEFLECT_SPEED;
+		}
+	}
+	else // hit by troopa
+	{
+		if (untouchable == 0)
+		{
+			if (troopa->GetState() != TROOPA_STATE_DIE)
+			{
+				if (level > MARIO_LEVEL_SMALL)
+				{
+					level = MARIO_LEVEL_SMALL;
+					StartUntouchable();
+				}
+				else
+				{
+					DebugOut(L">>> Mario DIE >>> \n");
+					SetState(MARIO_STATE_DIE);
+				}
+			}
+		}
+	}
 }
 
 void CMario::OnCollisionWithParinha(LPCOLLISIONEVENT e)
