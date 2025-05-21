@@ -11,6 +11,7 @@
 #include "Collision.h"
 #include "RedGoomba.h"
 #include "RedPlant.h"
+#include "Bullet.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -191,10 +192,32 @@ void CMario::OnCollisionWithRedPlant(LPCOLLISIONEVENT e)
 		}
 	}
 }
+
 void CMario::OnCollisionWithCoin(LPCOLLISIONEVENT e)
 {
 	e->obj->Delete();
 	coin++;
+}
+
+void CMario::OnCollisionWithBullet(LPCOLLISIONEVENT e)
+{
+	CBullet* bullet = dynamic_cast<CBullet*>(e->obj);
+	if (e->ny != 0 || e->nx != 0)
+	{
+		if (untouchable == 0)
+		{
+			if (level > MARIO_LEVEL_SMALL)
+			{
+				level = MARIO_LEVEL_SMALL;
+				StartUntouchable();
+			}
+			else
+			{
+				DebugOut(L"Mario die >>> \n");
+				SetState(MARIO_STATE_DIE);
+			}
+		}
+	}
 }
 
 void CMario::OnCollisionWithPortal(LPCOLLISIONEVENT e)
