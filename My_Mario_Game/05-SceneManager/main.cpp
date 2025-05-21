@@ -47,7 +47,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "GreenPlant.h"
 #include "Parinha.h"
 #include "Troopa.h"
-
+#include "ParaTroopa.h"
 #include "SampleKeyEventHandler.h"
 
 #include "AssetIDs.h"
@@ -287,6 +287,21 @@ void LoadResourceForGame() {
 	ani = new CAnimation(200);
 	ani->Add(ID_SPRITE_TROOPA_DIE);
 	animations->Add(ID_ANI_TROOPA_DIE, ani);
+
+	//ParaTroopa ani
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_PARATROOPA_WALKING_LEFT1);
+	ani->Add(ID_SPRITE_PARATROOPA_WALKING_LEFT2);
+	ani->Add(ID_SPRITE_PARATROOPA_WALKING_LEFT3);
+	animations->Add(ID_ANI_PARATROOPA_WALKING_FLY_L, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT1);
+	ani->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT2);
+	ani->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT3);
+	animations->Add(ID_ANI_PARATROOPA_WALKING_FLY_R, ani);
+
+	
 
 	//Coin ani
 	ani = new CAnimation(210);
