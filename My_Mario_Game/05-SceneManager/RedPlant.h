@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "PlayScene.h"
 
 #define top_Y 123
 #define speed_Y 0.018f
@@ -29,7 +30,7 @@ protected:
 
 	ULONGLONG startTime = 0;
 	float start_Y;
-
+	bool hasShoot;
 
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
@@ -39,6 +40,7 @@ protected:
 	virtual int IsBlocking() { return 0; }
 	virtual void OnNoCollision(DWORD dt);
 
+	virtual void ShootBullet(CPlayScene* playScene);
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 
 public:

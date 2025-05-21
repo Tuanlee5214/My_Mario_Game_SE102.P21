@@ -1,4 +1,7 @@
 #include "Bullet.h"
+#include "Game.h"
+#include "Animations.h"
+#include "debug.h"
 
 CBullet::CBullet(float x, float y, float vx, float vy)
 {
@@ -19,8 +22,8 @@ void CBullet::GetBoundingBox(float& left, float& top, float& right, float& botto
 
 void CBullet::OnNoCollision(DWORD dt)
 {
-	x += vx * dt;
-	y += vy * dt;
+	//x += vx * dt;
+	//y += vy * dt;
 }
 
 void CBullet::OnCollisionWith(LPCOLLISIONEVENT e)
@@ -28,8 +31,29 @@ void CBullet::OnCollisionWith(LPCOLLISIONEVENT e)
 	if (dynamic_cast<CBullet*>(e->obj))
 		return;
 
-	if (e->ny != 0 && e->obj->IsBlocking())
+	if (e->obj->IsBlocking())
 	{
-		//vy = 0;
+		//isDeleted = true;
+	}
+}
+
+void CBullet::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
+{
+	x += vx * dt;
+	y += vy * dt;
+	CGameObject::Update(dt, coObjects);
+	CCollision::GetInstance()->Process(this, dt, coObjects);
+}
+
+void CBullet::Render()
+{
+	auto ani = CAnimations::GetInstance()->Get(ID_ANI_BULLET);
+	if (ani)
+	{
+		ani->Render(x, y);
+	}
+	else
+	{
+		DebugOut(L"Animation Bullet ID %d load failed\n", ID_ANI_BULLET);
 	}
 }

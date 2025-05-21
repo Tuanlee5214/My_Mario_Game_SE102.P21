@@ -31,9 +31,14 @@ public:
 	virtual void Load();
 	virtual void Update(DWORD dt);
 	virtual void Render();
+	virtual void AddObject(LPGAMEOBJECT e);
 	virtual void Unload();
 
 	LPGAMEOBJECT GetPlayer() { return player; }
+	vector<LPGAMEOBJECT> GetObjects()
+	{
+		return objects;
+	}
 
 	void Clear();
 	void PurgeDeletedObjects();

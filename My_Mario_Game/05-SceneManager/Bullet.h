@@ -3,7 +3,8 @@
 
 #define BULLET_BBOX_WIDTH 8
 #define BULLET_BBOX_HEIGHT 8
-#define BULLET_SPEED 0.1f
+#define BULLET_SPEEDX 0.06f
+#define BULLET_SPEEDY 0.04f
 #define ID_ANI_BULLET 5111
 class CBullet : public CGameObject
 {
@@ -20,6 +21,5 @@ protected:
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 public: 
 	CBullet(float x, float y, float vx, float vy);
-	void SetState(int state);
 };
 

@@ -40,7 +40,7 @@ void CGround::Render()
 		LPSPRITE X = s->Get(this->spriteGroundID);
 		if (s->Get(61000) != NULL) {
 			X->Draw(xx, y);
-			DebugOut(L"[ERROR] 61000 %d found!\n");
+			//DebugOut(L"[ERROR] 61000 %d found!\n");
 		}
 		xx += this->cellWidth;
 	}

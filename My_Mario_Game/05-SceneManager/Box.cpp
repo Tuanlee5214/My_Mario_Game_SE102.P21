@@ -40,7 +40,7 @@ void CBox::Render()
 		LPSPRITE X = s->Get(this->spriteBoxID);
 		if (s->Get(61000) != NULL) {
 			X->Draw(xx, y);
-			DebugOut(L"[ERROR] 61000 %d found!\n");
+			//DebugOut(L"[ERROR] 61000 %d found!\n");
 		}
 		xx += this->cellWidth;
 	}
