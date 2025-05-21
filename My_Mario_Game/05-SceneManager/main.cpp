@@ -44,6 +44,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "RedGoomba.h"
 #include "RedPlant.h"
 #include "Bullet.h"
+#include "GreenPlant.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -228,10 +229,10 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_PARINHA_CLOSE, 6, 135, 22, 159, texEnemies1);
 
 	//Sprite Bullet
-	sprites->Add(ID_SPRITE_BULLET1, 35, 34, 43, 42, texEnemies1);
-	sprites->Add(ID_SPRITE_BULLET2, 49, 34, 57, 42, texEnemies1);
-	sprites->Add(ID_SPRITE_BULLET3, 34, 48, 42, 56, texEnemies1);
-	sprites->Add(ID_SPRITE_BULLET4, 49, 48, 57, 56, texEnemies1);
+	sprites->Add(ID_SPRITE_BULLET1, 34, 33, 44, 43, texEnemies1);
+	sprites->Add(ID_SPRITE_BULLET2, 50, 33, 58, 43, texEnemies1);
+	sprites->Add(ID_SPRITE_BULLET3, 33, 47, 43, 57, texEnemies1);
+	sprites->Add(ID_SPRITE_BULLET4, 48, 47, 58, 57, texEnemies1);
 
 	
 
@@ -313,12 +314,33 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_REDPLANT_RIGHTBOTTOM);
 	animations->Add(ID_ANI_REDPLANT_RIGHTBOTTOM, ani);
 
+	//Bullet ani
 	ani = new CAnimation(200);
 	ani->Add(ID_SPRITE_BULLET1);
 	ani->Add(ID_SPRITE_BULLET2);
 	ani->Add(ID_SPRITE_BULLET3);
 	ani->Add(ID_SPRITE_BULLET4);
 	animations->Add(ID_ANI_BULLET, ani);
+
+	//GreenPlant ani
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_GREENPLANT_LEFTTOP);
+	animations->Add(ID_ANI_GREENPLANT_LEFTTOP, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_GREENPLANT_LEFTBOTTOM);
+	animations->Add(ID_ANI_GREENPLANT_LEFTBOTTOM, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_GREENPLANT_RIGHTTOP);
+	animations->Add(ID_ANI_GREENPLANT_RIGHTTOP, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_GREENPLANT_RIGHTBOTTOM);
+	animations->Add(ID_ANI_GREENPLANT_RIGHTBOTTOM, ani);
+
+
+
 
 
 
