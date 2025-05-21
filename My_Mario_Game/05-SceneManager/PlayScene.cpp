@@ -20,6 +20,7 @@
 #include "RedGoomba.h"
 #include "RedPlant.h"
 #include "GreenPlant.h"
+#include "Parinha.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -196,12 +197,17 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_GREENPLANT:
 		obj = new CGreenPlant(x, y);
 		break;
+
 	case OBJECT_TYPE_CLOUD:
 	{
 		int spriteCloudID = atoi(tokens[3].c_str());
 		obj = new CCloud(x, y, spriteCloudID);
 		break;
 	}
+	case OBJECT_TYPE_PARINHA:
+		obj = new CParinha(x, y);
+		break;
+
 	case OBJECT_TYPE_BOX:
 	{
 		float cell_width = (float)atof(tokens[3].c_str());
