@@ -10,6 +10,8 @@
 #define REDPLANT_AIM_TIME 1700
 #define REDPLANT_SHOOT_TIME 700
 #define REDPLANT_SAFE_DISTANCE 23
+#define REDPLANT_MAX_DISTANCE_ATTACK 180
+
 
 CRedPlant::CRedPlant(float x, float y) : CGameObject(x, y)
 {
@@ -60,7 +62,9 @@ void CRedPlant::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
     switch (state)
     {
     case REDPLANT_STATE_IDLE:
-        if (abs(this->x - marioX) >= REDPLANT_SAFE_DISTANCE && GetTickCount64() - startTime > REDPLANT_IDLE_TIME)
+        if (abs(this->x - marioX) >= REDPLANT_SAFE_DISTANCE &&
+            GetTickCount64() - startTime > REDPLANT_IDLE_TIME &&
+            abs(this->x - marioX) <= REDPLANT_MAX_DISTANCE_ATTACK)
         {
             SetState(marioX > this->x ? REDPLANT_STATE_RISE_RIGHT : REDPLANT_STATE_RISE_LEFT);
         }

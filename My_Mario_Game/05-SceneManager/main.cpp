@@ -45,6 +45,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "RedPlant.h"
 #include "Bullet.h"
 #include "GreenPlant.h"
+#include "Parinha.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -339,8 +340,17 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_GREENPLANT_RIGHTBOTTOM);
 	animations->Add(ID_ANI_GREENPLANT_RIGHTBOTTOM, ani);
 
+	//Parinha
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_PARINHA_OPEN);
+	ani->Add(ID_SPRITE_PARINHA_CLOSE);
+	ani->Add(ID_SPRITE_PARINHA_OPEN);
+	ani->Add(ID_SPRITE_PARINHA_CLOSE);
+	animations->Add(ID_ANI_PARINHA_ATTACK, ani);
 
-
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_PARINHA_CLOSE);
+	animations->Add(ID_ANI_PARINHA_IDLE, ani);
 
 
 

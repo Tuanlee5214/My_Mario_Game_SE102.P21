@@ -10,6 +10,7 @@
 #define GREENPLANT_AIM_TIME 1700
 #define GREENPLANT_SHOOT_TIME 700
 #define GREENPLANT_SAFE_DISTANCE 23
+#define GREENPLANT_MAX_DISTANCE_ATTACK 167
 
 CGreenPlant::CGreenPlant(float x, float y) : CGameObject(x, y)
 {
@@ -60,7 +61,9 @@ void CGreenPlant::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
     switch (state)
     {
     case GREENPLANT_STATE_IDLE:
-        if (abs(this->x - marioX) >= GREENPLANT_SAFE_DISTANCE && GetTickCount64() - startTime > GREENPLANT_IDLE_TIME)
+        if (abs(this->x - marioX) >= GREENPLANT_SAFE_DISTANCE && 
+            GetTickCount64() - startTime > GREENPLANT_IDLE_TIME &&
+            abs(this->x - marioX) <= GREENPLANT_MAX_DISTANCE_ATTACK)
         {
             SetState(marioX > this->x ? GREENPLANT_STATE_RISE_RIGHT : GREENPLANT_STATE_RISE_LEFT);
         }

@@ -3,7 +3,7 @@
 #include "PlayScene.h"
 
 #define top_Y 127
-#define speed_Y 0.018f
+#define speed_Y 0.025f
 
 #define GREENPLANT_BBOX_WIDTH 16
 #define GREENPLANT_BBOX_HEIGHT 25
