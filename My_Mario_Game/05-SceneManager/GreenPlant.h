@@ -2,7 +2,7 @@
 #include "GameObject.h"
 #include "PlayScene.h"
 
-#define top_Y 123
+#define top_Y 127
 #define speed_Y 0.018f
 
 #define GREENPLANT_BBOX_WIDTH 16

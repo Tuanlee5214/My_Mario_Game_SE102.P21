@@ -6,7 +6,7 @@
 #include "Bullet.h"
 #include "cmath"
 
-#define GREENPLANT_IDLE_TIME 3000
+#define GREENPLANT_IDLE_TIME 2500
 #define GREENPLANT_AIM_TIME 1700
 #define GREENPLANT_SHOOT_TIME 700
 #define GREENPLANT_SAFE_DISTANCE 23

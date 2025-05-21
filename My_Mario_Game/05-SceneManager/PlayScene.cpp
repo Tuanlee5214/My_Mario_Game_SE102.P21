@@ -19,6 +19,7 @@
 #include "GameData.h"
 #include "RedGoomba.h"
 #include "RedPlant.h"
+#include "GreenPlant.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -192,6 +193,9 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		obj = new CRedPlant(x, y);
 		break;
 
+	case OBJECT_TYPE_GREENPLANT:
+		obj = new CGreenPlant(x, y);
+		break;
 	case OBJECT_TYPE_CLOUD:
 	{
 		int spriteCloudID = atoi(tokens[3].c_str());

@@ -178,8 +178,8 @@ void LoadResourceForGame() {
 	
 	//Sprite Pipe
 	sprites->Add(ID_SPRITE_PIPE1, 352, 369, 383, 416, texMainMap);
-	sprites->Add(ID_SPRITE_PIPE2, 1792, 384, 1824, 416, texMainMap);
-	sprites->Add(ID_SPRITE_PIPE3, 1856, 368.5, 1888, 416, texMainMap);
+	sprites->Add(ID_SPRITE_PIPE2, 1792, 385, 1824, 417, texMainMap);
+	sprites->Add(ID_SPRITE_PIPE3, 1856, 369, 1888, 416, texMainMap);
 	sprites->Add(ID_SPRITE_PIPE4, 2257, 383, 2286, 416, texMainMap);
 	sprites->Add(ID_SPRITE_PIPE5, 2255, 111, 2287, 304, texMainMap);
 	sprites->Add(ID_SPRITE_PIPE6, 2320, 383, 2351, 416, texMainMap);
