@@ -43,6 +43,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Scene.h"
 #include "RedGoomba.h"
 #include "RedPlant.h"
+#include "Bullet.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -311,6 +312,15 @@ void LoadResourceForGame() {
 	ani = new CAnimation(200);
 	ani->Add(ID_SPRITE_REDPLANT_RIGHTBOTTOM);
 	animations->Add(ID_ANI_REDPLANT_RIGHTBOTTOM, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_BULLET1);
+	ani->Add(ID_SPRITE_BULLET2);
+	ani->Add(ID_SPRITE_BULLET3);
+	ani->Add(ID_SPRITE_BULLET4);
+	animations->Add(ID_ANI_BULLET, ani);
+
+
 
 
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
