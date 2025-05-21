@@ -45,7 +45,7 @@ void CPipe::Render()
 		xx += this->cellWidth;
 	}
 	
-	//RenderBoundingBox();
+	RenderBoundingBox();
 }
 
 void CPipe::GetBoundingBox(float& l, float& t, float& r, float& b)

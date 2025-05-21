@@ -13,6 +13,7 @@
 #include "RedPlant.h"
 #include "Bullet.h"
 #include "Parinha.h"
+#include "GreenPlant.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -67,6 +68,8 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithBullet(e);
 	else if (dynamic_cast<CParinha*>(e->obj))
 		OnCollisionWithParinha(e);
+	else if (dynamic_cast<CGreenPlant*>(e->obj))
+		OnCollisionWithGreenPlant(e);
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
@@ -207,6 +210,28 @@ void CMario::OnCollisionWithCoin(LPCOLLISIONEVENT e)
 void CMario::OnCollisionWithParinha(LPCOLLISIONEVENT e)
 {
 	CParinha* parinha = dynamic_cast<CParinha*>(e->obj);
+	if (e->ny != 0 || e->nx != 0)
+	{
+		if (untouchable == 0)
+		{
+			if (level > MARIO_LEVEL_SMALL)
+			{
+				level = MARIO_LEVEL_SMALL;
+				StartUntouchable();
+			}
+			else
+			{
+				DebugOut(L"Mario die >>> \n");
+				SetState(MARIO_STATE_DIE);
+			}
+		}
+	}
+}
+
+void CMario::OnCollisionWithGreenPlant(LPCOLLISIONEVENT e)
+{
+
+	CGreenPlant* greenPlant = dynamic_cast<CGreenPlant*>(e->obj);
 	if (e->ny != 0 || e->nx != 0)
 	{
 		if (untouchable == 0)

@@ -2,9 +2,9 @@
 #include "Animations.h"
 
 #define PARINHA_IDLE_TIME 2500
-#define PARINHA_TOP_TIME 500
+#define PARINHA_TOP_TIME 1500
 #define PARINHA_SAFE_DISTANCE 23
-#define PARINHA_MAX_DISTANCE_ATTACK 140
+#define PARINHA_MAX_DISTANCE_ATTACK 120
 
 CParinha::CParinha(float x, float y)
 {

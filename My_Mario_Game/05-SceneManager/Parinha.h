@@ -1,10 +1,10 @@
 #include "GameObject.h"
 #include "PlayScene.h"
 
-#define top_Y 133
+#define top_Y 143
 #define speed_Y 0.030
 
-#define PARINHA_BBOX_HEIGHT 25 
+#define PARINHA_BBOX_HEIGHT 23
 #define PARINHA_BBOX_WIDTH 16
 
 #define PARINHA_STATE_IDLE 100
