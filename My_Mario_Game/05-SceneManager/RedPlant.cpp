@@ -5,15 +5,15 @@
 #include "PlayScene.h"
 #include "cmath"
 
-#define REDPLANT_IDLE_TIME 2000
-#define REDPLANT_AIM_TIME 2000
+#define REDPLANT_IDLE_TIME 3000
+#define REDPLANT_AIM_TIME 1700
 #define REDPLANT_SAFE_DISTANCE 23
 
 CRedPlant::CRedPlant(float x, float y) : CGameObject(x, y)
 {
     SetState(REDPLANT_STATE_IDLE);
     start_Y = y;
-    startTime = GetTickCount64();
+    //startTime = GetTickCount64();
 }
 
 void CRedPlant::GetBoundingBox(float& left, float& top, float& right, float& bottom)
@@ -61,6 +61,8 @@ void CRedPlant::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
         {
             SetState(marioX > this->x ? REDPLANT_STATE_RISE_RIGHT : REDPLANT_STATE_RISE_LEFT);
         }
+        //else if (abs(this->x - marioX) <= REDPLANT_SAFE_DISTANCE || GetTickCount64() - startTime < REDPLANT_IDLE_TIME) 
+           // SetState(REDPLANT_STATE_IDLE);
         break;
 
     case REDPLANT_STATE_RISE_LEFT:
@@ -71,23 +73,43 @@ void CRedPlant::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
             vy = 0;
             if (this->x > marioX)
             {
-                SetState(marioY > this->y ? REDPLANT_STATE_AIM_LEFTTOP : REDPLANT_STATE_AIM_LEFTBOTTOM);
+                SetState(marioY < top_Y ? REDPLANT_STATE_AIM_LEFTTOP : REDPLANT_STATE_AIM_LEFTBOTTOM);
             }
             else
             {
-                SetState(marioY > this->y ? REDPLANT_STATE_AIM_RIGHTTOP : REDPLANT_STATE_AIM_RIGHTBOTTOM);
+                SetState(marioY < top_Y ? REDPLANT_STATE_AIM_RIGHTTOP : REDPLANT_STATE_AIM_RIGHTBOTTOM);
             }
         }
+        else if (this->y > top_Y) y -= speed_Y * dt;
         break;
 
     case REDPLANT_STATE_AIM_LEFTTOP:
+        if (GetTickCount64() - startTime > REDPLANT_AIM_TIME || abs(this->x - marioX) < REDPLANT_SAFE_DISTANCE)
+        {
+            SetState(marioX > this->x ? REDPLANT_STATE_HIDE_RIGHT : REDPLANT_STATE_HIDE_LEFT);
+        }
+        else if (marioY > top_Y && GetTickCount64() - startTime < REDPLANT_AIM_TIME && abs(this->x - marioX) > REDPLANT_SAFE_DISTANCE) SetState(REDPLANT_STATE_AIM_LEFTBOTTOM);
+        break;
     case REDPLANT_STATE_AIM_LEFTBOTTOM:
+        if (GetTickCount64() - startTime > REDPLANT_AIM_TIME || abs(this->x - marioX) < REDPLANT_SAFE_DISTANCE)
+        {
+            SetState(marioX > this->x ? REDPLANT_STATE_HIDE_RIGHT : REDPLANT_STATE_HIDE_LEFT);
+        }
+        else if (marioY < top_Y && GetTickCount64() - startTime < REDPLANT_AIM_TIME && abs(this->x - marioX) > REDPLANT_SAFE_DISTANCE) SetState(REDPLANT_STATE_AIM_LEFTTOP);
+        break;
     case REDPLANT_STATE_AIM_RIGHTTOP:
+        if (GetTickCount64() - startTime > REDPLANT_AIM_TIME || abs(this->x - marioX) < REDPLANT_SAFE_DISTANCE)
+        {
+            SetState(marioX > this->x ? REDPLANT_STATE_HIDE_RIGHT : REDPLANT_STATE_HIDE_LEFT);
+        }
+        else if (marioY > top_Y && GetTickCount64() - startTime < REDPLANT_AIM_TIME && abs(this->x - marioX) > REDPLANT_SAFE_DISTANCE) SetState(REDPLANT_STATE_AIM_RIGHTBOTTOM);
+        break;
     case REDPLANT_STATE_AIM_RIGHTBOTTOM:
         if (GetTickCount64() - startTime > REDPLANT_AIM_TIME || abs(this->x - marioX) < REDPLANT_SAFE_DISTANCE)
         {
             SetState(marioX > this->x ? REDPLANT_STATE_HIDE_RIGHT : REDPLANT_STATE_HIDE_LEFT);
         }
+        else if (marioY < top_Y && GetTickCount64() - startTime < REDPLANT_AIM_TIME && abs(this->x - marioX) > REDPLANT_SAFE_DISTANCE) SetState(REDPLANT_STATE_AIM_RIGHTTOP);
         break;
 
     case REDPLANT_STATE_HIDE_LEFT:
@@ -95,14 +117,19 @@ void CRedPlant::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
         if (this->y >= start_Y)
         {
             y = start_Y;
+            vy = 0;
             SetState(REDPLANT_STATE_IDLE);
+        }
+        else
+        {
+            y += speed_Y * dt;
         }
         break;
     }
 
     // Giới hạn vị trí y
-    if (y < top_Y) y = top_Y;
-    if (y > start_Y) y = start_Y;
+    if (y <= top_Y) y = top_Y;
+    if (y >= start_Y) y = start_Y;
 
     CGameObject::Update(dt, coObjects);
     if (coObjects && !coObjects->empty())

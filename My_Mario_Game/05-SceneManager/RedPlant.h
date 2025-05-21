@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 
-#define top_Y 131
+#define top_Y 123
 #define speed_Y 0.018f
 
 #define REDPLANT_BBOX_WIDTH 16

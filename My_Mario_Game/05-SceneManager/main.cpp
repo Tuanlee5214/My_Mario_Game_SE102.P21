@@ -211,10 +211,10 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_REDGOOMBA_FLY2_2, 65, 33, 88, 58, texEnemies1);
 
 	//Sprite RedPlant
-	sprites->Add(ID_SPRITE_REDPLANT_LEFTBOTTOM, 7, 30, 22, 64, texEnemies1);
-	sprites->Add(ID_SPRITE_REDPLANT_LEFTTOP, 7, 69, 22, 102, texEnemies1);
-	sprites->Add(ID_SPRITE_REDPLANT_RIGHTTOP, 624, 68, 640, 102, texEnemies1);
-	sprites->Add(ID_SPRITE_REDPLANT_RIGHTBOTTOM, 624, 30, 640, 63, texEnemies1);
+	sprites->Add(ID_SPRITE_REDPLANT_LEFTBOTTOM, 6, 29, 23, 65, texEnemies1);
+	sprites->Add(ID_SPRITE_REDPLANT_LEFTTOP, 6, 68, 23, 103, texEnemies1);
+	sprites->Add(ID_SPRITE_REDPLANT_RIGHTTOP, 623, 68, 641, 103, texEnemies1);
+	sprites->Add(ID_SPRITE_REDPLANT_RIGHTBOTTOM, 623, 29, 641, 64, texEnemies1);
 
 	//Sprite GreenPlant
 	sprites->Add(ID_SPRITE_GREENPLANT_LEFTTOP, 6, 192, 22, 217, texEnemies1);
