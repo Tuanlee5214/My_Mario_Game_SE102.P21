@@ -15,6 +15,7 @@
 #include "Parinha.h"
 #include "GreenPlant.h"
 #include "Troopa.h"
+#include "ParaTroopa.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -73,6 +74,8 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithGreenPlant(e);
 	else if (dynamic_cast<CTroopa*>(e->obj))
 		OnCollisionWithTroopa(e);
+	else if (dynamic_cast<CParaTroopa*>(e->obj))
+		OnCollisionWithParaTroopa(e);
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
@@ -208,6 +211,56 @@ void CMario::OnCollisionWithCoin(LPCOLLISIONEVENT e)
 {
 	e->obj->Delete();
 	coin++;
+}
+
+void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
+{
+	CParaTroopa* paraTroopa = dynamic_cast<CParaTroopa*>(e->obj);
+	DebugOut(L"[INFO] Mario va cham Koopa, ny = %d\n", e->ny);
+	
+	if (e->ny < 0)
+	{
+		if (paraTroopa->GetState() == PARATROOPA_STATE_WALKING_FLY)
+		{
+			paraTroopa->SetState(PARATROOPA_STATE_WALKING);
+			vy = -MARIO_JUMP_DEFLECT_SPEED;
+		}
+		else if(paraTroopa->GetState() != PARATROOPA_STATE_DIE)
+		{
+			paraTroopa->SetState(PARATROOPA_STATE_DIE);
+			vy = -MARIO_JUMP_DEFLECT_SPEED;
+		}
+	}
+	else 
+	{
+		if (untouchable == 0)
+		{
+			if (paraTroopa->GetState() != PARATROOPA_STATE_DIE)
+			{
+				if (level > MARIO_LEVEL_SMALL)
+				{
+					level = MARIO_LEVEL_SMALL;
+					StartUntouchable();
+				}
+				else
+				{
+					DebugOut(L">>> Mario DIE >>> \n");
+					SetState(MARIO_STATE_DIE);
+				}
+			}
+			else if (paraTroopa->GetState() == PARATROOPA_STATE_DIE)
+			{
+				if (e->nx < 0)
+				{
+					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNR);
+				}
+				else if (e->nx > 0)
+				{
+					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNL);
+				}
+			}
+		}
+	}
 }
 
 void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
