@@ -1,4 +1,4 @@
-#include "Goomba.h"
+﻿#include "Goomba.h"
 #include "ParaTroopa.h"
 #include "GameObject.h"
 #include "Mario.h"
@@ -63,6 +63,7 @@ void CParaTroopa::OnNoCollision(DWORD dt)
 {
 	x += vx * dt;
 	y += vy * dt;
+	isOnPlatform = false;
 };
 
 void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
@@ -74,9 +75,10 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	}
 	if (dynamic_cast<CParaTroopa*>(e->obj) && e->nx != 0) vx = -vx ;
 
-	if (e->ny != 0 && state != PARATROOPA_STATE_WALKING_FLY)
+	if (e->ny != 0)
 	{
 		vy = 0;
+		if (e->ny < 0) isOnPlatform = true;
 	}
 	else if (e->nx != 0)
 	{
@@ -86,7 +88,15 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 
 void CParaTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
-	vy += ay * dt;
+	if(state == PARATROOPA_STATE_WALKING_FLY && isOnPlatform)
+	{
+		vy = -PARATROOPA_JUMP_SPEED; // nhảy lên lại
+		isOnPlatform = false; // reset lại trạng thái
+	}
+	else 
+	{
+		vy += ay * dt;
+	}
 	vx += ax * dt;
 
 	if ((state == PARATROOPA_STATE_DIE) && (GetTickCount64() - die_start > PARATROOPA_DIE_TIMEOUT))
@@ -147,22 +157,22 @@ void CParaTroopa::SetState(int state)
 		y += (PARATROOPA_BBOX_HEIGHT - PARATROOPA_BBOX_HEIGHT_DIE) / 2;
 		vx = 0;
 		vy = PARATROOPA_GRAVITY;
-		ay = 0;
+		//ay = 0;
 		break;
 	case PARATROOPA_STATE_WALKING:
 		vx = -PARATROOPA_WALKING_SPEED;
 		break;
 	case PARATROOPA_STATE_DIE_RUNL:
-		vx = -PARATROOPA_WALKING_SPEED * 10;
+		vx = -PARATROOPA_WALKING_SPEED * 8;
 		ay = PARATROOPA_GRAVITY * 2;
 		break;
 	case PARATROOPA_STATE_DIE_RUNR:
-		vx = PARATROOPA_WALKING_SPEED * 10;
+		vx = PARATROOPA_WALKING_SPEED * 8;
 		ay = PARATROOPA_GRAVITY * 2;
 		break;
 	case PARATROOPA_STATE_WALKING_FLY:
 		vx = -PARATROOPA_WALKING_SPEED;
-		vy = -PARATROOPA_WALKING_SPEED;
+		vy = -PARATROOPA_JUMP_SPEED;
 		break;
 	}
 }

@@ -22,6 +22,7 @@
 #include "GreenPlant.h"
 #include "Parinha.h"
 #include "Troopa.h"
+#include "ParaTroopa.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -143,6 +144,11 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		float leftBound = (float)atof(tokens[3].c_str());
 		float rightBound = (float)atof(tokens[4].c_str());
 		obj = new CTroopa(x, y, leftBound, rightBound); break;
+	}
+	case OBJECT_TYPE_PARATROOPA: {
+		float leftBound = (float)atof(tokens[3].c_str());
+		float rightBound = (float)atof(tokens[4].c_str());
+		obj = new CParaTroopa(x, y, leftBound, rightBound); break;
 	}
 	case OBJECT_TYPE_GOOMBA: {
 		float leftBound = (float)atof(tokens[3].c_str());

@@ -225,7 +225,7 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 			paraTroopa->SetState(PARATROOPA_STATE_WALKING);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
-		else if(paraTroopa->GetState() != PARATROOPA_STATE_DIE)
+		else if(paraTroopa->GetState() == PARATROOPA_STATE_WALKING)
 		{
 			paraTroopa->SetState(PARATROOPA_STATE_DIE);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
