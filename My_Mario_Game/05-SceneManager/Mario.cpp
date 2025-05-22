@@ -181,6 +181,18 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 					SetState(MARIO_STATE_DIE);
 				}
 			}
+			else if (koopa->GetState() == KOOPA_STATE_DIE)
+			{
+				if (e->nx < 0)
+				{
+					koopa->SetBound(450.0f, 700.0f);
+					koopa->SetState(KOOPA_STATE_DIE_RUNR);
+				}
+				else if (e->nx > 0)
+				{
+					koopa->SetState(KOOPA_STATE_DIE_RUNL);
+				}
+			}
 		}
 	}
 }

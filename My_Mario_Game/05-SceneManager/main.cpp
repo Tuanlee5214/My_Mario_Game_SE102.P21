@@ -192,8 +192,13 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_LEFT2, 45, 66, 64, 92, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT1, 602, 66, 621, 92, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT2, 583, 66, 601, 92, texEnemies1);
-	sprites->Add(ID_SPRITE_KOOPA_DIE, 71, 95, 88, 110, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE3L, 28, 95, 45, 111, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE2L, 49, 95, 65, 111, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE1L, 70, 94, 87, 109, texEnemies1);
 
+	sprites->Add(ID_SPRITE_KOOPA_DIE3R, 28, 95, 45, 111, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE2R, 581, 94, 598, 111, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE1R, 70, 94, 87, 109, texEnemies1);
 	//Sprite Question
 	sprites->Add(ID_SPRITE_QUESTION1, 415, 319, 432, 336, texMainMap);
 	sprites->Add(ID_SPRITE_QUESTION2, 175, 351, 208, 368, texMainMap);
@@ -266,18 +271,30 @@ void LoadResourceForGame() {
 	LPANIMATION ani;
 	
 	//Koopa ani
-	ani = new CAnimation(200);
+	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_KOOPA_WALKING_LEFT1);
 	ani->Add(ID_SPRITE_KOOPA_WALKING_LEFT2);	
 	animations->Add(ID_ANI_KOOPA_WALKING_L, ani);
 
-	ani = new CAnimation(200);
+	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_KOOPA_WALKING_RIGHT1);
 	ani->Add(ID_SPRITE_KOOPA_WALKING_RIGHT2);
 	animations->Add(ID_ANI_KOOPA_WALKING_R, ani);
 
-	ani = new CAnimation(200);
-	ani->Add(ID_SPRITE_KOOPA_DIE);
+	ani = new CAnimation(150);
+	ani->Add(ID_SPRITE_KOOPA_DIE1L);
+	ani->Add(ID_SPRITE_KOOPA_DIE2L);
+	ani->Add(ID_SPRITE_KOOPA_DIE3L);
+	animations->Add(ID_ANI_KOOPA_DIE_RUN_L, ani);
+
+	ani = new CAnimation(150);
+	ani->Add(ID_SPRITE_KOOPA_DIE1R);
+	ani->Add(ID_SPRITE_KOOPA_DIE2R);
+	ani->Add(ID_SPRITE_KOOPA_DIE3R);
+	animations->Add(ID_ANI_KOOPA_DIE_RUN_R, ani);
+
+	ani = new CAnimation(150);
+	ani->Add(ID_SPRITE_KOOPA_DIE3R);
 	animations->Add(ID_ANI_KOOPA_DIE, ani);
 
 	//Troopa ani

@@ -6,7 +6,7 @@
 CKoopa::CKoopa(float x, float y, float leftBound, float rightBound) :CGameObject(x, y)
 {
 	this->ax = 0;
-	this->ay = 0;
+	this->ay = KOOPA_GRAVITY;
 	die_start = -1;
 	this->leftBound = leftBound;
 	this->rightBound = rightBound;
@@ -16,7 +16,9 @@ CKoopa::CKoopa(float x, float y, float leftBound, float rightBound) :CGameObject
 
 void CKoopa::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	if (state == KOOPA_STATE_DIE)
+	if (state == KOOPA_STATE_DIE || 
+		state == KOOPA_STATE_DIE_RUNL || 
+		state == KOOPA_STATE_DIE_RUNR)
 	{
 		left = x - KOOPA_BBOX_WIDTH / 2;
 		top = y - KOOPA_BBOX_HEIGHT_DIE / 2;
@@ -40,7 +42,7 @@ void CKoopa::OnNoCollision(DWORD dt)
 
 void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-	if (!e->obj->IsBlocking()) return;
+	//if (!e->obj->IsBlocking()) return;
 	if (dynamic_cast<CKoopa*>(e->obj)) return;
 
 	if (e->ny != 0)
@@ -85,6 +87,14 @@ void CKoopa::Render()
 	if (state == KOOPA_STATE_DIE) {
 		aniId = ID_ANI_KOOPA_DIE;
 	}
+	else if (state == KOOPA_STATE_DIE_RUNL)
+	{
+		aniId = ID_ANI_KOOPA_DIE_RUN_L;
+	}
+	else if (state == KOOPA_STATE_DIE_RUNR)
+	{
+		aniId = ID_ANI_KOOPA_DIE_RUN_R;
+	}
 	else {
 		aniId = (vx > 0) ? ID_ANI_KOOPA_WALKING_R : ID_ANI_KOOPA_WALKING_L;
 	}
@@ -93,6 +103,11 @@ void CKoopa::Render()
 	//RenderBoundingBox();
 }
 
+void CKoopa::SetBound(float a, float b)
+{
+	this->leftBound = a; 
+	this->rightBound = b;
+}
 void CKoopa::SetState(int state)
 {
 	CGameObject::SetState(state);
@@ -107,6 +122,17 @@ void CKoopa::SetState(int state)
 		break;
 	case KOOPA_STATE_WALKING:
 		vx = -KOOPA_WALKING_SPEED;
+		ay = KOOPA_GRAVITY;
+		break;
+	case KOOPA_STATE_DIE_RUNL:
+		vx = -KOOPA_WALKING_DIE_SPEED * 10;
+		ay = KOOPA_GRAVITY * 2;
+		//y += (TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2;
+		break;
+	case KOOPA_STATE_DIE_RUNR:
+		vx = KOOPA_WALKING_DIE_SPEED * 10;
+		ay = KOOPA_GRAVITY * 2;
+		//y += (TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2;
 		break;
 	}
 }
