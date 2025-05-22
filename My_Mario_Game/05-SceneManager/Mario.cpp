@@ -116,7 +116,6 @@ void CMario::OnCollisionWithRedGoomba(LPCOLLISIONEVENT e)
 {
 	CRedGoomba* redGoomba = dynamic_cast<CRedGoomba*>(e->obj);
 
-	// jump on top >> kill Goomba and deflect a bit 
 	if (e->ny < 0)
 	{
 		if (redGoomba->GetState() == REDGOOMBA_STATE_JUMP_WALKING || redGoomba->GetState() == REDGOOMBA_STATE_JUMPLOW ||
@@ -131,7 +130,7 @@ void CMario::OnCollisionWithRedGoomba(LPCOLLISIONEVENT e)
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
 	}
-	else // hit by Goomba
+	else 
 	{
 		if (untouchable == 0)
 		{
@@ -216,27 +215,25 @@ void CMario::OnCollisionWithCoin(LPCOLLISIONEVENT e)
 void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 {
 	CParaTroopa* paraTroopa = dynamic_cast<CParaTroopa*>(e->obj);
-	DebugOut(L"[INFO] Mario va cham Koopa, ny = %d\n", e->ny);
 	
 	if (e->ny < 0)
 	{
-		if (paraTroopa->GetState() == PARATROOPA_STATE_WALKING_FLY)
-		{
-			paraTroopa->SetState(PARATROOPA_STATE_WALKING);
-			vy = -MARIO_JUMP_DEFLECT_SPEED;
-		}
-		else if(paraTroopa->GetState() == PARATROOPA_STATE_WALKING)
-		{
-			paraTroopa->SetState(PARATROOPA_STATE_DIE);
-			vy = -MARIO_JUMP_DEFLECT_SPEED;
-		}
+			if (paraTroopa->GetState() == PARATROOPA_STATE_WALKING_FLY)
+			{
+				paraTroopa->SetState(PARATROOPA_STATE_WALKING);
+				vy = -MARIO_JUMP_DEFLECT_SPEED;
+			}
+			else if (paraTroopa->GetState() == PARATROOPA_STATE_WALKING)
+			{
+				paraTroopa->SetState(PARATROOPA_STATE_DIE);
+				vy = -MARIO_JUMP_DEFLECT_SPEED;
+			}
 	}
-	else 
+	else
 	{
 		if (untouchable == 0)
 		{
-			if (paraTroopa->GetState() != PARATROOPA_STATE_DIE)
-			{
+			if (paraTroopa->GetState() != PARATROOPA_STATE_DIE){
 				if (level > MARIO_LEVEL_SMALL)
 				{
 					level = MARIO_LEVEL_SMALL;

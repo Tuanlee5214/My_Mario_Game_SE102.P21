@@ -241,7 +241,14 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_TROOPA_WALKING_LEFT2, 49, 117, 66, 144, texEnemies1);
 	sprites->Add(ID_SPRITE_TROOPA_WALKING_RIGHT1, 601, 117, 617, 144, texEnemies1);
 	sprites->Add(ID_SPRITE_TROOPA_WALKING_RIGHT2, 581, 117, 598, 144, texEnemies1);
-	sprites->Add(ID_SPRITE_TROOPA_DIE, 31, 147, 48, 163, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_DIE3L, 31, 147, 48, 163, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_DIE2L, 52, 146, 69, 163, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_DIE1L, 73, 146, 90, 163, texEnemies1);
+
+	sprites->Add(ID_SPRITE_TROOPA_DIE3R, 31, 147, 48, 163, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_DIE2R, 579, 146, 595, 163, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_DIE1R, 73, 146, 90, 163, texEnemies1);
+
 
 	//Sprite ParaTroopa
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_LEFT1, 146, 128, 164, 155, texEnemies1);
@@ -284,8 +291,20 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_TROOPA_WALKING_RIGHT2);
 	animations->Add(ID_ANI_TROOPA_WALKING_R, ani);
 
+	ani = new CAnimation(80);
+	ani->Add(ID_SPRITE_TROOPA_DIE1L);
+	ani->Add(ID_SPRITE_TROOPA_DIE2L);
+	ani->Add(ID_SPRITE_TROOPA_DIE3L);
+	animations->Add(ID_ANI_TROOPA_DIE_RUN_L, ani);
+
+	ani = new CAnimation(80);
+	ani->Add(ID_SPRITE_TROOPA_DIE1R);
+	ani->Add(ID_SPRITE_TROOPA_DIE2R);
+	ani->Add(ID_SPRITE_TROOPA_DIE3R);
+	animations->Add(ID_ANI_TROOPA_DIE_RUN_R, ani);
+
 	ani = new CAnimation(150);
-	ani->Add(ID_SPRITE_TROOPA_DIE);
+	ani->Add(ID_SPRITE_TROOPA_DIE3R);
 	animations->Add(ID_ANI_TROOPA_DIE, ani);
 
 	//ParaTroopa ani

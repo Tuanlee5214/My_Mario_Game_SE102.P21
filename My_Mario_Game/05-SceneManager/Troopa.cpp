@@ -66,13 +66,8 @@ void CTroopa::OnNoCollision(DWORD dt)
 
 void CTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-	if (dynamic_cast<CMario*>(e->obj) && e->ny < 0)
-	{
-		SetState(TROOPA_STATE_DIE);
-		return;
-	}
 	//if (!e->obj->IsBlocking()) return;
-	if (dynamic_cast<CTroopa*>(e->obj)) return;
+	if (dynamic_cast<CTroopa*>(e->obj)) vx = -vx;
 
 	if (e->ny != 0)
 	{
@@ -121,9 +116,13 @@ void CTroopa::Render()
 	if (state == TROOPA_STATE_DIE) {
 		aniId = ID_ANI_TROOPA_DIE;
 	}
-	else if (state == TROOPA_STATE_DIE_RUNL || state == TROOPA_STATE_DIE_RUNR)
+	else if (state == TROOPA_STATE_DIE_RUNL)
 	{
-		aniId = ID_ANI_TROOPA_DIE;
+		aniId = ID_ANI_TROOPA_DIE_RUN_L;
+	}
+	else if (state == TROOPA_STATE_DIE_RUNR)
+	{
+		aniId = ID_ANI_TROOPA_DIE_RUN_R;
 	}
 	else {
 		aniId = (vx > 0) ? ID_ANI_TROOPA_WALKING_R : ID_ANI_TROOPA_WALKING_L;
@@ -131,6 +130,16 @@ void CTroopa::Render()
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
 	//RenderBoundingBox();
+}
+
+void CTroopa::SetY(float y)
+{
+	this->y = (this->y - y);
+}
+
+void CTroopa::Set_ay(float ay)
+{
+	this->ay = ay;
 }
 
 void CTroopa::SetState(int state)
@@ -147,14 +156,15 @@ void CTroopa::SetState(int state)
 		break;
 	case TROOPA_STATE_WALKING:
 		vx = -TROOPA_WALKING_SPEED;
+		ay = TROOPA_GRAVITY;
 		break;	
 	case TROOPA_STATE_DIE_RUNL:
-		vx = -TROOPA_WALKING_SPEED * 10;
+		vx = -TROOPA_WALKING_DIE_SPEED * 10;
 		ay = TROOPA_GRAVITY * 2;
 		//y += (TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2;
 		break;
 	case TROOPA_STATE_DIE_RUNR:
-		vx = TROOPA_WALKING_SPEED * 10;
+		vx = TROOPA_WALKING_DIE_SPEED * 10;
 		ay = TROOPA_GRAVITY * 2;
 		//y += (TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2;
 		break;

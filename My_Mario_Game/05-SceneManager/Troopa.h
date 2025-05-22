@@ -2,7 +2,8 @@
 #include "GameObject.h"
 
 #define TROOPA_GRAVITY 0.002f
-#define TROOPA_WALKING_SPEED 0.03f
+#define TROOPA_WALKING_SPEED 0.045f
+#define TROOPA_WALKING_DIE_SPEED 0.03f
 
 #define TROOPA_BBOX_WIDTH 16
 #define TROOPA_BBOX_HEIGHT 27
@@ -17,6 +18,8 @@
 
 #define ID_ANI_TROOPA_WALKING_R 6011
 #define ID_ANI_TROOPA_WALKING_L 6012
+#define ID_ANI_TROOPA_DIE_RUN_R 6014
+#define ID_ANI_TROOPA_DIE_RUN_L 6015
 #define ID_ANI_TROOPA_DIE 6013
 
 class CTroopa : public CGameObject {
@@ -39,8 +42,12 @@ protected:
 
 	virtual void OnNoCollision(DWORD dt);
 
+
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 public:
 	CTroopa(float x, float y, float leftBound, float rightBound);
 	virtual void SetState(int state);
+	virtual void SetY(float y);
+	virtual void Set_ay(float ay);
+
 };

@@ -68,12 +68,17 @@ void CParaTroopa::OnNoCollision(DWORD dt)
 
 void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-	if (dynamic_cast<CMario*>(e->obj) && e->ny < 0)
-	{
-		SetState(PARATROOPA_STATE_DIE);
-		return;
-	}
 	if (dynamic_cast<CParaTroopa*>(e->obj) && e->nx != 0) vx = -vx ;
+	CTroopa* troopa = dynamic_cast<CTroopa*>(e->obj);
+	if (troopa && (e->ny != 0 || e->nx != 0))
+	{
+		if (troopa->GetState() == TROOPA_STATE_DIE)
+		{
+			troopa->SetState(TROOPA_STATE_WALKING);
+			//troopa->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2);
+			vx = -vx;
+		}
+	}
 
 	if (e->ny != 0)
 	{
@@ -130,9 +135,13 @@ void CParaTroopa::Render()
 	if (state == PARATROOPA_STATE_DIE) {
 		aniId = ID_ANI_TROOPA_DIE;
 	}
-	else if (state == PARATROOPA_STATE_DIE_RUNL || state == PARATROOPA_STATE_DIE_RUNR)
+	else if (state == PARATROOPA_STATE_DIE_RUNL)
 	{
-		aniId = ID_ANI_TROOPA_DIE;
+		aniId = ID_ANI_TROOPA_DIE_RUN_L;
+	}
+	else if (state == PARATROOPA_STATE_DIE_RUNR)
+	{
+		aniId = ID_ANI_TROOPA_DIE_RUN_R;
 	}
 	else if(state == PARATROOPA_STATE_WALKING)
 	{
