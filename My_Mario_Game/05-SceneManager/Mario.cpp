@@ -185,7 +185,7 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 			{
 				if (e->nx < 0)
 				{
-					koopa->SetBound(450.0f, 700.0f);
+					koopa->SetBound(400.0f, 700.0f);
 					koopa->SetState(KOOPA_STATE_DIE_RUNR);
 				}
 				else if (e->nx > 0)

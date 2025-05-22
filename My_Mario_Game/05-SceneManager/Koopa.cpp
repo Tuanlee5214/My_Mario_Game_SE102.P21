@@ -2,6 +2,7 @@
 #include "Koopa.h"
 #include "GameObject.h"
 #include "Mario.h"
+#include "Goomba.h"
 
 CKoopa::CKoopa(float x, float y, float leftBound, float rightBound) :CGameObject(x, y)
 {
@@ -44,7 +45,11 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
 	//if (!e->obj->IsBlocking()) return;
 	if (dynamic_cast<CKoopa*>(e->obj)) return;
-
+	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
+	if (goomba && e->nx != 0)
+	{
+		goomba->SetState(GOOMBA_STATE_DIE);
+	}
 	if (e->ny != 0)
 	{
 		vy = 0;
