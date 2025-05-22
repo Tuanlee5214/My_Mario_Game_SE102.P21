@@ -74,8 +74,8 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	{
 		if (troopa->GetState() == TROOPA_STATE_DIE)
 		{
+			troopa->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE + 2) / 2);
 			troopa->SetState(TROOPA_STATE_WALKING);
-			//troopa->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2);
 			vx = -vx;
 		}
 	}

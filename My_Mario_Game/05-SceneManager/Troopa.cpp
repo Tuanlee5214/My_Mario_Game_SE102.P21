@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Mario.h"
 #include "Game.h"
+#include "ParaTroopa.h"
 #include "Textures.h"
 
 CTroopa::CTroopa(float x, float y, float leftBound, float rightBound) :CGameObject(x, y)
@@ -68,6 +69,7 @@ void CTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
 	//if (!e->obj->IsBlocking()) return;
 	if (dynamic_cast<CTroopa*>(e->obj)) vx = -vx;
+	if (dynamic_cast<CParaTroopa*>(e->obj)) vx = -vx;
 
 	if (e->ny != 0)
 	{
