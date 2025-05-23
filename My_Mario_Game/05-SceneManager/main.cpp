@@ -253,6 +253,7 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_TROOPA_DIE3R, 31, 147, 48, 163, texEnemies1);
 	sprites->Add(ID_SPRITE_TROOPA_DIE2R, 579, 146, 595, 163, texEnemies1);
 	sprites->Add(ID_SPRITE_TROOPA_DIE1R, 73, 146, 90, 163, texEnemies1);
+	sprites->Add(ID_SPRITE_TROOPA_FLIP_DIE, 326, 124, 343, 141, texEnemies1);
 
 
 	//Sprite ParaTroopa
@@ -297,10 +298,6 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_KOOPA_DIE3R);
 	animations->Add(ID_ANI_KOOPA_DIE, ani);
 
-	//Goomba ani
-	//ani = new CAnimation(200);
-	//ani->Add(ID_SPRITE_GOOMBA);
-	//animations->Add(ID_ANI_GOOMBA_IDLE, ani);
 
 	//Troopa ani
 	ani = new CAnimation(150);
@@ -328,6 +325,10 @@ void LoadResourceForGame() {
 	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_TROOPA_DIE3R);
 	animations->Add(ID_ANI_TROOPA_DIE, ani);
+
+	ani = new CAnimation(200);
+	ani->Add(ID_SPRITE_TROOPA_FLIP_DIE);
+	animations->Add(ID_ANI_TROOPA_OUT_GAME, ani);
 
 	//ParaTroopa ani
 	ani = new CAnimation(135);

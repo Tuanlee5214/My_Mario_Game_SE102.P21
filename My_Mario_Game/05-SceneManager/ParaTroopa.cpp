@@ -27,6 +27,10 @@ void CParaTroopa::GetBoundingBox(float& left, float& top, float& right, float& b
 		right = left + PARATROOPA_BBOX_WIDTH;
 		bottom = top + PARATROOPA_BBOX_HEIGHT_DIE;
 	}
+	else if (state == PARATROOPA_STATE_OUT_GAME)
+	{
+		left = top = right = bottom = 0;
+	}
 	else
 	{
 		left = x - PARATROOPA_BBOX_WIDTH / 2;
@@ -68,9 +72,18 @@ void CParaTroopa::OnNoCollision(DWORD dt)
 
 void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-	if (dynamic_cast<CParaTroopa*>(e->obj) && e->nx != 0) vx = -vx ;
+	if (dynamic_cast<CParaTroopa*>(e->obj) && e->nx != 0) vx = -vx;
 	CTroopa* troopa = dynamic_cast<CTroopa*>(e->obj);
-	if (troopa && (e->ny != 0 || e->nx != 0))
+
+	if ((troopa && e->nx != 0 && state == PARATROOPA_STATE_DIE_RUNL) ||
+		(troopa && e->nx != 0 && state == PARATROOPA_STATE_DIE_RUNR))
+	{
+		troopa->SetState(TROOPA_STATE_OUT_GAME);
+		return;
+	}
+
+	if ((troopa && (e->ny != 0 || e->nx != 0) && state == PARATROOPA_STATE_WALKING_FLY) ||
+		(troopa && (e->ny != 0 || e->nx != 0) && state == PARATROOPA_STATE_WALKING))
 	{
 		if (troopa->GetState() == TROOPA_STATE_DIE)
 		{
@@ -78,8 +91,13 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 			troopa->SetState(TROOPA_STATE_WALKING);
 			troopa->SetSpeed(TROOPA_WALKING_SPEED, TROOPA_GRAVITY);
 			vx = -vx;
+			return;
 		}
 	}
+	 
+	if (dynamic_cast<CTroopa*>(e->obj) && (e->nx != 0 || e->ny != 0)) vx = -vx;
+
+
 
 	if (e->ny != 0)
 	{
@@ -144,10 +162,11 @@ void CParaTroopa::Render()
 	{
 		aniId = ID_ANI_TROOPA_DIE_RUN_R;
 	}
-	else if(state == PARATROOPA_STATE_WALKING)
+	else if (state == PARATROOPA_STATE_WALKING)
 	{
 		aniId = (vx > 0) ? ID_ANI_TROOPA_WALKING_R : ID_ANI_TROOPA_WALKING_L;
 	}
+	else if (state == PARATROOPA_STATE_OUT_GAME) aniId = ID_ANI_TROOPA_OUT_GAME;
 	else
 	{
 		aniId = (vx > 0) ? ID_ANI_PARATROOPA_WALKING_FLY_R : ID_ANI_PARATROOPA_WALKING_FLY_L;
@@ -183,6 +202,11 @@ void CParaTroopa::SetState(int state)
 	case PARATROOPA_STATE_WALKING_FLY:
 		vx = -PARATROOPA_WALKING_SPEED;
 		vy = -PARATROOPA_JUMP_SPEED;
+		break;
+	case PARATROOPA_STATE_OUT_GAME:
+		vx = 0;
+		ax = 0;
+		vy = -MARIO_JUMP_DEFLECT_SPEED / 2.5f;
 		break;
 	}
 }

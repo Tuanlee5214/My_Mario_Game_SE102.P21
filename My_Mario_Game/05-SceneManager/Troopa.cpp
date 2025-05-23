@@ -27,6 +27,10 @@ void CTroopa::GetBoundingBox(float& left, float& top, float& right, float& botto
 		right = left + TROOPA_BBOX_WIDTH;
 		bottom = top + TROOPA_BBOX_HEIGHT_DIE;
 	}
+	else if (state == TROOPA_STATE_OUT_GAME)
+	{
+		left = top = right = bottom = 0;
+	}
 	else
 	{
 		left = x - TROOPA_BBOX_WIDTH / 2;
@@ -69,7 +73,16 @@ void CTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
 	//if (!e->obj->IsBlocking()) return;
 	if (dynamic_cast<CTroopa*>(e->obj)) vx = -vx;
-	if (dynamic_cast<CParaTroopa*>(e->obj)) vx = -vx;
+
+	CParaTroopa* paraTroopa = dynamic_cast<CParaTroopa*>(e->obj);
+	if ((paraTroopa && e->nx != 0 && state == TROOPA_STATE_DIE_RUNL) ||
+		(paraTroopa && e->nx != 0 && state == TROOPA_STATE_DIE_RUNR))
+	{
+		paraTroopa->SetState(PARATROOPA_STATE_OUT_GAME);
+		return;
+	}
+
+	if (dynamic_cast<CParaTroopa*>(e->obj) && (e->nx != 0 || e->ny != 0)) vx = -vx;
 
 	if (e->ny != 0)
 	{
@@ -126,6 +139,7 @@ void CTroopa::Render()
 	{
 		aniId = ID_ANI_TROOPA_DIE_RUN_R;
 	}
+	else if (state == TROOPA_STATE_OUT_GAME) aniId = ID_ANI_TROOPA_OUT_GAME;
 	else {
 		aniId = (vx > 0) ? ID_ANI_TROOPA_WALKING_R : ID_ANI_TROOPA_WALKING_L;
 	}
@@ -169,6 +183,11 @@ void CTroopa::SetState(int state)
 		vx = TROOPA_WALKING_DIE_SPEED * 10;
 		ay = TROOPA_GRAVITY * 2;
 		//y += (TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2;
+		break;
+	case TROOPA_STATE_OUT_GAME:
+		vx = 0;
+		ax = 0;
+		vy = -MARIO_JUMP_DEFLECT_SPEED / 2.5f;
 		break;
 	}
 }
