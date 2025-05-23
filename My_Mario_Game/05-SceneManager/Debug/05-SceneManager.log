@@ -1,2 +1,6 @@
-﻿  Goomba.cpp
+﻿  Spawner.cpp
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.h(32,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+  (compiling source file 'Spawner.cpp')
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.cpp(29,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
   05-SceneManager.vcxproj -> D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\Debug\05-SceneManager.exe

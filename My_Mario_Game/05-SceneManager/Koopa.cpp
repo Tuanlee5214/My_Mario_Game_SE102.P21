@@ -53,7 +53,8 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	//if (e->obj->IsBlocking()) return;
 	if (dynamic_cast<CKoopa*>(e->obj)) return;
 	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
-	if (goomba && e->nx != 0)
+	if (goomba && (e->nx != 0 || e->ny != 0) && state == KOOPA_STATE_DIE_RUNL ||
+		goomba && (e->nx != 0 || e->ny != 0) && state == KOOPA_STATE_DIE_RUNR)
 	{
 		goomba->SetState(GOOMBA_STATE_OUT_GAME);
 		return;

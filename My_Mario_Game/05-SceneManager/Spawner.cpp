@@ -59,7 +59,7 @@ void CSpawner::Spawn(CPlayScene* playScene)
 
 void CSpawner::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	left = top = right = bottom = 0;
+	//left = top = right = bottom = 0;
 }
 
 void CSpawner::Render()
