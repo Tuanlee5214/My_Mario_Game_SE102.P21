@@ -5,12 +5,14 @@
 #define KOOPA_WALKING_SPEED 0.045f
 #define KOOPA_WALKING_DIE_SPEED 0.03f
 
+#define KOOPA_DISTANCE_DELETE 280
+
 
 #define KOOPA_BBOX_WIDTH 16
 #define KOOPA_BBOX_HEIGHT 23
 #define KOOPA_BBOX_HEIGHT_DIE 16
 
-#define KOOPA_DIE_TIMEOUT 10000
+#define KOOPA_DIE_TIMEOUT 7000
 
 #define KOOPA_STATE_WALKING 100
 #define KOOPA_STATE_DIE 200
@@ -47,4 +49,5 @@ public:
 	CKoopa(float x, float y, float leftBound, float rightBound);
 	virtual void SetBound(float leftBound, float rightBound);
 	virtual void SetState(int state);
+	virtual void Set_Y(float y);
 };

@@ -3,6 +3,8 @@
 #include "GameObject.h"
 #include "Mario.h"
 #include "Goomba.h"
+#include "PlayScene.h"
+#include "Bullet.h"
 
 CKoopa::CKoopa(float x, float y, float leftBound, float rightBound) :CGameObject(x, y)
 {
@@ -41,20 +43,36 @@ void CKoopa::OnNoCollision(DWORD dt)
 	y += vy * dt;
 };
 
+void CKoopa::Set_Y(float y)
+{
+	this->y = this->y - y;
+}
+
 void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-	//if (!e->obj->IsBlocking()) return;
+	//if (e->obj->IsBlocking()) return;
 	if (dynamic_cast<CKoopa*>(e->obj)) return;
 	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
 	if (goomba && e->nx != 0)
 	{
 		goomba->SetState(GOOMBA_STATE_DIE);
+		return;
 	}
+	CMario* mario = dynamic_cast<CMario*>(e->obj);
+	if ((mario && e->nx != 0 && state == KOOPA_STATE_DIE_RUNL) ||
+		(mario && e->nx != 0 && state == KOOPA_STATE_DIE_RUNR))
+	{
+		return;
+	}
+	CBullet* bullet = dynamic_cast<CBullet*>(e->obj);
+	if ((bullet && e->nx != 0 && state == KOOPA_STATE_DIE_RUNL) ||
+		(bullet && e->nx != 0 && state == KOOPA_STATE_DIE_RUNR))
+		return;
 	if (e->ny != 0)
 	{
 		vy = 0;
 	}
-	else if (e->nx != 0)
+	else if (e->nx != 0 && (state != KOOPA_STATE_DIE_RUNL))
 	{
 		vx = -vx;
 	}
@@ -64,8 +82,21 @@ void CKoopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	vy += ay * dt;
 	vx += ax * dt;
+	CPlayScene* playScene = dynamic_cast<CPlayScene*>(CGame::GetInstance()->GetCurrentScene());
+	if (!playScene) return;
 
+	CMario* mario = dynamic_cast<CMario*>(playScene->GetPlayer());
+	if (!mario) return;
+
+	float marioX, marioY;
+	mario->GetPosition(marioX, marioY);
 	if ((state == KOOPA_STATE_DIE) && (GetTickCount64() - die_start > KOOPA_DIE_TIMEOUT))
+	{
+		isDeleted = true;
+		return;
+	}
+	if ((state == KOOPA_STATE_DIE_RUNL || state == KOOPA_STATE_DIE_RUNR) &&
+		abs(this->x - marioX) > KOOPA_DISTANCE_DELETE)
 	{
 		isDeleted = true;
 		return;

@@ -158,8 +158,15 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 	// jump on top >> kill Koopa and deflect a bit 
 	if (e->ny < 0)
 	{
-		if (koopa->GetState() != KOOPA_STATE_DIE)
+		if (koopa->GetState() == KOOPA_STATE_WALKING)
 		{
+			koopa->SetState(KOOPA_STATE_DIE);
+			vy = -MARIO_JUMP_DEFLECT_SPEED;
+		}
+		else if (koopa->GetState() == KOOPA_STATE_DIE_RUNL ||
+				koopa->GetState() == KOOPA_STATE_DIE_RUNR)
+		{
+			koopa->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
 			koopa->SetState(KOOPA_STATE_DIE);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
@@ -185,11 +192,12 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 			{
 				if (e->nx < 0)
 				{
-					koopa->SetBound(400.0f, 700.0f);
+					koopa->SetBound(300.0f, 700.0f);
 					koopa->SetState(KOOPA_STATE_DIE_RUNR);
 				}
 				else if (e->nx > 0)
 				{
+					koopa->SetBound(300.0f, 700.0f);
 					koopa->SetState(KOOPA_STATE_DIE_RUNL);
 				}
 			}
