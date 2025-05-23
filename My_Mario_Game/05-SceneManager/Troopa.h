@@ -2,7 +2,7 @@
 #include "GameObject.h"
 
 #define TROOPA_GRAVITY 0.002f
-#define TROOPA_WALKING_SPEED 0.045f
+#define TROOPA_WALKING_SPEED 0.03f
 #define TROOPA_WALKING_DIE_SPEED 0.03f
 
 #define TROOPA_BBOX_WIDTH 16

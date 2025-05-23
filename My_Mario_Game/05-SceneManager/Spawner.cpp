@@ -17,13 +17,22 @@ void CSpawner::Update(DWORD dt, vector<LPGAMEOBJECT>* coObject)
 	float marioX, marioY;
 	mario->GetPosition(marioX, marioY);
 
-	bool isDistanceSpawn = abs(this->x - marioX) >= spawnRange;
+	bool isDistanceSpawn1 = abs(this->x - marioX) >= spawnRange;
+	bool isDistanceSpawn2 = abs(this->x - marioX) <= 250.0f && abs(this->x - marioX) >= 225.0f;
 
 	bool isTimePassed = (GetTickCount64() - lastSpawnTime) > spawnInterval;
 
 	bool isEnemyDead = (currentEnemy == nullptr || currentEnemy->IsDeleted());
 
-	if (isDistanceSpawn && isTimePassed && isEnemyDead)
+	if (isDistanceSpawn1 && isTimePassed && isEnemyDead && typeObjectToSpawn != OBJECT_TYPE_TROOPA ||
+		isDistanceSpawn1 && isTimePassed && isEnemyDead && typeObjectToSpawn != OBJECT_TYPE_PARATROOPA)
+	{
+		Spawn(playScene);
+		lastSpawnTime = GetTickCount64();
+	}
+
+	if (isDistanceSpawn2 && isEnemyDead && typeObjectToSpawn == OBJECT_TYPE_TROOPA ||
+		isDistanceSpawn2 && isEnemyDead && typeObjectToSpawn == OBJECT_TYPE_PARATROOPA)
 	{
 		Spawn(playScene);
 		lastSpawnTime = GetTickCount64();

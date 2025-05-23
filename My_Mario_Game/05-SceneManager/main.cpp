@@ -461,13 +461,23 @@ void LoadResourceForGame() {
 
 	CPlayScene* playScene = dynamic_cast<CPlayScene*>(CGame::GetInstance()->GetCurrentScene());
 	CSpawner* spawn1 = new CSpawner(602, 143, 1000, OBJECT_TYPE_KOOPA, 510, 600);
-	CSpawner* spawn2 = new CSpawner(300, 175, 1000, OBJECT_TYPE_GOOMBA, -30, 350);
+	CSpawner* spawn2 = new CSpawner(300, 165, 1000, OBJECT_TYPE_GOOMBA, -30, 350);
+	CSpawner* spawn3 = new CSpawner(1520, 120, 5000, OBJECT_TYPE_TROOPA, 900, 1700);
+	CSpawner* spawn4 = new CSpawner(1390, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+	CSpawner* spawn5 = new CSpawner(1440, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+	CSpawner* spawn6 = new CSpawner(1490, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+
+
 
 
 	if (playScene)
 	{
 		playScene->AddObject(spawn1);
 		playScene->AddObject(spawn2);
+		playScene->AddObject(spawn3);
+		playScene->AddObject(spawn4);
+		playScene->AddObject(spawn5);
+		playScene->AddObject(spawn6);
 
 	}
 	
