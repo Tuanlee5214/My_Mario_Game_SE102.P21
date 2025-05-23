@@ -1,5 +1,6 @@
 ﻿#include "Goomba.h"
 #include "GameObject.h"
+#include "RedGoomba.h"
 
 CGoomba::CGoomba(float x, float y, float leftBound, float rightBound): CGameObject(x, y)
 {
@@ -43,9 +44,13 @@ void CGoomba::OnNoCollision(DWORD dt)
 
 void CGoomba::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-	if (!e->obj->IsBlocking()) return; 
-	if (dynamic_cast<CGoomba*>(e->obj))
-		return;
+	//if (!e->obj->IsBlocking()) return; 
+
+	CRedGoomba* redGoomba = dynamic_cast<CRedGoomba*>(e->obj);
+	if (redGoomba && (e->nx != 0)) return;
+
+	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
+	if (goomba && (e->nx != 0)) vx = -vx;
 
 	if (e->ny != 0 )
 	{

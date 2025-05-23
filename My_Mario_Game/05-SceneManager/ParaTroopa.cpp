@@ -75,8 +75,8 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	if (dynamic_cast<CParaTroopa*>(e->obj) && e->nx != 0) vx = -vx;
 	CTroopa* troopa = dynamic_cast<CTroopa*>(e->obj);
 
-	if ((troopa && e->nx != 0 && state == PARATROOPA_STATE_DIE_RUNL) ||
-		(troopa && e->nx != 0 && state == PARATROOPA_STATE_DIE_RUNR))
+	if ((troopa && (e->nx != 0 || e->ny != 0) && state == PARATROOPA_STATE_DIE_RUNL) ||
+		(troopa && (e->nx != 0 || e->ny != 0) && state == PARATROOPA_STATE_DIE_RUNR))
 	{
 		troopa->SetState(TROOPA_STATE_OUT_GAME);
 		return;
@@ -97,8 +97,8 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	}
 
 	CParaTroopa* paraTroopa = dynamic_cast<CParaTroopa*>(e->obj);
-	if ((paraTroopa && e->nx != 0 && state == PARATROOPA_STATE_DIE_RUNL) ||
-		(paraTroopa && e->nx != 0 && state == PARATROOPA_STATE_DIE_RUNR))
+	if ((paraTroopa && (e->nx != 0 || e->ny != 0) && state == PARATROOPA_STATE_DIE_RUNL) ||
+		(paraTroopa && (e->nx != 0 || e->ny != 0) && state == PARATROOPA_STATE_DIE_RUNR))
 	{
 		paraTroopa->SetState(PARATROOPA_STATE_OUT_GAME);
 		return;
@@ -121,12 +121,12 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 
 void CParaTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
-	if(state == PARATROOPA_STATE_WALKING_FLY && isOnPlatform)
+	if (state == PARATROOPA_STATE_WALKING_FLY && isOnPlatform)
 	{
 		vy = -PARATROOPA_JUMP_SPEED; // nhảy lên lại
 		isOnPlatform = false; // reset lại trạng thái
 	}
-	else 
+	else
 	{
 		vy += ay * dt;
 	}
@@ -137,10 +137,12 @@ void CParaTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		isDeleted = true;
 		return;
 	}
-	if ((state == PARATROOPA_STATE_DIE_RUNL || state == PARATROOPA_STATE_DIE_RUNR) && (GetTickCount64() - die_start > PARATROOPA_DIE_TIMEOUT))
+
+	float y = GetY();
+	if (y > 200)
 	{
-		//isDeleted = true;
-		//return;
+		isDeleted = true;
+		return;
 	}
 
 	if (x < leftBound) {
@@ -156,6 +158,10 @@ void CParaTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	CCollision::GetInstance()->Process(this, dt, coObjects);
 }
 
+float CParaTroopa::GetY()
+{
+	return this->y;
+}
 void CParaTroopa::Render()
 {
 	int aniId;

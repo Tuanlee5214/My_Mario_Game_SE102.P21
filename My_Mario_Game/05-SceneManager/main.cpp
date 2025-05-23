@@ -49,6 +49,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Troopa.h"
 #include "ParaTroopa.h"
 #include "SampleKeyEventHandler.h"
+#include "Spawner.h"
 
 #include "AssetIDs.h"
 
@@ -123,6 +124,8 @@ void Render()
 	spriteHandler->End();
 	pSwapChain->Present(0, 0);
 }
+
+
 void LoadResourceForGame() {
 	CTextures* textures = CTextures::GetInstance();
 	textures->Add(ID_TEX_MAP, TEXTURE_PATH_MAP);
@@ -134,6 +137,8 @@ void LoadResourceForGame() {
 	LPTEXTURE texEnemies1 = textures->Get(ID_TEX_ENEMIES1);
 
 	CSprites* sprites = CSprites::GetInstance();
+
+#pragma region SPRITE
 	//Sprite Ground
 	sprites->Add(ID_SPRITE_GROUND2, 1151, 417, 1503, 432, texMainMap);
 	sprites->Add(ID_SPRITE_GROUND3, 1535, 417, 1615, 432, texMainMap);
@@ -264,13 +269,12 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT2, 505, 128, 521, 155, texEnemies1);
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT3, 527, 128, 543, 155, texEnemies1);
 
-
-
-	
+#pragma endregion
 
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
-	
+
+#pragma region ANIMATION
 	//Koopa ani
 	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_KOOPA_WALKING_LEFT1);
@@ -282,13 +286,13 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_KOOPA_WALKING_RIGHT2);
 	animations->Add(ID_ANI_KOOPA_WALKING_R, ani);
 
-	ani = new CAnimation(150);
+	ani = new CAnimation(80);
 	ani->Add(ID_SPRITE_KOOPA_DIE1L);
 	ani->Add(ID_SPRITE_KOOPA_DIE2L);
 	ani->Add(ID_SPRITE_KOOPA_DIE3L);
 	animations->Add(ID_ANI_KOOPA_DIE_RUN_L, ani);
 
-	ani = new CAnimation(150);
+	ani = new CAnimation(80);
 	ani->Add(ID_SPRITE_KOOPA_DIE1R);
 	ani->Add(ID_SPRITE_KOOPA_DIE2R);
 	ani->Add(ID_SPRITE_KOOPA_DIE3R);
@@ -453,8 +457,20 @@ void LoadResourceForGame() {
 	ani = new CAnimation(200);
 	ani->Add(ID_SPRITE_PARINHA_CLOSE);
 	animations->Add(ID_ANI_PARINHA_IDLE, ani);
+#pragma endregion
+
+	CPlayScene* playScene = dynamic_cast<CPlayScene*>(CGame::GetInstance()->GetCurrentScene());
+	CSpawner* spawn1 = new CSpawner(602, 143, 1000, OBJECT_TYPE_KOOPA, 510, 600);
+	CSpawner* spawn2 = new CSpawner(300, 175, 1000, OBJECT_TYPE_GOOMBA, -30, 350);
 
 
+	if (playScene)
+	{
+		playScene->AddObject(spawn1);
+		playScene->AddObject(spawn2);
+
+	}
+	
 
 
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
@@ -576,7 +592,7 @@ int WINAPI WinMain(
 	LoadResourceForGame();
 
 	SetWindowPos(hWnd, 0, 0, 0, SCREEN_WIDTH*2, SCREEN_HEIGHT*2, SWP_NOMOVE | SWP_NOOWNERZORDER | SWP_NOZORDER);
-	
+
 	Run();
 
 	return 0;

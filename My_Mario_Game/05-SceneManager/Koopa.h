@@ -2,7 +2,7 @@
 #include "GameObject.h"
 
 #define KOOPA_GRAVITY 0.002f
-#define KOOPA_WALKING_SPEED 0.045f
+#define KOOPA_WALKING_SPEED 0.035f
 #define KOOPA_WALKING_DIE_SPEED 0.03f
 
 #define KOOPA_DISTANCE_DELETE 280

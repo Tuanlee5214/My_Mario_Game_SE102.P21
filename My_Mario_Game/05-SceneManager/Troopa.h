@@ -51,5 +51,5 @@ public:
 	virtual void SetState(int state);
 	virtual void SetY(float y);
 	virtual void Set_ay(float ay);
-
+	virtual float GetY();
 };

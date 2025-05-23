@@ -46,4 +46,5 @@ protected:
 public:
 	CParaTroopa(float x, float y, float leftBound, float rightBound);
 	virtual void SetState(int state);
+	virtual float GetY();
 };

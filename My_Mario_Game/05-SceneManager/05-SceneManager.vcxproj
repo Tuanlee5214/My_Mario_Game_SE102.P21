@@ -173,6 +173,7 @@
     <ClCompile Include="RedGoomba.cpp" />
     <ClCompile Include="RedPlant.cpp" />
     <ClCompile Include="SampleKeyEventHandler.cpp" />
+    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="Textures.cpp" />
@@ -209,8 +210,10 @@
     <ClInclude Include="Portal.h" />
     <ClInclude Include="RedGoomba.h" />
     <ClInclude Include="RedPlant.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SampleKeyEventHandler.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Spawner.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="Texture.h" />
@@ -218,6 +221,9 @@
     <ClInclude Include="Tree.h" />
     <ClInclude Include="Troopa.h" />
     <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="05-SceneManager.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

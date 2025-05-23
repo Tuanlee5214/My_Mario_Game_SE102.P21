@@ -75,8 +75,8 @@ void CTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	if (dynamic_cast<CTroopa*>(e->obj)) vx = -vx;
 
 	CParaTroopa* paraTroopa = dynamic_cast<CParaTroopa*>(e->obj);
-	if ((paraTroopa && e->nx != 0 && state == TROOPA_STATE_DIE_RUNL) ||
-		(paraTroopa && e->nx != 0 && state == TROOPA_STATE_DIE_RUNR))
+	if ((paraTroopa && (e->nx != 0 || e->ny != 0) && state == TROOPA_STATE_DIE_RUNL) ||
+		(paraTroopa && (e->nx != 0 || e->ny != 0) && state == TROOPA_STATE_DIE_RUNR))
 	{
 		paraTroopa->SetState(PARATROOPA_STATE_OUT_GAME);
 		return;
@@ -105,10 +105,11 @@ void CTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		isDeleted = true;
 		return;
 	}
-	if ((state == TROOPA_STATE_DIE_RUNL || state == TROOPA_STATE_DIE_RUNR) && (GetTickCount64() - die_start > TROOPA_DIE_TIMEOUT))
+	float y = GetY();
+	if (y > 200)
 	{
-		//isDeleted = true;
-		//return;
+		isDeleted = true;
+		return;
 	}
 
 	if (x < leftBound) {
@@ -122,6 +123,12 @@ void CTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);
+}
+
+
+float CTroopa::GetY()
+{
+	return this->y;
 }
 
 void CTroopa::Render()
