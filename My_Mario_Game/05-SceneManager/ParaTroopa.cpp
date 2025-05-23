@@ -81,6 +81,7 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 		troopa->SetState(TROOPA_STATE_OUT_GAME);
 		return;
 	}
+	
 
 	if ((troopa && (e->ny != 0 || e->nx != 0) && state == PARATROOPA_STATE_WALKING_FLY) ||
 		(troopa && (e->ny != 0 || e->nx != 0) && state == PARATROOPA_STATE_WALKING))
@@ -94,7 +95,15 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 			return;
 		}
 	}
-	 
+
+	CParaTroopa* paraTroopa = dynamic_cast<CParaTroopa*>(e->obj);
+	if ((paraTroopa && e->nx != 0 && state == PARATROOPA_STATE_DIE_RUNL) ||
+		(paraTroopa && e->nx != 0 && state == PARATROOPA_STATE_DIE_RUNR))
+	{
+		paraTroopa->SetState(PARATROOPA_STATE_OUT_GAME);
+		return;
+	}
+
 	if (dynamic_cast<CTroopa*>(e->obj) && (e->nx != 0 || e->ny != 0)) vx = -vx;
 
 
