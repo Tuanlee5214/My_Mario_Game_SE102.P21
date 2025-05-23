@@ -14,12 +14,17 @@ CGoomba::CGoomba(float x, float y, float leftBound, float rightBound): CGameObje
 
 void CGoomba::GetBoundingBox(float &left, float &top, float &right, float &bottom)
 {
+	
 	if (state == GOOMBA_STATE_DIE)
 	{
 		left = x - GOOMBA_BBOX_WIDTH/2;
 		top = y - GOOMBA_BBOX_HEIGHT_DIE/2;
 		right = left + GOOMBA_BBOX_WIDTH;
 		bottom = top + GOOMBA_BBOX_HEIGHT_DIE;
+	}
+	else if (state == GOOMBA_STATE_OUT_GAME)
+	{
+			left = top = right = bottom = 0;
 	}
 	else
 	{ 
@@ -85,6 +90,10 @@ void CGoomba::Render()
 	{
 		aniId = ID_ANI_GOOMBA_DIE;
 	}
+	else if (state == GOOMBA_STATE_OUT_GAME)
+	{
+		aniId = ID_ANI_GOOMBA_WALKING;
+	}
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x,y);
 	//RenderBoundingBox();
@@ -104,6 +113,11 @@ void CGoomba::SetState(int state)
 			break;
 		case GOOMBA_STATE_WALKING: 
 			vx = -GOOMBA_WALKING_SPEED;
+			break;
+		case GOOMBA_STATE_OUT_GAME:
+			vx = 0;
+			ax = 0;
+			vy = -GOOMBA_JUMP_DEFLECT_SPEED;
 			break;
 	}
 }

@@ -297,6 +297,11 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_KOOPA_DIE3R);
 	animations->Add(ID_ANI_KOOPA_DIE, ani);
 
+	//Goomba ani
+	//ani = new CAnimation(200);
+	//ani->Add(ID_SPRITE_GOOMBA);
+	//animations->Add(ID_ANI_GOOMBA_IDLE, ani);
+
 	//Troopa ani
 	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_TROOPA_WALKING_LEFT1);

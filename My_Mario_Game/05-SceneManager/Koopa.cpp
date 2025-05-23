@@ -55,7 +55,7 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
 	if (goomba && e->nx != 0)
 	{
-		goomba->SetState(GOOMBA_STATE_DIE);
+		goomba->SetState(GOOMBA_STATE_OUT_GAME);
 		return;
 	}
 	CMario* mario = dynamic_cast<CMario*>(e->obj);
@@ -67,14 +67,19 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	CBullet* bullet = dynamic_cast<CBullet*>(e->obj);
 	if ((bullet && e->nx != 0 && state == KOOPA_STATE_DIE_RUNL) ||
 		(bullet && e->nx != 0 && state == KOOPA_STATE_DIE_RUNR))
+	{
 		return;
-	if (e->ny != 0)
-	{
-		vy = 0;
 	}
-	else if (e->nx != 0 && (state != KOOPA_STATE_DIE_RUNL))
+	if (e->obj->IsBlocking())
 	{
-		vx = -vx;
+		if (e->ny != 0)
+		{
+			vy = 0;
+		}
+		else if (e->nx != 0)
+		{
+			vx = -vx;
+		}
 	}
 }
 
