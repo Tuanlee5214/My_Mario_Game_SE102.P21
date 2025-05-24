@@ -79,7 +79,6 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 		(troopa && (e->nx != 0 || e->ny != 0) && state == PARATROOPA_STATE_DIE_RUNR))
 	{
 		troopa->SetState(TROOPA_STATE_OUT_GAME);
-		return;
 	}
 	
 
@@ -101,7 +100,6 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 		(paraTroopa && (e->nx != 0 || e->ny != 0) && state == PARATROOPA_STATE_DIE_RUNR))
 	{
 		paraTroopa->SetState(PARATROOPA_STATE_OUT_GAME);
-		return;
 	}
 
 	if (dynamic_cast<CTroopa*>(e->obj) && (e->nx != 0 || e->ny != 0)) vx = -vx;
