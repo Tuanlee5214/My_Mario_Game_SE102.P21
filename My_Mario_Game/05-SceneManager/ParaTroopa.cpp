@@ -136,6 +136,11 @@ void CParaTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		return;
 	}
 
+	if (state == TROOPA_STATE_DIE && (GetTickCount64() - die_start > PARATROOPA_DIE_TO_WALK_TIMEOUT))
+	{
+		this->SetState(PARATROOPA_STATE_WALKING_FLY);
+	}
+
 	float y = GetY();
 	if (y > 200)
 	{

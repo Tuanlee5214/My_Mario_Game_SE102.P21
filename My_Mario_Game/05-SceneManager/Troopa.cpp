@@ -105,6 +105,12 @@ void CTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		isDeleted = true;
 		return;
 	}
+
+	if (state == TROOPA_STATE_DIE && (GetTickCount64() - die_start > TROOPA_DIE_TO_WALK_TIMEOUT))
+	{
+		this->SetState(TROOPA_STATE_WALKING);
+		this->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE + 2) / 2);
+	}
 	float y = GetY();
 	if (y > 200)
 	{

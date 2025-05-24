@@ -108,6 +108,12 @@ void CKoopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		return;
 	}
 
+	if (state == KOOPA_STATE_DIE && (GetTickCount64() - die_start > KOOPA_DIE_TO_WALK_TIMEOUT))
+	{
+		this->SetState(KOOPA_STATE_WALKING);
+		this->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
+	}
+
 	if (x < leftBound) {
 		x = leftBound;
 		vx = KOOPA_WALKING_SPEED;
