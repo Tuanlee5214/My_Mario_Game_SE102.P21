@@ -6,6 +6,8 @@
 #include "Mario.h"
 #include "PlayScene.h"
 
+#include "Koopa.h"
+
 void CSampleKeyHandler::OnKeyDown(int KeyCode)
 {
 	//DebugOut(L"[INFO] KeyDown: %d\n", KeyCode);
@@ -50,10 +52,21 @@ void CSampleKeyHandler::OnKeyUp(int KeyCode)
 	}
 }
 
-void CSampleKeyHandler::KeyState(BYTE *states)
+void CSampleKeyHandler::KeyState(BYTE* states)
 {
 	LPGAME game = CGame::GetInstance();
+	CPlayScene* playScene = (LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene();
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
+
+	CKoopa* koopa = playScene->GetFirstKoopa(playScene);
+	float marioX, marioY;
+	float koopaX, koopaY;
+
+	if(mario)
+	mario->GetPosition(marioX, marioY);
+
+	if(koopa)
+	koopa->GetPosition(koopaX, koopaY);
 
 	if (game->IsKeyDown(DIK_RIGHT))
 	{
@@ -71,4 +84,42 @@ void CSampleKeyHandler::KeyState(BYTE *states)
 	}
 	else
 		mario->SetState(MARIO_STATE_IDLE);
+
+	if (game->IsKeyDown(DIK_D) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+		abs(koopaX - marioX) < DISTANCE_TO_PICKUP_KOOPA)
+	{
+		if (game->IsKeyDown(DIK_RIGHT))
+		{
+			koopa->SetPosition(marioX + 7, marioY + 3);
+		}
+		else if (game->IsKeyDown(DIK_LEFT))
+		{
+			koopa->SetPosition(marioX - 7, marioY + 3);
+
+		}
+	}
+	else if(game->IsKeyDown(DIK_F) && !game->IsKeyDown(DIK_D) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+		abs(koopaX - marioX) < DISTANCE_TO_PICKUP_KOOPA)
+	{
+		if (game->IsKeyDown(DIK_RIGHT))
+		{
+			if (koopa)
+			{
+				koopa->SetBound(300.0f, 700.0f);
+				koopa->SetState(KOOPA_STATE_DIE_RUNR);
+			}
+		}
+		else if (game->IsKeyDown(DIK_LEFT))
+		{
+			if (koopa)
+			{
+				koopa->SetBound(300.0f, 700.0f);
+				koopa->SetState(KOOPA_STATE_DIE_RUNL);
+			}
+		}
+	}
+	//else
+	//{
+		//if()
+	//}
 }

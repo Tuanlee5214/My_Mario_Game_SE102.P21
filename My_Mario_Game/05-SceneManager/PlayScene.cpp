@@ -352,6 +352,19 @@ void CPlayScene::Load()
 	DebugOut(L"[INFO] Done loading scene  %s\n", sceneFilePath);
 }
 
+CKoopa* CPlayScene::GetFirstKoopa(CPlayScene* playScene)
+{
+		for (LPGAMEOBJECT obj : playScene->GetObjects())
+		{
+			CKoopa* koopa = dynamic_cast<CKoopa*>(obj);
+			if (koopa != NULL)
+			{
+				return koopa;
+			}
+		}
+		return NULL;
+}
+
 void CPlayScene::Update(DWORD dt)
 {
 	// We know that Mario is the first object in the list hence we won't add him into the colliable object list

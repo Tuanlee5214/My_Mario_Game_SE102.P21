@@ -2,6 +2,8 @@
 
 #include "Scene.h"
 
+#define DISTANCE_TO_PICKUP_KOOPA 30.0f
+
 class CSampleKeyHandler: public CSceneKeyHandler
 {
 public:

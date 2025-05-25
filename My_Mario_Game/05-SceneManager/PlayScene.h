@@ -6,6 +6,7 @@
 #include "Brick.h"
 #include "Mario.h"
 #include "Goomba.h"
+#include "Koopa.h"
 //#include "Koopas.h"
 
 
@@ -34,11 +35,15 @@ public:
 	virtual void AddObject(LPGAMEOBJECT e);
 	virtual void Unload();
 
+	CKoopa* GetFirstKoopa(CPlayScene* playScene);
 	LPGAMEOBJECT GetPlayer() { return player; }
-	vector<LPGAMEOBJECT> GetObjects()
+	std::vector<LPGAMEOBJECT> GetObjects()
 	{
 		return objects;
 	}
+
+	
+
 
 	void Clear();
 	void PurgeDeletedObjects();
