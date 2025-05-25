@@ -466,6 +466,8 @@ void LoadResourceForGame() {
 	CSpawner* spawn4 = new CSpawner(1390, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
 	CSpawner* spawn5 = new CSpawner(1440, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
 	CSpawner* spawn6 = new CSpawner(1490, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+	
+
 
 
 
@@ -478,7 +480,6 @@ void LoadResourceForGame() {
 		playScene->AddObject(spawn4);
 		playScene->AddObject(spawn5);
 		playScene->AddObject(spawn6);
-
 	}
 	
 

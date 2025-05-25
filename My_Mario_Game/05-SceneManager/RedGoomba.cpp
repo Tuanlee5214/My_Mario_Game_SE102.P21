@@ -79,10 +79,12 @@ void CRedGoomba::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case REDGOOMBA_STATE_JUMPLOW:
-		if (GetTickCount64() - startTime > 1000)
+		if (isOnPlatform && count < 3)
 		{
-			SetState(REDGOOMBA_STATE_JUMP);
+			SetState(REDGOOMBA_STATE_JUMPLOW);
 		}
+		else if (isOnPlatform && count >= 3)
+			SetState(REDGOOMBA_STATE_JUMP);
 		break;
 	case REDGOOMBA_STATE_JUMP:
 		if (isOnPlatform)
@@ -205,6 +207,7 @@ void CRedGoomba::SetState(int state)
 		}
 		break;
 	case REDGOOMBA_STATE_JUMPLOW:
+		this->count++;
 		if (vx > 0)
 		{
 			vx = REDGOOMBA_JUMP_WALKING_SPEED;
@@ -216,6 +219,7 @@ void CRedGoomba::SetState(int state)
 		vy = -REDGOOMBA_JUMPLOW_SPEED;
 		break;
 	case REDGOOMBA_STATE_JUMP:
+		this->count = 0;
 		if (vx > 0)
 		{
 			vx = REDGOOMBA_JUMP_WALKING_SPEED;

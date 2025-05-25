@@ -4,7 +4,7 @@
 #define REDGOOMBA_GRAVITY 0.0009f
 #define REDGOOMBA_WALKING_SPEED 0.038f
 #define REDGOOMBA_JUMP_WALKING_SPEED 0.045f
-#define REDGOOMBA_JUMPLOW_SPEED 0.06f;
+#define REDGOOMBA_JUMPLOW_SPEED 0.1f;
 #define REDGOOMBA_JUMP_SPEED 0.25f;
 
 
@@ -37,6 +37,7 @@ protected:
 	float rightBound;
 	float leftBound;
 	bool isOnPlatform;
+	int count = 0;
 	ULONGLONG startTime = 0;
 
 	ULONGLONG die_start;
