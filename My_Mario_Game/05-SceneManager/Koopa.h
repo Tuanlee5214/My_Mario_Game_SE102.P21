@@ -52,4 +52,5 @@ public:
 	virtual void SetBound(float leftBound, float rightBound);
 	virtual void SetState(int state);
 	virtual void Set_Y(float y);
+	virtual void Set_ax(float ax);
 };

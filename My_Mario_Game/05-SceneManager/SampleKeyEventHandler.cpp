@@ -91,10 +91,15 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		if (game->IsKeyDown(DIK_RIGHT))
 		{
 			koopa->SetPosition(marioX + 7, marioY + 3);
+			koopa->Set_ax(0);
+			koopa->SetBound(300.0f, 700.0f);
+
 		}
 		else if (game->IsKeyDown(DIK_LEFT))
 		{
 			koopa->SetPosition(marioX - 7, marioY + 3);
+			koopa->Set_ax(0);
+			koopa->SetBound(300.0f, 700.0f);
 
 		}
 	}
