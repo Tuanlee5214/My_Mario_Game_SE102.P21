@@ -641,7 +641,7 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 		left = x - MARIO_SMALL_BBOX_WIDTH/2;
 		top = y - MARIO_SMALL_BBOX_HEIGHT/2;
 		right = left + MARIO_SMALL_BBOX_WIDTH;
-		bottom = top + MARIO_SMALL_BBOX_HEIGHT;
+		bottom = top + MARIO_SMALL_BBOX_HEIGHT + 1.5f;
 	}
 }
 

@@ -62,69 +62,120 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 	float marioX, marioY;
 	float koopaX, koopaY;
 
-	if(mario)
-	mario->GetPosition(marioX, marioY);
+	if (mario)
+		mario->GetPosition(marioX, marioY);
 
-	if(koopa)
-	koopa->GetPosition(koopaX, koopaY);
+	if (koopa)
+		koopa->GetPosition(koopaX, koopaY);
 
 	if (game->IsKeyDown(DIK_RIGHT))
 	{
-		if (game->IsKeyDown(DIK_A))
+		if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE)
 			mario->SetState(MARIO_STATE_RUNNING_RIGHT);
-		else
+
+		else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+			abs(koopaX - marioX) > DISTANCE_TO_PICKUP_KOOPA)
+			mario->SetState(MARIO_STATE_RUNNING_RIGHT);
+
+		else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+			abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA &&
+			abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA)
+		{
+			if (mario->GetLevel() > MARIO_LEVEL_SMALL)
+			{
+				koopa->SetPosition(marioX + 7, marioY + 3);
+			}
+			else if (mario->GetLevel() == MARIO_LEVEL_SMALL)
+			{
+				koopa->SetPosition(marioX + 13, marioY - 2);
+			}
+			koopa->SetBound(300.0f, 700.0f);
+			mario->SetState(MARIO_STATE_WALKING_RIGHT);
+		}
+
+		else if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE)
+			mario->SetState(MARIO_STATE_WALKING_RIGHT);
+
+		else if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+			abs(koopaX - marioX) > DISTANCE_TO_PICKUP_KOOPA)
+			mario->SetState(MARIO_STATE_WALKING_RIGHT);
+
+		else if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+			abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA)
+			mario->SetState(MARIO_STATE_WALKING_RIGHT);
+
+
+
+		else if (game->IsKeyDown(DIK_A) && !koopa)
+			mario->SetState(MARIO_STATE_RUNNING_RIGHT);
+
+		else if (!game->IsKeyDown(DIK_A) && !koopa)
 			mario->SetState(MARIO_STATE_WALKING_RIGHT);
 	}
 	else if (game->IsKeyDown(DIK_LEFT))
 	{
-		if (game->IsKeyDown(DIK_A))
+		if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE)
 			mario->SetState(MARIO_STATE_RUNNING_LEFT);
-		else
+
+		else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+			abs(koopaX - marioX) > DISTANCE_TO_PICKUP_KOOPA)
+			mario->SetState(MARIO_STATE_RUNNING_LEFT);
+
+		else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+			abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA &&
+			abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA)
+		{
+			if (mario->GetLevel() > MARIO_LEVEL_SMALL)
+			{
+				koopa->SetPosition(marioX - 7, marioY + 3);
+			}
+			else if (mario->GetLevel() == MARIO_LEVEL_SMALL)
+			{
+				koopa->SetPosition(marioX - 13, marioY - 2);
+			}
+			koopa->SetBound(300.0f, 700.0f);
 			mario->SetState(MARIO_STATE_WALKING_LEFT);
+		}
+
+		else if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE)
+			mario->SetState(MARIO_STATE_WALKING_LEFT);
+
+		else if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+			abs(koopaX - marioX) > DISTANCE_TO_PICKUP_KOOPA)
+			mario->SetState(MARIO_STATE_WALKING_LEFT);
+
+		else if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+			abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA)
+			mario->SetState(MARIO_STATE_WALKING_LEFT);
+
+
+
+		else if (game->IsKeyDown(DIK_A) && !koopa)
+			mario->SetState(MARIO_STATE_RUNNING_LEFT);
+
+		else if (!game->IsKeyDown(DIK_A) && !koopa)
+			mario->SetState(MARIO_STATE_WALKING_LEFT);
+
 	}
 	else
 		mario->SetState(MARIO_STATE_IDLE);
 
-	if (game->IsKeyDown(DIK_D) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
-		abs(koopaX - marioX) < DISTANCE_TO_PICKUP_KOOPA)
+	if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 3 || koopaY == marioY - 2)
+		&& mario->Get_nx() > 0)
 	{
-		if (game->IsKeyDown(DIK_RIGHT))
-		{
-			koopa->SetPosition(marioX + 7, marioY + 3);
-			koopa->Set_ax(0);
-			koopa->SetBound(300.0f, 700.0f);
-
-		}
-		else if (game->IsKeyDown(DIK_LEFT))
-		{
-			koopa->SetPosition(marioX - 7, marioY + 3);
-			koopa->Set_ax(0);
-			koopa->SetBound(300.0f, 700.0f);
-
-		}
+		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetState(KOOPA_STATE_DIE_RUNR);
+		mario->SetState(MARIO_STATE_WALKING_RIGHT);
 	}
-	else if(game->IsKeyDown(DIK_F) && !game->IsKeyDown(DIK_D) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
-		abs(koopaX - marioX) < DISTANCE_TO_PICKUP_KOOPA)
+
+
+	if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 3 || koopaY == marioY - 2)
+		&& mario->Get_nx() < 0)
 	{
-		if (game->IsKeyDown(DIK_RIGHT))
-		{
-			if (koopa)
-			{
-				koopa->SetBound(300.0f, 700.0f);
-				koopa->SetState(KOOPA_STATE_DIE_RUNR);
-			}
-		}
-		else if (game->IsKeyDown(DIK_LEFT))
-		{
-			if (koopa)
-			{
-				koopa->SetBound(300.0f, 700.0f);
-				koopa->SetState(KOOPA_STATE_DIE_RUNL);
-			}
-		}
+		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetState(KOOPA_STATE_DIE_RUNL);
+		mario->SetState(MARIO_STATE_WALKING_LEFT);
 	}
-	//else
-	//{
-		//if()
-	//}
 }

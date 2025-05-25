@@ -126,8 +126,7 @@ class CMario : public CGameObject
 	void OnCollisionWithTroopa(LPCOLLISIONEVENT e);
 	void OnCollisionWithParaTroopa(LPCOLLISIONEVENT e);
 
-	int GetAniIdBig();
-	int GetAniIdSmall();
+	
 
 public:
 	CMario(float x, float y) : CGameObject(x, y)
@@ -160,6 +159,9 @@ public:
 
 	void OnNoCollision(DWORD dt);
 	void OnCollisionWith(LPCOLLISIONEVENT e);
+
+	int GetAniIdBig();
+	int GetAniIdSmall();
 
 	void SetLevel(int l);
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount64(); }
