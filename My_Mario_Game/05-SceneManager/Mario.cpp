@@ -480,7 +480,6 @@ int CMario::GetAniIdBig()
 		koopa->GetPosition(koopaX, koopaY);
 	    isRight = (koopaY == this->y + 1.5f || koopaY == this->y - 2);
 	}
-
 	int aniId = -1;
 	if (!isOnPlatform)
 	{
@@ -493,13 +492,13 @@ int CMario::GetAniIdBig()
 		}
 		else
 		{
-			if (nx >= 0 && !isRight)
+			if (nx >= 0 && !this->GetIsHoldingKoopa())
 				aniId = ID_ANI_MARIO_JUMP_WALK_RIGHT;
-			else if (nx >= 0 && isRight)
+			else if (nx >= 0 && this->GetIsHoldingKoopa())
 				aniId = ID_ANI_MARIO_IDLE_CARRY_RIGHT;
-			else if (nx < 0 && isRight)
+			else if (nx < 0 && this->GetIsHoldingKoopa())
 				aniId = ID_ANI_MARIO_IDLE_CARRY_LEFT;
-			else if(nx < 0 && !isRight)
+			else if(nx < 0 && !this->GetIsHoldingKoopa())
 				aniId = ID_ANI_MARIO_JUMP_WALK_LEFT;
 		}
 	}

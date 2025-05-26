@@ -116,13 +116,14 @@ class CMario : public CGameObject
 	float ax;				// acceleration on x 
 	float ay;				// acceleration on y 
 
-	int level; 
-	int untouchable; 
+	int level;
+	int untouchable;
 	ULONGLONG untouchable_start;
 	BOOLEAN isOnPlatform;
-	int coin; 
+	int coin;
 	bool isRight = false;
 	bool isRight1 = false;
+	bool isHoldingKoopa = false;
 	ULONGLONG isInKickStateNow;
 
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
@@ -137,7 +138,7 @@ class CMario : public CGameObject
 	void OnCollisionWithTroopa(LPCOLLISIONEVENT e);
 	void OnCollisionWithParaTroopa(LPCOLLISIONEVENT e);
 
-	
+
 
 public:
 	CMario(float x, float y) : CGameObject(x, y)
@@ -145,7 +146,7 @@ public:
 		isSitting = false;
 		maxVx = 0.0f;
 		ax = 0.0f;
-		ay = MARIO_GRAVITY; 
+		ay = MARIO_GRAVITY;
 
 		level = MARIO_LEVEL_BIG;
 		untouchable = 0;
@@ -162,8 +163,8 @@ public:
 	}
 
 	int IsCollidable()
-	{ 
-		return (state != MARIO_STATE_DIE); 
+	{
+		return (state != MARIO_STATE_DIE);
 	}
 
 	void SetIsInKickStateNow(ULONGLONG a)
@@ -175,6 +176,18 @@ public:
 	{
 		return isOnPlatform;
 	}
+
+	void SetIsHoldingKoopa(float a)
+	{
+		this->isHoldingKoopa = a;
+	}
+
+	bool GetIsHoldingKoopa()
+	{
+		return this->isHoldingKoopa;
+	}
+
+
 
 	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable==0); }
 
