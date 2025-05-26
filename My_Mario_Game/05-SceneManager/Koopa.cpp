@@ -48,6 +48,10 @@ void CKoopa::Set_Y(float y)
 	this->y = this->y - y;
 }
 
+void CKoopa::Set_ay(float ay)
+{
+	this->ay = ay;
+}
 void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
 	//if (e->obj->IsBlocking()) return;
@@ -126,6 +130,11 @@ void CKoopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);
+}
+
+void CKoopa::Set_vx(float vx)
+{
+	this->vx = vx;
 }
 
 void CKoopa::Set_ax(float ax)

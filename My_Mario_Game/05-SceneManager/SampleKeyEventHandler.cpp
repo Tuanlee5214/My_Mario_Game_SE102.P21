@@ -218,35 +218,37 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		}
 		koopa->SetBound(300.0f, 700.0f);
 	}
-	
-	if (!mario->GetIsOnPlatform() && !game->IsKeyDown(DIK_A) &&
+
+	if (mario->GetIsOnPlatform() && game->IsKeyDown(DIK_A) &&
 		koopa && koopa->GetState() == KOOPA_STATE_DIE &&
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA &&
-		abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA &&
-		(koopaY == marioY + 1.5f || koopaY == marioY - 2))
+		abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA)
 	{
-		if (mario->Get_nx() > 0)
+		if (mario->GetLevel() > MARIO_LEVEL_SMALL && mario->Get_nx() > 0)
 		{
-			koopa->SetBound(300.0f, 700.0f);
-			koopa->SetState(KOOPA_STATE_DIE_RUNR);
-			mario->SetState(MARIO_STATE_WALKING_RIGHT);
-			mario->SetIsRight1(true);
-			mario->SetIsInKickStateNow(GetTickCount64());
-			mario->SetIsHoldingKoopa(false);
-
+			koopa->SetPosition(marioX + 14, marioY + 1.5f);
+			mario->SetIsHoldingKoopa(true);
 		}
-		else
+		else if (mario->GetLevel() > MARIO_LEVEL_SMALL && mario->Get_nx() < 0)
 		{
-			koopa->SetBound(300.0f, 700.0f);
-			koopa->SetState(KOOPA_STATE_DIE_RUNL);
-			mario->SetState(MARIO_STATE_WALKING_LEFT);
-			mario->SetIsRight1(true);
-			mario->SetIsInKickStateNow(GetTickCount64());
-			mario->SetIsHoldingKoopa(false);
+			koopa->SetPosition(marioX - 14, marioY + 1.5f);
+			mario->SetIsHoldingKoopa(true);
 		}
+		else if (mario->GetLevel() == MARIO_LEVEL_SMALL && mario->Get_nx() > 0)
+		{
+			koopa->SetPosition(marioX + 13, marioY - 2);
+			mario->SetIsHoldingKoopa(true);
+		}
+		else if (mario->GetLevel() == MARIO_LEVEL_SMALL && mario->Get_nx() < 0)
+		{
+			koopa->SetPosition(marioX - 13, marioY - 2);
+			mario->SetIsHoldingKoopa(true);
+		}
+		koopa->SetBound(300.0f, 700.0f);
 	}
+	
 
-	if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+	if (mario->GetIsOnPlatform() && !game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 1.5f || koopaY == marioY - 2)
 		&& mario->Get_nx() > 0)
 	{
@@ -259,7 +261,32 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 	}
 
 
-	if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+	if (mario->GetIsOnPlatform() && !game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 1.5f || koopaY == marioY - 2)
+		&& mario->Get_nx() < 0)
+	{
+		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetState(KOOPA_STATE_DIE_RUNL);
+		mario->SetState(MARIO_STATE_WALKING_LEFT);
+		mario->SetIsRight1(true);
+		mario->SetIsInKickStateNow(GetTickCount64());
+		mario->SetIsHoldingKoopa(false);
+	}
+
+	if (!mario->GetIsOnPlatform() && !game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 1.5f || koopaY == marioY - 2)
+		&& mario->Get_nx() > 0)
+	{
+		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetState(KOOPA_STATE_DIE_RUNR);
+		mario->SetState(MARIO_STATE_WALKING_RIGHT);
+		mario->SetIsRight1(true);
+		mario->SetIsInKickStateNow(GetTickCount64());
+		mario->SetIsHoldingKoopa(false);
+	}
+
+
+	if (!mario->GetIsOnPlatform() && !game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 1.5f || koopaY == marioY - 2)
 		&& mario->Get_nx() < 0)
 	{

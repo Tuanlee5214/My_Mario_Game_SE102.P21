@@ -55,5 +55,7 @@ public:
 	virtual void SetState(int state);
 	virtual void Set_Y(float y);
 	virtual void Set_ax(float ax);
+	virtual void Set_vx(float vx);
+	virtual void Set_ay(float ay);
 	virtual bool GetIsKoopaInDieRunState();
 };
