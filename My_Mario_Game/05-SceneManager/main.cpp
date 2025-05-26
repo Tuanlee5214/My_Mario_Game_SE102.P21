@@ -61,7 +61,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define BACKGROUND_COLOR2 D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f)
 
 #define TEXTURES_DIR L"texture1"
-//#define TEXTURE_PATH_MARIO TEXTURES_DIR "\\mario.png"
+#define TEXTURE_PATH_MARIO TEXTURES_DIR "\\mario.png"
 #define TEXTURE_PATH_MAINMAP TEXTURES_DIR "\\mainmap.png"
 #define TEXTURE_PATH_MAP TEXTURES_DIR "\\map.png"
 #define TEXTURE_PATH_ENEMIES1 TEXTURES_DIR "\\enemies1.png"
@@ -131,10 +131,12 @@ void LoadResourceForGame() {
 	textures->Add(ID_TEX_MAP, TEXTURE_PATH_MAP);
 	textures->Add(ID_TEX_MAINMAP, TEXTURE_PATH_MAINMAP);
 	textures->Add(ID_TEX_ENEMIES1, TEXTURE_PATH_ENEMIES1);
+	textures->Add(ID_TEX_MARIO, TEXTURE_PATH_MARIO);
 
 	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
 	LPTEXTURE texMap = textures->Get(ID_TEX_MAP);
 	LPTEXTURE texEnemies1 = textures->Get(ID_TEX_ENEMIES1);
+	LPTEXTURE texMario = textures->Get(ID_TEX_MARIO);
 
 	CSprites* sprites = CSprites::GetInstance();
 
@@ -269,12 +271,53 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT2, 505, 128, 521, 155, texEnemies1);
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT3, 527, 128, 543, 155, texEnemies1);
 
+	//Sprite Mario
+	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 95, 234, 110, 260, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT, 336, 234, 350, 260, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT1, 154, 313, 170, 341, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT2, 124, 314, 140, 340, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT1, 275, 313, 291, 341, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT2, 304, 314, 320, 340, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_LEFT, 1, 273, 23, 301, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT, 422, 273, 444, 300, texMario);
+
+
 #pragma endregion
 
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
 
 #pragma region ANIMATION
+
+	//Mario ani
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT);
+	animations->Add(ID_ANI_MARIO_IDLE_CARRY_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT);
+	animations->Add(ID_ANI_MARIO_IDLE_CARRY_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT);
+	ani->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT1);
+	ani->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT2);
+	animations->Add(ID_ANI_MARIO_WALKING_CARRY_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT);
+	ani->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT1);
+	ani->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT2);
+	animations->Add(ID_ANI_MARIO_WALKING_CARRY_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_BIG_KICKING_LEFT);
+	animations->Add(ID_ANI_MARIO_KICKING_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT);
+	animations->Add(ID_ANI_MARIO_KICKING_RIGHT, ani);
+
 	//Koopa ani
 	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_KOOPA_WALKING_LEFT1);
