@@ -476,12 +476,14 @@ int CMario::GetAniIdBig()
 		koopa->GetPosition(koopaX, koopaY);
 	    isRight = (koopaY == this->y + 1.5f || koopaY == this->y - 2);
 		if (koopa->GetState() == KOOPA_STATE_DIE_RUNL || 
-			koopa->GetState() == KOOPA_STATE_DIE_RUNR)
+			koopa->GetState() == KOOPA_STATE_DIE_RUNR && !isRight1)
 		{
 			isRight1 = true;
 			isInKickStateNow = GetTickCount64();
 		}
 	}
+
+
 
 	int aniId = -1;
 	if (!isOnPlatform)
@@ -512,13 +514,14 @@ int CMario::GetAniIdBig()
 		else
 			if (vx == 0)
 			{
-				if (nx > 0 && !isRight) aniId = ID_ANI_MARIO_IDLE_RIGHT;
+				if (isRight1)
+				{
+					aniId = nx > 0 ? ID_ANI_MARIO_KICKING_RIGHT : ID_ANI_MARIO_KICKING_LEFT;
+				}
+				else if (nx > 0 && !isRight) aniId = ID_ANI_MARIO_IDLE_RIGHT;
 				else if (nx > 0 && isRight) aniId = ID_ANI_MARIO_IDLE_CARRY_RIGHT;
-				else if (nx <= 0 && isRight) aniId = ID_ANI_MARIO_IDLE_CARRY_LEFT;
-				else aniId = ID_ANI_MARIO_IDLE_LEFT;
-
-				if (isRight1 && nx > 0) aniId = ID_ANI_MARIO_KICKING_RIGHT;
-				else if (isRight1 && nx < 0) aniId = ID_ANI_MARIO_KICKING_LEFT;
+				else if (nx < 0 && !isRight) aniId = ID_ANI_MARIO_IDLE_LEFT;
+				else if (nx < 0 && isRight) aniId = ID_ANI_MARIO_IDLE_CARRY_LEFT;
 			}
 			else if (vx > 0)
 			{
@@ -528,16 +531,19 @@ int CMario::GetAniIdBig()
 					aniId = ID_ANI_MARIO_RUNNING_RIGHT;
 				else if (ax == MARIO_ACCEL_WALK_X)
 				{
-					if (isRight)
+					if (isRight && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_WALKING_CARRY_RIGHT;
 					}
-					else
+					else if(!isRight && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_WALKING_RIGHT;
 					}
 
-					if (isRight1) aniId = ID_ANI_MARIO_KICKING_RIGHT;
+					//if (isRight1) aniId = ID_ANI_MARIO_KICKING_RIGHT;
+					//else aniId = ID_ANI_MARIO_WALKING_RIGHT;
+
+					//if (!isRight1) DebugOut(L"ISRIGHT FALSEEEEEEEEEEEEEEEEEE");
 				}
 			}
 			else // vx < 0
@@ -548,16 +554,18 @@ int CMario::GetAniIdBig()
 					aniId = ID_ANI_MARIO_RUNNING_LEFT;
 				else if (ax == -MARIO_ACCEL_WALK_X)
 				{
-					if (isRight)
+					if (isRight && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_WALKING_CARRY_LEFT;
 					}
-					else
+					else if(!isRight && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_WALKING_LEFT;
 					}
 
-					if (isRight1) aniId = ID_ANI_MARIO_KICKING_LEFT;
+					//if (isRight1) aniId = ID_ANI_MARIO_KICKING_LEFT;
+					//else aniId = ID_ANI_MARIO_WALKING_LEFT;
+					
 				}
 			}
 
