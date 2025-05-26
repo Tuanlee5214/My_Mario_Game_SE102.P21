@@ -35,6 +35,8 @@ protected:
 	float rightBound;
 	float leftBound;
 
+	bool isKoopaInDieRunState = false;
+
 
 	ULONGLONG die_start;
 
@@ -53,4 +55,5 @@ public:
 	virtual void SetState(int state);
 	virtual void Set_Y(float y);
 	virtual void Set_ax(float ax);
+	virtual bool GetIsKoopaInDieRunState();
 };

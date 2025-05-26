@@ -200,11 +200,15 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 				{
 					koopa->SetBound(300.0f, 700.0f);
 					koopa->SetState(KOOPA_STATE_DIE_RUNR);
+					this->SetIsRight1(true);
+					this->isInKickStateNow = GetTickCount64();
 				}
 				else if (e->nx > 0)
 				{
 					koopa->SetBound(300.0f, 700.0f);
 					koopa->SetState(KOOPA_STATE_DIE_RUNL);
+					this->SetIsRight1(true);
+					this->isInKickStateNow = GetTickCount64();
 				}
 			}
 		}
@@ -475,15 +479,7 @@ int CMario::GetAniIdBig()
 	{
 		koopa->GetPosition(koopaX, koopaY);
 	    isRight = (koopaY == this->y + 1.5f || koopaY == this->y - 2);
-		if (koopa->GetState() == KOOPA_STATE_DIE_RUNL || 
-			koopa->GetState() == KOOPA_STATE_DIE_RUNR && !isRight1)
-		{
-			isRight1 = true;
-			isInKickStateNow = GetTickCount64();
-		}
 	}
-
-
 
 	int aniId = -1;
 	if (!isOnPlatform)
@@ -535,13 +531,18 @@ int CMario::GetAniIdBig()
 					{
 						aniId = ID_ANI_MARIO_WALKING_CARRY_RIGHT;
 					}
-					else if(!isRight && !isRight1)
+					else if (!isRight && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_WALKING_RIGHT;
 					}
-
-					//if (isRight1) aniId = ID_ANI_MARIO_KICKING_RIGHT;
-					//else aniId = ID_ANI_MARIO_WALKING_RIGHT;
+					else if (isRight && isRight1)
+					{
+						aniId = ID_ANI_MARIO_KICKING_RIGHT;
+					}
+					else if (!isRight && isRight1)
+					{
+						aniId = ID_ANI_MARIO_KICKING_RIGHT;
+					}
 
 					//if (!isRight1) DebugOut(L"ISRIGHT FALSEEEEEEEEEEEEEEEEEE");
 				}
@@ -562,9 +563,16 @@ int CMario::GetAniIdBig()
 					{
 						aniId = ID_ANI_MARIO_WALKING_LEFT;
 					}
+					else if (isRight && isRight1)
+					{
+						aniId = ID_ANI_MARIO_KICKING_LEFT;
+					}
+					else if (!isRight && isRight1)
+					{
+						aniId = ID_ANI_MARIO_KICKING_LEFT;
+					}
 
-					//if (isRight1) aniId = ID_ANI_MARIO_KICKING_LEFT;
-					//else aniId = ID_ANI_MARIO_WALKING_LEFT;
+
 					
 				}
 			}

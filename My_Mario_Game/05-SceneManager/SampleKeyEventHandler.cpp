@@ -167,6 +167,8 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		koopa->SetBound(300.0f, 700.0f);
 		koopa->SetState(KOOPA_STATE_DIE_RUNR);
 		mario->SetState(MARIO_STATE_WALKING_RIGHT);
+		mario->SetIsRight1(true);
+		mario->SetIsInKickStateNow(GetTickCount64());
 	}
 
 
@@ -177,5 +179,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		koopa->SetBound(300.0f, 700.0f);
 		koopa->SetState(KOOPA_STATE_DIE_RUNL);
 		mario->SetState(MARIO_STATE_WALKING_LEFT);
+		mario->SetIsRight1(true);
+		mario->SetIsInKickStateNow(GetTickCount64());
 	}
 }

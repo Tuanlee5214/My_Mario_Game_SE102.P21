@@ -155,7 +155,10 @@ void CKoopa::Render()
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
 	//RenderBoundingBox();
 }
-
+bool CKoopa::GetIsKoopaInDieRunState()
+{
+	return isKoopaInDieRunState;
+}
 void CKoopa::SetBound(float a, float b)
 {
 	this->leftBound = a; 

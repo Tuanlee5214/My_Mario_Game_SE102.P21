@@ -123,7 +123,7 @@ class CMario : public CGameObject
 	int coin; 
 	bool isRight = false;
 	bool isRight1 = false;
-	bool isInKickStateNow;
+	ULONGLONG isInKickStateNow;
 
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
 	void OnCollisionWithCoin(LPCOLLISIONEVENT e);
@@ -164,6 +164,11 @@ public:
 	int IsCollidable()
 	{ 
 		return (state != MARIO_STATE_DIE); 
+	}
+
+	void SetIsInKickStateNow(ULONGLONG a)
+	{
+		this->isInKickStateNow = a;
 	}
 
 	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable==0); }
