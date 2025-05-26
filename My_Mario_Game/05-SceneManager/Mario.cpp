@@ -493,9 +493,13 @@ int CMario::GetAniIdBig()
 		}
 		else
 		{
-			if (nx >= 0)
+			if (nx >= 0 && !isRight)
 				aniId = ID_ANI_MARIO_JUMP_WALK_RIGHT;
-			else
+			else if (nx >= 0 && isRight)
+				aniId = ID_ANI_MARIO_IDLE_CARRY_RIGHT;
+			else if (nx < 0 && isRight)
+				aniId = ID_ANI_MARIO_IDLE_CARRY_LEFT;
+			else if(nx < 0 && !isRight)
 				aniId = ID_ANI_MARIO_JUMP_WALK_LEFT;
 		}
 	}

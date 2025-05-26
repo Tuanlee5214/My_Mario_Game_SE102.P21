@@ -11,7 +11,20 @@
 void CSampleKeyHandler::OnKeyDown(int KeyCode)
 {
 	//DebugOut(L"[INFO] KeyDown: %d\n", KeyCode);
-	CMario* mario = (CMario *)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer(); 
+	LPGAME game = CGame::GetInstance();
+	CPlayScene* playScene = (LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene();
+	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
+
+	CKoopa* koopa = playScene->GetFirstKoopa(playScene);
+	float marioX, marioY;
+	float koopaX, koopaY;
+
+	if (mario)
+		mario->GetPosition(marioX, marioY);
+
+	if (koopa)
+		koopa->GetPosition(koopaX, koopaY);
+
 
 	switch (KeyCode)
 	{
@@ -19,7 +32,7 @@ void CSampleKeyHandler::OnKeyDown(int KeyCode)
 		mario->SetState(MARIO_STATE_SIT);
 		break;
 	case DIK_S:
-		mario->SetState(MARIO_STATE_JUMP);
+		 mario->SetState(MARIO_STATE_JUMP);
 		break;
 	case DIK_1:
 		mario->SetLevel(MARIO_LEVEL_SMALL);
@@ -40,7 +53,20 @@ void CSampleKeyHandler::OnKeyUp(int KeyCode)
 {
 	//DebugOut(L"[INFO] KeyUp: %d\n", KeyCode);
 
+	LPGAME game = CGame::GetInstance();
+	CPlayScene* playScene = (LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene();
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
+
+	CKoopa* koopa = playScene->GetFirstKoopa(playScene);
+	float marioX, marioY;
+	float koopaX, koopaY;
+
+	if (mario)
+		mario->GetPosition(marioX, marioY);
+
+	if (koopa)
+		koopa->GetPosition(koopaX, koopaY);
+
 	switch (KeyCode)
 	{
 	case DIK_S:
@@ -137,6 +163,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 			mario->SetState(MARIO_STATE_WALKING_LEFT);
 		}
 
+
 		else if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE)
 			mario->SetState(MARIO_STATE_WALKING_LEFT);
 
@@ -159,6 +186,30 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 	}
 	else
 		mario->SetState(MARIO_STATE_IDLE);
+
+	if (!mario->GetIsOnPlatform() && game->IsKeyDown(DIK_A) &&
+		koopa && koopa->GetState() == KOOPA_STATE_DIE &&
+		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA &&
+		abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA)
+	{
+		if (mario->GetLevel() > MARIO_LEVEL_SMALL && mario->Get_nx() > 0)
+		{
+			koopa->SetPosition(marioX + 14, marioY + 1.5f);
+		}
+		else if (mario->GetLevel() > MARIO_LEVEL_SMALL && mario->Get_nx() < 0)
+		{
+			koopa->SetPosition(marioX - 14, marioY + 1.5f);
+		}
+		else if (mario->GetLevel() == MARIO_LEVEL_SMALL && mario->Get_nx() > 0)
+		{
+			koopa->SetPosition(marioX + 13, marioY - 2);
+		}
+		else if (mario->GetLevel() == MARIO_LEVEL_SMALL && mario->Get_nx() < 0)
+		{
+			koopa->SetPosition(marioX - 13, marioY - 2);
+		}
+		koopa->SetBound(300.0f, 700.0f);
+	}
 
 	if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 1.5f || koopaY == marioY - 2)
