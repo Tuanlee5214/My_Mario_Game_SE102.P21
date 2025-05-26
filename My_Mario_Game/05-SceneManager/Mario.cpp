@@ -16,6 +16,7 @@
 #include "GreenPlant.h"
 #include "Troopa.h"
 #include "ParaTroopa.h"
+#include "PlayScene.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -29,6 +30,11 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	{
 		untouchable_start = 0;
 		untouchable = 0;
+	}
+
+	if (GetTickCount64() - isInKickStateNow > MARIO_IN_KICKSTATE_TIME && isRight1)
+	{
+		isRight1 = false;
 	}
 
 	CCollision::GetInstance()->Process(this, dt, coObjects);
@@ -462,6 +468,21 @@ int CMario::GetAniIdSmall()
 //
 int CMario::GetAniIdBig()
 {
+	CPlayScene* playScene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
+	CKoopa* koopa = playScene->GetFirstKoopa(playScene);
+	float koopaX, koopaY;
+	if (koopa)
+	{
+		koopa->GetPosition(koopaX, koopaY);
+	    isRight = (koopaY == this->y + 1.5f || koopaY == this->y - 2);
+		if (koopa->GetState() == KOOPA_STATE_DIE_RUNL || 
+			koopa->GetState() == KOOPA_STATE_DIE_RUNR)
+		{
+			isRight1 = true;
+			isInKickStateNow = GetTickCount64();
+		}
+	}
+
 	int aniId = -1;
 	if (!isOnPlatform)
 	{
@@ -491,8 +512,13 @@ int CMario::GetAniIdBig()
 		else
 			if (vx == 0)
 			{
-				if (nx > 0) aniId = ID_ANI_MARIO_IDLE_RIGHT;
+				if (nx > 0 && !isRight) aniId = ID_ANI_MARIO_IDLE_RIGHT;
+				else if (nx > 0 && isRight) aniId = ID_ANI_MARIO_IDLE_CARRY_RIGHT;
+				else if (nx <= 0 && isRight) aniId = ID_ANI_MARIO_IDLE_CARRY_LEFT;
 				else aniId = ID_ANI_MARIO_IDLE_LEFT;
+
+				if (isRight1 && nx > 0) aniId = ID_ANI_MARIO_KICKING_RIGHT;
+				else if (isRight1 && nx < 0) aniId = ID_ANI_MARIO_KICKING_LEFT;
 			}
 			else if (vx > 0)
 			{
@@ -501,7 +527,18 @@ int CMario::GetAniIdBig()
 				else if (ax == MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_RUNNING_RIGHT;
 				else if (ax == MARIO_ACCEL_WALK_X)
-					aniId = ID_ANI_MARIO_WALKING_RIGHT;
+				{
+					if (isRight)
+					{
+						aniId = ID_ANI_MARIO_WALKING_CARRY_RIGHT;
+					}
+					else
+					{
+						aniId = ID_ANI_MARIO_WALKING_RIGHT;
+					}
+
+					if (isRight1) aniId = ID_ANI_MARIO_KICKING_RIGHT;
+				}
 			}
 			else // vx < 0
 			{
@@ -510,7 +547,18 @@ int CMario::GetAniIdBig()
 				else if (ax == -MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_RUNNING_LEFT;
 				else if (ax == -MARIO_ACCEL_WALK_X)
-					aniId = ID_ANI_MARIO_WALKING_LEFT;
+				{
+					if (isRight)
+					{
+						aniId = ID_ANI_MARIO_WALKING_CARRY_LEFT;
+					}
+					else
+					{
+						aniId = ID_ANI_MARIO_WALKING_LEFT;
+					}
+
+					if (isRight1) aniId = ID_ANI_MARIO_KICKING_LEFT;
+				}
 			}
 
 	if (aniId == -1) aniId = ID_ANI_MARIO_IDLE_RIGHT;

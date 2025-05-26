@@ -12,6 +12,8 @@
 #define MARIO_ACCEL_WALK_X	0.0005f
 #define MARIO_ACCEL_RUN_X	0.0007f
 
+#define MARIO_IN_KICKSTATE_TIME 200
+
 #define MARIO_JUMP_SPEED_Y		0.5f
 #define MARIO_JUMP_RUN_SPEED_Y	0.7f
 
@@ -119,6 +121,9 @@ class CMario : public CGameObject
 	ULONGLONG untouchable_start;
 	BOOLEAN isOnPlatform;
 	int coin; 
+	bool isRight = false;
+	bool isRight1 = false;
+	bool isInKickStateNow;
 
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
 	void OnCollisionWithCoin(LPCOLLISIONEVENT e);
@@ -168,6 +173,16 @@ public:
 
 	int GetAniIdBig();
 	int GetAniIdSmall();
+
+	void SetIsRight1(bool a)
+	{
+		this->isRight1 = a;
+	}
+
+	bool GetIsRight1()
+	{
+		return isRight1;
+	}
 
 	void SetLevel(int l);
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount64(); }

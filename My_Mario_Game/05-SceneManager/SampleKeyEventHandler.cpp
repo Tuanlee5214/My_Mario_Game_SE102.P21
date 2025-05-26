@@ -83,7 +83,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		{
 			if (mario->GetLevel() > MARIO_LEVEL_SMALL)
 			{
-				koopa->SetPosition(marioX + 7, marioY + 3);
+				koopa->SetPosition(marioX + 14, marioY + 1.5f);
 			}
 			else if (mario->GetLevel() == MARIO_LEVEL_SMALL)
 			{
@@ -127,7 +127,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		{
 			if (mario->GetLevel() > MARIO_LEVEL_SMALL)
 			{
-				koopa->SetPosition(marioX - 7, marioY + 3);
+				koopa->SetPosition(marioX - 14, marioY + 1.5f);
 			}
 			else if (mario->GetLevel() == MARIO_LEVEL_SMALL)
 			{
@@ -161,7 +161,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		mario->SetState(MARIO_STATE_IDLE);
 
 	if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
-		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 3 || koopaY == marioY - 2)
+		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 1.5f || koopaY == marioY - 2)
 		&& mario->Get_nx() > 0)
 	{
 		koopa->SetBound(300.0f, 700.0f);
@@ -171,7 +171,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 
 
 	if (!game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
-		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 3 || koopaY == marioY - 2)
+		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && (koopaY == marioY + 1.5f || koopaY == marioY - 2)
 		&& mario->Get_nx() < 0)
 	{
 		koopa->SetBound(300.0f, 700.0f);
