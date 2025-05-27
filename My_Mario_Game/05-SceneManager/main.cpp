@@ -330,6 +330,33 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT);
 	animations->Add(ID_ANI_MARIO_KICKING_RIGHT, ani);
 
+	//Small mario
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_LEFT);
+	animations->Add(ID_ANI_MARIO_SMALL_IDLE_CARRY_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_RIGHT);
+	animations->Add(ID_ANI_MARIO_SMALL_IDLE_CARRY_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_LEFT);
+	ani->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_LEFT);
+	animations->Add(ID_ANI_MARIO_SMALL_WALKING_CARRY_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_RIGHT);
+	ani->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_RIGHT);
+	animations->Add(ID_ANI_MARIO_SMALL_WALKING_CARRY_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_SMALL_KICKING_LEFT);
+	animations->Add(ID_ANI_MARIO_SMALL_KICKING_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_SMALL_KICKING_RIGHT);
+	animations->Add(ID_ANI_MARIO_SMALL_KICKING_RIGHT, ani);
+
 	//Koopa ani
 	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_KOOPA_WALKING_LEFT1);

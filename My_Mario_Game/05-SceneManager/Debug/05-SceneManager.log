@@ -1,4 +1,63 @@
-﻿  main.cpp
+﻿  Game.cpp
+  GreenPlant.cpp
+  Koopa.cpp
+  Mario.cpp
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(6,9):
+      see previous definition of 'speed_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9):
+      see previous definition of 'top_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(6,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9):
+      see previous definition of 'speed_Y'
+  
+  ParaTroopa.cpp
+  Parinha.cpp
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.cpp(71,48): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.cpp(86,50): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.cpp(138,14): warning C4305: '=': truncation from 'double' to 'float'
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.cpp(146,14): warning C4305: '=': truncation from 'double' to 'float'
+  PlayScene.cpp
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'PlayScene.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'PlayScene.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'PlayScene.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(6,9):
+      see previous definition of 'speed_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(99,20): warning C4018: '<': signed/unsigned mismatch
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(428,20): warning C4018: '<': signed/unsigned mismatch
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(457,20): warning C4018: '<': signed/unsigned mismatch
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(476,20): warning C4018: '<': signed/unsigned mismatch
+  RedPlant.cpp
+  SampleKeyEventHandler.cpp
+  Spawner.cpp
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.h(32,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+  (compiling source file 'Spawner.cpp')
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.cpp(30,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.cpp(37,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+  Troopa.cpp
+  main.cpp
 D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9): warning C4005: 'top_Y': macro redefinition
   (compiling source file 'main.cpp')
       D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(5,9):
@@ -17,5 +76,5 @@ D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Par
 D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.h(32,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
   (compiling source file 'main.cpp')
   
-D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\main.cpp(195,36): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  05-SceneManager.vcxproj -> D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\Debug\05-SceneManager.exe
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\main.cpp(55,10): error C1083: Cannot open include file: 'C:/Users/FPT SHOP/AppData/Local/Temp/tmpD8BE.tmp.h': No such file or directory
+  Generating Code...
