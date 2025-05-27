@@ -117,7 +117,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 				koopa->SetPosition(marioX + 13, marioY - 2);
 				mario->SetIsHoldingKoopa(true);
 			}
-			koopa->SetBound(300.0f, 700.0f);
+			koopa->SetBound(-10.0f, 10000.0f);
 			mario->SetState(MARIO_STATE_WALKING_RIGHT);
 		}
 
@@ -163,7 +163,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 				koopa->SetPosition(marioX - 13, marioY - 2);
 				mario->SetIsHoldingKoopa(true);
 			}
-			koopa->SetBound(300.0f, 700.0f);
+			koopa->SetBound(-10.0f, 10000.0f);
 			mario->SetState(MARIO_STATE_WALKING_LEFT);
 		}
 
@@ -216,7 +216,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 			koopa->SetPosition(marioX - 13, marioY - 2);
 			mario->SetIsHoldingKoopa(true);
 		}
-		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetBound(-10.0f, 10000.0f);
 	}
 
 	if (mario->GetIsOnPlatform() && game->IsKeyDown(DIK_A) &&
@@ -244,7 +244,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 			koopa->SetPosition(marioX - 13, marioY - 2);
 			mario->SetIsHoldingKoopa(true);
 		}
-		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetBound(-10.0f, 10000.0f);
 	}
 	
 
@@ -252,7 +252,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && mario->GetIsHoldingKoopa()
 		&& mario->Get_nx() > 0)
 	{
-		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetBound(-10.0f, 10000.0f);
 		koopa->SetState(KOOPA_STATE_DIE_RUNR);
 		mario->SetState(MARIO_STATE_WALKING_RIGHT);
 		mario->SetIsRight1(true);
@@ -265,7 +265,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && mario->GetIsHoldingKoopa()
 		&& mario->Get_nx() < 0)
 	{
-		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetBound(-10.0f, 1000.0f);
 		koopa->SetState(KOOPA_STATE_DIE_RUNL);
 		mario->SetState(MARIO_STATE_WALKING_LEFT);
 		mario->SetIsRight1(true);
@@ -277,7 +277,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && mario->GetIsHoldingKoopa() 
 		&& mario->Get_nx() > 0)
 	{
-		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetBound(-10.0f, 10000.0f);
 		koopa->SetState(KOOPA_STATE_DIE_RUNR);
 		mario->SetState(MARIO_STATE_WALKING_RIGHT);
 		mario->SetIsRight1(true);
@@ -290,7 +290,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && mario->GetIsHoldingKoopa()
 		&& mario->Get_nx() < 0)
 	{
-		koopa->SetBound(300.0f, 700.0f);
+		koopa->SetBound(-10.0f, 10000.0f);
 		koopa->SetState(KOOPA_STATE_DIE_RUNL);
 		mario->SetState(MARIO_STATE_WALKING_LEFT);
 		mario->SetIsRight1(true);

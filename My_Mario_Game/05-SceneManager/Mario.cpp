@@ -176,6 +176,26 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 			koopa->SetState(KOOPA_STATE_DIE);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
+		else if (koopa->GetState() == KOOPA_STATE_DIE)
+		{
+			if (nx > 0)
+			{
+				koopa->SetBound(300.0f, 700.0f);
+				koopa->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
+				koopa->SetState(KOOPA_STATE_DIE_RUNR);
+				this->SetIsRight1(true);
+				this->isInKickStateNow = GetTickCount64();
+			}
+			else
+			{
+				koopa->SetBound(300.0f, 700.0f);
+				koopa->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
+				koopa->SetState(KOOPA_STATE_DIE_RUNL);
+				this->SetIsRight1(true);
+				this->isInKickStateNow = GetTickCount64();
+			}
+			//vy = -MARIO_JUMP_DEFLECT_SPEED;
+		}
 	}
 	else // hit by Koopa
 	{
@@ -330,6 +350,7 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 				{
 					troopa->SetState(TROOPA_STATE_DIE_RUNL);
 				}
+				
 			}
 		}
 	}
