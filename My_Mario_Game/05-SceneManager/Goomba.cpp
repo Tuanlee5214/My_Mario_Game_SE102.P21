@@ -44,7 +44,7 @@ void CGoomba::OnNoCollision(DWORD dt)
 
 void CGoomba::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-	//if (!e->obj->IsBlocking()) return; 
+	if (!e->obj->IsBlocking()) return; 
 
 	CRedGoomba* redGoomba = dynamic_cast<CRedGoomba*>(e->obj);
 	if (redGoomba && (e->nx != 0)) return;
