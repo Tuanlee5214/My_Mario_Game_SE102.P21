@@ -431,6 +431,9 @@ void CMario::OnCollisionWithPortal(LPCOLLISIONEVENT e)
 //
 int CMario::GetAniIdSmall()
 {
+	CPlayScene* playScene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
+	CKoopa* koopa = playScene->GetFirstKoopa(playScene);
+	bool isHoldKoopa = this->GetIsHoldingKoopa();
 	int aniId = -1;
 	if (!isOnPlatform)
 	{
@@ -443,9 +446,13 @@ int CMario::GetAniIdSmall()
 		}
 		else
 		{
-			if (nx >= 0)
+			if (nx >= 0 && !isHoldKoopa)
 				aniId = ID_ANI_MARIO_SMALL_JUMP_WALK_RIGHT;
-			else
+			else if(nx >= 0 && isHoldKoopa)
+				aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_RIGHT;
+			else if (nx < 0 && isHoldKoopa)
+				aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_LEFT;
+			else if(nx < 0 && !isHoldKoopa)
 				aniId = ID_ANI_MARIO_SMALL_JUMP_WALK_LEFT;
 		}
 	}
@@ -460,8 +467,14 @@ int CMario::GetAniIdSmall()
 		else
 			if (vx == 0)
 			{
-				if (nx > 0) aniId = ID_ANI_MARIO_SMALL_IDLE_RIGHT;
-				else aniId = ID_ANI_MARIO_SMALL_IDLE_LEFT;
+				if (isRight1)
+				{
+					aniId = nx > 0 ? ID_ANI_MARIO_SMALL_KICKING_RIGHT : ID_ANI_MARIO_SMALL_KICKING_LEFT;
+				}
+				else if (nx > 0 && !isHoldKoopa) aniId = ID_ANI_MARIO_SMALL_IDLE_RIGHT;
+				else if (nx > 0 && isHoldKoopa) aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_RIGHT;
+				else if (nx < 0 && !isHoldKoopa) aniId = ID_ANI_MARIO_SMALL_IDLE_LEFT;
+				else if (nx < 0 && isHoldKoopa) aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_LEFT;
 			}
 			else if (vx > 0)
 			{
@@ -470,7 +483,26 @@ int CMario::GetAniIdSmall()
 				else if (ax == MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_SMALL_RUNNING_RIGHT;
 				else if (ax == MARIO_ACCEL_WALK_X)
-					aniId = ID_ANI_MARIO_SMALL_WALKING_RIGHT;
+				{
+					if (isHoldKoopa && !isRight1)
+					{
+						aniId = ID_ANI_MARIO_SMALL_WALKING_CARRY_RIGHT;
+					}
+					else if (!isHoldKoopa && !isRight1)
+					{
+						aniId = ID_ANI_MARIO_SMALL_WALKING_RIGHT;
+					}
+					else if (isHoldKoopa && isRight1)
+					{
+						aniId = ID_ANI_MARIO_SMALL_KICKING_RIGHT;
+					}
+					else if (!isHoldKoopa && isRight1)
+					{
+						aniId = ID_ANI_MARIO_SMALL_KICKING_RIGHT;
+					}
+
+					//if (!isRight1) DebugOut(L"ISRIGHT FALSEEEEEEEEEEEEEEEEEE");
+				}
 			}
 			else // vx < 0
 			{
@@ -479,7 +511,24 @@ int CMario::GetAniIdSmall()
 				else if (ax == -MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_SMALL_RUNNING_LEFT;
 				else if (ax == -MARIO_ACCEL_WALK_X)
-					aniId = ID_ANI_MARIO_SMALL_WALKING_LEFT;
+				{
+					if (isHoldKoopa && !isRight1)
+					{
+						aniId = ID_ANI_MARIO_SMALL_WALKING_CARRY_LEFT;
+					}
+					else if (!isHoldKoopa && !isRight1)
+					{
+						aniId = ID_ANI_MARIO_SMALL_WALKING_LEFT;
+					}
+					else if (isHoldKoopa && isRight1)
+					{
+						aniId = ID_ANI_MARIO_SMALL_KICKING_LEFT;
+					}
+					else if (!isHoldKoopa && isRight1)
+					{
+						aniId = ID_ANI_MARIO_SMALL_KICKING_LEFT;
+					}
+				}
 			}
 
 	if (aniId == -1) aniId = ID_ANI_MARIO_SMALL_IDLE_RIGHT;
@@ -495,12 +544,6 @@ int CMario::GetAniIdBig()
 {
 	CPlayScene* playScene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
 	CKoopa* koopa = playScene->GetFirstKoopa(playScene);
-	float koopaX, koopaY;
-	if (koopa)
-	{
-		koopa->GetPosition(koopaX, koopaY);
-	    isRight = (koopaY == this->y + 1.5f || koopaY == this->y - 2);
-	}
 	bool isHoldKoopa = this->GetIsHoldingKoopa();
 	int aniId = -1;
 	if (!isOnPlatform)
@@ -552,19 +595,19 @@ int CMario::GetAniIdBig()
 					aniId = ID_ANI_MARIO_RUNNING_RIGHT;
 				else if (ax == MARIO_ACCEL_WALK_X)
 				{
-					if (isRight && !isRight1)
+					if (isHoldKoopa && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_WALKING_CARRY_RIGHT;
 					}
-					else if (!isRight && !isRight1)
+					else if (!isHoldKoopa && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_WALKING_RIGHT;
 					}
-					else if (isRight && isRight1)
+					else if (isHoldKoopa && isRight1)
 					{
 						aniId = ID_ANI_MARIO_KICKING_RIGHT;
 					}
-					else if (!isRight && isRight1)
+					else if (!isHoldKoopa && isRight1)
 					{
 						aniId = ID_ANI_MARIO_KICKING_RIGHT;
 					}
@@ -580,25 +623,22 @@ int CMario::GetAniIdBig()
 					aniId = ID_ANI_MARIO_RUNNING_LEFT;
 				else if (ax == -MARIO_ACCEL_WALK_X)
 				{
-					if (isRight && !isRight1)
+					if (isHoldKoopa && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_WALKING_CARRY_LEFT;
 					}
-					else if(!isRight && !isRight1)
+					else if(!isHoldKoopa && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_WALKING_LEFT;
 					}
-					else if (isRight && isRight1)
+					else if (isHoldKoopa && isRight1)
 					{
 						aniId = ID_ANI_MARIO_KICKING_LEFT;
 					}
-					else if (!isRight && isRight1)
+					else if (!isHoldKoopa && isRight1)
 					{
 						aniId = ID_ANI_MARIO_KICKING_LEFT;
 					}
-
-
-					
 				}
 			}
 

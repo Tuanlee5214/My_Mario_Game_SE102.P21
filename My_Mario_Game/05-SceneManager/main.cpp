@@ -52,7 +52,6 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Spawner.h"
 
 #include "AssetIDs.h"
-#include "C:/Users/FPT SHOP/AppData/Local/Temp/tmpD8BE.tmp.h"
 
 #define WINDOW_CLASS_NAME L"SampleWindow"
 #define MAIN_WINDOW_TITLE L"04 - Collision"
