@@ -52,6 +52,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Spawner.h"
 
 #include "AssetIDs.h"
+#include "C:/Users/FPT SHOP/AppData/Local/Temp/tmpD8BE.tmp.h"
 
 #define WINDOW_CLASS_NAME L"SampleWindow"
 #define MAIN_WINDOW_TITLE L"04 - Collision"
@@ -272,14 +273,25 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT3, 527, 128, 543, 155, texEnemies1);
 
 	//Sprite Mario
-	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 95, 234, 110, 260, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT, 336, 234, 350, 260, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT1, 154, 313, 170, 341, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT2, 124, 314, 140, 340, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT1, 275, 313, 291, 341, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT2, 304, 314, 320, 340, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_LEFT, 1, 273, 23, 301, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT, 422, 273, 444, 300, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 94, 233, 111, 261, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT, 335, 233, 351, 261, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT1, 153, 312, 171, 342, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT2, 123, 312, 141, 342, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT1, 274, 312, 292, 342, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT2, 303, 311, 321, 342, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_LEFT, 0, 272, 24, 302, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT, 421, 272, 445, 301, texMario);
+
+	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_LEFT, 185, 119, 199, 136, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_RIGHT, 246, 119, 261, 136, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_LEFT, 154, 119, 170, 136, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_RIGHT, 274, 119, 291, 136, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_LEFT, 3, 79, 21, 97, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_RIGHT, 425, 79, 442, 97, texMario);
+
+
+
+
 
 
 #pragma endregion
