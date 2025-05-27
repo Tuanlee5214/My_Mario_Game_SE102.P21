@@ -329,7 +329,26 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 			troopa->SetState(TROOPA_STATE_DIE);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
-		
+		else if (troopa->GetState() == TROOPA_STATE_DIE)
+		{
+			if (nx > 0)
+			{
+				troopa->SetBound(0.0f, 10000.0f);
+				troopa->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE + 2) / 2);
+				troopa->SetState(TROOPA_STATE_DIE_RUNR);
+				this->SetIsRight1(true);
+				this->isInKickStateNow = GetTickCount64();
+			}
+			else
+			{
+				troopa->SetBound(0.0f, 10000.0f);
+				troopa->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE + 2) / 2);
+				troopa->SetState(TROOPA_STATE_DIE_RUNL);
+				this->SetIsRight1(true);
+				this->isInKickStateNow = GetTickCount64();
+			}
+			//vy = -MARIO_JUMP_DEFLECT_SPEED;
+		}
 	}
 	else // hit by troopa
 	{
