@@ -7,6 +7,7 @@
 #include "Mario.h"
 #include "Goomba.h"
 #include "Koopa.h"
+#include "Troopa.h"
 //#include "Koopas.h"
 
 
@@ -36,6 +37,7 @@ public:
 	virtual void Unload();
 
 	CKoopa* GetFirstKoopa(CPlayScene* playScene);
+	CTroopa* GetTroopa(CPlayScene* playScene);
 	LPGAMEOBJECT GetPlayer() { return player; }
 	std::vector<LPGAMEOBJECT> GetObjects()
 	{

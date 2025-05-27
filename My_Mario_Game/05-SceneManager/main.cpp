@@ -559,8 +559,8 @@ void LoadResourceForGame() {
 		playScene->AddObject(spawn2);
 		playScene->AddObject(spawn3);
 		playScene->AddObject(spawn4);
-		playScene->AddObject(spawn5);
-		playScene->AddObject(spawn6);
+		//playScene->AddObject(spawn5);
+		//playScene->AddObject(spawn6);
 	}
 	
 

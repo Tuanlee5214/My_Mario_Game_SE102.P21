@@ -127,9 +127,9 @@ class CMario : public CGameObject
 	ULONGLONG untouchable_start;
 	BOOLEAN isOnPlatform;
 	int coin;
-	bool isRight = false;
 	bool isRight1 = false;
 	bool isHoldingKoopa = false;
+	bool isHoldingTroopa = false;
 	ULONGLONG isInKickStateNow;
 
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
@@ -193,6 +193,15 @@ public:
 		return this->isHoldingKoopa;
 	}
 
+	void SetIsHoldingTroopa(float a)
+	{
+		this->isHoldingTroopa = a;
+	}
+
+	bool GetIsHoldingTroopa()
+	{
+		return this->isHoldingTroopa;
+	}
 
 
 	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable==0); }

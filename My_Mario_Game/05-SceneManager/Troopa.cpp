@@ -130,7 +130,16 @@ void CTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	CCollision::GetInstance()->Process(this, dt, coObjects);
 }
 
+ULONGLONG CTroopa::GetTroopaDieStart()
+{
+	return die_start;
+}
 
+void CTroopa::SetBound(float leftBound, float rightBound)
+{
+	this->leftBound = leftBound;
+	this->rightBound = rightBound;
+}
 float CTroopa::GetY()
 {
 	return this->y;

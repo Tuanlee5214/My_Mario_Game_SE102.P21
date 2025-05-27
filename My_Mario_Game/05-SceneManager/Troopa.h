@@ -49,8 +49,10 @@ protected:
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 public:
 	CTroopa(float x, float y, float leftBound, float rightBound);
+	virtual void SetBound(float leftBound, float rightBound);
 	virtual void SetState(int state);
 	virtual void SetY(float y);
 	virtual void Set_ay(float ay);
+	virtual ULONGLONG GetTroopaDieStart();
 	virtual float GetY();
 };

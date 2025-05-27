@@ -72,6 +72,7 @@ void CParaTroopa::OnNoCollision(DWORD dt)
 
 void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
+	//if (!e->obj->IsBlocking()) return;
 	if (dynamic_cast<CParaTroopa*>(e->obj) && e->nx != 0) vx = -vx;
 	CTroopa* troopa = dynamic_cast<CTroopa*>(e->obj);
 
