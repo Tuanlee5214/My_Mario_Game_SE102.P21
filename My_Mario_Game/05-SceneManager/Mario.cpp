@@ -300,10 +300,16 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 				if (e->nx < 0)
 				{
 					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNR);
+					paraTroopa->SetBound(0.0f, 10000.0f);
+					this->SetIsRight1(true);
+					this->isInKickStateNow = GetTickCount64();
 				}
 				else if (e->nx > 0)
 				{
 					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNL);
+					this->SetIsRight1(true);
+					paraTroopa->SetBound(0.0f, 10000.0f);
+					this->isInKickStateNow = GetTickCount64();
 				}
 			}
 		}

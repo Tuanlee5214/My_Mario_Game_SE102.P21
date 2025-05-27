@@ -360,6 +360,8 @@ CKoopa* CPlayScene::GetFirstKoopa(CPlayScene* playScene)
 			if (koopa != NULL)
 			{
 				return koopa;
+				DebugOut(L"\nTRoopa is get succccessss");
+
 			}
 		}
 		return NULL;
@@ -373,6 +375,7 @@ CTroopa* CPlayScene::GetTroopa(CPlayScene* playScene)
 		if (troopa != NULL)
 		{
 			return troopa;
+			DebugOut(L"TRoopa is get succccessss");
 		}
 		return NULL;
 	}

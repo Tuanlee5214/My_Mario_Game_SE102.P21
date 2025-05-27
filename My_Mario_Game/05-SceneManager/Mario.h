@@ -193,7 +193,7 @@ public:
 		return this->isHoldingKoopa;
 	}
 
-	void SetIsHoldingTroopa(float a)
+	void SetIsHoldingTroopa(float a)	 
 	{
 		this->isHoldingTroopa = a;
 	}

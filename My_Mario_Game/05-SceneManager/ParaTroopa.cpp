@@ -118,6 +118,11 @@ void CParaTroopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	}
 }
 
+void CParaTroopa::SetBound(float left, float right)
+{
+	this->leftBound = left;
+	this->rightBound = right;
+}
 void CParaTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	if (state == PARATROOPA_STATE_WALKING_FLY && isOnPlatform)
