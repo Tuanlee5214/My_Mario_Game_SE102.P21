@@ -13,6 +13,7 @@
 #define KOOPA_BBOX_HEIGHT_DIE 16
 
 #define KOOPA_DIE_TIMEOUT 30000
+#define KOOPA_TIME_TO_PICKUP 500
 #define KOOPA_DIE_TO_WALK_TIMEOUT 10000
 
 #define KOOPA_STATE_WALKING 100
@@ -57,5 +58,6 @@ public:
 	virtual void Set_ax(float ax);
 	virtual void Set_vx(float vx);
 	virtual void Set_ay(float ay);
+	virtual ULONGLONG GetKoopaDieStart();
 	virtual bool GetIsKoopaInDieRunState();
 };

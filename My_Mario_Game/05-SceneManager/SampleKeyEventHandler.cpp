@@ -105,7 +105,8 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 
 		else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
 			abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA &&
-			abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA)
+			abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA &&
+			(GetTickCount64() - koopa->GetKoopaDieStart() > KOOPA_TIME_TO_PICKUP))
 		{
 			if (mario->GetLevel() > MARIO_LEVEL_SMALL)
 			{
@@ -151,7 +152,8 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 
 		else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
 			abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA &&
-			abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA)
+			abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA &&
+			(GetTickCount64() - koopa->GetKoopaDieStart() > KOOPA_TIME_TO_PICKUP))
 		{
 			if (mario->GetLevel() > MARIO_LEVEL_SMALL)
 			{
@@ -194,7 +196,8 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 	if (!mario->GetIsOnPlatform() && game->IsKeyDown(DIK_A) &&
 		koopa && koopa->GetState() == KOOPA_STATE_DIE &&
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA &&
-		abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA)
+		abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA &&
+		(GetTickCount64() - koopa->GetKoopaDieStart() > KOOPA_TIME_TO_PICKUP))
 	{
 		if (mario->GetLevel() > MARIO_LEVEL_SMALL && mario->Get_nx() > 0)
 		{
@@ -222,7 +225,8 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 	if (mario->GetIsOnPlatform() && game->IsKeyDown(DIK_A) &&
 		koopa && koopa->GetState() == KOOPA_STATE_DIE &&
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA &&
-		abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA)
+		abs(koopaY - marioY) <= DISTANCE_TO_PICKUP_KOOPA &&
+		(GetTickCount64() - koopa->GetKoopaDieStart() > KOOPA_TIME_TO_PICKUP))
 	{
 		if (mario->GetLevel() > MARIO_LEVEL_SMALL && mario->Get_nx() > 0)
 		{

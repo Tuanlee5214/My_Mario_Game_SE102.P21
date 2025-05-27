@@ -173,6 +173,11 @@ void CKoopa::SetBound(float a, float b)
 	this->leftBound = a; 
 	this->rightBound = b;
 }
+
+ULONGLONG CKoopa::GetKoopaDieStart()
+{
+	return die_start;
+}
 void CKoopa::SetState(int state)
 {
 	CGameObject::SetState(state);
