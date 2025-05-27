@@ -28,6 +28,11 @@ void CRedGoomba::GetBoundingBox(float& left, float& top, float& right, float& bo
 	{
 		bboxHeight = REDGOOMBA_BBOX_HEIGHT_FLY - 4;
 	}
+	else if(state == REDGOOMBA_STATE_OUT_GAME)
+	{
+		left = top = right = bottom = 0;
+		return;
+	}
 
 	left = x - REDGOOMBA_BBOX_WIDTH / 2;
 	top = y - bboxHeight / 2;
@@ -170,6 +175,10 @@ void CRedGoomba::Render()
 		aniId = ID_ANI_REDGOOMBA_WALKING;
 		DebugOut(L"Set state WALKING");
 	}
+	else if (state == REDGOOMBA_STATE_OUT_GAME)
+	{
+		aniId = ID_ANI_REDGOOMBA_WALKING;
+	}
 	
 
 	auto ani = CAnimations::GetInstance()->Get(aniId);
@@ -229,6 +238,11 @@ void CRedGoomba::SetState(int state)
 			vx = -REDGOOMBA_JUMP_WALKING_SPEED;
 		}
 		vy = -REDGOOMBA_JUMP_SPEED;
+		break;
+	case REDGOOMBA_STATE_OUT_GAME:
+		vx = 0;
+		ax = 0;
+		vy = -REDGOOMBA_JUMP_DEFLECT_SPEED;
 		break;
 	}
 	

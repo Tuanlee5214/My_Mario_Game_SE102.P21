@@ -5,6 +5,7 @@
 #include "Goomba.h"
 #include "PlayScene.h"
 #include "Bullet.h"
+#include "RedGoomba.h"
 
 CKoopa::CKoopa(float x, float y, float leftBound, float rightBound) :CGameObject(x, y)
 {
@@ -61,6 +62,13 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 		goomba && (e->nx != 0 || e->ny != 0) && state == KOOPA_STATE_DIE_RUNR)
 	{
 		goomba->SetState(GOOMBA_STATE_OUT_GAME);
+		return;
+	}
+	CRedGoomba* redGoomba = dynamic_cast<CRedGoomba*>(e->obj);
+	if (redGoomba && (e->nx != 0 || e->ny != 0) && state == KOOPA_STATE_DIE_RUNL ||
+		redGoomba && (e->nx != 0 || e->ny != 0) && state == KOOPA_STATE_DIE_RUNR)
+	{
+		redGoomba->SetState(REDGOOMBA_STATE_OUT_GAME);
 		return;
 	}
 	CMario* mario = dynamic_cast<CMario*>(e->obj);
