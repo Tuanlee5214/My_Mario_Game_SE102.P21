@@ -48,5 +48,6 @@ public:
 	CParaTroopa(float x, float y, float leftBound, float rightBound);
 	virtual void SetState(int state);
 	virtual void SetBound(float left, float right);
+	virtual void SetY(float y);
 	virtual float GetY();
 };

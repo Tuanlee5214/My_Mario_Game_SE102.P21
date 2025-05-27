@@ -278,6 +278,33 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 				paraTroopa->SetState(PARATROOPA_STATE_DIE);
 				vy = -MARIO_JUMP_DEFLECT_SPEED;
 			}
+			else if (paraTroopa->GetState() == PARATROOPA_STATE_DIE_RUNL ||
+				paraTroopa->GetState() == PARATROOPA_STATE_DIE_RUNR)
+			{
+				paraTroopa->SetY((PARATROOPA_BBOX_HEIGHT - PARATROOPA_BBOX_HEIGHT_DIE + 2) / 2);
+				paraTroopa->SetState(PARATROOPA_STATE_DIE);
+				vy = -MARIO_JUMP_DEFLECT_SPEED;
+			}
+			else if (paraTroopa->GetState() == PARATROOPA_STATE_DIE)
+			{
+				if (nx > 0)
+				{
+					paraTroopa->SetBound(0.0f, 10000.0f);
+					paraTroopa->SetY((PARATROOPA_BBOX_HEIGHT - PARATROOPA_BBOX_HEIGHT_DIE + 2) / 2);
+					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNR);
+					this->SetIsRight1(true);
+					this->isInKickStateNow = GetTickCount64();
+				}
+				else
+				{
+					paraTroopa->SetBound(0.0f, 10000.0f);
+					paraTroopa->SetY((PARATROOPA_BBOX_HEIGHT - PARATROOPA_BBOX_HEIGHT_DIE + 2) / 2);
+					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNL);
+					this->SetIsRight1(true);
+					this->isInKickStateNow = GetTickCount64();
+				}
+				//vy = -MARIO_JUMP_DEFLECT_SPEED;
+			}
 	}
 	else
 	{
