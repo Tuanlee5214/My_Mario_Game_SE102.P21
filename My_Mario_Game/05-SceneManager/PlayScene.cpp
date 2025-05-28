@@ -377,8 +377,8 @@ CTroopa* CPlayScene::GetTroopa(CPlayScene* playScene)
 			return troopa;
 			DebugOut(L"TRoopa is get succccessss");
 		}
-		return NULL;
 	}
+	return NULL;
 }
 
 void CPlayScene::Update(DWORD dt)

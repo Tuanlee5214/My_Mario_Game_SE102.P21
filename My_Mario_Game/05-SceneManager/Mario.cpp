@@ -1,4 +1,4 @@
-#include <algorithm>
+﻿#include <algorithm>
 #include "debug.h"
 
 #include "Mario.h"
@@ -31,6 +31,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		untouchable_start = 0;
 		untouchable = 0;
 	}
+
 
 	if (GetTickCount64() - isInKickStateNow > MARIO_IN_KICKSTATE_TIME && isRight1)
 	{

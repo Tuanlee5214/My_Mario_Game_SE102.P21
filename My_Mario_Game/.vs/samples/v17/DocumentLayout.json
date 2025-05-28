@@ -3,36 +3,8 @@
   "WorkspaceRootPath": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Mario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\ParaTroopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\ParaTroopa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Troopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\SampleKeyEventHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Mario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Troopa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\PlayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -43,8 +15,36 @@
       "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Mario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Troopa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Troopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Koopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Koopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\ParaTroopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\ParaTroopa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Mario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Koopa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -162,7 +162,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -175,18 +175,17 @@
               "ViewState": "AgIAAHoAAAAAAAAAAADwv4sAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-19T10:12:13.201Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "Troopa.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Troopa.h",
               "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.h",
               "RelativeToolTip": "05-SceneManager\\Troopa.h",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAiwA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAiwDkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-21T16:54:42.886Z",
               "IsPinned": true,
@@ -194,33 +193,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ParaTroopa.cpp",
-              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.cpp",
-              "RelativeDocumentMoniker": "05-SceneManager\\ParaTroopa.cpp",
-              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.cpp",
-              "RelativeToolTip": "05-SceneManager\\ParaTroopa.cpp",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAAAIAAAAAXAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "Mario.cpp",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp",
+              "RelativeDocumentMoniker": "05-SceneManager\\Mario.cpp",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp",
+              "RelativeToolTip": "05-SceneManager\\Mario.cpp",
+              "ViewState": "AgIAAGACAAAAAAAAAAAswGUCAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-27T16:48:40.302Z",
+              "WhenOpened": "2025-05-19T14:13:23.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp",
+              "RelativeDocumentMoniker": "05-SceneManager\\main.cpp",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp",
+              "RelativeToolTip": "05-SceneManager\\main.cpp",
+              "ViewState": "AgIAABwAAAAAAAAAAAAqwCYCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-27T08:27:30.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Koopa.cpp",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Koopa.cpp",
+              "RelativeDocumentMoniker": "05-SceneManager\\Koopa.cpp",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Koopa.cpp",
+              "RelativeToolTip": "05-SceneManager\\Koopa.cpp",
+              "ViewState": "AgIAALcAAAAAAAAAAAAmwLAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-27T08:05:04.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Troopa.cpp",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.cpp",
+              "RelativeDocumentMoniker": "05-SceneManager\\Troopa.cpp",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.cpp",
+              "RelativeToolTip": "05-SceneManager\\Troopa.cpp",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAACoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-21T16:57:44.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SampleKeyEventHandler.cpp",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp",
+              "RelativeDocumentMoniker": "05-SceneManager\\SampleKeyEventHandler.cpp",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp",
+              "RelativeToolTip": "05-SceneManager\\SampleKeyEventHandler.cpp",
+              "ViewState": "AgIAAIcBAAAAAAAAAAAmwIoBAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-26T08:49:28.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayScene.cpp",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\PlayScene.cpp",
+              "RelativeDocumentMoniker": "05-SceneManager\\PlayScene.cpp",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\PlayScene.cpp",
+              "RelativeToolTip": "05-SceneManager\\PlayScene.cpp",
+              "ViewState": "AgIAAGwBAAAAAAAAAAAswHwBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-19T10:12:30.366Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ParaTroopa.h",
-              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.h",
-              "RelativeDocumentMoniker": "05-SceneManager\\ParaTroopa.h",
-              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.h",
-              "RelativeToolTip": "05-SceneManager\\ParaTroopa.h",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADIAAAAcAAAAAAAAAA==",
+              "Title": "GameObject.h",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\GameObject.h",
+              "RelativeDocumentMoniker": "05-SceneManager\\GameObject.h",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\GameObject.h",
+              "RelativeToolTip": "05-SceneManager\\GameObject.h",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-27T16:48:12.505Z",
+              "WhenOpened": "2025-05-19T12:01:07.065Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Mario.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Mario.h",
@@ -228,86 +292,31 @@
               "RelativeToolTip": "05-SceneManager\\Mario.h",
               "ViewState": "AgIAALkAAAAAAAAAAAAgwMMAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T14:07:57.579Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PlayScene.cpp",
-              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\PlayScene.cpp",
-              "RelativeDocumentMoniker": "05-SceneManager\\PlayScene.cpp",
-              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\PlayScene.cpp",
-              "RelativeToolTip": "05-SceneManager\\PlayScene.cpp",
-              "ViewState": "AgIAADwBAAAAAAAAAAAkwGoBAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T10:12:30.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T14:07:57.579Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "GameObject.h",
-              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\GameObject.h",
-              "RelativeDocumentMoniker": "05-SceneManager\\GameObject.h",
-              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\GameObject.h",
-              "RelativeToolTip": "05-SceneManager\\GameObject.h",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCMAAAAAAAAAAAAAAA==",
+              "Title": "ParaTroopa.h",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.h",
+              "RelativeDocumentMoniker": "05-SceneManager\\ParaTroopa.h",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.h",
+              "RelativeToolTip": "05-SceneManager\\ParaTroopa.h",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T12:01:07.065Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T16:48:12.505Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Mario.cpp",
-              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp",
-              "RelativeDocumentMoniker": "05-SceneManager\\Mario.cpp",
-              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp",
-              "RelativeToolTip": "05-SceneManager\\Mario.cpp",
-              "ViewState": "AgIAABYBAAAAAAAAAAAqwCwBAABOAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "ParaTroopa.cpp",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.cpp",
+              "RelativeDocumentMoniker": "05-SceneManager\\ParaTroopa.cpp",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.cpp",
+              "RelativeToolTip": "05-SceneManager\\ParaTroopa.cpp",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAIAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T14:13:23.699Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "main.cpp",
-              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp",
-              "RelativeDocumentMoniker": "05-SceneManager\\main.cpp",
-              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp",
-              "RelativeToolTip": "05-SceneManager\\main.cpp",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAqwCECAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-27T08:27:30.778Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Troopa.cpp",
-              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.cpp",
-              "RelativeDocumentMoniker": "05-SceneManager\\Troopa.cpp",
-              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.cpp",
-              "RelativeToolTip": "05-SceneManager\\Troopa.cpp",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAAIYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-21T16:57:44.622Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SampleKeyEventHandler.cpp",
-              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp",
-              "RelativeDocumentMoniker": "05-SceneManager\\SampleKeyEventHandler.cpp",
-              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp",
-              "RelativeToolTip": "05-SceneManager\\SampleKeyEventHandler.cpp",
-              "ViewState": "AgIAAJABAAAAAAAAAAAAAJABAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-26T08:49:28.399Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T16:48:40.302Z"
             },
             {
               "$type": "Document",
@@ -319,21 +328,7 @@
               "RelativeToolTip": "05-SceneManager\\Koopa.h",
               "ViewState": "AgIAAAcAAAAAAAAAAAAQwBAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-27T08:19:45.273Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Koopa.cpp",
-              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Koopa.cpp",
-              "RelativeDocumentMoniker": "05-SceneManager\\Koopa.cpp",
-              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Koopa.cpp",
-              "RelativeToolTip": "05-SceneManager\\Koopa.cpp",
-              "ViewState": "AgIAALoAAAAAAAAAAAAAAEgAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-27T08:05:04.507Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T08:19:45.273Z"
             },
             {
               "$type": "Document",
@@ -345,8 +340,7 @@
               "RelativeToolTip": "05-SceneManager\\SampleKeyEventHandler.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-24T17:36:24.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-24T17:36:24.486Z"
             },
             {
               "$type": "Document",
@@ -358,8 +352,7 @@
               "RelativeToolTip": "05-SceneManager\\PlayScene.h",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAACcAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-24T17:47:46.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-24T17:47:46.769Z"
             },
             {
               "$type": "Document",
@@ -371,8 +364,7 @@
               "RelativeToolTip": "05-SceneManager\\Scene.h",
               "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-24T17:47:28.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-24T17:47:28.001Z"
             },
             {
               "$type": "Document",
@@ -384,8 +376,7 @@
               "RelativeToolTip": "05-SceneManager\\AssetIDs.h",
               "ViewState": "AgIAAFYAAAAAAAAAAADwv2QAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-23T13:07:27.587Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T13:07:27.587Z"
             },
             {
               "$type": "Document",
@@ -397,8 +388,7 @@
               "RelativeToolTip": "05-SceneManager\\Spawner.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-23T12:04:46.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T12:04:46.093Z"
             },
             {
               "$type": "Document",
@@ -590,8 +580,7 @@
               "RelativeToolTip": "05-SceneManager\\Collision.cpp",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T13:19:59.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T13:19:59.64Z"
             },
             {
               "$type": "Document",
@@ -615,8 +604,7 @@
               "RelativeToolTip": "05-SceneManager\\Animations.h",
               "ViewState": "AgIAAAYAAAAAAAAAAAAswA4AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T11:04:03.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T11:04:03.516Z"
             },
             {
               "$type": "Document",
