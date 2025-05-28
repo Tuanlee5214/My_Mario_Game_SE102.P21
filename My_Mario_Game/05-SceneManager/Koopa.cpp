@@ -2,7 +2,6 @@
 #include "Koopa.h"
 #include "GameObject.h"
 #include "Mario.h"
-#include "Goomba.h"
 #include "PlayScene.h"
 #include "Bullet.h"
 #include "RedGoomba.h"

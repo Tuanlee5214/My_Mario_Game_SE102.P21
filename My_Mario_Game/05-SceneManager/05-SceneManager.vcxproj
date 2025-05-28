@@ -170,6 +170,7 @@
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="Portal.cpp" />
+    <ClCompile Include="QuestionBlock.cpp" />
     <ClCompile Include="RedGoomba.cpp" />
     <ClCompile Include="RedPlant.cpp" />
     <ClCompile Include="SampleKeyEventHandler.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="Portal.h" />
+    <ClInclude Include="QuestionBlock.h" />
     <ClInclude Include="RedGoomba.h" />
     <ClInclude Include="RedPlant.h" />
     <ClInclude Include="resource.h" />
