@@ -50,6 +50,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "ParaTroopa.h"
 #include "SampleKeyEventHandler.h"
 #include "Spawner.h"
+#include "QuestionBlock.h"
 
 #include "AssetIDs.h"
 
@@ -208,9 +209,7 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_KOOPA_DIE3R, 28, 95, 45, 111, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_DIE2R, 581, 94, 598, 111, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_DIE1R, 70, 94, 87, 109, texEnemies1);
-	//Sprite Question
-	sprites->Add(ID_SPRITE_QUESTION1, 415, 319, 432, 336, texMainMap);
-	sprites->Add(ID_SPRITE_QUESTION2, 175, 351, 208, 368, texMainMap);
+	
 
 	//Sprite Coin
 	sprites->Add(ID_SPRITE_COIN1, 227, 6, 241, 22, texMap);
@@ -303,6 +302,18 @@ void LoadResourceForGame() {
 	LPANIMATION ani;
 
 #pragma region ANIMATION
+
+	//QuestionBlock
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_QUESBLOCK1);
+	ani->Add(ID_SPRITE_QUESBLOCK2);
+	ani->Add(ID_SPRITE_QUESBLOCK3);
+	ani->Add(ID_SPRITE_QUESBLOCK4);
+	animations->Add(ID_ANI_QUESBLOCK_BEFORE_USE, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_NO_QUESBLOCK);
+	animations->Add(ID_ANI_QUESBLOCK_AFTER_USE, ani);
 
 	//Mario ani
 	ani = new CAnimation(100);

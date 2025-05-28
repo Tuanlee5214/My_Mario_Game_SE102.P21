@@ -1,5 +1,16 @@
 #include "GameObject.h"
 
+
+
+#define QUESBLOCK_BBOX_HEIGHT 16
+#define QUESBLOCK_BBOX_WIDTH 16
+
+#define QUESBLOCK_STATE_INI 100
+#define QUESBLOCK_STATE_JUMPED 200
+#define QUESBLOCK_STATE_USED 300
+
+#define ID_ANI_QUESBLOCK_BEFORE_USE 6111
+#define ID_ANI_QUESBLOCK_AFTER_USE	6112
 class CQuestionBlock : public CGameObject
 {
 protected:
