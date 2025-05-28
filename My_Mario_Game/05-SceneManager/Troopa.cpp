@@ -118,12 +118,13 @@ void CTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	}
 
 	if (x < leftBound) {
-		x = leftBound;
-		vx = TROOPA_WALKING_SPEED;
+		
+			//x = leftBound;
+			vx = TROOPA_WALKING_DIE_SPEED * 10;
 	}
 	else if (x > rightBound) {
-		x = rightBound;
-		vx = -TROOPA_WALKING_SPEED;
+		//x = rightBound;
+		vx = -TROOPA_WALKING_DIE_SPEED * 10;
 	}
 
 	CGameObject::Update(dt, coObjects);

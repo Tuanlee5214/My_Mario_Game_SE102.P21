@@ -181,7 +181,7 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 		{
 			if (nx > 0)
 			{
-				koopa->SetBound(300.0f, 700.0f);
+				koopa->SetBound(-10.0f, 10000.0f);
 				koopa->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
 				koopa->SetState(KOOPA_STATE_DIE_RUNR);
 				this->SetIsRight1(true);
@@ -189,7 +189,7 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 			}
 			else
 			{
-				koopa->SetBound(300.0f, 700.0f);
+				koopa->SetBound(-10.0f, 10000.0f);
 				koopa->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
 				koopa->SetState(KOOPA_STATE_DIE_RUNL);
 				this->SetIsRight1(true);
@@ -219,14 +219,14 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 			{
 				if (e->nx < 0)
 				{
-					koopa->SetBound(300.0f, 700.0f);
+					koopa->SetBound(-10.0f, 10000.0f);
 					koopa->SetState(KOOPA_STATE_DIE_RUNR);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
 				}
 				else if (e->nx > 0)
 				{
-					koopa->SetBound(300.0f, 700.0f);
+					koopa->SetBound(-10.0f, 10000.0f);
 					koopa->SetState(KOOPA_STATE_DIE_RUNL);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
@@ -367,7 +367,7 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 		{
 			if (nx > 0)
 			{
-				troopa->SetBound(0.0f, 10000.0f);
+				troopa->SetBound(-10.0f, 10000.0f);
 				troopa->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE + 2) / 2);
 				troopa->SetState(TROOPA_STATE_DIE_RUNR);
 				this->SetIsRight1(true);
@@ -375,7 +375,7 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 			}
 			else
 			{
-				troopa->SetBound(0.0f, 10000.0f);
+				troopa->SetBound(-10.0f, 10000.0f);
 				troopa->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE + 2) / 2);
 				troopa->SetState(TROOPA_STATE_DIE_RUNL);
 				this->SetIsRight1(true);
@@ -405,14 +405,14 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 			{
 				if (e->nx < 0)
 				{
-					troopa->SetBound(0.0f, 10000.0f);
+					troopa->SetBound(-10.0f, 10000.0f);
 					troopa->SetState(TROOPA_STATE_DIE_RUNR);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
 				}
 				else if (e->nx > 0)
 				{
-					troopa->SetBound(0.0f, 10000.0f);
+					troopa->SetBound(-10.0f, 10000.0f);
 					troopa->SetState(TROOPA_STATE_DIE_RUNL);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
