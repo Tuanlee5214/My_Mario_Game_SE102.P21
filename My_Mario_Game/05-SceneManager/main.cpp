@@ -65,7 +65,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define TEXTURE_PATH_MAINMAP TEXTURES_DIR "\\mainmap.png"
 #define TEXTURE_PATH_MAP TEXTURES_DIR "\\map.png"
 #define TEXTURE_PATH_ENEMIES1 TEXTURES_DIR "\\enemies1.png"
-
+#define TEXTURE_PATH_MICS3 TEXTURES_DIR "\\misc-3.png"
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 230
 
@@ -132,11 +132,13 @@ void LoadResourceForGame() {
 	textures->Add(ID_TEX_MAINMAP, TEXTURE_PATH_MAINMAP);
 	textures->Add(ID_TEX_ENEMIES1, TEXTURE_PATH_ENEMIES1);
 	textures->Add(ID_TEX_MARIO, TEXTURE_PATH_MARIO);
+	textures->Add(ID_TEX_MISC3, TEXTURE_PATH_MICS3);
 
 	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
 	LPTEXTURE texMap = textures->Get(ID_TEX_MAP);
 	LPTEXTURE texEnemies1 = textures->Get(ID_TEX_ENEMIES1);
 	LPTEXTURE texMario = textures->Get(ID_TEX_MARIO);
+	LPTEXTURE texMisc3 = textures->Get(ID_TEX_MISC3);
 
 	CSprites* sprites = CSprites::GetInstance();
 
@@ -288,10 +290,12 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_LEFT, 3, 79, 21, 97, texMario);
 	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_RIGHT, 425, 79, 442, 97, texMario);
 
-
-
-
-
+	//Questions block
+	sprites->Add(ID_SPRITE_QUESBLOCK1, 156, 187, 172, 203, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK2, 175, 187, 191, 203, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK3, 195, 187, 211, 203, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK4, 214, 187, 230, 203, texMisc3);
+	sprites->Add(ID_SPRITE_NO_QUESBLOCK, 234, 187, 250, 203, texMisc3);
 
 #pragma endregion
 
