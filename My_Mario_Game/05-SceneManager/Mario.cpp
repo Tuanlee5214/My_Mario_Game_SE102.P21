@@ -501,6 +501,8 @@ int CMario::GetAniIdSmall()
 	CPlayScene* playScene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
 	CKoopa* koopa = playScene->GetFirstKoopa(playScene);
 	bool isHoldKoopa = this->GetIsHoldingKoopa();
+	CTroopa* troopa = playScene->GetTroopa(playScene);
+	bool isHoldTroopa = this->GetIsHoldingTroopa();
 	int aniId = -1;
 	if (!isOnPlatform)
 	{
@@ -513,13 +515,13 @@ int CMario::GetAniIdSmall()
 		}
 		else
 		{
-			if (nx >= 0 && !isHoldKoopa)
+			if (nx >= 0 && !isHoldKoopa && !isHoldTroopa)
 				aniId = ID_ANI_MARIO_SMALL_JUMP_WALK_RIGHT;
-			else if(nx >= 0 && isHoldKoopa)
+			else if(nx >= 0 && (isHoldKoopa || isHoldTroopa))
 				aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_RIGHT;
-			else if (nx < 0 && isHoldKoopa)
+			else if (nx < 0 && (isHoldKoopa || isHoldTroopa))
 				aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_LEFT;
-			else if(nx < 0 && !isHoldKoopa)
+			else if(nx < 0 && !isHoldKoopa && !isHoldTroopa)
 				aniId = ID_ANI_MARIO_SMALL_JUMP_WALK_LEFT;
 		}
 	}
@@ -538,10 +540,10 @@ int CMario::GetAniIdSmall()
 				{
 					aniId = nx > 0 ? ID_ANI_MARIO_SMALL_KICKING_RIGHT : ID_ANI_MARIO_SMALL_KICKING_LEFT;
 				}
-				else if (nx > 0 && !isHoldKoopa) aniId = ID_ANI_MARIO_SMALL_IDLE_RIGHT;
-				else if (nx > 0 && isHoldKoopa) aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_RIGHT;
-				else if (nx < 0 && !isHoldKoopa) aniId = ID_ANI_MARIO_SMALL_IDLE_LEFT;
-				else if (nx < 0 && isHoldKoopa) aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_LEFT;
+				else if (nx > 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_SMALL_IDLE_RIGHT;
+				else if (nx > 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_RIGHT;
+				else if (nx < 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_SMALL_IDLE_LEFT;
+				else if (nx < 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_SMALL_IDLE_CARRY_LEFT;
 			}
 			else if (vx > 0)
 			{
@@ -551,19 +553,19 @@ int CMario::GetAniIdSmall()
 					aniId = ID_ANI_MARIO_SMALL_RUNNING_RIGHT;
 				else if (ax == MARIO_ACCEL_WALK_X)
 				{
-					if (isHoldKoopa && !isRight1)
+					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_SMALL_WALKING_CARRY_RIGHT;
 					}
-					else if (!isHoldKoopa && !isRight1)
+					else if (!isHoldKoopa && !isHoldTroopa && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_SMALL_WALKING_RIGHT;
 					}
-					else if (isHoldKoopa && isRight1)
+					else if ((isHoldKoopa || isHoldTroopa) && isRight1)
 					{
 						aniId = ID_ANI_MARIO_SMALL_KICKING_RIGHT;
 					}
-					else if (!isHoldKoopa && isRight1)
+					else if (!isHoldKoopa && !isHoldTroopa && isRight1)
 					{
 						aniId = ID_ANI_MARIO_SMALL_KICKING_RIGHT;
 					}
@@ -579,19 +581,19 @@ int CMario::GetAniIdSmall()
 					aniId = ID_ANI_MARIO_SMALL_RUNNING_LEFT;
 				else if (ax == -MARIO_ACCEL_WALK_X)
 				{
-					if (isHoldKoopa && !isRight1)
+					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_SMALL_WALKING_CARRY_LEFT;
 					}
-					else if (!isHoldKoopa && !isRight1)
+					else if (!isHoldKoopa && !isHoldTroopa && !isRight1)
 					{
 						aniId = ID_ANI_MARIO_SMALL_WALKING_LEFT;
 					}
-					else if (isHoldKoopa && isRight1)
+					else if ((isHoldKoopa || isHoldTroopa) && isRight1)
 					{
 						aniId = ID_ANI_MARIO_SMALL_KICKING_LEFT;
 					}
-					else if (!isHoldKoopa && isRight1)
+					else if (!isHoldKoopa && !isHoldTroopa && isRight1)
 					{
 						aniId = ID_ANI_MARIO_SMALL_KICKING_LEFT;
 					}

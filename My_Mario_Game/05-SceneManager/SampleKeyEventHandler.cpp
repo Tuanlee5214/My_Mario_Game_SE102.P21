@@ -104,11 +104,11 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 	{
 		if (koopa)
 		{
-			if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE && !mario->GetIsHoldingKoopa())
+			if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE && !mario->GetIsHoldingTroopa())
 				mario->SetState(MARIO_STATE_RUNNING_RIGHT);
 
 			else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
-				abs(koopaX - marioX) > DISTANCE_TO_PICKUP_KOOPA && !mario->GetIsHoldingKoopa())
+				abs(koopaX - marioX) > DISTANCE_TO_PICKUP_KOOPA && !mario->GetIsHoldingTroopa())
 				mario->SetState(MARIO_STATE_RUNNING_RIGHT);
 
 			else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
@@ -143,7 +143,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 
 
 
-			else if (game->IsKeyDown(DIK_A) && !koopa && !mario->GetIsHoldingKoopa())
+			else if (game->IsKeyDown(DIK_A) && !koopa)
 				mario->SetState(MARIO_STATE_RUNNING_RIGHT);
 
 			else if (!game->IsKeyDown(DIK_A) && !koopa)
@@ -203,11 +203,11 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 	{
 		if (koopa)
 		{
-			if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE && !mario->GetIsHoldingKoopa())
+			if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE && !mario->GetIsHoldingTroopa())
 				mario->SetState(MARIO_STATE_RUNNING_LEFT);
 
 			else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
-				abs(koopaX - marioX) > DISTANCE_TO_PICKUP_KOOPA && !mario->GetIsHoldingKoopa())
+				abs(koopaX - marioX) > DISTANCE_TO_PICKUP_KOOPA && !mario->GetIsHoldingTroopa())
 				mario->SetState(MARIO_STATE_RUNNING_LEFT);
 
 			else if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
@@ -243,7 +243,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 
 
 
-			else if (game->IsKeyDown(DIK_A) && !koopa && !mario->GetIsHoldingKoopa())
+			else if (game->IsKeyDown(DIK_A) && !koopa)
 				mario->SetState(MARIO_STATE_RUNNING_LEFT);
 
 			else if (!game->IsKeyDown(DIK_A) && !koopa)
