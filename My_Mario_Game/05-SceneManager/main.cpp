@@ -266,6 +266,11 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_TROOPA_DIE1R, 73, 146, 90, 163, texEnemies1);
 	sprites->Add(ID_SPRITE_TROOPA_FLIP_DIE, 326, 124, 343, 141, texEnemies1);
 
+	//Sprite E-Coin
+	sprites->Add(ID_SPRITE_ECOIN1, 293, 100, 302, 115, texMisc3);
+	sprites->Add(ID_SPRITE_ECOIN2, 335, 100, 341, 115, texMisc3);
+	sprites->Add(ID_SPRITE_ECOIN3, 309, 100, 312, 115, texMisc3);
+	sprites->Add(ID_SPRITE_ECOIN4, 320, 100, 325, 115, texMisc3);
 
 	//Sprite ParaTroopa
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_LEFT1, 146, 128, 164, 155, texEnemies1);
@@ -346,6 +351,8 @@ void LoadResourceForGame() {
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT);
 	animations->Add(ID_ANI_MARIO_KICKING_RIGHT, ani);
+
+
 
 	//Small mario
 	ani = new CAnimation(100);

@@ -15,14 +15,14 @@ CRedGoomba::CRedGoomba(float x, float y, float leftBound, float rightBound) : CG
 
 void CRedGoomba::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	int bboxHeight = REDGOOMBA_BBOX_HEIGHT_WALK;
+	int bboxHeight = REDGOOMBA_BBOX_HEIGHT_WALK - 1;
 	if (state == REDGOOMBA_STATE_DIE)
 	{
-		bboxHeight = REDGOOMBA_BBOX_HEIGHT_DIE;
+		bboxHeight = REDGOOMBA_BBOX_HEIGHT_DIE - 1;
 	}
 	else if (state == REDGOOMBA_STATE_JUMP_WALKING)
 	{
-		bboxHeight = REDGOOMBA_BBOX_HEIGHT_JUMP_WALK;
+		bboxHeight = REDGOOMBA_BBOX_HEIGHT_JUMP_WALK - 1;
 	}
 	else if (state == REDGOOMBA_STATE_JUMP || state == REDGOOMBA_STATE_JUMPLOW)
 	{
