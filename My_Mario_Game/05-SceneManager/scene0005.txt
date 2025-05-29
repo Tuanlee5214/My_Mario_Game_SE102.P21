@@ -165,7 +165,7 @@ goomba.txt
 
 #RedGoomba
 11	1150	123	650	1065
-
+		
 #QuestionBlock
 18	184	131	1
 18	199	131	1

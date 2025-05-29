@@ -52,6 +52,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Spawner.h"
 #include "QuestionBlock.h"
 #include "ECoin.h"
+#include "MushRoom.h"
 
 #include "AssetIDs.h"
 
@@ -281,6 +282,9 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT2, 505, 128, 521, 155, texEnemies1);
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT3, 527, 128, 543, 155, texEnemies1);
 
+	//MushRoom
+	sprites->Add(ID_SPRITE_MUSHROOMRED, 155, 120, 171, 136, texMisc3);
+
 	//Sprite Mario
 	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 94, 233, 111, 261, texMario);
 	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT, 335, 233, 351, 261, texMario);
@@ -324,6 +328,11 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_NO_QUESBLOCK);
 	animations->Add(ID_ANI_QUESBLOCK_AFTER_USE, ani);
 
+	//MushRoom ani
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MUSHROOMRED);
+	animations->Add(ID_ANI_MUSHROOM, ani);
+
 	//Mario ani
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT);
@@ -354,16 +363,11 @@ void LoadResourceForGame() {
 	animations->Add(ID_ANI_MARIO_KICKING_RIGHT, ani);
 
 	//ECoin
-	ani = new CAnimation(120);
+	ani = new CAnimation(80);
 	ani->Add(ID_SPRITE_ECOIN1);
 	ani->Add(ID_SPRITE_ECOIN2);
 	ani->Add(ID_SPRITE_ECOIN3);
-	ani->Add(ID_SPRITE_ECOIN1);
-	ani->Add(ID_SPRITE_ECOIN2);
-	ani->Add(ID_SPRITE_ECOIN3);
-	ani->Add(ID_SPRITE_ECOIN1);
-	ani->Add(ID_SPRITE_ECOIN2);
-	ani->Add(ID_SPRITE_ECOIN3);
+
 	animations->Add(ID_ANI_ECOIN, ani);
 
 

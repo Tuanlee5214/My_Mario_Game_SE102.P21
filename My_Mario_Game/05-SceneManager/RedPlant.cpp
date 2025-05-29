@@ -197,7 +197,7 @@ void CRedPlant::ShootBullet(CPlayScene* playScene)
     //CPlayScene* playScene = dynamic_cast<CPlayScene*>(CGame::GetInstance()->GetCurrentScene());
     if (playScene)
     {
-        CBullet* bullet = new CBullet(this->x , this->y - 5, vx, vy);
+        CBullet* bullet = new CBullet(this->x , this->y - 6, vx, vy);
         playScene->AddObject(bullet);
         DebugOut(L"Bullet succesfully created!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         hasShoot = true;
