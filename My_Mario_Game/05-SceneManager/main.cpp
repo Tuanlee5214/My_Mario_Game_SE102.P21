@@ -51,6 +51,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "SampleKeyEventHandler.h"
 #include "Spawner.h"
 #include "QuestionBlock.h"
+#include "ECoin.h"
 
 #include "AssetIDs.h"
 
@@ -352,6 +353,13 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT);
 	animations->Add(ID_ANI_MARIO_KICKING_RIGHT, ani);
 
+	//ECoin
+	ani = new CAnimation(210);
+	ani->Add(ID_SPRITE_ECOIN1);
+	ani->Add(ID_SPRITE_ECOIN2);
+	ani->Add(ID_SPRITE_ECOIN3);
+	ani->Add(ID_SPRITE_ECOIN4);
+	animations->Add(ID_ANI_ECOIN, ani);
 
 
 	//Small mario
