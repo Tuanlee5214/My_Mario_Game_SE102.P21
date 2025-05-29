@@ -23,6 +23,7 @@
 #include "Parinha.h"
 #include "Troopa.h"
 #include "ParaTroopa.h"
+#include "QuestionBlock.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -234,7 +235,12 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		);
 		break;
 	}
-
+	case OBJECT_TYPE_QUESTIONBLOCK:
+	{
+		int type = atoi(tokens[3].c_str());
+		obj = new CQuestionBlock(x, y, type);
+		break;
+	}
 	case OBJECT_TYPE_PIPE:
 	{
 		float cell_width = (float)atof(tokens[3].c_str());

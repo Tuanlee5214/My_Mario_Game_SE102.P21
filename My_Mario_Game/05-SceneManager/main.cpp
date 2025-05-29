@@ -157,6 +157,9 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_BLUEBRICK, 1968, 464, 1984, 480, texMainMap);
 	sprites->Add(ID_SPRITE_GROUP_BLUEBRICK, 1967, 463, 2096, 656, texMainMap);
 
+	sprites->Add(ID_SPRITE_QUESTION1, 415, 319, 432, 336, texMainMap);
+	sprites->Add(ID_SPRITE_QUESTION2, 175, 351, 208, 368, texMainMap);
+
 	//Sprite Tree
 	sprites->Add(ID_SPRITE_TREE1, 15, 351, 143, 416, texMainMap);
 	sprites->Add(ID_SPRITE_TREE3, 79, 26, 143, 74, texMap);
@@ -290,11 +293,11 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_RIGHT, 425, 79, 442, 97, texMario);
 
 	//Questions block
-	sprites->Add(ID_SPRITE_QUESBLOCK1, 156, 187, 172, 203, texMisc3);
-	sprites->Add(ID_SPRITE_QUESBLOCK2, 175, 187, 191, 203, texMisc3);
-	sprites->Add(ID_SPRITE_QUESBLOCK3, 195, 187, 211, 203, texMisc3);
-	sprites->Add(ID_SPRITE_QUESBLOCK4, 214, 187, 230, 203, texMisc3);
-	sprites->Add(ID_SPRITE_NO_QUESBLOCK, 234, 187, 250, 203, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK1, 155, 186, 173, 204, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK2, 174, 186, 192, 204, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK3, 194, 186, 212, 204, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK4, 213, 186, 231, 204, texMisc3);
+	sprites->Add(ID_SPRITE_NO_QUESBLOCK, 233, 186, 251, 204, texMisc3);
 
 #pragma endregion
 
