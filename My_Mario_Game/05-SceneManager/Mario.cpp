@@ -17,6 +17,7 @@
 #include "Troopa.h"
 #include "ParaTroopa.h"
 #include "PlayScene.h"
+#include "MushRoom.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -83,6 +84,8 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithTroopa(e);
 	else if (dynamic_cast<CParaTroopa*>(e->obj))
 		OnCollisionWithParaTroopa(e);
+	else if (dynamic_cast<CMushRoom*>(e->obj))
+		OnCollisionWithMushRoom(e);
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
@@ -233,6 +236,16 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 				}
 			}
 		}
+	}
+}
+
+void CMario::OnCollisionWithMushRoom(LPCOLLISIONEVENT e)
+{
+	CMushRoom* mushRoom = dynamic_cast<CMushRoom*>(e->obj);
+	if (e->nx != 0 || e->ny != 0)
+	{
+		SetLevel(MARIO_LEVEL_BIG);
+		mushRoom->Delete();
 	}
 }
 

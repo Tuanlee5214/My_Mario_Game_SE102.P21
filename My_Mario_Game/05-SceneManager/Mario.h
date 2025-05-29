@@ -143,6 +143,7 @@ class CMario : public CGameObject
 	void OnCollisionWithParinha(LPCOLLISIONEVENT e);
 	void OnCollisionWithTroopa(LPCOLLISIONEVENT e);
 	void OnCollisionWithParaTroopa(LPCOLLISIONEVENT e);
+	void OnCollisionWithMushRoom(LPCOLLISIONEVENT e);
 
 
 
