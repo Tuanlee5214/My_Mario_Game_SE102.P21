@@ -2,13 +2,14 @@
 #include "Textures.h"
 #include "Game.h"
 #include "Mario.h"
+#include "Coin.h"
 
 ECoin::ECoin(float x, float y) : CGameObject(x, y)
 {
 	this->ay = 0;
 	this->ax = 0;
 	startY = y;
-	topY = y - 40;
+	topY = y - 45;
 	SetState(ECOIN_STATE_JUMPED);
 }
 
@@ -69,9 +70,9 @@ void ECoin::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case ECOIN_STATE_FALLED:
-		if (this->y >= startY)
+		if (this->y >= startY - 8)
 		{
-			this->y = startY;
+			this->y = startY - 8;
 			isDeleted = true;
 			return;
 		}
@@ -83,7 +84,8 @@ void ECoin::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 
 void ECoin::Render()
 {
-	int aniId = ID_ANI_ECOIN;
+	int aniId;
+		aniId = ID_ANI_ECOIN;
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
 	//RenderBoundingBox();
 }

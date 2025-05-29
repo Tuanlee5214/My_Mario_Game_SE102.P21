@@ -64,7 +64,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 		SetState(QUESBLOCK_STATE_JUMPED);
 		if (playScene && this->type == 1)
 		{
-			ECoin* ecoin = new ECoin(this->x, this-> y - 18);
+			ECoin* ecoin = new ECoin(this->x, this->y - 12);
 			playScene->AddObject(ecoin);
 		}
 		mario->GetPosition(marioX, marioY);

@@ -3,7 +3,7 @@
 #define ECOIN_BBOX_HEIGHT 14
 #define ECOIN_BBOX_WIDTH 8
 
-#define ECOIN_JUMP_SPEED 0.2f
+#define ECOIN_JUMP_SPEED 0.13f
 
 #define ECOIN_STATE_JUMPED 100
 #define ECOIN_STATE_FALLED 200
@@ -23,7 +23,7 @@ class ECoin : public CGameObject
 	void RenderBoundingBox();
 
 	virtual int IsCollidable() { return 1; };
-	virtual int IsBlocking() { return 1; }
+	virtual int IsBlocking() { return 0; }
 
 	virtual void OnNoCollision(DWORD dt);
 

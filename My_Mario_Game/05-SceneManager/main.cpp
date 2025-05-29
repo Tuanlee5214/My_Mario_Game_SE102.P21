@@ -354,11 +354,16 @@ void LoadResourceForGame() {
 	animations->Add(ID_ANI_MARIO_KICKING_RIGHT, ani);
 
 	//ECoin
-	ani = new CAnimation(210);
+	ani = new CAnimation(120);
 	ani->Add(ID_SPRITE_ECOIN1);
 	ani->Add(ID_SPRITE_ECOIN2);
 	ani->Add(ID_SPRITE_ECOIN3);
-	ani->Add(ID_SPRITE_ECOIN4);
+	ani->Add(ID_SPRITE_ECOIN1);
+	ani->Add(ID_SPRITE_ECOIN2);
+	ani->Add(ID_SPRITE_ECOIN3);
+	ani->Add(ID_SPRITE_ECOIN1);
+	ani->Add(ID_SPRITE_ECOIN2);
+	ani->Add(ID_SPRITE_ECOIN3);
 	animations->Add(ID_ANI_ECOIN, ani);
 
 

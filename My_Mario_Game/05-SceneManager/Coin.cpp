@@ -1,9 +1,10 @@
 #include "Coin.h"
+#include "ECoin.h"
 
 void CCoin::Render()
 {
 	CAnimations* animations = CAnimations::GetInstance();
-	animations->Get(ID_ANI_COIN)->Render(x, y);
+	animations->Get(ID_ANI_ECOIN)->Render(x, y);
 
 	//RenderBoundingBox();
 }
