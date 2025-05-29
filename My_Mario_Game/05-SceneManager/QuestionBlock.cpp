@@ -9,7 +9,7 @@ CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 	this->ax = 0;
 	startY = y;
 	startX = x;
-	topY = y - 9;
+	topY = y - 8;
 	this->type = type;
 	SetState(QUESBLOCK_STATE_INI);
 }
@@ -59,7 +59,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 	{
 		SetState(QUESBLOCK_STATE_JUMPED);
 		mario->GetPosition(marioX, marioY);
-		mario->SetPosition(marioX, marioY + 1);
+		mario->SetPosition(marioX, marioY);
 		mario->Set_vy(0);
 	}
 	if (e->obj->IsBlocking()) return;
