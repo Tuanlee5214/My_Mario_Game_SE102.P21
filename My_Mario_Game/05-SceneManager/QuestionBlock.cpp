@@ -2,6 +2,8 @@
 #include "Textures.h"
 #include "Game.h"
 #include "Mario.h"
+#include "PlayScene.h"
+#include "ECoin.h"
 
 CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 {
@@ -54,10 +56,17 @@ void CQuestionBlock::OnNoCollision(DWORD dt)
 void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 {
 	CMario* mario = dynamic_cast<CMario*>(e->obj);
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+
 	float marioX, marioY;
 	if (mario && e->ny < 0 && state == QUESBLOCK_STATE_INI)
 	{
 		SetState(QUESBLOCK_STATE_JUMPED);
+		if (playScene && this->type == 1)
+		{
+			ECoin* ecoin = new ECoin(this->x, this-> y - 18);
+			playScene->AddObject(ecoin);
+		}
 		mario->GetPosition(marioX, marioY);
 		mario->SetPosition(marioX, marioY);
 		mario->Set_vy(0);

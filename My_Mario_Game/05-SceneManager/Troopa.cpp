@@ -34,7 +34,7 @@ void CTroopa::GetBoundingBox(float& left, float& top, float& right, float& botto
 	else
 	{
 		left = x - TROOPA_BBOX_WIDTH / 2;
-		top = y - TROOPA_BBOX_HEIGHT / 2;
+		top = y - TROOPA_BBOX_HEIGHT / 2 - 1;
 		right = left + TROOPA_BBOX_WIDTH;
 		bottom = top + TROOPA_BBOX_HEIGHT;
 	}
