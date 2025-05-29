@@ -8,6 +8,7 @@
 #include "Goomba.h"
 #include "Koopa.h"
 #include "Troopa.h"
+#include "MushRoom.h"
 //#include "Koopas.h"
 
 
@@ -38,6 +39,8 @@ public:
 
 	CKoopa* GetFirstKoopa(CPlayScene* playScene);
 	CTroopa* GetTroopa(CPlayScene* playScene);
+	CMushRoom* GetMushRoomSamePosition(CPlayScene* playScene, float x);
+
 	LPGAMEOBJECT GetPlayer() { return player; }
 	std::vector<LPGAMEOBJECT> GetObjects()
 	{

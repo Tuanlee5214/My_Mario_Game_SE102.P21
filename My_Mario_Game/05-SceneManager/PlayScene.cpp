@@ -24,6 +24,7 @@
 #include "Troopa.h"
 #include "ParaTroopa.h"
 #include "QuestionBlock.h"
+#include "MushRoom.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -206,7 +207,9 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_REDPLANT:
 		obj = new CRedPlant(x, y);
 		break;
-
+	case OBJECT_TYPE_MUSHROOM:
+		obj = new CMushRoom(x, y);
+		break;
 	case OBJECT_TYPE_GREENPLANT:
 		obj = new CGreenPlant(x, y);
 		break;
@@ -382,6 +385,21 @@ CTroopa* CPlayScene::GetTroopa(CPlayScene* playScene)
 		{
 			return troopa;
 			DebugOut(L"TRoopa is get succccessss");
+		}
+	}
+	return NULL;
+}
+
+CMushRoom* CPlayScene::GetMushRoomSamePosition(CPlayScene* playScene, float x)
+{
+	float mushRoomX, mushRoomY;
+	for (LPGAMEOBJECT obj : playScene->GetObjects())
+	{
+		CMushRoom* mushRoom = dynamic_cast<CMushRoom*>(obj);
+		if (mushRoom != NULL)
+		{
+			mushRoom->GetPosition(mushRoomX, mushRoomY);
+			if(mushRoomX == x) return mushRoom;
 		}
 	}
 	return NULL;

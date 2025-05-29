@@ -4,6 +4,7 @@
 #include "Mario.h"
 #include "PlayScene.h"
 #include "ECoin.h"
+#include "MushRoom.h"
 
 CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 {
@@ -80,6 +81,10 @@ void CQuestionBlock::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	vy += ay * dt;
 	vx += ax * dt;
 
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+	CMushRoom* mushRoom = playScene->GetMushRoomSamePosition(playScene, this->x);
+	CMario* mario = (CMario*)playScene->GetPlayer();
+
 	switch (state)
 	{
 	case QUESBLOCK_STATE_JUMPED:
@@ -97,6 +102,10 @@ void CQuestionBlock::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case QUESBLOCK_STATE_USED:
+		if (mushRoom && this->type == 2 && mario->GetLevel() == MARIO_LEVEL_SMALL)
+		{
+			mushRoom->SetState(MUSHROOM_STATE_RAISE);
+		}
 		return;
 	}
 
