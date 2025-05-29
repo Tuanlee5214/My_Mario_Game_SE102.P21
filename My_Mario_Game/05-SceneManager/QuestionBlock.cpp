@@ -72,6 +72,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 		mario->SetPosition(marioX, marioY);
 		mario->Set_vy(0);
 	}
+	
 	if (e->obj->IsBlocking()) return;
 
 }
@@ -84,17 +85,21 @@ void CQuestionBlock::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
 	CMushRoom* mushRoom = playScene->GetMushRoomSamePosition(playScene, this->x);
 	CMario* mario = (CMario*)playScene->GetPlayer();
-
+	float mushRoomX, mushRoomY;
 	switch (state)
 	{
 	case QUESBLOCK_STATE_JUMPED:
+		//if (mushRoom) mushRoom->SetPosition(this->x, this->y);
 		if (this->y <= topY)
 		{
 			this->y = topY;
+			//if(mushRoom) mushRoom->SetPosition(this->x, topY);
 			SetState(QUESBLOCK_STATE_FALLED);
 		}
 		break;
 	case QUESBLOCK_STATE_FALLED:
+		//if (mushRoom) mushRoom->SetPosition(this->x, this->y);
+
 		if (this->y >= startY)
 		{
 			this->y = startY;
@@ -102,10 +107,7 @@ void CQuestionBlock::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case QUESBLOCK_STATE_USED:
-		if (mushRoom && this->type == 2 && mario->GetLevel() == MARIO_LEVEL_SMALL)
-		{
-			mushRoom->SetState(MUSHROOM_STATE_RAISE);
-		}
+		
 		return;
 	}
 
@@ -132,6 +134,8 @@ void CQuestionBlock::Render()
 
 void CQuestionBlock::SetState(int state)
 {
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+	CMario* mario = (CMario*)playScene->GetPlayer();
 	CGameObject::SetState(state);
 	switch (state)
 	{
@@ -148,6 +152,11 @@ void CQuestionBlock::SetState(int state)
 		vy = QUESBLOCK_JUMP_SPEED;
 		break;
 	case QUESBLOCK_STATE_USED:
+		if (this->type == 2 && mario->GetLevel() == MARIO_LEVEL_SMALL)
+		{
+			CMushRoom* mushRoom = new CMushRoom(this->x, this->y);
+			playScene->AddObject(mushRoom);
+		}
 		vx = 0;
 		vy = 0;
 		break;

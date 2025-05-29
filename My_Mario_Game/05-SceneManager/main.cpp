@@ -283,7 +283,7 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT3, 527, 128, 543, 155, texEnemies1);
 
 	//MushRoom
-	sprites->Add(ID_SPRITE_MUSHROOMRED, 155, 120, 171, 136, texMisc3);
+	sprites->Add(ID_SPRITE_MUSHROOMRED, 155, 120, 172, 136, texMisc3);
 
 	//Sprite Mario
 	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 94, 233, 111, 261, texMario);

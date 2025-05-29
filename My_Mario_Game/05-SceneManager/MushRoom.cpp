@@ -13,7 +13,7 @@ CMushRoom::CMushRoom(float x, float y) : CGameObject(x, y)
 	topY = this->y - 16;
 	this->ax = 0;
 	this->ay = 0;
-	SetState(MUSHROOM_STATE_IDLE);
+	SetState(MUSHROOM_STATE_RAISE);
 }
 
 void CMushRoom::GetBoundingBox(float& left, float& top, float& right, float& bottom)
@@ -21,7 +21,7 @@ void CMushRoom::GetBoundingBox(float& left, float& top, float& right, float& bot
 	left = x - MUSHROOM_BBOX_WIDTH / 2;
 	top = y - MUSHROOM_BBOX_HEIGHT / 2;
 	right = left + MUSHROOM_BBOX_WIDTH;
-	bottom = top + MUSHROOM_BBOX_HEIGHT;
+	bottom = top + MUSHROOM_BBOX_HEIGHT - 1;
 }
 
 void CMushRoom::RenderBoundingBox()
@@ -55,11 +55,15 @@ void CMushRoom::OnNoCollision(DWORD dt)
 
 void CMushRoom::OnCollisionWith(LPCOLLISIONEVENT e)
 {
+	CQuestionBlock* quesBlock = dynamic_cast<CQuestionBlock*>(e->obj);
+	if (state == MUSHROOM_STATE_RUNL || state == MUSHROOM_STATE_RUNR)
+	{
+		if (e->ny != 0) vy = 0;
+	}
 	if (e->ny != 0)
 	{
 		vy = 0;
 	}
-	//else if (e->ny == 0 && nx == 0) vy = TROOPA_GRAVITY * 50;
 	else if (e->nx != 0)
 	{
 		vx = -vx;
@@ -90,7 +94,7 @@ void CMushRoom::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			this->y = topY;
 			vy = 0;
 			
-				SetState(MUSHROOM_STATE_RUNL);
+				SetState(MUSHROOM_STATE_RUNR);
 
 		}
 	}
