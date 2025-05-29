@@ -20,6 +20,7 @@ protected:
 	float ax;
 	int type;
 	float startY;
+	float startX;
 	float topY;
 
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);

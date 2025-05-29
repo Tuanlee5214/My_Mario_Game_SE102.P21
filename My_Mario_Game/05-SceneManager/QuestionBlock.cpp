@@ -1,4 +1,4 @@
-#include "QuestionBlock.h"
+﻿#include "QuestionBlock.h"
 #include "Textures.h"
 #include "Game.h"
 #include "Mario.h"
@@ -8,6 +8,7 @@ CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 	this->ay = 0;
 	this->ax = 0;
 	startY = y;
+	startX = x;
 	topY = y - 9;
 	this->type = type;
 	SetState(QUESBLOCK_STATE_INI);
@@ -58,13 +59,11 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 	{
 		SetState(QUESBLOCK_STATE_JUMPED);
 		mario->GetPosition(marioX, marioY);
-		mario->SetPosition(marioX, marioY);
+		mario->SetPosition(marioX, marioY + 1);
 		mario->Set_vy(0);
 	}
-	else if (mario && e->ny < 0 && state == QUESBLOCK_STATE_USED)
-	{
-		vy = 0;
-	}
+	if (e->obj->IsBlocking()) return;
+
 }
 
 void CQuestionBlock::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
@@ -87,6 +86,9 @@ void CQuestionBlock::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			this->y = startY;
 			SetState(QUESBLOCK_STATE_USED);
 		}
+		break;
+	case QUESBLOCK_STATE_USED:
+		return;
 	}
 
 	CGameObject::Update(dt, coObjects);
