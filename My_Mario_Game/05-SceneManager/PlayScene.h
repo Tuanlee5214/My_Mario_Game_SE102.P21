@@ -39,6 +39,7 @@ public:
 
 	CKoopa* GetFirstKoopa(CPlayScene* playScene);
 	CTroopa* GetTroopa(CPlayScene* playScene);
+	void InsertObjectBefore(LPGAMEOBJECT newObj, LPGAMEOBJECT beforeObj);
 	CMushRoom* GetMushRoomSamePosition(CPlayScene* playScene, float x);
 
 	LPGAMEOBJECT GetPlayer() { return player; }

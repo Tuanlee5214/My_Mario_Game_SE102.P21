@@ -82,10 +82,7 @@ void CQuestionBlock::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	vy += ay * dt;
 	vx += ax * dt;
 
-	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
-	CMushRoom* mushRoom = playScene->GetMushRoomSamePosition(playScene, this->x);
-	CMario* mario = (CMario*)playScene->GetPlayer();
-	float mushRoomX, mushRoomY;
+
 	switch (state)
 	{
 	case QUESBLOCK_STATE_JUMPED:
@@ -155,7 +152,7 @@ void CQuestionBlock::SetState(int state)
 		if (this->type == 2 && mario->GetLevel() == MARIO_LEVEL_SMALL)
 		{
 			CMushRoom* mushRoom = new CMushRoom(this->x, this->y);
-			playScene->AddObject(mushRoom);
+			playScene->InsertObjectBefore(mushRoom, this);
 		}
 		vx = 0;
 		vy = 0;

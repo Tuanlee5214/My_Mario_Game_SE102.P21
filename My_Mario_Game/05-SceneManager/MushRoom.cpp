@@ -83,6 +83,8 @@ int CMushRoom::RandomLeftOrRight()
 
 void CMushRoom::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+	CMario* mario = (CMario*)playScene->GetPlayer();
 	vy += ay * dt;
 	vx += ax * dt;
 
@@ -93,8 +95,10 @@ void CMushRoom::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		{
 			this->y = topY;
 			vy = 0;
-			
+			if (mario->Get_nx() > 0)
 				SetState(MUSHROOM_STATE_RUNR);
+			else
+				SetState(MUSHROOM_STATE_RUNL);
 
 		}
 	}
@@ -118,10 +122,6 @@ void CMushRoom::SetState(int state)
 	CGameObject::SetState(state);
 	switch (state)
 	{
-	case MUSHROOM_STATE_IDLE:
-		vx = 0;
-		vy = 0;
-		break;
 	case MUSHROOM_STATE_RAISE:
 		vx = 0;
 		vy = -MUSHROOM_RISE_SPEED;

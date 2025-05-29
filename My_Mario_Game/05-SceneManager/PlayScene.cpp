@@ -326,6 +326,16 @@ void CPlayScene::AddObject(LPGAMEOBJECT object) {
 	this->objects.push_back(object);
 }
 
+void CPlayScene::InsertObjectBefore(LPGAMEOBJECT newObj, LPGAMEOBJECT beforeObj) {
+	auto it = std::find(objects.begin(), objects.end(), beforeObj);
+	if (it != objects.end()) {
+		objects.insert(it, newObj);
+	}
+	else {
+		objects.push_back(newObj); // fallback nếu không tìm thấy
+	}
+}
+
 void CPlayScene::Load()
 {
 	DebugOut(L"[INFO] Start loading scene from : %s \n", sceneFilePath);
