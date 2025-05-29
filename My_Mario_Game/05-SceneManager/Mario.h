@@ -203,6 +203,10 @@ public:
 		return this->isHoldingTroopa;
 	}
 
+	void Set_vy(float vy)
+	{
+		this->vy = vy;
+	}
 
 	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable==0); }
 

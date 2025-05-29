@@ -129,6 +129,8 @@ goomba.txt
 
 #QuestionBlock
 18	201	131	1
+18	217	131	1
+
 #RedPlant
 12	365	163
 

@@ -307,7 +307,7 @@ void LoadResourceForGame() {
 #pragma region ANIMATION
 
 	//QuestionBlock
-	ani = new CAnimation(100);
+	ani = new CAnimation(130);
 	ani->Add(ID_SPRITE_QUESBLOCK1);
 	ani->Add(ID_SPRITE_QUESBLOCK2);
 	ani->Add(ID_SPRITE_QUESBLOCK3);

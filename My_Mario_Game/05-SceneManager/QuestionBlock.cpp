@@ -8,7 +8,7 @@ CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 	this->ay = 0;
 	this->ax = 0;
 	startY = y;
-	topY = y - 5;
+	topY = y - 9;
 	this->type = type;
 	SetState(QUESBLOCK_STATE_INI);
 }
@@ -58,6 +58,8 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 	{
 		SetState(QUESBLOCK_STATE_JUMPED);
 		mario->GetPosition(marioX, marioY);
+		mario->SetPosition(marioX, marioY);
+		mario->Set_vy(0);
 	}
 	else if (mario && e->ny < 0 && state == QUESBLOCK_STATE_USED)
 	{
