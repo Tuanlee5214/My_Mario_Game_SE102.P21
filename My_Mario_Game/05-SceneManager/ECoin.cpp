@@ -70,9 +70,9 @@ void ECoin::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case ECOIN_STATE_FALLED:
-		if (this->y >= startY - 8)
+		if (this->y >= startY - 17)
 		{
-			this->y = startY - 8;
+			this->y = startY - 17;
 			isDeleted = true;
 			return;
 		}
