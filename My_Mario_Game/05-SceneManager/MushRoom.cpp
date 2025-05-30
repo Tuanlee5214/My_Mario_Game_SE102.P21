@@ -4,8 +4,7 @@
 #include "Game.h"
 #include "Mario.h"
 #include "PlayScene.h"
-#include <cstdlib>
-#include <ctime>
+
 
 
 CMushRoom::CMushRoom(float x, float y) : CGameObject(x, y)
@@ -69,17 +68,6 @@ void CMushRoom::OnCollisionWith(LPCOLLISIONEVENT e)
 	{
 		vx = -vx;
 	}
-}
-
-void CMushRoom::InitRandom()
-{
-	std::srand((unsigned int)std::time(nullptr));
-}
-
-// Hàm random trả về 0 hoặc 1
-int CMushRoom::RandomLeftOrRight()
-{
-	return std::rand() % 2;
 }
 
 void CMushRoom::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)

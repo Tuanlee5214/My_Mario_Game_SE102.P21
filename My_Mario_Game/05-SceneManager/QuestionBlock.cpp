@@ -4,6 +4,7 @@
 #include "Mario.h"
 #include "PlayScene.h"
 #include "ECoin.h"
+#include "Leaf.h"
 #include "MushRoom.h"
 
 CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
@@ -68,6 +69,11 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 			ECoin* ecoin = new ECoin(this->x, this->y - 4);
 			playScene->InsertObjectBefore(ecoin, this);
 		}
+		else if (playScene && this->type == 2 && mario->GetLevel() == MARIO_LEVEL_BIG)
+		{
+			CLeaf* leaf = new CLeaf(this->x, this->y - 4, x - 8, x + 40);
+			playScene->InsertObjectBefore(leaf, this);
+		}
 		mario->GetPosition(marioX, marioY);
 		mario->SetPosition(marioX, marioY);
 		mario->Set_vy(0);
@@ -82,6 +88,11 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 		{
 			ECoin* ecoin = new ECoin(this->x, this->y - 4);
 			playScene->InsertObjectBefore(ecoin, this);
+		}
+		else if (playScene && this->type == 2 && mario->GetLevel() == MARIO_LEVEL_BIG)
+		{
+			CLeaf* leaf = new CLeaf(this->x, this->y - 4, x - 8, x + 40);
+			playScene->InsertObjectBefore(leaf, this);
 		}
 	}
 	
@@ -164,6 +175,7 @@ void CQuestionBlock::SetState(int state)
 			CMushRoom* mushRoom = new CMushRoom(this->x, this->y);
 			playScene->InsertObjectBefore(mushRoom, this);
 		}
+		
 		vx = 0;
 		vy = 0;
 		break;

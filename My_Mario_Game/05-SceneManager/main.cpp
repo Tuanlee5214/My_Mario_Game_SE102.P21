@@ -53,6 +53,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "QuestionBlock.h"
 #include "ECoin.h"
 #include "MushRoom.h"
+#include "Leaf.h"
 
 #include "AssetIDs.h"
 
@@ -344,6 +345,15 @@ void LoadResourceForGame() {
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_MUSHROOMRED);
 	animations->Add(ID_ANI_MUSHROOM, ani);
+
+	//Leaf ani
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_LEAF_LEFT);
+	animations->Add(ID_ANI_LEAF_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_LEAF_RIGHT);
+	animations->Add(ID_ANI_LEAF_RIGHT, ani);
 
 	//Mario ani
 	ani = new CAnimation(100);

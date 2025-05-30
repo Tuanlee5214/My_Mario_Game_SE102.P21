@@ -2,8 +2,6 @@
 #define MUSHROOM_H
 
 #include "GameObject.h"
-#include <cstdlib>
-#include <ctime>
 
 #define MUSHROOM_BBOX_HEIGHT 16
 #define MUSHROOM_BBOX_WIDTH 16
@@ -30,8 +28,7 @@ class CMushRoom : public CGameObject
 
 	virtual int IsCollidable() { return 1; };
 	virtual int IsBlocking() { return 0; }
-	void InitRandom();
-	int RandomLeftOrRight();
+
 	virtual void OnNoCollision(DWORD dt);
 
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
