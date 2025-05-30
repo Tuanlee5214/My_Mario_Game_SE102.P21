@@ -50,7 +50,23 @@ void CBrick::OnNoCollision(DWORD dt)
 
 void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 {
+	CMario* mario = dynamic_cast<CMario*>(e->obj);
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+	CMario* player = (CMario*)(playScene->GetPlayer());
 
+	float marioX, marioY;
+	if (mario && e->ny < 0 && state == BRICK_STATE_INI && type == 2)
+	{
+		SetState(BRICK_STATE_JUMPED);
+		if (playScene && this->type == 2)
+		{
+			//ECoin* ecoin = new ECoin(this->x, this->y - 4);
+			//playScene->InsertObjectBefore(ecoin, this);
+		}
+		mario->GetPosition(marioX, marioY);
+		mario->SetPosition(marioX, marioY);
+		mario->Set_vy(0);
+	}
 }
 
 void CBrick::GetBoundingBox(float &left, float &top, float &right, float &bottom)
@@ -77,8 +93,6 @@ void CBrick::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case BRICK_STATE_FALLED:
-		//if (mushRoom) mushRoom->SetPosition(this->x, this->y);
-
 		if (this->y >= startY)
 		{
 			this->y = startY;
