@@ -1,2 +1,45 @@
-﻿  QuestionBlock.cpp
+﻿  Leaf.cpp
+  Mario.cpp
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(6,9):
+      see previous definition of 'speed_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9):
+      see previous definition of 'top_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(6,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9):
+      see previous definition of 'speed_Y'
+  
+  QuestionBlock.cpp
+  main.cpp
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'main.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'main.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'main.cpp')
+      D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(6,9):
+      see previous definition of 'speed_Y'
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.h(33,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+  (compiling source file 'main.cpp')
+  
+D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\main.cpp(204,36): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
   05-SceneManager.vcxproj -> D:\NMPT_GAME_SE102.P21\My_Mario_Game_SE102.P21\My_Mario_Game\Debug\05-SceneManager.exe

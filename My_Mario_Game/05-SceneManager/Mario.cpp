@@ -18,6 +18,7 @@
 #include "ParaTroopa.h"
 #include "PlayScene.h"
 #include "MushRoom.h"
+#include "Leaf.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -95,6 +96,8 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithParaTroopa(e);
 	else if (dynamic_cast<CMushRoom*>(e->obj))
 		OnCollisionWithMushRoom(e);
+	else if (dynamic_cast<CLeaf*>(e->obj))
+		OnCollisionWihtLeaf(e);
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
@@ -485,6 +488,16 @@ void CMario::OnCollisionWithGreenPlant(LPCOLLISIONEVENT e)
 				SetState(MARIO_STATE_DIE);
 			}
 		}
+	}
+}
+
+void CMario::OnCollisionWihtLeaf(LPCOLLISIONEVENT e)
+{
+	CLeaf* leaf = dynamic_cast<CLeaf*>(e->obj);
+	if (e->nx != 0 || e->ny != 0)
+	{
+		SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
+		leaf->Delete();
 	}
 }
 
