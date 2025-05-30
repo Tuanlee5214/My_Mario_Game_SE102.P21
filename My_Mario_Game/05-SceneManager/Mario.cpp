@@ -43,6 +43,11 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	{
 		SetLevel(MARIO_LEVEL_BIG);
 	}
+
+	if (level == 4 && GetTickCount64() - timeStartTransForm > MARIO_TRANSFORM_BIG_TO_SMALL_TIMEOUT)
+	{
+		SetLevel(MARIO_LEVEL_SMALL);
+	}
 	CCollision::GetInstance()->Process(this, dt, coObjects);
 }
 
@@ -113,7 +118,7 @@ void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 			{
 				if (level > MARIO_LEVEL_SMALL)
 				{
-					level = MARIO_LEVEL_SMALL;
+					SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 					StartUntouchable();
 				}
 				else
@@ -152,7 +157,7 @@ void CMario::OnCollisionWithRedGoomba(LPCOLLISIONEVENT e)
 			{
 				if (level > MARIO_LEVEL_SMALL)
 				{
-					level = MARIO_LEVEL_SMALL;
+					SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 					StartUntouchable();
 				}
 				else
@@ -213,7 +218,7 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 			{
 				if (level > MARIO_LEVEL_SMALL)
 				{
-					level = MARIO_LEVEL_SMALL;
+					SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 					StartUntouchable();
 				}
 				else
@@ -262,7 +267,7 @@ void CMario::OnCollisionWithRedPlant(LPCOLLISIONEVENT e)
 		{
 			if (level > MARIO_LEVEL_SMALL)
 			{
-				level = MARIO_LEVEL_SMALL;
+				SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 				StartUntouchable();
 			}
 			else
@@ -331,7 +336,7 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 			if (paraTroopa->GetState() != PARATROOPA_STATE_DIE){
 				if (level > MARIO_LEVEL_SMALL)
 				{
-					level = MARIO_LEVEL_SMALL;
+					SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 					StartUntouchable();
 				}
 				else
@@ -409,7 +414,7 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 			{
 				if (level > MARIO_LEVEL_SMALL)
 				{
-					level = MARIO_LEVEL_SMALL;
+					SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 					StartUntouchable();
 				}
 				else
@@ -449,7 +454,7 @@ void CMario::OnCollisionWithParinha(LPCOLLISIONEVENT e)
 		{
 			if (level > MARIO_LEVEL_SMALL)
 			{
-				level = MARIO_LEVEL_SMALL;
+				SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 				StartUntouchable();
 			}
 			else
@@ -471,7 +476,7 @@ void CMario::OnCollisionWithGreenPlant(LPCOLLISIONEVENT e)
 		{
 			if (level > MARIO_LEVEL_SMALL)
 			{
-				level = MARIO_LEVEL_SMALL;
+				SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 				StartUntouchable();
 			}
 			else
@@ -492,7 +497,7 @@ void CMario::OnCollisionWithBullet(LPCOLLISIONEVENT e)
 		{
 			if (level > MARIO_LEVEL_SMALL)
 			{
-				level = MARIO_LEVEL_SMALL;
+				SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 				StartUntouchable();
 			}
 			else
@@ -746,6 +751,11 @@ void CMario::Render()
 		if (this->nx > 0) aniId = ID_ANI_MARIO_TRANSFORM_SMALL_TO_BIG_RIGHT;
 		else aniId = ID_ANI_MARIO_TRANSFORM_SMALL_TO_BIG_LEFT;
 	 }
+	 else if (level == 4)
+	 {
+		 if (this->nx > 0) aniId = ID_ANI_MARIO_TRANSFORM_BIG_TO_SMALL_RIGHT;
+		 else aniId = ID_ANI_MARIO_TRANSFORM_BIG_TO_SMALL_LEFT;
+	 }
 	else  if (state == MARIO_STATE_DIE)
 		aniId = ID_ANI_MARIO_DIE;
 	else if (level == MARIO_LEVEL_BIG)
@@ -843,6 +853,13 @@ void CMario::SetState(int state)
 		vy = 0;
 		vx = 0;
 		break;
+	case MARIO_STATE_TRANSFORM_BIG_TO_SMALL:
+		timeStartTransForm = GetTickCount64();
+		SetLevel(4);
+		vy = 0;
+		vx = 0;
+		break;
+
 	}
 
 	CGameObject::SetState(state);
@@ -874,7 +891,7 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 		right = left + MARIO_SMALL_BBOX_WIDTH;
 		bottom = top + MARIO_SMALL_BBOX_HEIGHT + 1.5f;
 	}
-	else if (level == 3)
+	else if (level == 3 || level == 4)
 	{
 		left = x - MARIO_BIG_BBOX_WIDTH / 2;
 		top = y - MARIO_BIG_BBOX_HEIGHT / 2;
