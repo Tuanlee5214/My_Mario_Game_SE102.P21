@@ -331,6 +331,8 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_BRICK3, 336, 134, 350, 150, texMisc);
 	sprites->Add(ID_SPRITE_BRICK4, 354, 134, 370, 150, texMisc);
 	sprites->Add(ID_SPRITE_BRICK5, 371, 134, 387, 150, texMisc);
+	sprites->Add(ID_SPRITE_EFFECT_BRICK, 494, 119, 502, 127, texMisc);
+
 
 #pragma endregion
 
@@ -338,6 +340,16 @@ void LoadResourceForGame() {
 	LPANIMATION ani;
 
 #pragma region ANIMATION
+
+	//Brick
+	ani = new CAnimation(130);
+	ani->Add(ID_SPRITE_BRICK1);
+	ani->Add(ID_SPRITE_BRICK2);
+	ani->Add(ID_SPRITE_BRICK3);
+	ani->Add(ID_SPRITE_BRICK4);
+	ani->Add(ID_SPRITE_BRICK5);
+	animations->Add(ID_ANI_BRICK_BEFORE_USE, ani);
+
 
 	//QuestionBlock
 	ani = new CAnimation(130);
