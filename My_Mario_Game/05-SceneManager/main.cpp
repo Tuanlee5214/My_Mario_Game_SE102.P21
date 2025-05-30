@@ -301,6 +301,14 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_RIGHT, 274, 119, 291, 136, texMario);
 	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_LEFT, 3, 79, 21, 97, texMario);
 	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_RIGHT, 425, 79, 442, 97, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_LEFT, 64, 233, 81, 261, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_RIGHT, 364, 233, 381, 261, texMario);
+	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_LEFT, 64, 275, 80, 300, texMario);
+	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_RIGHT, 364, 275, 380, 300, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_LEFT, 187, 0, 199, 15, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_RIGHT, 246, 0, 258, 15, texMario);
+
+
 
 	//Questions block
 	sprites->Add(ID_SPRITE_QUESBLOCK1, 155, 186, 173, 204, texMisc3);
