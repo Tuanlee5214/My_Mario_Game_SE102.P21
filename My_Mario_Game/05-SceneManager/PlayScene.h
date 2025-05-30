@@ -37,6 +37,7 @@ public:
 	virtual void AddObject(LPGAMEOBJECT e);
 	virtual void Unload();
 
+
 	CKoopa* GetFirstKoopa(CPlayScene* playScene);
 	CTroopa* GetTroopa(CPlayScene* playScene);
 	void InsertObjectBefore(LPGAMEOBJECT newObj, LPGAMEOBJECT beforeObj);

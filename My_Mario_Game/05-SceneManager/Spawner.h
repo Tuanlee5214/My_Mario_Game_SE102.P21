@@ -9,7 +9,7 @@ protected:
 	DWORD spawnInterval;
 	int typeObjectToSpawn;
 	float leftBound, rightBound;
-
+	int count;
 	LPGAMEOBJECT currentEnemy;
 	float spawnRange = 200.0f;
 
@@ -24,6 +24,7 @@ public:
 	{
 		this->x = x;
 		this->y = y;
+		this->count = 0;
 		this->leftBound = leftBound;
 		this->rightBound = rightBound;
 		this->spawnInterval = spawnInterval;
