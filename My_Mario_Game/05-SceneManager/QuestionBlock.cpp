@@ -72,6 +72,18 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 		mario->SetPosition(marioX, marioY);
 		mario->Set_vy(0);
 	}
+
+
+	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
+	if (koopa && e->nx != 0 && state == QUESBLOCK_STATE_INI)
+	{
+		SetState(QUESBLOCK_STATE_JUMPED);
+		if (playScene && this->type == 1)
+		{
+			ECoin* ecoin = new ECoin(this->x, this->y - 4);
+			playScene->InsertObjectBefore(ecoin, this);
+		}
+	}
 	
 	if (e->obj->IsBlocking()) return;
 
