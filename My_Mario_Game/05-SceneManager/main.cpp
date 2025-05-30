@@ -70,6 +70,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define TEXTURE_PATH_MAP TEXTURES_DIR "\\map.png"
 #define TEXTURE_PATH_ENEMIES1 TEXTURES_DIR "\\enemies1.png"
 #define TEXTURE_PATH_MICS3 TEXTURES_DIR "\\misc-3.png"
+#define TEXTURE_PATH_MISC TEXTURES_DIR "\\misc.png"
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 230
 
@@ -137,12 +138,14 @@ void LoadResourceForGame() {
 	textures->Add(ID_TEX_ENEMIES1, TEXTURE_PATH_ENEMIES1);
 	textures->Add(ID_TEX_MARIO, TEXTURE_PATH_MARIO);
 	textures->Add(ID_TEX_MISC3, TEXTURE_PATH_MICS3);
+	textures->Add(ID_TEX_MISC, TEXTURE_PATH_MISC);
 
 	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
 	LPTEXTURE texMap = textures->Get(ID_TEX_MAP);
 	LPTEXTURE texEnemies1 = textures->Get(ID_TEX_ENEMIES1);
 	LPTEXTURE texMario = textures->Get(ID_TEX_MARIO);
 	LPTEXTURE texMisc3 = textures->Get(ID_TEX_MISC3);
+	LPTEXTURE texMisc = textures->Get(ID_TEX_MISC);
 
 	CSprites* sprites = CSprites::GetInstance();
 
@@ -321,6 +324,13 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_QUESBLOCK3, 194, 186, 212, 204, texMisc3);
 	sprites->Add(ID_SPRITE_QUESBLOCK4, 213, 186, 231, 204, texMisc3);
 	sprites->Add(ID_SPRITE_NO_QUESBLOCK, 233, 186, 251, 204, texMisc3);
+
+	//Brick sprite
+	sprites->Add(ID_SPRITE_BRICK1, 300, 134, 316, 150, texMisc);
+	sprites->Add(ID_SPRITE_BRICK2, 318, 134, 333, 150, texMisc);
+	sprites->Add(ID_SPRITE_BRICK3, 336, 134, 350, 150, texMisc);
+	sprites->Add(ID_SPRITE_BRICK4, 354, 134, 370, 150, texMisc);
+	sprites->Add(ID_SPRITE_BRICK5, 371, 134, 387, 150, texMisc);
 
 #pragma endregion
 
