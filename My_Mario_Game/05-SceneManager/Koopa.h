@@ -2,7 +2,7 @@
 #include "GameObject.h"
 
 #define KOOPA_GRAVITY 0.002f
-#define KOOPA_WALKING_SPEED 0.035f
+#define KOOPA_WALKING_SPEED 0.03f
 #define KOOPA_WALKING_DIE_SPEED 0.027f
 
 #define KOOPA_DISTANCE_DELETE 280
@@ -57,6 +57,7 @@ public:
 	virtual void Set_Y(float y);
 	virtual void Set_ax(float ax);
 	virtual void Set_vx(float vx);
+	virtual void Set_vx1();
 	virtual void Set_ay(float ay);
 	virtual ULONGLONG GetKoopaDieStart();
 	virtual bool GetIsKoopaInDieRunState();

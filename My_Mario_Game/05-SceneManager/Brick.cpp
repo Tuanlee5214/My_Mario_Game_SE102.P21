@@ -74,6 +74,7 @@ void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 		koopa->GetState() == KOOPA_STATE_DIE_RUNR) && type == 1)
 	{
 		this->Delete();
+		koopa->Set_vx1();
 	}
 }
 
