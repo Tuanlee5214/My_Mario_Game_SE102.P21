@@ -309,6 +309,10 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_RIGHT, 246, 0, 258, 15, texMario);
 	sprites->Add(ID_SPRITE_MARIO_NOTHING, 183, 315, 198, 339, texMario);
 
+	//Leaf sprite
+	sprites->Add(ID_SPRITE_LEAF_LEFT, 179 ,121 ,196, 138, texMisc3);
+	sprites->Add(ID_SPRITE_LEAF_RIGHT, 382, 121, 400, 138, texMisc3);
+
 
 	//Questions block
 	sprites->Add(ID_SPRITE_QUESBLOCK1, 155, 186, 173, 204, texMisc3);
@@ -559,6 +563,8 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT2);
 	ani->Add(ID_SPRITE_PARATROOPA_WALKING_RIGHT3);
 	animations->Add(ID_ANI_PARATROOPA_WALKING_FLY_R, ani);
+
+
 
 	
 
