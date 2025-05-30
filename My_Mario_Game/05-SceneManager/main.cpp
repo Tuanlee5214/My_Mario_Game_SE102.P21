@@ -326,11 +326,10 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_NO_QUESBLOCK, 233, 186, 251, 204, texMisc3);
 
 	//Brick sprite
-	sprites->Add(ID_SPRITE_BRICK1, 300, 134, 316, 150, texMisc);
-	sprites->Add(ID_SPRITE_BRICK2, 318, 134, 333, 150, texMisc);
-	sprites->Add(ID_SPRITE_BRICK3, 336, 134, 350, 150, texMisc);
-	sprites->Add(ID_SPRITE_BRICK4, 354, 134, 370, 150, texMisc);
-	sprites->Add(ID_SPRITE_BRICK5, 371, 134, 387, 150, texMisc);
+	sprites->Add(ID_SPRITE_BRICK1, 273, 187, 291, 204, texMisc3);
+	sprites->Add(ID_SPRITE_BRICK2, 292, 187, 310, 204, texMisc3);
+	sprites->Add(ID_SPRITE_BRICK3, 311, 187, 329, 204, texMisc3);
+	sprites->Add(ID_SPRITE_BRICK4, 329, 187, 348, 204, texMisc3);
 	sprites->Add(ID_SPRITE_EFFECT_BRICK, 494, 119, 502, 127, texMisc);
 
 
@@ -342,12 +341,10 @@ void LoadResourceForGame() {
 #pragma region ANIMATION
 
 	//Brick
-	ani = new CAnimation(130);
+	ani = new CAnimation(300);
 	ani->Add(ID_SPRITE_BRICK1);
 	ani->Add(ID_SPRITE_BRICK2);
 	ani->Add(ID_SPRITE_BRICK3);
-	ani->Add(ID_SPRITE_BRICK4);
-	ani->Add(ID_SPRITE_BRICK5);
 	animations->Add(ID_ANI_BRICK_BEFORE_USE, ani);
 
 
@@ -708,6 +705,8 @@ void LoadResourceForGame() {
 	CSpawner* spawn7 = new CSpawner(900, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
 	CSpawner* spawn8 = new CSpawner(950, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
 	CSpawner* spawn9 = new CSpawner(1000, 159, 1000, OBJECT_TYPE_REDGOOMBA, 600, 1065);
+	CSpawner* spawn10 = new CSpawner(2130, 129, 1000, OBJECT_TYPE_KOOPA, 2127, 2134);
+
 
 
 
@@ -722,6 +721,7 @@ void LoadResourceForGame() {
 		playScene->AddObject(spawn7);
 		playScene->AddObject(spawn8);
 		playScene->AddObject(spawn9);
+		playScene->AddObject(spawn10);
 	}
 	
 

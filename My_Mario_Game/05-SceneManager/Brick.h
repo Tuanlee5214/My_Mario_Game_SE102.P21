@@ -1,3 +1,6 @@
+#ifndef BRICK_H
+#define BRICK_H
+
 #include "GameObject.h"
 
 #define BRICK_BBOX_HEIGHT 16
@@ -12,14 +15,13 @@
 
 #define ID_ANI_BRICK_BEFORE_USE 6334
 
-class CQuestionBlock : public CGameObject
+class CBrick : public CGameObject
 {
 protected:
 	float ay;
 	float ax;
 	int type;
 	float startY;
-	float startX;
 	float topY;
 
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
@@ -35,9 +37,9 @@ protected:
 
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 public:
-	CQuestionBlock(float x, float y, int type);
+	CBrick(float x, float y, int type);
 	virtual void SetState(int state);
-	//virtual void SetY(float y);
-	//virtual void Set_ay(float ay);
-	//virtual float GetY();
+
 };
+
+#endif // BRICK_H

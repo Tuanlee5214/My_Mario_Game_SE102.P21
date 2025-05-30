@@ -25,6 +25,7 @@
 #include "ParaTroopa.h"
 #include "QuestionBlock.h"
 #include "MushRoom.h"
+#include "Brick.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -162,7 +163,6 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		float rightBound = (float)atof(tokens[4].c_str());
 		obj = new CRedGoomba(x, y, leftBound, rightBound); break;
 	}
-	case OBJECT_TYPE_BRICK: obj = new CBrick(x,y); break;
 	case OBJECT_TYPE_COIN: obj = new CCoin(x, y); break;
 
 	case OBJECT_TYPE_PLATFORM:
@@ -242,6 +242,12 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	{
 		int type = atoi(tokens[3].c_str());
 		obj = new CQuestionBlock(x, y, type);
+		break;
+	}
+	case OBJECT_TYPE_BRICK:
+	{
+		int type = atoi(tokens[3].c_str());
+		obj = new CBrick(x, y, type);
 		break;
 	}
 	case OBJECT_TYPE_PIPE:
