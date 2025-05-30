@@ -20,7 +20,7 @@ void CSpawner::Update(DWORD dt, vector<LPGAMEOBJECT>* coObject)
 
 	bool isDistanceSpawn1 = abs(this->x - marioX) >= spawnRange;
 	bool isDistanceSpawn2 = abs(this->x - marioX) <= 250.0f && abs(this->x - marioX) >= 200.0f;
-	bool isDistanceSpawn3 = abs(this->x - marioX) <= 320.0f && abs(this->x - marioX) >= 270.0f;
+	bool isDistanceSpawn3 = abs(this->x - marioX) <= 310.0f && abs(this->x - marioX) >= 290.0f;
 
 	bool isTimePassed = (GetTickCount64() - lastSpawnTime) > spawnInterval;
 

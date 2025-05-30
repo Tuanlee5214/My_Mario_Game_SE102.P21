@@ -12,7 +12,7 @@ CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 	this->ax = 0;
 	startY = y;
 	startX = x;
-	topY = y - 8;
+	topY = y - 10;
 	this->type = type;
 	SetState(QUESBLOCK_STATE_INI);
 }
@@ -65,7 +65,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 		SetState(QUESBLOCK_STATE_JUMPED);
 		if (playScene && this->type == 1)
 		{
-			ECoin* ecoin = new ECoin(this->x, this->y);
+			ECoin* ecoin = new ECoin(this->x, this->y - 4);
 			playScene->InsertObjectBefore(ecoin, this);
 		}
 		mario->GetPosition(marioX, marioY);
@@ -86,11 +86,9 @@ void CQuestionBlock::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	switch (state)
 	{
 	case QUESBLOCK_STATE_JUMPED:
-		//if (mushRoom) mushRoom->SetPosition(this->x, this->y);
 		if (this->y <= topY)
 		{
 			this->y = topY;
-			//if(mushRoom) mushRoom->SetPosition(this->x, topY);
 			SetState(QUESBLOCK_STATE_FALLED);
 		}
 		break;
