@@ -75,6 +75,7 @@ void CLeaf::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case LEAF_STATE_FALL_RIGHT:
+		if (abs(x - rightBound) <= 15) vy = -LEAF_FALL_SPEED;
 		if (this->x >= rightBound)
 		{
 			this->x = rightBound;
@@ -82,6 +83,7 @@ void CLeaf::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case LEAF_STATE_FALL_LEFT:
+		if (abs(x - leftBound) <= 15) vy = -LEAF_FALL_SPEED;
 		if (this->x <= leftBound)
 		{
 			this->x = leftBound;

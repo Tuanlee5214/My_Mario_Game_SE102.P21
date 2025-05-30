@@ -59,6 +59,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 {
 	CMario* mario = dynamic_cast<CMario*>(e->obj);
 	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+	CMario* player = (CMario*)(playScene->GetPlayer());
 
 	float marioX, marioY;
 	if (mario && e->ny < 0 && state == QUESBLOCK_STATE_INI)
@@ -89,7 +90,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 			ECoin* ecoin = new ECoin(this->x, this->y - 4);
 			playScene->InsertObjectBefore(ecoin, this);
 		}
-		else if (playScene && this->type == 2 && mario->GetLevel() == MARIO_LEVEL_BIG)
+		else if (playScene && player && this->type == 2 && player->GetLevel() == MARIO_LEVEL_BIG)
 		{
 			CLeaf* leaf = new CLeaf(this->x, this->y - 4, x - 8, x + 40);
 			playScene->InsertObjectBefore(leaf, this);
