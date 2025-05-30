@@ -67,6 +67,14 @@ void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 		mario->SetPosition(marioX, marioY);
 		mario->Set_vy(0);
 	}
+
+	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
+	if (koopa && e->nx != 0 && state == BRICK_STATE_INI && 
+		(koopa->GetState() == KOOPA_STATE_DIE_RUNL || 
+		koopa->GetState() == KOOPA_STATE_DIE_RUNR) && type == 1)
+	{
+		this->Delete();
+	}
 }
 
 void CBrick::GetBoundingBox(float &left, float &top, float &right, float &bottom)
