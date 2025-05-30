@@ -13,6 +13,7 @@
 #define MARIO_ACCEL_RUN_X	0.0007f
 
 #define MARIO_IN_KICKSTATE_TIME 200
+#define MARIO_TRANSFORM_SMALL_TO_BIG_TIMEOUT 500
 
 #define MARIO_JUMP_SPEED_Y		0.5f
 #define MARIO_JUMP_RUN_SPEED_Y	0.7f
@@ -34,6 +35,8 @@
 
 #define MARIO_STATE_SIT				600
 #define MARIO_STATE_SIT_RELEASE		601
+
+#define MARIO_STATE_TRANSFORM_SMALL_TO_BIG	700
 
 
 #pragma region ANIMATION_ID
@@ -127,6 +130,7 @@ class CMario : public CGameObject
 	int level;
 	int untouchable;
 	ULONGLONG untouchable_start;
+	ULONGLONG timeStartTransForm;
 	BOOLEAN isOnPlatform;
 	int coin;
 	bool isRight1 = false;
@@ -160,6 +164,7 @@ public:
 		level = MARIO_LEVEL_BIG;
 		untouchable = 0;
 		untouchable_start = -1;
+		timeStartTransForm = -1;
 		isOnPlatform = false;
 		coin = 0;
 	}

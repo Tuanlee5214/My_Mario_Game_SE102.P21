@@ -39,6 +39,10 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		isRight1 = false;
 	}
 
+	if (level == 3 && GetTickCount64() - timeStartTransForm > MARIO_TRANSFORM_SMALL_TO_BIG_TIMEOUT)
+	{
+		SetLevel(MARIO_LEVEL_BIG);
+	}
 	CCollision::GetInstance()->Process(this, dt, coObjects);
 }
 
@@ -244,7 +248,7 @@ void CMario::OnCollisionWithMushRoom(LPCOLLISIONEVENT e)
 	CMushRoom* mushRoom = dynamic_cast<CMushRoom*>(e->obj);
 	if (e->nx != 0 || e->ny != 0)
 	{
-		SetLevel(MARIO_LEVEL_BIG);
+		SetState(MARIO_STATE_TRANSFORM_SMALL_TO_BIG);
 		mushRoom->Delete();
 	}
 }
@@ -736,12 +740,20 @@ void CMario::Render()
 	CAnimations* animations = CAnimations::GetInstance();
 	int aniId = -1;
 
-	if (state == MARIO_STATE_DIE)
+	
+	 if (level == 3)
+	 {
+		if (this->nx > 0) aniId = ID_ANI_MARIO_TRANSFORM_SMALL_TO_BIG_RIGHT;
+		else aniId = ID_ANI_MARIO_TRANSFORM_SMALL_TO_BIG_LEFT;
+	 }
+	else  if (state == MARIO_STATE_DIE)
 		aniId = ID_ANI_MARIO_DIE;
 	else if (level == MARIO_LEVEL_BIG)
 		aniId = GetAniIdBig();
 	else if (level == MARIO_LEVEL_SMALL)
 		aniId = GetAniIdSmall();
+	 
+	
 
 	animations->Get(aniId)->Render(x, y);
 
@@ -825,6 +837,12 @@ void CMario::SetState(int state)
 		vx = 0;
 		ax = 0;
 		break;
+	case MARIO_STATE_TRANSFORM_SMALL_TO_BIG:
+		timeStartTransForm = GetTickCount64();
+		SetLevel(3);
+		vy = 0;
+		vx = 0;
+		break;
 	}
 
 	CGameObject::SetState(state);
@@ -849,12 +867,19 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 			bottom = top + MARIO_BIG_BBOX_HEIGHT;
 		}
 	}
-	else
+	else if(level == MARIO_LEVEL_SMALL)
 	{
 		left = x - MARIO_SMALL_BBOX_WIDTH/2;
 		top = y - MARIO_SMALL_BBOX_HEIGHT/2;
 		right = left + MARIO_SMALL_BBOX_WIDTH;
 		bottom = top + MARIO_SMALL_BBOX_HEIGHT + 1.5f;
+	}
+	else if (level == 3)
+	{
+		left = x - MARIO_BIG_BBOX_WIDTH / 2;
+		top = y - MARIO_BIG_BBOX_HEIGHT / 2;
+		right = left + MARIO_BIG_BBOX_WIDTH;
+		bottom = top + MARIO_BIG_BBOX_HEIGHT;
 	}
 }
 

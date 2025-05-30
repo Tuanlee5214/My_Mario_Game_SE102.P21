@@ -370,7 +370,7 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT);
 	animations->Add(ID_ANI_MARIO_KICKING_RIGHT, ani);
 
-	ani = new CAnimation(10);
+	ani = new CAnimation(95);
 	ani->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_LEFT);
 	ani->Add(ID_SPRITE_MARIO_SMALL_TRANS_LEFT);
 	ani->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_LEFT);
@@ -385,7 +385,7 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_MARIO_BIG_TRANS_LEFT);
 	animations->Add(ID_ANI_MARIO_TRANSFORM_SMALL_TO_BIG_LEFT, ani);
 
-	ani = new CAnimation(10);
+	ani = new CAnimation(95);
 	ani->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_RIGHT);
 	ani->Add(ID_SPRITE_MARIO_SMALL_TRANS_RIGHT);
 	ani->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_RIGHT);
