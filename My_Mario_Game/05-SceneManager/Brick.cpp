@@ -6,6 +6,7 @@
 #include "PlayScene.h"
 #include "ECoin.h"
 #include "Leaf.h"
+#include "Effect.h"
 #include "MushRoom.h"
 
 
@@ -75,6 +76,14 @@ void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 	{
 		this->Delete();
 		koopa->Set_vx1();
+		CEffect* effect1 = new CEffect(this->x, this->y, 1, this->y - 80);
+		CEffect* effect2 = new CEffect(this->x, this->y, 1, this->y - 50);
+		CEffect* effect3 = new CEffect(this->x, this->y, 2, this->y - 80);
+		CEffect* effect4 = new CEffect(this->x, this->y, 2, this->y - 50);
+		playScene->AddObject(effect1);
+		playScene->AddObject(effect2);
+		playScene->AddObject(effect3);
+		playScene->AddObject(effect4);
 	}
 }
 

@@ -54,6 +54,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "ECoin.h"
 #include "MushRoom.h"
 #include "Leaf.h"
+#include "Effect.h"
 
 #include "AssetIDs.h"
 
@@ -207,13 +208,13 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_BLACKPIPE, 2095.7, 463, 2129, 495, texMainMap);
 
 	//Sprite Koopa
-	sprites->Add(ID_SPRITE_KOOPA_WALKING_LEFT1, 27, 66, 45, 92, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_WALKING_LEFT1, 26, 66, 45, 92, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_LEFT2, 45, 66, 64, 92, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT1, 602, 66, 621, 92, texEnemies1);
-	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT2, 583, 66, 601, 92, texEnemies1);
-	sprites->Add(ID_SPRITE_KOOPA_DIE3L, 28, 95, 45, 111, texEnemies1);
-	sprites->Add(ID_SPRITE_KOOPA_DIE2L, 49, 95, 65, 111, texEnemies1);
-	sprites->Add(ID_SPRITE_KOOPA_DIE1L, 70, 94, 87, 109, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_WALKING_RIGHT2, 582, 66, 601, 92, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE3L, 27, 95, 45, 111, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE2L, 48, 95, 65, 111, texEnemies1);
+	sprites->Add(ID_SPRITE_KOOPA_DIE1L, 69, 94, 87, 109, texEnemies1);
 
 	sprites->Add(ID_SPRITE_KOOPA_DIE3R, 28, 95, 45, 111, texEnemies1);
 	sprites->Add(ID_SPRITE_KOOPA_DIE2R, 581, 94, 598, 111, texEnemies1);
@@ -290,28 +291,28 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MUSHROOMRED, 155, 120, 172, 136, texMisc3);
 
 	//Sprite Mario
-	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 94, 233, 111, 261, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT, 335, 233, 351, 261, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT1, 153, 312, 171, 342, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT2, 123, 312, 141, 342, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT1, 274, 312, 292, 342, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT2, 303, 311, 321, 342, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 93, 233, 111, 261, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT, 334, 233, 351, 261, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT1, 152, 312, 171, 342, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT2, 122, 312, 141, 342, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT1, 273, 312, 292, 342, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT2, 302, 311, 321, 342, texMario);
 	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_LEFT, 0, 272, 24, 302, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT, 421, 272, 445, 301, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT, 420, 272, 445, 301, texMario);
 
-	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_LEFT, 185, 119, 199, 136, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_RIGHT, 246, 119, 261, 136, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_LEFT, 154, 119, 170, 136, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_RIGHT, 274, 119, 291, 136, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_LEFT, 3, 79, 21, 97, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_RIGHT, 425, 79, 442, 97, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_LEFT, 64, 233, 81, 261, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_RIGHT, 364, 233, 381, 261, texMario);
-	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_LEFT, 64, 275, 80, 300, texMario);
-	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_RIGHT, 364, 275, 380, 300, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_LEFT, 187, 0, 199, 15, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_RIGHT, 246, 0, 258, 15, texMario);
-	sprites->Add(ID_SPRITE_MARIO_NOTHING, 183, 315, 198, 339, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_LEFT, 184, 119, 199, 136, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_RIGHT, 245, 119, 261, 136, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_LEFT, 153, 119, 170, 136, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_RIGHT, 273, 119, 291, 136, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_LEFT, 2, 79, 21, 97, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_RIGHT, 424, 79, 442, 97, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_LEFT, 63, 233, 81, 261, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_RIGHT, 363, 233, 381, 261, texMario);
+	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_LEFT, 63, 275, 80, 300, texMario);
+	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_RIGHT, 363, 275, 380, 300, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_LEFT, 186, 0, 199, 15, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_RIGHT, 245, 0, 258, 15, texMario);
+	sprites->Add(ID_SPRITE_MARIO_NOTHING, 182, 315, 198, 339, texMario);
 
 	//Leaf sprite
 	sprites->Add(ID_SPRITE_LEAF_LEFT, 179 ,121 ,196, 138, texMisc3);
@@ -319,18 +320,18 @@ void LoadResourceForGame() {
 
 
 	//Questions block
-	sprites->Add(ID_SPRITE_QUESBLOCK1, 155, 186, 173, 204, texMisc3);
-	sprites->Add(ID_SPRITE_QUESBLOCK2, 174, 186, 192, 204, texMisc3);
-	sprites->Add(ID_SPRITE_QUESBLOCK3, 194, 186, 212, 204, texMisc3);
-	sprites->Add(ID_SPRITE_QUESBLOCK4, 213, 186, 231, 204, texMisc3);
-	sprites->Add(ID_SPRITE_NO_QUESBLOCK, 233, 186, 251, 204, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK1, 154, 186, 173, 204, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK2, 173, 186, 192, 204, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK3, 193, 186, 212, 204, texMisc3);
+	sprites->Add(ID_SPRITE_QUESBLOCK4, 212, 186, 231, 204, texMisc3);
+	sprites->Add(ID_SPRITE_NO_QUESBLOCK, 232, 186, 251, 204, texMisc3);
 
 	//Brick sprite
 	sprites->Add(ID_SPRITE_BRICK1, 273, 187, 291, 204, texMisc3);
 	sprites->Add(ID_SPRITE_BRICK2, 292, 187, 310, 204, texMisc3);
 	sprites->Add(ID_SPRITE_BRICK3, 311, 187, 329, 204, texMisc3);
 	sprites->Add(ID_SPRITE_BRICK4, 329, 187, 348, 204, texMisc3);
-	sprites->Add(ID_SPRITE_EFFECT_BRICK, 494, 119, 502, 127, texMisc);
+	sprites->Add(ID_SPRITE_EFFECT_BRICK, 482, 118, 492, 129, texMisc);
 
 
 #pragma endregion
@@ -347,6 +348,9 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_BRICK3);
 	animations->Add(ID_ANI_BRICK_BEFORE_USE, ani);
 
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_EFFECT_BRICK);
+	animations->Add(ID_ANI_EFFECT, ani);
 
 	//QuestionBlock
 	ani = new CAnimation(130);
