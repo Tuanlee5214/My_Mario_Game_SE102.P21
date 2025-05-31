@@ -3,6 +3,8 @@
 #include "Game.h"
 #include "Mario.h"
 #include "Coin.h"
+#include "PlayScene.h"
+#include "Point.h"
 
 ECoin::ECoin(float x, float y) : CGameObject(x, y)
 {
@@ -59,6 +61,7 @@ void ECoin::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	vy += ay * dt;
 	vx += ax * dt;
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
 
 	switch (state)
 	{
@@ -73,7 +76,9 @@ void ECoin::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		if (this->y >= startY - 14)
 		{
 			this->y = startY - 14;
-			isDeleted = true;
+			this->Delete();
+			CPoint* point = new CPoint(x, startY - 8 , 1, topY);
+			playScene->AddObject(point);
 			return;
 		}
 		break;

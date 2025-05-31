@@ -6,6 +6,7 @@
 #include "Bullet.h"
 #include "RedGoomba.h"
 #include "Ground.h"
+#include "Point.h"
 
 CKoopa::CKoopa(float x, float y, float leftBound, float rightBound) :CGameObject(x, y)
 {
@@ -57,11 +58,17 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 {
 	//if (e->obj->IsBlocking()) return;
 	if (dynamic_cast<CKoopa*>(e->obj)) return;
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
 	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
+	float x, y;
+	
 	if (goomba && (e->nx != 0 || e->ny != 0) && state == KOOPA_STATE_DIE_RUNL ||
 		goomba && (e->nx != 0 || e->ny != 0) && state == KOOPA_STATE_DIE_RUNR)
 	{
+		goomba->GetPosition(x, y);
 		goomba->SetState(GOOMBA_STATE_OUT_GAME);
+		CPoint* point = new CPoint(x, y - 4, 1, y - 50);
+		playScene->AddObject(point);
 		return;
 	}
 	CRedGoomba* redGoomba = dynamic_cast<CRedGoomba*>(e->obj);

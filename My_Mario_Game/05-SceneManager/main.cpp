@@ -342,8 +342,8 @@ void LoadResourceForGame() {
 
 	//Point sprite
 	sprites->Add(ID_SPRITE_POINT_TYPE1, 457, 221, 468, 230, texMisc);
-	sprites->Add(ID_SPRITE_POINT_TYPE2, 455, 230, 468, 239, texMisc);
-	sprites->Add(ID_SPRITE_POINT_TYPE10, 469, 222, 485, 230, texMisc);
+	sprites->Add(ID_SPRITE_POINT_TYPE2, 453, 231, 468, 240, texMisc);
+	sprites->Add(ID_SPRITE_POINT_TYPE10, 470, 218, 489, 231, texMisc);
 
 #pragma endregion
 

@@ -19,6 +19,7 @@
 #include "PlayScene.h"
 #include "MushRoom.h"
 #include "Leaf.h"
+#include "Point.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
@@ -103,13 +104,18 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 {
 	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
 
 	// jump on top >> kill Goomba and deflect a bit 
 	if (e->ny < 0)
 	{
 		if (goomba->GetState() != GOOMBA_STATE_DIE)
 		{
+			float goombaX, goombaY;
+			goomba->GetPosition(goombaX, goombaY);
 			goomba->SetState(GOOMBA_STATE_DIE);
+			CPoint* point = new CPoint(goombaX, goombaY - 3, 1, goombaY - 35);
+			playScene->InsertObjectBefore(point, goomba);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
 	}
@@ -137,18 +143,24 @@ void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 void CMario::OnCollisionWithRedGoomba(LPCOLLISIONEVENT e)
 {
 	CRedGoomba* redGoomba = dynamic_cast<CRedGoomba*>(e->obj);
-
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+	float x, y;
+	redGoomba->GetPosition(x, y);
 	if (e->ny < 0)
 	{
 		if (redGoomba->GetState() == REDGOOMBA_STATE_JUMP_WALKING || redGoomba->GetState() == REDGOOMBA_STATE_JUMPLOW ||
 			redGoomba->GetState() == REDGOOMBA_STATE_JUMP)
 		{
 			redGoomba->SetState(REDGOOMBA_STATE_WALKING);
+			CPoint* point = new CPoint(x, y - 3, 1, y - 50);
+			playScene->AddObject(point);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
 		else if (redGoomba->GetState() == REDGOOMBA_STATE_WALKING)
 		{
 			redGoomba->SetState(REDGOOMBA_STATE_DIE);
+			CPoint* point = new CPoint(x, y - 3, 1, y - 50);
+			playScene->AddObject(point);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
 	}
@@ -176,6 +188,9 @@ void CMario::OnCollisionWithRedGoomba(LPCOLLISIONEVENT e)
 void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 {
 	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
+	float x, y; 
+	koopa->GetPosition(x, y);
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
 	DebugOut(L"[INFO] Mario va cham Koopa, ny = %d\n", e->ny);
 	// jump on top >> kill Koopa and deflect a bit 
 	if (e->ny < 0)
@@ -183,6 +198,8 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 		if (koopa->GetState() == KOOPA_STATE_WALKING)
 		{
 			koopa->SetState(KOOPA_STATE_DIE);
+			CPoint* point = new CPoint(x, y - 2, 1, y - 35);
+			playScene->AddObject(point);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
 		else if (koopa->GetState() == KOOPA_STATE_DIE_RUNL ||
@@ -198,6 +215,8 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 			{
 				koopa->SetBound(-10.0f, 10000.0f);
 				koopa->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
+				CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+				playScene->AddObject(point);
 				koopa->SetState(KOOPA_STATE_DIE_RUNR);
 				this->SetIsRight1(true);
 				this->isInKickStateNow = GetTickCount64();
@@ -206,6 +225,8 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 			{
 				koopa->SetBound(-10.0f, 10000.0f);
 				koopa->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
+				CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+				playScene->AddObject(point);
 				koopa->SetState(KOOPA_STATE_DIE_RUNL);
 				this->SetIsRight1(true);
 				this->isInKickStateNow = GetTickCount64();
@@ -236,6 +257,8 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 				{
 					koopa->SetBound(-10.0f, 10000.0f);
 					koopa->SetState(KOOPA_STATE_DIE_RUNR);
+					CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+					playScene->AddObject(point);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
 				}
@@ -243,6 +266,8 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 				{
 					koopa->SetBound(-10.0f, 10000.0f);
 					koopa->SetState(KOOPA_STATE_DIE_RUNL);
+					CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+					playScene->AddObject(point);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
 				}
@@ -253,11 +278,17 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 
 void CMario::OnCollisionWithMushRoom(LPCOLLISIONEVENT e)
 {
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
 	CMushRoom* mushRoom = dynamic_cast<CMushRoom*>(e->obj);
+	float x, y;
+	mushRoom->GetPosition(x, y);
 	if (e->nx != 0 || e->ny != 0)
 	{
 		SetState(MARIO_STATE_TRANSFORM_SMALL_TO_BIG);
 		mushRoom->Delete();
+		CPoint* point = new CPoint(x, y, 3, y - 40);
+		playScene->AddObject(point);
+
 	}
 }
 
@@ -493,11 +524,16 @@ void CMario::OnCollisionWithGreenPlant(LPCOLLISIONEVENT e)
 
 void CMario::OnCollisionWihtLeaf(LPCOLLISIONEVENT e)
 {
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
 	CLeaf* leaf = dynamic_cast<CLeaf*>(e->obj);
+	float x, y;
+	leaf->GetPosition(x, y);
 	if (e->nx != 0 || e->ny != 0)
 	{
 		SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
 		leaf->Delete();
+		CPoint* point = new CPoint(x, y - 3, 3, y - 50);
+		playScene->AddObject(point);
 	}
 }
 
