@@ -291,6 +291,7 @@ void LoadResourceForGame() {
 
 	//MushRoom
 	sprites->Add(ID_SPRITE_MUSHROOMRED, 155, 120, 172, 136, texMisc3);
+	sprites->Add(ID_SPRITE_MUSHROOMGREEN, 286, 120, 302, 136, texMisc3);
 
 	//Sprite Mario
 	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 93, 233, 111, 261, texMario);
@@ -403,6 +404,10 @@ void LoadResourceForGame() {
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_MUSHROOMRED);
 	animations->Add(ID_ANI_MUSHROOM, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MUSHROOMGREEN);
+	animations->Add(ID_ANI_MUSHROOMGREEN, ani);
 
 	//Leaf ani
 	ani = new CAnimation(100);

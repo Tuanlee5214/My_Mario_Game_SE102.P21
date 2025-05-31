@@ -7,11 +7,12 @@
 
 
 
-CMushRoom::CMushRoom(float x, float y) : CGameObject(x, y)
+CMushRoom::CMushRoom(float x, float y, int type) : CGameObject(x, y)
 {
 	topY = this->y - 16;
 	this->ax = 0;
 	this->ay = 0;
+	this->type = type;
 	SetState(MUSHROOM_STATE_RAISE);
 }
 

@@ -15,10 +15,12 @@
 #define MUSHROOM_STATE_RUNR 400
 
 #define ID_ANI_MUSHROOM 6666
+#define ID_ANI_MUSHROOMGREEN 6767
 
 class CMushRoom : public CGameObject
 {
 	float topY;
+	int type;
 	float ay;
 	float ax;
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
@@ -33,7 +35,7 @@ class CMushRoom : public CGameObject
 
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 public:
-	CMushRoom(float x, float y);
+	CMushRoom(float x, float y, int type);
 	virtual void SetState(int state);
 };
 
