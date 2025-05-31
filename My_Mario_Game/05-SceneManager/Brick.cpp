@@ -9,6 +9,7 @@
 #include "Effect.h"
 #include "MushRoom.h"
 #include "Button.h"
+#include "Coin.h"
 
 
 CBrick::CBrick(float x, float y, int type) : CGameObject(x, y)
@@ -108,10 +109,15 @@ void CBrick::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	vy += ay * dt;
 	vx += ax * dt;
-
-
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+	CButton* button = (CButton*)playScene->GetButton(playScene);
 	switch (state)
 	{
+	case BRICK_STATE_INI:
+		if (this->type == 1 && button && button->GetState() == BUTTON_STATE_AFTER_USE)
+		{
+			SetState(BRICK_STATE_SPAWN_COIN);
+		}
 	case BRICK_STATE_JUMPED:
 		if (this->y <= topY)
 		{
@@ -176,5 +182,9 @@ void CBrick::SetState(int state)
 		vx = 0;
 		vy = 0;
 		break;
+	case BRICK_STATE_SPAWN_COIN:
+		this->Delete();
+		CCoin* coin = new CCoin(this->x, this->y, 2);
+		playScene->InsertObjectBefore(coin, this);
 	}
 }

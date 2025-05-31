@@ -622,7 +622,11 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_COIN2);
 	ani->Add(ID_SPRITE_COIN3);
 	ani->Add(ID_SPRITE_COIN4);
-	animations->Add(11000, ani);
+	animations->Add(ID_ANI_COIN, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_COIN1);
+	animations->Add(ID_ANI_COIN1, ani);
 
 
 	//RedGoomba ani

@@ -163,7 +163,10 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		float rightBound = (float)atof(tokens[4].c_str());
 		obj = new CRedGoomba(x, y, leftBound, rightBound); break;
 	}
-	case OBJECT_TYPE_COIN: obj = new CCoin(x, y); break;
+	case OBJECT_TYPE_COIN: {
+		int type = atoi(tokens[3].c_str());
+		obj = new CCoin(x, y, type); break;
+	}
 
 	case OBJECT_TYPE_PLATFORM:
 	{
@@ -400,6 +403,20 @@ CTroopa* CPlayScene::GetTroopa(CPlayScene* playScene)
 		if (troopa != NULL)
 		{
 			return troopa;
+			DebugOut(L"TRoopa is get succccessss");
+		}
+	}
+	return NULL;
+}
+
+CButton* CPlayScene::GetButton(CPlayScene* playScene)
+{
+	for (LPGAMEOBJECT obj : playScene->GetObjects())
+	{
+		CButton* button = dynamic_cast<CButton*>(obj);
+		if (button != NULL)
+		{
+			return button;
 			DebugOut(L"TRoopa is get succccessss");
 		}
 	}

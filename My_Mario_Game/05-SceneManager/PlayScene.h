@@ -9,6 +9,7 @@
 #include "Koopa.h"
 #include "Troopa.h"
 #include "MushRoom.h"
+#include "Button.h"
 //#include "Koopas.h"
 
 
@@ -40,6 +41,8 @@ public:
 
 	CKoopa* GetFirstKoopa(CPlayScene* playScene);
 	CTroopa* GetTroopa(CPlayScene* playScene);
+	CButton* GetButton(CPlayScene* playScene);
+
 	void InsertObjectBefore(LPGAMEOBJECT newObj, LPGAMEOBJECT beforeObj);
 	CMushRoom* GetMushRoomSamePosition(CPlayScene* playScene, float x);
 

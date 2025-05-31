@@ -1,3 +1,6 @@
+#ifndef BUTTON_H
+#define BUTTON_H
+
 #include "GameObject.h"
 
 #define BUTTON_JUMP_SPEED 0.4f
@@ -38,3 +41,4 @@ public:
 
 };
 
+#endif // BUTTON_H
