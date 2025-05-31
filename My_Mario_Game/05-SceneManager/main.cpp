@@ -333,6 +333,10 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_BRICK4, 329, 187, 348, 204, texMisc3);
 	sprites->Add(ID_SPRITE_EFFECT_BRICK, 482, 118, 492, 129, texMisc);
 
+	//Button sprite
+	sprites->Add(ID_SPRITE_BUTTON1, 155, 143, 173, 161, texMisc3);
+	sprites->Add(ID_SPRITE_BUTTON2, 176, 143, 194, 161, texMisc3);
+	sprites->Add(ID_SPRITE_BUTTON_AFTER_USE, 198, 151, 216, 161, texMisc3);
 
 #pragma endregion
 

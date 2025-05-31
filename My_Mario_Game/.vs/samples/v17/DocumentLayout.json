@@ -252,8 +252,7 @@
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-28T16:54:42.073Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -266,8 +265,7 @@
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAFYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-28T16:55:07.828Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -280,8 +278,7 @@
               "ViewState": "AgIAABgAAAAAAAAAAAAAABoAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-28T10:19:55.072Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -294,8 +291,7 @@
               "ViewState": "AgIAADsAAAAAAAAAAADwv0wAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-28T10:20:11.239Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -305,7 +301,7 @@
               "RelativeDocumentMoniker": "05-SceneManager\\main.cpp",
               "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp",
               "RelativeToolTip": "05-SceneManager\\main.cpp",
-              "ViewState": "AgIAAD8BAAAAAAAAAADgv00BAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAD0BAAAAAAAAAAAowE0BAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-27T08:27:30.778Z",
               "IsPinned": true,
@@ -321,8 +317,7 @@
               "RelativeToolTip": "05-SceneManager\\Effect.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-30T16:26:53.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T16:26:53.791Z"
             },
             {
               "$type": "Document",
@@ -334,8 +329,7 @@
               "RelativeToolTip": "05-SceneManager\\Effect.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-30T16:13:21.503Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T16:13:21.503Z"
             },
             {
               "$type": "Document",
@@ -347,8 +341,7 @@
               "RelativeToolTip": "05-SceneManager\\SampleKeyEventHandler.cpp",
               "ViewState": "AgIAAIcAAAAAAAAAAAAAAI8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-29T02:59:36.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T02:59:36.628Z"
             },
             {
               "$type": "Document",
@@ -360,8 +353,7 @@
               "RelativeToolTip": "05-SceneManager\\Mario.cpp",
               "ViewState": "AgIAAHUDAAAAAAAAAADwv+sBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T14:13:23.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T14:13:23.699Z"
             },
             {
               "$type": "Document",
@@ -373,8 +365,7 @@
               "RelativeToolTip": "05-SceneManager\\Leaf.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-30T16:24:17.048Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T16:24:17.048Z"
             },
             {
               "$type": "Document",
@@ -386,8 +377,7 @@
               "RelativeToolTip": "05-SceneManager\\Koopa.cpp",
               "ViewState": "AgIAAI0AAAAAAAAAAADwv5QAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-27T08:05:04.507Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T08:05:04.507Z"
             },
             {
               "$type": "Document",
@@ -399,8 +389,7 @@
               "RelativeToolTip": "05-SceneManager\\Koopa.h",
               "ViewState": "AgIAABsAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-27T08:19:45.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T08:19:45.273Z"
             },
             {
               "$type": "Document",
@@ -412,8 +401,7 @@
               "RelativeToolTip": "05-SceneManager\\PlayScene.cpp",
               "ViewState": "AgIAAHoAAAAAAAAAAAAAAIUAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T10:12:30.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T10:12:30.366Z"
             },
             {
               "$type": "Document",
@@ -425,8 +413,7 @@
               "RelativeToolTip": "05-SceneManager\\Leaf.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-30T09:05:47.42Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T09:05:47.42Z"
             },
             {
               "$type": "Document",
@@ -438,8 +425,7 @@
               "RelativeToolTip": "05-SceneManager\\AssetIDs.h",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAOMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-29T10:24:36.354Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T10:24:36.354Z"
             },
             {
               "$type": "Document",
@@ -463,8 +449,7 @@
               "RelativeToolTip": "05-SceneManager\\Mario.h",
               "ViewState": "AgIAADQAAAAAAAAAAAAowJ8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T14:07:57.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T14:07:57.579Z"
             },
             {
               "$type": "Document",
@@ -476,8 +461,7 @@
               "RelativeToolTip": "05-SceneManager\\PlayScene.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-29T15:28:25.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T15:28:25.908Z"
             },
             {
               "$type": "Document",
@@ -561,8 +545,7 @@
               "RelativeToolTip": "05-SceneManager\\GameObject.h",
               "ViewState": "AgIAABsAAAAAAAAAAAAYwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-29T03:54:22.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T03:54:22.32Z"
             },
             {
               "$type": "Document",
