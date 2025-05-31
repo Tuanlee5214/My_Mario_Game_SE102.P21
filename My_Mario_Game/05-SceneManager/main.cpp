@@ -275,6 +275,9 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_TROOPA_DIE1R, 73, 146, 90, 163, texEnemies1);
 	sprites->Add(ID_SPRITE_TROOPA_FLIP_DIE, 326, 124, 343, 141, texEnemies1);
 
+	//BlackBackground
+	sprites->Add(ID_SPRITE_BLACKBACKGROUND1, 2619, 186, 2666, 234, texMainMap);
+
 	//Sprite E-Coin
 	sprites->Add(ID_SPRITE_ECOIN1, 293, 100, 302, 115, texMisc3);
 	sprites->Add(ID_SPRITE_ECOIN2, 335, 100, 341, 115, texMisc3);
@@ -292,6 +295,12 @@ void LoadResourceForGame() {
 	//MushRoom
 	sprites->Add(ID_SPRITE_MUSHROOMRED, 155, 120, 172, 136, texMisc3);
 	sprites->Add(ID_SPRITE_MUSHROOMGREEN, 285, 120, 302, 136, texMisc3);
+
+	//END GAME
+	sprites->Add(ID_SPRITE_BOXWHITE, 57, 149, 88, 178, texMap);
+	sprites->Add(ID_SPRITE_STAR, 89, 156, 105, 173, texMap);
+	sprites->Add(ID_SPRITE_FLOWER, 107, 155, 125, 173, texMap);
+	sprites->Add(ID_SPRITE_RED_MUSHROOM, 126, 154, 144, 172, texMap);
 
 	//Sprite Mario
 	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 93, 233, 111, 261, texMario);
@@ -347,6 +356,8 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_POINT_TYPE10, 470, 218, 489, 231, texMisc);
 	sprites->Add(ID_SPRITE_1UP, 594, 170, 625, 190, texMisc);
 
+	
+
 #pragma endregion
 
 	CAnimations* animations = CAnimations::GetInstance();
@@ -392,6 +403,13 @@ void LoadResourceForGame() {
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_EFFECT_BRICK);
 	animations->Add(ID_ANI_EFFECT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_STAR);
+	ani->Add(ID_SPRITE_FLOWER);
+	ani->Add(ID_SPRITE_RED_MUSHROOM);
+	animations->Add(ID_ANI_MSF, ani);
+
 
 	//QuestionBlock
 	ani = new CAnimation(130);

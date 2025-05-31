@@ -15,6 +15,7 @@
 #define BRICK_STATE_SPAWN_COIN 500
 
 #define ID_ANI_BRICK_BEFORE_USE 6334
+#define ID_ANI_MSF 6788
 
 class CBrick : public CGameObject
 {
