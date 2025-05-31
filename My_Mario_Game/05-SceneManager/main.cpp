@@ -56,6 +56,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Leaf.h"
 #include "Effect.h"
 #include "Button.h"
+#include "Point.h"
 
 #include "AssetIDs.h"
 
@@ -339,12 +340,31 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_BUTTON2, 176, 143, 194, 161, texMisc3);
 	sprites->Add(ID_SPRITE_BUTTON_AFTER_USE, 198, 151, 217, 160, texMisc3);
 
+	//Point sprite
+	sprites->Add(ID_SPRITE_POINT_TYPE1, 457, 221, 468, 230, texMisc);
+	sprites->Add(ID_SPRITE_POINT_TYPE2, 455, 230, 468, 239, texMisc);
+	sprites->Add(ID_SPRITE_POINT_TYPE10, 469, 222, 485, 230, texMisc);
+
 #pragma endregion
 
 	CAnimations* animations = CAnimations::GetInstance();
 	LPANIMATION ani;
 
 #pragma region ANIMATION
+
+	//Point
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_POINT_TYPE1);
+	animations->Add(ID_ANI_POINT_TYPE1, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_POINT_TYPE2);
+	animations->Add(ID_ANI_POINT_TYPE2, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_POINT_TYPE10);
+	animations->Add(ID_ANI_POINT_TYPE3, ani);
+	
 	//Button
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_BUTTON1);
