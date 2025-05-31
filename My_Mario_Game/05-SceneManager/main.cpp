@@ -728,7 +728,7 @@ void LoadResourceForGame() {
 	CSpawner* spawn7 = new CSpawner(900, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
 	CSpawner* spawn8 = new CSpawner(950, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
 	CSpawner* spawn9 = new CSpawner(1000, 159, 1000, OBJECT_TYPE_REDGOOMBA, 600, 1065);
-	CSpawner* spawn10 = new CSpawner(2130, 129, 1000, OBJECT_TYPE_KOOPA, 2127, 2134);
+	CSpawner* spawn10 = new CSpawner(2130, 129, 1000, OBJECT_TYPE_KOOPA, 2122, 2138);
 
 
 

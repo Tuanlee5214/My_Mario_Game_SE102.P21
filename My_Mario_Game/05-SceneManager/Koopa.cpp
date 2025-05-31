@@ -5,6 +5,7 @@
 #include "PlayScene.h"
 #include "Bullet.h"
 #include "RedGoomba.h"
+#include "Ground.h"
 
 CKoopa::CKoopa(float x, float y, float leftBound, float rightBound) :CGameObject(x, y)
 {
@@ -81,6 +82,12 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 		(bullet && e->nx != 0 && state == KOOPA_STATE_DIE_RUNR))
 	{
 		return;
+	}
+
+	CGround* ground = dynamic_cast<CGround*>(e->obj);
+	if (ground && e->ny != 0 && state == KOOPA_STATE_WALKING)
+	{
+		SetBound(0.0f, 10000.0f);
 	}
 	if (e->obj->IsBlocking())
 	{
@@ -203,7 +210,7 @@ void CKoopa::SetState(int state)
 		ay = 0;
 		break;
 	case KOOPA_STATE_WALKING:
-		vx = -KOOPA_WALKING_SPEED;
+		vx = KOOPA_WALKING_SPEED;
 		ay = KOOPA_GRAVITY;
 		break;
 	case KOOPA_STATE_DIE_RUNL:
