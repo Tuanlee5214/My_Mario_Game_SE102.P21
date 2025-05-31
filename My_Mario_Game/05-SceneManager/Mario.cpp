@@ -282,13 +282,19 @@ void CMario::OnCollisionWithMushRoom(LPCOLLISIONEVENT e)
 	CMushRoom* mushRoom = dynamic_cast<CMushRoom*>(e->obj);
 	float x, y;
 	mushRoom->GetPosition(x, y);
-	if (e->nx != 0 || e->ny != 0)
+	if ((e->nx != 0 || e->ny != 0) && mushRoom->GetType() == 1)
 	{
 		SetState(MARIO_STATE_TRANSFORM_SMALL_TO_BIG);
 		mushRoom->Delete();
 		CPoint* point = new CPoint(x, y, 3, y - 40);
 		playScene->AddObject(point);
 
+	}
+	else if ((e->nx != 0 || e->ny != 0) && mushRoom->GetType() == 2)
+	{
+		mushRoom->Delete();
+		CPoint* point = new CPoint(x, y, 4, y - 40);
+		playScene->AddObject(point);
 	}
 }
 

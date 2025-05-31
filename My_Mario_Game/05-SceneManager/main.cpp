@@ -291,7 +291,7 @@ void LoadResourceForGame() {
 
 	//MushRoom
 	sprites->Add(ID_SPRITE_MUSHROOMRED, 155, 120, 172, 136, texMisc3);
-	sprites->Add(ID_SPRITE_MUSHROOMGREEN, 286, 120, 302, 136, texMisc3);
+	sprites->Add(ID_SPRITE_MUSHROOMGREEN, 285, 120, 302, 136, texMisc3);
 
 	//Sprite Mario
 	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 93, 233, 111, 261, texMario);
@@ -345,6 +345,7 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_POINT_TYPE1, 457, 221, 468, 230, texMisc);
 	sprites->Add(ID_SPRITE_POINT_TYPE2, 453, 231, 468, 240, texMisc);
 	sprites->Add(ID_SPRITE_POINT_TYPE10, 470, 218, 489, 231, texMisc);
+	sprites->Add(ID_SPRITE_1UP, 594, 170, 625, 190, texMisc);
 
 #pragma endregion
 
@@ -365,6 +366,10 @@ void LoadResourceForGame() {
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_POINT_TYPE10);
 	animations->Add(ID_ANI_POINT_TYPE3, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_1UP);
+	animations->Add(ID_ANI_1UP, ani);
 	
 	//Button
 	ani = new CAnimation(100);

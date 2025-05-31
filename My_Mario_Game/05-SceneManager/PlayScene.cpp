@@ -210,9 +210,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_REDPLANT:
 		obj = new CRedPlant(x, y);
 		break;
-	case OBJECT_TYPE_MUSHROOM:
-		obj = new CMushRoom(x, y);
-		break;
+
 	case OBJECT_TYPE_GREENPLANT:
 		obj = new CGreenPlant(x, y);
 		break;

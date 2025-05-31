@@ -176,6 +176,12 @@ void CQuestionBlock::SetState(int state)
 			CMushRoom* mushRoom = new CMushRoom(this->x + 1, this->y, 1);
 			playScene->InsertObjectBefore(mushRoom, this);
 		}
+		else if (this->type == 3)
+		{
+			CMushRoom* mushRoom = new CMushRoom(this->x + 1.2f, this->y, 2);
+			playScene->InsertObjectBefore(mushRoom, this);
+
+		}
 		
 		vx = 0;
 		vy = 0;

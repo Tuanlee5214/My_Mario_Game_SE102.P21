@@ -29,6 +29,8 @@ void CPoint::Render()
 		aniId = ID_ANI_POINT_TYPE1;
 	else if (type == 2)
 		aniId = ID_ANI_POINT_TYPE2;
+	else if (type == 4)
+		aniId = ID_ANI_1UP;
 	else
 		aniId = ID_ANI_POINT_TYPE3;
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);

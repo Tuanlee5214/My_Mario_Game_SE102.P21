@@ -86,9 +86,15 @@ void CMushRoom::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			this->y = topY;
 			vy = 0;
 			if (mario->Get_nx() > 0)
+			{
 				SetState(MUSHROOM_STATE_RUNR);
+				return;
+			}
 			else
+			{
 				SetState(MUSHROOM_STATE_RUNL);
+				return;
+			}
 
 		}
 	}
@@ -101,7 +107,8 @@ void CMushRoom::Render()
 {
 	int aniId;
 
-	aniId = ID_ANI_MUSHROOM;
+	if (type == 1) aniId = ID_ANI_MUSHROOM;
+	else aniId = ID_ANI_MUSHROOMGREEN;
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
 	//RenderBoundingBox();

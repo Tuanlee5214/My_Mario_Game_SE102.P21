@@ -8,6 +8,7 @@
 #define ID_ANI_POINT_TYPE1 6777
 #define ID_ANI_POINT_TYPE2 6778
 #define ID_ANI_POINT_TYPE3 6779
+#define ID_ANI_1UP 6776
 
 
 class CPoint : public CGameObject
