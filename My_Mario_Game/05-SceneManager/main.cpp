@@ -337,7 +337,7 @@ void LoadResourceForGame() {
 	//Button sprite
 	sprites->Add(ID_SPRITE_BUTTON1, 155, 143, 173, 161, texMisc3);
 	sprites->Add(ID_SPRITE_BUTTON2, 176, 143, 194, 161, texMisc3);
-	sprites->Add(ID_SPRITE_BUTTON_AFTER_USE, 197, 151, 217, 160, texMisc3);
+	sprites->Add(ID_SPRITE_BUTTON_AFTER_USE, 198, 151, 217, 160, texMisc3);
 
 #pragma endregion
 

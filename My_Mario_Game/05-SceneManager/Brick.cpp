@@ -64,7 +64,7 @@ void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 		SetState(BRICK_STATE_JUMPED);
 		if (playScene)
 		{
-			CButton* button = new CButton(this->x + 1, this->y);
+			CButton* button = new CButton(this->x + 2, this->y);
 			playScene->InsertObjectBefore(button, this);
 		}
 		mario->GetPosition(marioX, marioY);

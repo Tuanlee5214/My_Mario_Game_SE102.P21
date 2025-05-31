@@ -173,7 +173,7 @@ void CQuestionBlock::SetState(int state)
 	case QUESBLOCK_STATE_USED:
 		if (this->type == 2 && mario->GetLevel() == MARIO_LEVEL_SMALL)
 		{
-			CMushRoom* mushRoom = new CMushRoom(this->x, this->y);
+			CMushRoom* mushRoom = new CMushRoom(this->x + 1, this->y);
 			playScene->InsertObjectBefore(mushRoom, this);
 		}
 		
