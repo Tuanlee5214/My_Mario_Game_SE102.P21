@@ -21,6 +21,7 @@ class CButton : public CGameObject
 protected:
 	float ay;
 	float ax;
+	float startX;
 	float topY;
 
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);

@@ -10,6 +10,7 @@ CButton::CButton(float x, float y) : CGameObject(x, y)
 {
 	this->ax = 0;
 	this->ay = 0;
+	startX = this->x;
 	this->topY = this->y - 16;
 	SetState(BUTTON_STATE_JUMP);
 }
@@ -88,8 +89,14 @@ void CButton::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			SetState(BUTTON_STATE_TOP);
 		}
 		break;
+	case BUTTON_STATE_TOP:
+		this->y = topY;
+		this->x = startX + 0.2f;
+		break;
 	case BUTTON_STATE_AFTER_USE:
-		this->y = topY + 5;
+		this->y = topY + 4.75f;
+		this->x = startX;
+		break;
 	}
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);

@@ -64,7 +64,7 @@ void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 		SetState(BRICK_STATE_JUMPED);
 		if (playScene)
 		{
-			CButton* button = new CButton(this->x + 2, this->y);
+			CButton* button = new CButton(this->x, this->y);
 			playScene->InsertObjectBefore(button, this);
 		}
 		mario->GetPosition(marioX, marioY);
@@ -133,8 +133,8 @@ void CBrick::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case BRICK_STATE_USED:
-		this->y = startY;
-		this->x = startX;
+		this->y = startY - 0.25f;
+		this->x = startX - 1;
 		return;
 	}
 
