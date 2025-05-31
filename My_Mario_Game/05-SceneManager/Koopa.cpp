@@ -75,7 +75,10 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e)
 	if (redGoomba && (e->nx != 0 || e->ny != 0) && state == KOOPA_STATE_DIE_RUNL ||
 		redGoomba && (e->nx != 0 || e->ny != 0) && state == KOOPA_STATE_DIE_RUNR)
 	{
+		redGoomba->GetPosition(x, y);
 		redGoomba->SetState(REDGOOMBA_STATE_OUT_GAME);
+		CPoint* point = new CPoint(x, y - 4, 1, y - 50);
+		playScene->AddObject(point);
 		return;
 	}
 	CMario* mario = dynamic_cast<CMario*>(e->obj);
@@ -140,14 +143,21 @@ void CKoopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		this->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
 	}
 
-	if (x < leftBound) {
-		x = leftBound;
-		vx = KOOPA_WALKING_SPEED;
+	if (x <= leftBound) {
+		//x = leftBound;
+		if (state == KOOPA_STATE_WALKING)
+			vx = KOOPA_WALKING_SPEED;
+		else if (state == KOOPA_STATE_DIE_RUNL)
+			vx = KOOPA_WALKING_DIE_SPEED * 10;
 	}
-	else if (x > rightBound) {
-		x = rightBound;
-		vx = -KOOPA_WALKING_SPEED;
+	else if (x >= rightBound) {
+		//x = rightBound;
+		if (state == KOOPA_STATE_WALKING)
+			vx = -KOOPA_WALKING_SPEED;
+		else if (state == KOOPA_STATE_DIE_RUNR)
+			vx = -KOOPA_WALKING_DIE_SPEED * 10;
 	}
+
 
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);

@@ -409,6 +409,28 @@ CTroopa* CPlayScene::GetTroopa(CPlayScene* playScene)
 	return NULL;
 }
 
+CKoopa* CPlayScene::GetNearestKoopa(CPlayScene* playScene)
+{
+	CMario* player = (CMario*)(playScene->GetPlayer());
+	float marioX, marioY;
+	float koopaX, koopaY;
+	for (LPGAMEOBJECT obj : playScene->GetObjects())
+	{
+		CKoopa* koopa = dynamic_cast<CKoopa*>(obj);
+		
+		if (koopa != NULL && player != NULL)
+		{
+			koopa->GetPosition(koopaX, koopaY);
+			player->GetPosition(marioX, marioY);
+			if (abs(marioX - koopaX) <= 100)
+			{
+				return koopa;
+			}
+		}
+	}
+	return NULL;
+}
+
 CButton* CPlayScene::GetButton(CPlayScene* playScene)
 {
 	for (LPGAMEOBJECT obj : playScene->GetObjects())

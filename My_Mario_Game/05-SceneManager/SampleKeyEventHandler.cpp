@@ -84,7 +84,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 	CPlayScene* playScene = (LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene();
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 
-	CKoopa* koopa = playScene->GetFirstKoopa(playScene);
+	CKoopa* koopa = playScene->GetNearestKoopa(playScene);
 	CTroopa* troopa = playScene->GetTroopa(playScene);
 
 	float marioX, marioY;

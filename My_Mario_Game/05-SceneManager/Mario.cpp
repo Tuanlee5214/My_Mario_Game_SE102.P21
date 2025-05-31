@@ -321,18 +321,24 @@ void CMario::OnCollisionWithCoin(LPCOLLISIONEVENT e)
 
 void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 {
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+	float x, y;
 	CParaTroopa* paraTroopa = dynamic_cast<CParaTroopa*>(e->obj);
-	
+	paraTroopa->GetPosition(x, y);
 	if (e->ny < 0)
 	{
 			if (paraTroopa->GetState() == PARATROOPA_STATE_WALKING_FLY)
 			{
 				paraTroopa->SetState(PARATROOPA_STATE_WALKING);
+				CPoint* point = new CPoint(x, y - 2, 1, y - 35);
+				playScene->AddObject(point);
 				vy = -MARIO_JUMP_DEFLECT_SPEED;
 			}
 			else if (paraTroopa->GetState() == PARATROOPA_STATE_WALKING)
 			{
 				paraTroopa->SetState(PARATROOPA_STATE_DIE);
+				CPoint* point = new CPoint(x, y - 2, 1, y - 35);
+				playScene->AddObject(point);
 				vy = -MARIO_JUMP_DEFLECT_SPEED;
 			}
 			else if (paraTroopa->GetState() == PARATROOPA_STATE_DIE_RUNL ||
@@ -349,6 +355,8 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 					paraTroopa->SetBound(0.0f, 10000.0f);
 					paraTroopa->SetY((PARATROOPA_BBOX_HEIGHT - PARATROOPA_BBOX_HEIGHT_DIE + 2) / 2);
 					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNR);
+					CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+					playScene->AddObject(point);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
 				}
@@ -357,6 +365,8 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 					paraTroopa->SetBound(0.0f, 10000.0f);
 					paraTroopa->SetY((PARATROOPA_BBOX_HEIGHT - PARATROOPA_BBOX_HEIGHT_DIE + 2) / 2);
 					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNL);
+					CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+					playScene->AddObject(point);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
 				}
@@ -385,6 +395,8 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 				{
 					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNR);
 					paraTroopa->SetBound(0.0f, 10000.0f);
+					CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+					playScene->AddObject(point);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
 				}
@@ -393,6 +405,8 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 					paraTroopa->SetState(PARATROOPA_STATE_DIE_RUNL);
 					this->SetIsRight1(true);
 					paraTroopa->SetBound(0.0f, 10000.0f);
+					CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+					playScene->AddObject(point);
 					this->isInKickStateNow = GetTickCount64();
 				}
 			}
@@ -403,6 +417,9 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 {
 	CTroopa* troopa = dynamic_cast<CTroopa*>(e->obj);
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
+	float x, y;
+	troopa->GetPosition(x, y);
 	DebugOut(L"[INFO] Mario va cham Koopa, ny = %d\n", e->ny);
 	// jump on top >> kill troopa and deflect a bit 
 	if (e->ny < 0)
@@ -410,6 +427,8 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 		if (troopa->GetState() == TROOPA_STATE_WALKING)
 		{
 			troopa->SetState(TROOPA_STATE_DIE);
+			CPoint* point = new CPoint(x, y - 2, 1, y - 35);
+			playScene->AddObject(point);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
 		else if (troopa->GetState() == TROOPA_STATE_DIE_RUNL ||
@@ -426,6 +445,8 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 				troopa->SetBound(-10.0f, 10000.0f);
 				troopa->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE + 2) / 2);
 				troopa->SetState(TROOPA_STATE_DIE_RUNR);
+				CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+				playScene->AddObject(point);
 				this->SetIsRight1(true);
 				this->isInKickStateNow = GetTickCount64();
 			}
@@ -434,6 +455,8 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 				troopa->SetBound(-10.0f, 10000.0f);
 				troopa->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE + 2) / 2);
 				troopa->SetState(TROOPA_STATE_DIE_RUNL);
+				CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+				playScene->AddObject(point);
 				this->SetIsRight1(true);
 				this->isInKickStateNow = GetTickCount64();
 			}
@@ -463,6 +486,8 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 				{
 					troopa->SetBound(-10.0f, 10000.0f);
 					troopa->SetState(TROOPA_STATE_DIE_RUNR);
+					CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+					playScene->AddObject(point);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
 				}
@@ -470,6 +495,8 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 				{
 					troopa->SetBound(-10.0f, 10000.0f);
 					troopa->SetState(TROOPA_STATE_DIE_RUNL);
+					CPoint* point = new CPoint(x, y - 2, 2, y - 35);
+					playScene->AddObject(point);
 					this->SetIsRight1(true);
 					this->isInKickStateNow = GetTickCount64();
 				}
