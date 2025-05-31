@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\AssetIDs.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\AssetIDs.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Brick.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Brick.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Brick.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Brick.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -242,11 +250,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "Game.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Game.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Game.cpp",
@@ -259,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "QuestionBlock.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\QuestionBlock.h",
               "RelativeDocumentMoniker": "05-SceneManager\\QuestionBlock.h",
@@ -273,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "QuestionBlock.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\QuestionBlock.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\QuestionBlock.cpp",
@@ -287,13 +295,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "Brick.h",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Brick.h",
+              "RelativeDocumentMoniker": "05-SceneManager\\Brick.h",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Brick.h",
+              "RelativeToolTip": "05-SceneManager\\Brick.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-28T10:19:55.072Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\main.cpp",
               "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp",
               "RelativeToolTip": "05-SceneManager\\main.cpp",
-              "ViewState": "AgIAABwBAAAAAAAAAAAqwCIBAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACUBAAAAAAAAAAAiwC0BAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-27T08:27:30.778Z",
               "IsPinned": true,
@@ -301,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "Effect.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Effect.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Effect.h",
@@ -315,7 +337,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Point.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Point.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Point.h",
@@ -329,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Point.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Point.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Point.cpp",
@@ -343,7 +365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "Effect.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Effect.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Effect.cpp",
@@ -357,7 +379,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "ECoin.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ECoin.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\ECoin.cpp",
@@ -371,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Mario.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Mario.cpp",
@@ -385,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "MushRoom.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\MushRoom.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\MushRoom.cpp",
@@ -399,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "MushRoom.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\MushRoom.h",
               "RelativeDocumentMoniker": "05-SceneManager\\MushRoom.h",
@@ -413,20 +435,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Brick.cpp",
+              "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Brick.cpp",
+              "RelativeDocumentMoniker": "05-SceneManager\\Brick.cpp",
+              "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Brick.cpp",
+              "RelativeToolTip": "05-SceneManager\\Brick.cpp",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAAAEQAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-31T17:15:21.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AssetIDs.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\AssetIDs.h",
               "RelativeDocumentMoniker": "05-SceneManager\\AssetIDs.h",
               "ToolTip": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\AssetIDs.h",
               "RelativeToolTip": "05-SceneManager\\AssetIDs.h",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAqwI0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-29T10:24:36.354Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Koopa.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Koopa.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Koopa.h",
@@ -439,7 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "SampleKeyEventHandler.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\SampleKeyEventHandler.cpp",
@@ -452,7 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Troopa.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Troopa.cpp",
@@ -465,7 +500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Mario.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Mario.h",
@@ -478,7 +513,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "PlayScene.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\PlayScene.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\PlayScene.cpp",
@@ -491,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Koopa.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Koopa.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Koopa.cpp",
@@ -504,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "Coin.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Coin.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Coin.cpp",
@@ -516,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "Button.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Button.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Button.h",
@@ -529,7 +564,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "PlayScene.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\PlayScene.h",
               "RelativeDocumentMoniker": "05-SceneManager\\PlayScene.h",
@@ -542,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "RedGoomba.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\RedGoomba.h",
               "RelativeDocumentMoniker": "05-SceneManager\\RedGoomba.h",
@@ -555,7 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Goomba.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Goomba.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Goomba.h",
@@ -568,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "GameObject.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\GameObject.h",
               "RelativeDocumentMoniker": "05-SceneManager\\GameObject.h",
@@ -581,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "Coin.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Coin.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Coin.h",
@@ -594,7 +629,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "Leaf.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Leaf.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Leaf.h",
@@ -606,7 +641,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Leaf.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Leaf.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Leaf.cpp",
@@ -619,7 +654,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "Spawner.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Spawner.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Spawner.h",
@@ -631,7 +666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "GameData.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\GameData.h",
               "RelativeDocumentMoniker": "05-SceneManager\\GameData.h",
@@ -643,7 +678,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "Spawner.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Spawner.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Spawner.cpp",
@@ -655,7 +690,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "Animations.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Animations.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Animations.h",
@@ -667,7 +702,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "GreenPlant.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\GreenPlant.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\GreenPlant.cpp",
@@ -679,7 +714,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "Goomba.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Goomba.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Goomba.cpp",
@@ -691,7 +726,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "Parinha.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Parinha.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Parinha.h",
@@ -704,7 +739,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "Troopa.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Troopa.h",
@@ -717,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "AnimationFrame.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\AnimationFrame.h",
               "RelativeDocumentMoniker": "05-SceneManager\\AnimationFrame.h",
@@ -729,7 +764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "Bullet.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Bullet.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Bullet.h",
@@ -741,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "Cloud.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Cloud.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Cloud.cpp",
@@ -753,7 +788,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "Bullet.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Bullet.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Bullet.cpp",
@@ -765,7 +800,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "RedGoomba.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\RedGoomba.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\RedGoomba.cpp",
@@ -777,7 +812,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "Box.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Box.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Box.h",
@@ -790,7 +825,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "Box.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Box.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Box.cpp",
@@ -802,7 +837,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "ParaTroopa.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.h",
               "RelativeDocumentMoniker": "05-SceneManager\\ParaTroopa.h",
@@ -815,7 +850,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "ParaTroopa.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\ParaTroopa.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\ParaTroopa.cpp",
@@ -827,7 +862,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "GameObject.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\GameObject.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\GameObject.cpp",
@@ -839,7 +874,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "Ground.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Ground.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Ground.cpp",
@@ -851,7 +886,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "Cloud.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Cloud.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Cloud.h",
@@ -864,7 +899,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "SampleKeyEventHandler.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.h",
               "RelativeDocumentMoniker": "05-SceneManager\\SampleKeyEventHandler.h",
@@ -877,7 +912,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "Scene.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Scene.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Scene.h",
@@ -890,7 +925,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 52,
               "Title": "Pipe.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Pipe.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Pipe.cpp",
@@ -902,7 +937,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 53,
               "Title": "Collision.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Collision.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Collision.h",
@@ -914,7 +949,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 54,
               "Title": "Tree.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Tree.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Tree.h",
@@ -927,7 +962,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 55,
               "Title": "Parinha.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Parinha.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Parinha.cpp",
@@ -939,7 +974,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 56,
               "Title": "Pipe.h",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Pipe.h",
               "RelativeDocumentMoniker": "05-SceneManager\\Pipe.h",
@@ -952,7 +987,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 57,
               "Title": "Portal.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Portal.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Portal.cpp",
@@ -964,7 +999,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 58,
               "Title": "Collision.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Collision.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Collision.cpp",
@@ -976,7 +1011,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 59,
               "Title": "GameData.cpp",
               "DocumentMoniker": "D:\\NMPT_GAME_SE102.P21\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\GameData.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\GameData.cpp",

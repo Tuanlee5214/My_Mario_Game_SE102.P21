@@ -71,6 +71,10 @@ void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 		mario->SetPosition(marioX, marioY);
 		mario->Set_vy(0);
 	}
+	else if (mario && e->ny < 0 && state == BRICK_STATE_INI && type == 3)
+	{
+		this->Delete();
+	}
 
 	if (mario && (e->nx != 0 || e->ny != 0) && type == 1)
 	{
@@ -147,7 +151,11 @@ void CBrick::Render()
 {
 	int aniId;
 
-	if (state == BRICK_STATE_INI) {
+	if (state == BRICK_STATE_INI && type == 3)
+	{
+		aniId = ID_ANI_MSF;
+	}
+	else if (state == BRICK_STATE_INI && type != 3) {
 		aniId = ID_ANI_BRICK_BEFORE_USE;
 	}
 	else

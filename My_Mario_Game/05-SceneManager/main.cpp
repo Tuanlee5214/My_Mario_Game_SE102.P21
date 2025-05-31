@@ -74,6 +74,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define TEXTURE_PATH_ENEMIES1 TEXTURES_DIR "\\enemies1.png"
 #define TEXTURE_PATH_MICS3 TEXTURES_DIR "\\misc-3.png"
 #define TEXTURE_PATH_MISC TEXTURES_DIR "\\misc.png"
+#define TEXTURE_PATH_GOAL TEXTURES_DIR "\\goal.png"
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 230
 
@@ -142,6 +143,7 @@ void LoadResourceForGame() {
 	textures->Add(ID_TEX_MARIO, TEXTURE_PATH_MARIO);
 	textures->Add(ID_TEX_MISC3, TEXTURE_PATH_MICS3);
 	textures->Add(ID_TEX_MISC, TEXTURE_PATH_MISC);
+	textures->Add(ID_TEX_GOAL, TEXTURE_PATH_GOAL);
 
 	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
 	LPTEXTURE texMap = textures->Get(ID_TEX_MAP);
@@ -149,6 +151,7 @@ void LoadResourceForGame() {
 	LPTEXTURE texMario = textures->Get(ID_TEX_MARIO);
 	LPTEXTURE texMisc3 = textures->Get(ID_TEX_MISC3);
 	LPTEXTURE texMisc = textures->Get(ID_TEX_MISC);
+	LPTEXTURE texGoal = textures->Get(ID_TEX_GOAL);
 
 	CSprites* sprites = CSprites::GetInstance();
 
@@ -404,12 +407,11 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_EFFECT_BRICK);
 	animations->Add(ID_ANI_EFFECT, ani);
 
-	ani = new CAnimation(100);
+	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_STAR);
 	ani->Add(ID_SPRITE_FLOWER);
 	ani->Add(ID_SPRITE_RED_MUSHROOM);
 	animations->Add(ID_ANI_MSF, ani);
-
 
 	//QuestionBlock
 	ani = new CAnimation(130);
