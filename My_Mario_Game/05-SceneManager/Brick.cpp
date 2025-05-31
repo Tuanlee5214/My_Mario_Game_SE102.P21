@@ -8,12 +8,14 @@
 #include "Leaf.h"
 #include "Effect.h"
 #include "MushRoom.h"
+#include "Button.h"
 
 
 CBrick::CBrick(float x, float y, int type) : CGameObject(x, y)
 {
 	this->ax = 0;
 	this->ay = 0;
+	startX = x;
 	startY = y;
 	topY = y - 10;
 	this->type = type;
@@ -59,14 +61,19 @@ void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 	if (mario && e->ny < 0 && state == BRICK_STATE_INI && type == 2)
 	{
 		SetState(BRICK_STATE_JUMPED);
-		if (playScene && this->type == 2)
+		if (playScene)
 		{
-			//ECoin* ecoin = new ECoin(this->x, this->y - 4);
-			//playScene->InsertObjectBefore(ecoin, this);
+			CButton* button = new CButton(this->x + 1, this->y);
+			playScene->InsertObjectBefore(button, this);
 		}
 		mario->GetPosition(marioX, marioY);
 		mario->SetPosition(marioX, marioY);
 		mario->Set_vy(0);
+	}
+
+	if (mario && (e->nx != 0 || e->ny != 0) && type == 1)
+	{
+		return;
 	}
 
 	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
@@ -85,6 +92,8 @@ void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 		playScene->AddObject(effect3);
 		playScene->AddObject(effect4);
 	}
+
+	if (e->obj->IsBlocking()) return;
 }
 
 void CBrick::GetBoundingBox(float &left, float &top, float &right, float &bottom)
@@ -118,7 +127,8 @@ void CBrick::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		}
 		break;
 	case BRICK_STATE_USED:
-
+		this->y = startY;
+		this->x = startX;
 		return;
 	}
 
@@ -163,12 +173,6 @@ void CBrick::SetState(int state)
 		vy = BRICK_JUMP_SPEED;
 		break;
 	case BRICK_STATE_USED:
-		if (this->type == 2 && mario->GetLevel() == MARIO_LEVEL_SMALL)
-		{
-			CMushRoom* mushRoom = new CMushRoom(this->x, this->y);
-			playScene->InsertObjectBefore(mushRoom, this);
-		}
-
 		vx = 0;
 		vy = 0;
 		break;

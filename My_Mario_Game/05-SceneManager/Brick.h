@@ -21,6 +21,7 @@ protected:
 	float ay;
 	float ax;
 	int type;
+	float startX;
 	float startY;
 	float topY;
 

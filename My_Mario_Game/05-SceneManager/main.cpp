@@ -55,6 +55,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "MushRoom.h"
 #include "Leaf.h"
 #include "Effect.h"
+#include "Button.h"
 
 #include "AssetIDs.h"
 
@@ -336,7 +337,7 @@ void LoadResourceForGame() {
 	//Button sprite
 	sprites->Add(ID_SPRITE_BUTTON1, 155, 143, 173, 161, texMisc3);
 	sprites->Add(ID_SPRITE_BUTTON2, 176, 143, 194, 161, texMisc3);
-	sprites->Add(ID_SPRITE_BUTTON_AFTER_USE, 198, 151, 216, 161, texMisc3);
+	sprites->Add(ID_SPRITE_BUTTON_AFTER_USE, 197, 151, 217, 160, texMisc3);
 
 #pragma endregion
 
@@ -344,6 +345,16 @@ void LoadResourceForGame() {
 	LPANIMATION ani;
 
 #pragma region ANIMATION
+	//Button
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_BUTTON1);
+	animations->Add(ID_ANI_BUTTON_BEFORE_USE, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_BUTTON_AFTER_USE);
+	animations->Add(ID_ANI_BUTTON_AFTER_USE, ani);
+
+
 
 	//Brick
 	ani = new CAnimation(300);
