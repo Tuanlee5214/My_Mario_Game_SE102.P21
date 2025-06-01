@@ -14,6 +14,7 @@ CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 	this->ax = 0;
 	startY = y;
 	startX = x;
+	isDeleted = false;
 	topY = y - 10;
 	this->type = type;
 	SetState(QUESBLOCK_STATE_INI);
@@ -141,7 +142,7 @@ void CQuestionBlock::Render()
 	int aniId;
 
 	if (state == QUESBLOCK_STATE_INI) {
-		aniId = ID_ANI_MUSH_EFFEC;
+		aniId = ID_ANI_QUESBLOCK_BEFORE_USE;
 	}
 	else
 	{
@@ -183,7 +184,7 @@ void CQuestionBlock::SetState(int state)
 			playScene->InsertObjectBefore(mushRoom, this);
 
 		}
-		
+		isDeleted = false;
 		vx = 0;
 		vy = 0;
 		break;

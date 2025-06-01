@@ -1,4 +1,5 @@
 #include "GameData.h"
+#include "QuestionBlock.h"
 
 GameData* GameData::_instance = NULL;
 
@@ -33,5 +34,6 @@ bool GameData::IsObjectDeleted(int sceneID, int objectIndex)
 
 void GameData::ClearAllDeletedObjects()
 {
+
 	deletedObjectsByScene.clear();
 }

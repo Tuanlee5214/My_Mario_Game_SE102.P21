@@ -774,38 +774,7 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_PARINHA_CLOSE);
 	animations->Add(ID_ANI_PARINHA_IDLE, ani);
 #pragma endregion
-
-	CPlayScene* playScene = dynamic_cast<CPlayScene*>(CGame::GetInstance()->GetCurrentScene());
-	CSpawner* spawn1 = new CSpawner(602, 143, 10, OBJECT_TYPE_KOOPA, 510, 600);
-	CSpawner* spawn2 = new CSpawner(600, 175, 1000, OBJECT_TYPE_GOOMBA, 350, 750);
-	CSpawner* spawn3 = new CSpawner(1520, 120, 5000, OBJECT_TYPE_TROOPA, -10, 10000);
-	CSpawner* spawn4 = new CSpawner(1390, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
-	CSpawner* spawn5 = new CSpawner(1440, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
-	CSpawner* spawn6 = new CSpawner(1490, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
-	CSpawner* spawn7 = new CSpawner(900, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
-	CSpawner* spawn8 = new CSpawner(950, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
-	CSpawner* spawn9 = new CSpawner(1000, 159, 1000, OBJECT_TYPE_REDGOOMBA, 600, 1065);
-	CSpawner* spawn10 = new CSpawner(2130, 129, 10, OBJECT_TYPE_KOOPA, 2122, 2138);
-
-
-
-
-	if (playScene)
-	{
-		playScene->AddObject(spawn1);
-		playScene->AddObject(spawn2);
-		playScene->AddObject(spawn3);
-		playScene->AddObject(spawn4);
-		playScene->AddObject(spawn5);
-		playScene->AddObject(spawn6);
-		playScene->AddObject(spawn7);
-		playScene->AddObject(spawn8);
-		playScene->AddObject(spawn9);
-		playScene->AddObject(spawn10);
-	}
 	
-
-
 	if (sprites->Get(ID_SPRITE_GROUND2) == NULL)
 	{
 		DebugOut(L"[ERROR] Sprite ID %d not found!\n", ID_SPRITE_GROUND2);

@@ -25,6 +25,7 @@
 #include "ParaTroopa.h"
 #include "QuestionBlock.h"
 #include "MushRoom.h"
+#include "Spawner.h"
 #include "Brick.h"
 
 #include "SampleKeyEventHandler.h"
@@ -117,7 +118,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	vector<string> tokens = split(line);
 
 	// skip invalid lines - an object set must have at least id, x, y
-	if (tokens.size() < 2) return;
+	if (tokens.size() <= 2) return;
 
 	int object_type = atoi(tokens[0].c_str());
 	float x = (float)atof(tokens[1].c_str());
@@ -375,6 +376,36 @@ void CPlayScene::Load()
 
 	f.close();
 
+	CSpawner* spawn1 = new CSpawner(602, 143, 10, OBJECT_TYPE_KOOPA, 510, 600);
+	CSpawner* spawn2 = new CSpawner(600, 175, 1000, OBJECT_TYPE_GOOMBA, 350, 750);
+	CSpawner* spawn3 = new CSpawner(1520, 120, 5000, OBJECT_TYPE_TROOPA, -10, 10000);
+	CSpawner* spawn4 = new CSpawner(1390, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+	CSpawner* spawn5 = new CSpawner(1440, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+	CSpawner* spawn6 = new CSpawner(1490, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+	CSpawner* spawn7 = new CSpawner(900, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
+	CSpawner* spawn8 = new CSpawner(950, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
+	CSpawner* spawn9 = new CSpawner(1000, 159, 1000, OBJECT_TYPE_REDGOOMBA, 600, 1065);
+	CSpawner* spawn10 = new CSpawner(2130, 129, 10, OBJECT_TYPE_KOOPA, 2122, 2138);
+
+
+
+
+	if (this->GetId() == 5 || this->GetId() == 1)
+	{
+		this->AddObject(spawn1);
+		this->AddObject(spawn2);
+		this->AddObject(spawn3);
+		this->AddObject(spawn4);
+		this->AddObject(spawn5);
+		this->AddObject(spawn6);
+		this->AddObject(spawn7);
+		this->AddObject(spawn8);
+		this->AddObject(spawn9);
+		this->AddObject(spawn10);
+	}
+
+
+
 	DebugOut(L"[INFO] Done loading scene  %s\n", sceneFilePath);
 }
 
@@ -572,12 +603,12 @@ void CPlayScene::PurgeDeletedObjects()
 			LPGAMEOBJECT o = objects[i];
 			if (o->IsDeleted())
 			{
-				gameData->MarkObjectDeleted(sceneID, i);
-				if (sceneID == 5) {
-					gameData->MarkObjectDeleted(1, i);
-				}
-				delete o;
-				objects[i] = NULL;
+					gameData->MarkObjectDeleted(sceneID, i);
+					if (sceneID == 5) {
+						gameData->MarkObjectDeleted(1, i);
+					}
+					delete o;
+					objects[i] = NULL;
 			}
 		}
 	}
