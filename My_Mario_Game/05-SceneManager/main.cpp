@@ -358,6 +358,8 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_POINT_TYPE2, 453, 231, 468, 240, texMisc);
 	sprites->Add(ID_SPRITE_POINT_TYPE10, 470, 218, 489, 231, texMisc);
 	sprites->Add(ID_SPRITE_1UP, 594, 170, 625, 190, texMisc);
+	sprites->Add(ID_SPRITE_MUSH_EFFECT1, 255, 370, 275, 390, texGoal);
+	sprites->Add(ID_SPRITE_MUSH_EFFECT2, 315, 371, 329, 390, texGoal);
 
 	
 
@@ -384,6 +386,11 @@ void LoadResourceForGame() {
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_1UP);
 	animations->Add(ID_ANI_1UP, ani);
+
+	ani = new CAnimation(300);
+	ani->Add(ID_SPRITE_MUSH_EFFECT1);
+	ani->Add(ID_SPRITE_MUSH_EFFECT2);
+	animations->Add(ID_ANI_MUSH_EFFEC, ani);
 	
 	//Button
 	ani = new CAnimation(100);

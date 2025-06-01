@@ -9,6 +9,7 @@
 #define ID_ANI_POINT_TYPE2 6778
 #define ID_ANI_POINT_TYPE3 6779
 #define ID_ANI_1UP 6776
+#define ID_ANI_MUSH_EFFEC 6775
 
 
 class CPoint : public CGameObject

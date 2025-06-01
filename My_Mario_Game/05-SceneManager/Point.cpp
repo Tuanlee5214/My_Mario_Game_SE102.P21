@@ -31,6 +31,8 @@ void CPoint::Render()
 		aniId = ID_ANI_POINT_TYPE2;
 	else if (type == 4)
 		aniId = ID_ANI_1UP;
+	else if (type == 5)
+		aniId = ID_ANI_MUSH_EFFEC;
 	else
 		aniId = ID_ANI_POINT_TYPE3;
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);

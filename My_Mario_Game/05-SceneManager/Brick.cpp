@@ -10,6 +10,7 @@
 #include "MushRoom.h"
 #include "Button.h"
 #include "Coin.h"
+#include "Point.h"
 
 
 CBrick::CBrick(float x, float y, int type) : CGameObject(x, y)
@@ -74,6 +75,8 @@ void CBrick::OnCollisionWith(LPCOLLISIONEVENT e)
 	else if (mario && e->ny < 0 && state == BRICK_STATE_INI && type == 3)
 	{
 		this->Delete();
+		CPoint* point = new CPoint(this->x, this->y, 5, y - 110);
+		playScene->InsertObjectBefore(point, this);
 	}
 
 	if (mario && (e->nx != 0 || e->ny != 0) && type == 1)

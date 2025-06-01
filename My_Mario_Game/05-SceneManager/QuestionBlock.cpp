@@ -6,6 +6,7 @@
 #include "ECoin.h"
 #include "Leaf.h"
 #include "MushRoom.h"
+#include "Point.h"
 
 CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 {
@@ -140,7 +141,7 @@ void CQuestionBlock::Render()
 	int aniId;
 
 	if (state == QUESBLOCK_STATE_INI) {
-		aniId = ID_ANI_QUESBLOCK_BEFORE_USE;
+		aniId = ID_ANI_MUSH_EFFEC;
 	}
 	else
 	{
