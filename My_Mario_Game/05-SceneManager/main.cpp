@@ -182,6 +182,7 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_TransTREE2, 3, 145, 50, 193, texMap);
 	sprites->Add(ID_SPRITE_BLACKBACKGROUND, 2480, 0, 2816, 417, texMainMap);
 	sprites->Add(ID_SPRITE_BUSH, 160, 399, 176, 416, texMainMap);
+	sprites->Add(ID_SPRITE_BLACKBACKGROUND2, 1613, 466, 1904, 635, texMainMap);
 
 	//Sprite Cloud
 	sprites->Add(ID_SPRITE_CLOUD1, 126, 0, 159, 22, texMap);

@@ -11,6 +11,7 @@ protected:
 	LPKEYEVENTHANDLER key_handler;
 	int id;
 	LPCWSTR sceneFilePath;
+	bool isInSecretArea = false;
 
 public: 
 	CScene(int id, LPCWSTR filePath)

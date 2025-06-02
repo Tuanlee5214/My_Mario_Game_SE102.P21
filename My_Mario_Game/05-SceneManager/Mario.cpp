@@ -603,10 +603,18 @@ void CMario::OnCollisionWithPortal(LPCOLLISIONEVENT e)
 void CMario::OnCollisionWithSwitchPos(LPCOLLISIONEVENT e)
 {
 	CSwitchPos* p = (CSwitchPos*)e->obj;
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
 	if (p->GetType() == 1)
+	{
 		this->SetPosition(146, 238);
+		playScene->SetIsInSecret(true);
+
+	}
 	else if (p->GetType() == 2)
+	{
 		this->SetPosition(2366, 142);
+		playScene->SetIsInSecret(false);
+	}
 }
 //
 // Get animation ID for small Mario

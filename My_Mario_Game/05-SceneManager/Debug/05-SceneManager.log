@@ -18,6 +18,6 @@ D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.
   (compiling source file 'PlayScene.cpp')
   
 D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(104,20): warning C4018: '<': signed/unsigned mismatch
-D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(600,20): warning C4018: '<': signed/unsigned mismatch
-D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(627,20): warning C4018: '<': signed/unsigned mismatch
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(628,20): warning C4018: '<': signed/unsigned mismatch
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(655,20): warning C4018: '<': signed/unsigned mismatch
   05-SceneManager.vcxproj -> D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\Debug\05-SceneManager.exe

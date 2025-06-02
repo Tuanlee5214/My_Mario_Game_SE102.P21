@@ -408,12 +408,26 @@ void CPlayScene::Load()
 	CPipe* pipe2 = new CPipe(369, 238, 32, 32, 1, 77600, 3);
 	CSwitchPos* pos1 = new CSwitchPos(200, 100, 220, 110, 1);
 	CSwitchPos* pos2 = new CSwitchPos(368, 238, 382, 250, 2);
+	CTree* b = new CTree(250, 300 , ID_SPRITE_BLACKBACKGROUND2);
+	CCoin* coin1 = new CCoin(220, 270, 1);
+	CCoin* coin2 = new CCoin(220, 334, 1);
+	CCoin* coin3 = new CCoin(236, 254, 1);
+	CCoin* coin4 = new CCoin(236, 302, 1);
+	CCoin* coin5 = new CCoin(236, 350, 1);
+	CCoin* coin6 = new CCoin(252, 254, 1);
+	CCoin* coin7 = new CCoin(252, 302, 1);
+	CCoin* coin8 = new CCoin(252, 350, 1);
+	CCoin* coin9 = new CCoin(268, 270, 1);
+	CCoin* coin10 = new CCoin(268, 334, 1);
+	CCoin* coin11 = new CCoin(268, 286, 1);
+	CCoin* coin12 = new CCoin(268, 318, 1);
 
 
 
 
 	if (this->GetId() == 5)
 	{
+		this->InsertObjectBefore(b, player);
 		this->AddObject(spawn1);
 		this->AddObject(spawn2);
 		this->AddObject(spawn3);
@@ -451,6 +465,18 @@ void CPlayScene::Load()
 		this->AddObject(pipe2);
 		this->AddObject(pos1);
 		this->AddObject(pos2);
+		this->AddObject(coin1);
+		this->AddObject(coin2);
+		this->AddObject(coin3);
+		this->AddObject(coin4);
+		this->AddObject(coin5);
+		this->AddObject(coin6);
+		this->AddObject(coin7);
+		this->AddObject(coin8);
+		this->AddObject(coin9);
+		this->AddObject(coin10);
+		this->AddObject(coin11);
+		this->AddObject(coin12);
 	}
 
 
@@ -572,12 +598,14 @@ void CPlayScene::Update(DWORD dt)
 		if (cx > 2463) cx = 2463;
 	}
 
-	if (y > 200)
+	if (y > 200 && this->GetIsInSecret())
 	{
 		if (cx > 127) cx = 127;
 		cy = 210;
 	}
 	else if (y > 0 && y <= 200) cy = 0;
+	else if (y > 200 && !this->GetIsInSecret()) cy = 0;
+
 	DebugOut(L"game->GetBackBufferHeight() : %d", game->GetBackBufferHeight());
 	
 
@@ -655,3 +683,4 @@ void CPlayScene::PurgeDeletedObjects()
 		std::remove_if(objects.begin(), objects.end(), CPlayScene::IsGameObjectDeleted),
 		objects.end());
 }
+

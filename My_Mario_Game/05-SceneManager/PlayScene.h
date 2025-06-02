@@ -37,7 +37,8 @@ public:
 	virtual void Render();
 	virtual void AddObject(LPGAMEOBJECT e);
 	virtual void Unload();
-
+	void SetIsInSecret(bool a) { this->isInSecretArea = a; }
+	bool GetIsInSecret() { return this->isInSecretArea; }
 
 	CKoopa* GetFirstKoopa(CPlayScene* playScene);
 	CTroopa* GetTroopa(CPlayScene* playScene);
