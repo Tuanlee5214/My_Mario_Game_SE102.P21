@@ -159,7 +159,6 @@
     <ClCompile Include="ECoin.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameData.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="GreenPlant.cpp" />
@@ -183,6 +182,7 @@
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Sprites.cpp" />
+    <ClCompile Include="SwitchPos.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Troopa.cpp" />
@@ -204,7 +204,6 @@
     <ClInclude Include="ECoin.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="GameData.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="GreenPlant.h" />
@@ -230,6 +229,7 @@
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Sprites.h" />
+    <ClInclude Include="SwitchPos.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Tree.h" />

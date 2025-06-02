@@ -19,6 +19,7 @@
 #include "PlayScene.h"
 #include "MushRoom.h"
 #include "Leaf.h"
+#include "SwitchPos.h"
 #include "Point.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
@@ -99,6 +100,8 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithMushRoom(e);
 	else if (dynamic_cast<CLeaf*>(e->obj))
 		OnCollisionWihtLeaf(e);
+	else if (dynamic_cast<CSwitchPos*>(e->obj))
+		OnCollisionWithSwitchPos(e);
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
@@ -594,9 +597,17 @@ void CMario::OnCollisionWithBullet(LPCOLLISIONEVENT e)
 void CMario::OnCollisionWithPortal(LPCOLLISIONEVENT e)
 {
 	CPortal* p = (CPortal*)e->obj;
-	CGame::GetInstance()->InitiateSwitchScene(p->GetSceneId());
+	//CGame::GetInstance()->InitiateSwitchScene(p->GetSceneId());
 }
 
+void CMario::OnCollisionWithSwitchPos(LPCOLLISIONEVENT e)
+{
+	CSwitchPos* p = (CSwitchPos*)e->obj;
+	if (p->GetType() == 1)
+		this->SetPosition(146, 238);
+	else if (p->GetType() == 2)
+		this->SetPosition(2366, 142);
+}
 //
 // Get animation ID for small Mario
 //

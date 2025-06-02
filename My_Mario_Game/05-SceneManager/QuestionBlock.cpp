@@ -78,7 +78,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 			playScene->InsertObjectBefore(leaf, this);
 		}
 		mario->GetPosition(marioX, marioY);
-		mario->SetPosition(marioX, marioY);
+		mario->SetPosition(marioX, marioY - 2);
 		mario->Set_vy(0);
 	}
 

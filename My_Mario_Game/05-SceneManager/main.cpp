@@ -839,12 +839,16 @@ int Run()
 	int done = 0;
 	ULONGLONG frameStart = GetTickCount64();
 	DWORD tickPerFrame = 1000 / MAX_FRAME_RATE;
+	CPlayScene* playScene = (CPlayScene*)(CGame::GetInstance()->GetCurrentScene());
 
 	while (!done)
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
-			if (msg.message == WM_QUIT) done = 1;
+			if (msg.message == WM_QUIT)
+			{
+				done = 1;
+			}
 
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);

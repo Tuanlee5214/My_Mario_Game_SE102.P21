@@ -93,9 +93,6 @@
     <ClCompile Include="Koopa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameData.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RedGoomba.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -139,6 +136,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Point.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchPos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -230,9 +230,6 @@
     <ClInclude Include="Koopa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RedGoomba.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -279,6 +276,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchPos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
