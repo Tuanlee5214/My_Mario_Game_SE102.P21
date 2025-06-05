@@ -229,6 +229,17 @@ public:
 		this->vy = vy;
 	}
 
+	void Set_ax(float ax)
+	{
+		this->ax = ax;
+	}
+	
+	void Set_vx(float vx)
+	{
+		this->vx -= vx;
+	}
+
+	float Get_vx() { return this->vx; }
 
 	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable==0); }
 

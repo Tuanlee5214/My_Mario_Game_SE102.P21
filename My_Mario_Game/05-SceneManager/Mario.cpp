@@ -28,7 +28,6 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	vx += ax * dt;
 
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
-
 	if (state == MARIO_STATE_RUNNING_RIGHT)
 	{
 		if (abs(ax) > abs(MARIO_ACCEL_RUN_X)) ax = MARIO_ACCEL_RUN_X;
@@ -38,6 +37,25 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		if (abs(ax) > abs(MARIO_ACCEL_RUN_X)) ax = -MARIO_ACCEL_RUN_X;
 	}
 
+	if (abs(ax) == 0 && abs(vx) != 0)
+	{
+		if (vx > 0)
+		{
+			vx -= 0.008f;
+			if (vx < 0)
+			{
+				vx = 0;
+			}
+		}
+		else if (vx < 0)
+		{
+			vx += 0.008f;
+			if (vx > 0)
+			{
+				vx = 0;
+			}
+		}
+	}
 	// reset untouchable timer if untouchable time has passed
 	if ( GetTickCount64() - untouchable_start > MARIO_UNTOUCHABLE_TIME) 
 	{
@@ -685,6 +703,8 @@ int CMario::GetAniIdSmall()
 					aniId = ID_ANI_MARIO_SMALL_RUNNING_RIGHT;
 				else if (ax > 0 && ax < MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_RIGHT)
 					aniId = ID_ANI_MARIO_SMALL_WALK_TO_RUN_RIGHT;
+				else if (ax == 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_SMALL_WALKING_RIGHT;
+				else if (ax == 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_SMALL_WALKING_CARRY_RIGHT;
 				else if (ax == MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_RIGHT)
 				{
 					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
@@ -715,6 +735,8 @@ int CMario::GetAniIdSmall()
 					aniId = ID_ANI_MARIO_SMALL_RUNNING_LEFT;
 				else if (ax < 0 && ax > -MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_LEFT)
 					aniId = ID_ANI_MARIO_SMALL_WALK_TO_RUN_LEFT;
+				else if (ax == 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_SMALL_WALKING_LEFT;
+				else if (ax == 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_SMALL_WALKING_CARRY_LEFT;
 				else if (ax == -MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_LEFT)
 				{
 					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
@@ -736,7 +758,7 @@ int CMario::GetAniIdSmall()
 				}
 			}
 
-	if (aniId == -1) aniId = ID_ANI_MARIO_SMALL_IDLE_RIGHT;
+	if (aniId == -1 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_SMALL_IDLE_RIGHT;
 
 	return aniId;
 }
@@ -802,6 +824,8 @@ int CMario::GetAniIdBig()
 					aniId = ID_ANI_MARIO_RUNNING_RIGHT;
 				else if (ax > 0 && ax < MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_RIGHT)
 					aniId = ID_ANI_MARIO_WALK_TO_RUN_RIGHT;
+				else if (ax == 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_WALKING_RIGHT;
+				else if (ax == 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_WALKING_CARRY_RIGHT;
 				else if (ax == MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_RIGHT)
 				{
 					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
@@ -832,6 +856,8 @@ int CMario::GetAniIdBig()
 					aniId = ID_ANI_MARIO_RUNNING_LEFT;
 				else if (ax < 0 && ax > -MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_LEFT)
 					aniId = ID_ANI_MARIO_WALK_TO_RUN_LEFT;
+				else if (ax == 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_WALKING_LEFT;
+				else if (ax == 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_WALKING_CARRY_LEFT;
 				else if (ax == -MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_LEFT)
 				{
 					if ((isHoldKoopa || isHoldTroopa) && !isRight1)

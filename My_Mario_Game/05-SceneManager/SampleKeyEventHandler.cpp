@@ -312,7 +312,9 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		 
 	}
 	else
-		mario->SetState(MARIO_STATE_IDLE);
+	{
+		mario->Set_ax(0);
+	}
 
 	if (!mario->GetIsOnPlatform() && game->IsKeyDown(DIK_A) &&
 		koopa && koopa->GetState() == KOOPA_STATE_DIE &&
