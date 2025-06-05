@@ -18,6 +18,8 @@ height	240
 10	textures\enemies.png
 20	texture1\mainmap.png
 30	texture1\map.png
+90	textures\mariobros3.png
+#100	textures\right.png
 #40     textures\map.png
 #50     textures\tiles.png
 

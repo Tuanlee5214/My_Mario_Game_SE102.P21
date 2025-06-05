@@ -289,6 +289,118 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 
 }
 
+void CPlayScene::InitiateObjectWithOutTxt()
+{
+	CSpawner* spawn1 = new CSpawner(602, 143, 10, OBJECT_TYPE_KOOPA, 510, 600);
+	CSpawner* spawn2 = new CSpawner(600, 175, 1000, OBJECT_TYPE_GOOMBA, 350, 750);
+	CSpawner* spawn3 = new CSpawner(1520, 120, 5000, OBJECT_TYPE_TROOPA, -10, 10000);
+	CSpawner* spawn4 = new CSpawner(1390, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+	CSpawner* spawn5 = new CSpawner(1440, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+	CSpawner* spawn6 = new CSpawner(1490, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
+	CSpawner* spawn7 = new CSpawner(900, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
+	CSpawner* spawn8 = new CSpawner(950, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
+	CSpawner* spawn9 = new CSpawner(1000, 159, 1000, OBJECT_TYPE_REDGOOMBA, 600, 1065);
+	CSpawner* spawn10 = new CSpawner(2130, 129, 10, OBJECT_TYPE_KOOPA, 2122, 2138);
+	CPlatform* platform = new CPlatform(10, 230, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform1 = new CPlatform(10, 246, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform2 = new CPlatform(10, 262, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform3 = new CPlatform(10, 278, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform4 = new CPlatform(10, 294, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform5 = new CPlatform(10, 310, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform6 = new CPlatform(10, 326, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform7 = new CPlatform(10, 342, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform8 = new CPlatform(10, 358, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform9 = new CPlatform(10, 374, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform10 = new CPlatform(10, 390, 16, 16, 32, 60001, 60001, 60001);
+	CPlatform* platform11 = new CPlatform(10, 406, 16, 16, 32, 60001, 60001, 60001);
+
+	CPlatform* platform12 = new CPlatform(266, 374, 16, 16, 16, 60001, 60001, 60001);
+	CPlatform* platform13 = new CPlatform(282, 358, 16, 16, 15, 60001, 60001, 60001);
+	CPlatform* platform14 = new CPlatform(298, 342, 16, 16, 14, 60001, 60001, 60001);
+	CPlatform* platform15 = new CPlatform(314, 326, 16, 16, 13, 60001, 60001, 60001);
+	CPlatform* platform16 = new CPlatform(330, 310, 16, 16, 12, 60001, 60001, 60001);
+	CPlatform* platform17 = new CPlatform(346, 294, 16, 16, 11, 60001, 60001, 60001);
+	CPlatform* platform18 = new CPlatform(394, 278, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform19 = new CPlatform(394, 262, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform20 = new CPlatform(394, 246, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform21 = new CPlatform(394, 230, 16, 16, 8, 60001, 60001, 60001);
+	CPlatform* platform22 = new CPlatform(170, 230, 16, 16, 12, 60001, 60001, 60001);
+	CPipe* pipe1 = new CPipe(146, 238, 32, 32, 1, 77600, 3);
+	CPipe* pipe2 = new CPipe(369, 238, 32, 32, 1, 77600, 3);
+	CSwitchPos* pos1 = new CSwitchPos(200, 100, 220, 110, 1);
+	CSwitchPos* pos2 = new CSwitchPos(368, 238, 382, 250, 2);
+	CTree* b = new CTree(250, 300, ID_SPRITE_BLACKBACKGROUND2);
+	CCoin* coin1 = new CCoin(220, 270, 1);
+	CCoin* coin2 = new CCoin(220, 334, 1);
+	CCoin* coin3 = new CCoin(236, 254, 1);
+	CCoin* coin4 = new CCoin(236, 302, 1);
+	CCoin* coin5 = new CCoin(236, 350, 1);
+	CCoin* coin6 = new CCoin(252, 254, 1);
+	CCoin* coin7 = new CCoin(252, 302, 1);
+	CCoin* coin8 = new CCoin(252, 350, 1);
+	CCoin* coin9 = new CCoin(268, 270, 1);
+	CCoin* coin10 = new CCoin(268, 334, 1);
+	CCoin* coin11 = new CCoin(268, 286, 1);
+	CCoin* coin12 = new CCoin(268, 318, 1);
+
+
+
+
+	if (this->GetId() == 5)
+	{
+		this->InsertObjectBefore(b, player);
+		this->AddObject(spawn1);
+		this->AddObject(spawn2);
+		this->AddObject(spawn3);
+		this->AddObject(spawn4);
+		this->AddObject(spawn5);
+		this->AddObject(spawn6);
+		this->AddObject(spawn7);
+		this->AddObject(spawn8);
+		this->AddObject(spawn9);
+		this->AddObject(spawn10);
+		this->AddObject(platform);
+		this->AddObject(platform1);
+		this->AddObject(platform2);
+		this->AddObject(platform3);
+		this->AddObject(platform4);
+		this->AddObject(platform5);
+		this->AddObject(platform6);
+		this->AddObject(platform7);
+		this->AddObject(platform8);
+		this->AddObject(platform9);
+		this->AddObject(platform10);
+		this->AddObject(platform11);
+		this->AddObject(platform12);
+		this->AddObject(platform13);
+		this->AddObject(platform14);
+		this->AddObject(platform15);
+		this->AddObject(platform16);
+		this->AddObject(platform17);
+		this->AddObject(platform18);
+		this->AddObject(platform19);
+		this->AddObject(platform20);
+		this->AddObject(platform21);
+		this->AddObject(platform22);
+		this->AddObject(pipe1);
+		this->AddObject(pipe2);
+		this->AddObject(pos1);
+		this->AddObject(pos2);
+		this->AddObject(coin1);
+		this->AddObject(coin2);
+		this->AddObject(coin3);
+		this->AddObject(coin4);
+		this->AddObject(coin5);
+		this->AddObject(coin6);
+		this->AddObject(coin7);
+		this->AddObject(coin8);
+		this->AddObject(coin9);
+		this->AddObject(coin10);
+		this->AddObject(coin11);
+		this->AddObject(coin12);
+	}
+}
+
 void CPlayScene::LoadAssets(LPCWSTR assetFile)
 {
 	DebugOut(L"[INFO] Start loading assets from : %s \n", assetFile);
@@ -369,117 +481,7 @@ void CPlayScene::Load()
 	}
 
 	f.close();
-
-	CSpawner* spawn1 = new CSpawner(602, 143, 10, OBJECT_TYPE_KOOPA, 510, 600);
-	CSpawner* spawn2 = new CSpawner(600, 175, 1000, OBJECT_TYPE_GOOMBA, 350, 750);
-	CSpawner* spawn3 = new CSpawner(1520, 120, 5000, OBJECT_TYPE_TROOPA, -10, 10000);
-	CSpawner* spawn4 = new CSpawner(1390, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
-	CSpawner* spawn5 = new CSpawner(1440, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
-	CSpawner* spawn6 = new CSpawner(1490, 80, 5000, OBJECT_TYPE_PARATROOPA, 900, 1700);
-	CSpawner* spawn7 = new CSpawner(900, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
-	CSpawner* spawn8 = new CSpawner(950, 159, 1000, OBJECT_TYPE_GOOMBA, 600, 1065);
-	CSpawner* spawn9 = new CSpawner(1000, 159, 1000, OBJECT_TYPE_REDGOOMBA, 600, 1065);
-	CSpawner* spawn10 = new CSpawner(2130, 129, 10, OBJECT_TYPE_KOOPA, 2122, 2138);
-	CPlatform* platform = new CPlatform(10, 230, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform1 = new CPlatform(10, 246, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform2 = new CPlatform(10, 262, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform3 = new CPlatform(10, 278, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform4 = new CPlatform(10, 294, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform5 = new CPlatform(10, 310, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform6 = new CPlatform(10, 326, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform7 = new CPlatform(10, 342, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform8 = new CPlatform(10, 358, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform9 = new CPlatform(10, 374, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform10 = new CPlatform(10, 390, 16, 16, 32, 60001, 60001, 60001);
-	CPlatform* platform11 = new CPlatform(10, 406, 16, 16, 32, 60001, 60001, 60001);
-
-	CPlatform* platform12 = new CPlatform(266,	374, 16, 16, 16, 60001, 60001, 60001);
-	CPlatform* platform13 = new CPlatform(282, 358, 16, 16, 15, 60001, 60001, 60001);
-	CPlatform* platform14 = new CPlatform(298, 342, 16, 16, 14, 60001, 60001, 60001);
-	CPlatform* platform15 = new CPlatform(314, 326, 16, 16, 13, 60001, 60001, 60001);
-	CPlatform* platform16 = new CPlatform(330, 310, 16, 16, 12, 60001, 60001, 60001);
-	CPlatform* platform17 = new CPlatform(346, 294, 16, 16, 11, 60001, 60001, 60001);
-	CPlatform* platform18 = new CPlatform(394, 278, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform19 = new CPlatform(394, 262, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform20 = new CPlatform(394, 246, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform21 = new CPlatform(394, 230, 16, 16, 8, 60001, 60001, 60001);
-	CPlatform* platform22 = new CPlatform(170, 230, 16, 16, 12, 60001, 60001, 60001);
-	CPipe* pipe1 = new CPipe(146, 238, 32, 32, 1, 77600, 3);
-	CPipe* pipe2 = new CPipe(369, 238, 32, 32, 1, 77600, 3);
-	CSwitchPos* pos1 = new CSwitchPos(200, 100, 220, 110, 1);
-	CSwitchPos* pos2 = new CSwitchPos(368, 238, 382, 250, 2);
-	CTree* b = new CTree(250, 300 , ID_SPRITE_BLACKBACKGROUND2);
-	CCoin* coin1 = new CCoin(220, 270, 1);
-	CCoin* coin2 = new CCoin(220, 334, 1);
-	CCoin* coin3 = new CCoin(236, 254, 1);
-	CCoin* coin4 = new CCoin(236, 302, 1);
-	CCoin* coin5 = new CCoin(236, 350, 1);
-	CCoin* coin6 = new CCoin(252, 254, 1);
-	CCoin* coin7 = new CCoin(252, 302, 1);
-	CCoin* coin8 = new CCoin(252, 350, 1);
-	CCoin* coin9 = new CCoin(268, 270, 1);
-	CCoin* coin10 = new CCoin(268, 334, 1);
-	CCoin* coin11 = new CCoin(268, 286, 1);
-	CCoin* coin12 = new CCoin(268, 318, 1);
-
-
-
-
-	if (this->GetId() == 5)
-	{
-		this->InsertObjectBefore(b, player);
-		this->AddObject(spawn1);
-		this->AddObject(spawn2);
-		this->AddObject(spawn3);
-		this->AddObject(spawn4);
-		this->AddObject(spawn5);
-		this->AddObject(spawn6);
-		this->AddObject(spawn7);
-		this->AddObject(spawn8);
-		this->AddObject(spawn9);
-		this->AddObject(spawn10);
-		this->AddObject(platform);
-		this->AddObject(platform1);
-		this->AddObject(platform2);
-		this->AddObject(platform3);
-		this->AddObject(platform4);
-		this->AddObject(platform5);
-		this->AddObject(platform6);
-		this->AddObject(platform7);
-		this->AddObject(platform8);
-		this->AddObject(platform9);
-		this->AddObject(platform10);
-		this->AddObject(platform11);
-		this->AddObject(platform12);
-		this->AddObject(platform13);
-		this->AddObject(platform14);
-		this->AddObject(platform15);
-		this->AddObject(platform16);
-		this->AddObject(platform17);
-		this->AddObject(platform18);
-		this->AddObject(platform19);
-		this->AddObject(platform20);
-		this->AddObject(platform21);
-		this->AddObject(platform22);
-		this->AddObject(pipe1);
-		this->AddObject(pipe2);
-		this->AddObject(pos1);
-		this->AddObject(pos2);
-		this->AddObject(coin1);
-		this->AddObject(coin2);
-		this->AddObject(coin3);
-		this->AddObject(coin4);
-		this->AddObject(coin5);
-		this->AddObject(coin6);
-		this->AddObject(coin7);
-		this->AddObject(coin8);
-		this->AddObject(coin9);
-		this->AddObject(coin10);
-		this->AddObject(coin11);
-		this->AddObject(coin12);
-	}
-
-
+	this->InitiateObjectWithOutTxt();
 
 	DebugOut(L"[INFO] Done loading scene  %s\n", sceneFilePath);
 }
@@ -563,6 +565,7 @@ CMushRoom* CPlayScene::GetMushRoomSamePosition(CPlayScene* playScene, float x)
 	}
 	return NULL;
 }
+
 
 void CPlayScene::Update(DWORD dt)
 {

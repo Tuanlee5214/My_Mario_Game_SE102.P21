@@ -72,7 +72,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 			ECoin* ecoin = new ECoin(this->x, this->y - 4);
 			playScene->InsertObjectBefore(ecoin, this);
 		}
-		else if (playScene && this->type == 2 && mario->GetLevel() == MARIO_LEVEL_BIG)
+		else if (playScene && this->type == 2 && player->GetLevel() == MARIO_LEVEL_BIG)
 		{
 			CLeaf* leaf = new CLeaf(this->x, this->y - 4, x - 8, x + 40);
 			playScene->InsertObjectBefore(leaf, this);
@@ -99,7 +99,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 		}
 	}
 	
-	if (e->obj->IsBlocking()) return;
+	//if (e->obj->IsBlocking()) return;
 
 }
 
@@ -150,7 +150,7 @@ void CQuestionBlock::Render()
 	}
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
-	//RenderBoundingBox();
+	RenderBoundingBox();
 }
 
 void CQuestionBlock::SetState(int state)

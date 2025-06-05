@@ -54,8 +54,7 @@ public:
 		return objects;
 	}
 
-	
-
+	void InitiateObjectWithOutTxt();
 
 	void Clear();
 	void PurgeDeletedObjects();
