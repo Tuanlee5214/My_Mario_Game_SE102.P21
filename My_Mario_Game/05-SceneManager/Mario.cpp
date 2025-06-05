@@ -22,12 +22,21 @@
 #include "SwitchPos.h"
 #include "Point.h"
 
-void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
+void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	vy += ay * dt;
 	vx += ax * dt;
 
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
+
+	if (state == MARIO_STATE_RUNNING_RIGHT)
+	{
+		if (abs(ax) > abs(MARIO_ACCEL_RUN_X)) ax = MARIO_ACCEL_RUN_X;
+	}
+	else if (state == MARIO_STATE_RUNNING_LEFT)
+	{
+		if (abs(ax) > abs(MARIO_ACCEL_RUN_X)) ax = -MARIO_ACCEL_RUN_X;
+	}
 
 	// reset untouchable timer if untouchable time has passed
 	if ( GetTickCount64() - untouchable_start > MARIO_UNTOUCHABLE_TIME) 
@@ -674,7 +683,9 @@ int CMario::GetAniIdSmall()
 					aniId = ID_ANI_MARIO_SMALL_BRACE_RIGHT;
 				else if (ax == MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_SMALL_RUNNING_RIGHT;
-				else if (ax == MARIO_ACCEL_WALK_X)
+				else if (ax > 0 && ax < MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_RIGHT)
+					aniId = ID_ANI_MARIO_SMALL_WALK_TO_RUN_RIGHT;
+				else if (ax == MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_RIGHT)
 				{
 					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
 					{
@@ -702,7 +713,9 @@ int CMario::GetAniIdSmall()
 					aniId = ID_ANI_MARIO_SMALL_BRACE_LEFT;
 				else if (ax == -MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_SMALL_RUNNING_LEFT;
-				else if (ax == -MARIO_ACCEL_WALK_X)
+				else if (ax < 0 && ax > -MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_LEFT)
+					aniId = ID_ANI_MARIO_SMALL_WALK_TO_RUN_LEFT;
+				else if (ax == -MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_LEFT)
 				{
 					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
 					{
@@ -787,7 +800,9 @@ int CMario::GetAniIdBig()
 					aniId = ID_ANI_MARIO_BRACE_RIGHT;
 				else if (ax == MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_RUNNING_RIGHT;
-				else if (ax == MARIO_ACCEL_WALK_X)
+				else if (ax > 0 && ax < MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_RIGHT)
+					aniId = ID_ANI_MARIO_WALK_TO_RUN_RIGHT;
+				else if (ax == MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_RIGHT)
 				{
 					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
 					{
@@ -815,7 +830,9 @@ int CMario::GetAniIdBig()
 					aniId = ID_ANI_MARIO_BRACE_LEFT;
 				else if (ax == -MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_RUNNING_LEFT;
-				else if (ax == -MARIO_ACCEL_WALK_X)
+				else if (ax < 0 && ax > -MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_LEFT)
+					aniId = ID_ANI_MARIO_WALK_TO_RUN_LEFT;
+				else if (ax == -MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_LEFT)
 				{
 					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
 					{
@@ -883,13 +900,15 @@ void CMario::SetState(int state)
 	case MARIO_STATE_RUNNING_RIGHT:
 		if (isSitting) break;
 		maxVx = MARIO_RUNNING_SPEED;
-		ax = MARIO_ACCEL_RUN_X;
+		if (ax < MARIO_ACCEL_WALK_X) ax = MARIO_ACCEL_WALK_X;
+		ax += 0.000005f;
 		nx = 1;
 		break;
 	case MARIO_STATE_RUNNING_LEFT:
 		if (isSitting) break;
 		maxVx = -MARIO_RUNNING_SPEED;
-		ax = -MARIO_ACCEL_RUN_X;
+		if (ax > -MARIO_ACCEL_WALK_X) ax = -MARIO_ACCEL_WALK_X;
+		ax -= 0.000005f;
 		nx = -1;
 		break;
 	case MARIO_STATE_WALKING_RIGHT:
