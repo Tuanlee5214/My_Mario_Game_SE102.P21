@@ -348,7 +348,7 @@ void CPlayScene::InitiateObjectWithOutTxt()
 
 	if (this->GetId() == 5)
 	{
-		this->InsertObjectBefore(b, player);
+		this->AddObject(b);
 		this->AddObject(spawn1);
 		this->AddObject(spawn2);
 		this->AddObject(spawn3);

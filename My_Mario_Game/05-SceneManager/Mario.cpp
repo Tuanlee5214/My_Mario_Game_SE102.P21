@@ -27,6 +27,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	vy += ay * dt;
 	vx += ax * dt;
 
+
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
 	if (state == MARIO_STATE_RUNNING_RIGHT)
 	{
@@ -36,6 +37,8 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	{
 		if (abs(ax) > abs(MARIO_ACCEL_RUN_X)) ax = -MARIO_ACCEL_RUN_X;
 	}
+
+
 
 	if (abs(ax) == 0 && abs(vx) != 0)
 	{
@@ -593,7 +596,7 @@ void CMario::OnCollisionWihtLeaf(LPCOLLISIONEVENT e)
 	leaf->GetPosition(x, y);
 	if (e->nx != 0 || e->ny != 0)
 	{
-		SetState(MARIO_STATE_TRANSFORM_BIG_TO_SMALL);
+		SetLevel(MARIO_LEVEL_MAX);
 		leaf->Delete();
 		CPoint* point = new CPoint(x, y - 3, 3, y - 50);
 		playScene->AddObject(point);
@@ -786,14 +789,22 @@ int CMario::GetAniIdBig()
 		}
 		else
 		{
-			if (nx >= 0 && !isHoldKoopa && !isHoldTroopa)
+			if (nx >= 0 && !isHoldKoopa && !isHoldTroopa && vy < 0)
 				aniId = ID_ANI_MARIO_JUMP_WALK_RIGHT;
-			else if (nx >= 0 && (isHoldKoopa || isHoldTroopa))
+			else if (nx >= 0 && (isHoldKoopa || isHoldTroopa) && vy < 0)
 				aniId = ID_ANI_MARIO_IDLE_CARRY_RIGHT;
-			else if (nx < 0 && (isHoldKoopa || isHoldTroopa))
+			else if (nx < 0 && (isHoldKoopa || isHoldTroopa) && vy < 0)
 				aniId = ID_ANI_MARIO_IDLE_CARRY_LEFT;
-			else if(nx < 0 && !isHoldKoopa && !isHoldTroopa)
+			else if (nx < 0 && !isHoldKoopa && !isHoldTroopa && vy < 0)
 				aniId = ID_ANI_MARIO_JUMP_WALK_LEFT;
+			else if (nx >= 0 && !isHoldKoopa && !isHoldTroopa && vy > 0)
+				aniId = ID_ANI_MARIO_FALL_WALK_RIGHT;
+			else if (nx >= 0 && (isHoldKoopa || isHoldTroopa) && vy > 0)
+				aniId = ID_ANI_MARIO_IDLE_CARRY_RIGHT;
+			else if (nx < 0 && (isHoldKoopa || isHoldTroopa) && vy > 0)
+				aniId = ID_ANI_MARIO_IDLE_CARRY_LEFT;
+			else if (nx < 0 && !isHoldKoopa && !isHoldTroopa && vy > 0)
+				aniId = ID_ANI_MARIO_FALL_WALK_LEFT;
 		}
 	}
 	else
@@ -884,28 +895,154 @@ int CMario::GetAniIdBig()
 	return aniId;
 }
 
+int CMario::GetAniIdMax()
+{
+	CPlayScene* playScene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
+	CKoopa* koopa = playScene->GetFirstKoopa(playScene);
+	CTroopa* troopa = playScene->GetTroopa(playScene);
+	bool isHoldTroopa = this->GetIsHoldingTroopa();
+	bool isHoldKoopa = this->GetIsHoldingKoopa();
+	int aniId = -1;
+	if (!isOnPlatform)
+	{
+		if (abs(ax) == MARIO_ACCEL_RUN_X)
+		{
+			if (nx >= 0)
+				aniId = ID_ANI_MARIO_MAX_JUMP_RUN_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_MAX_JUMP_RUN_LEFT;
+		}
+		else
+		{
+			if (nx >= 0 && !isHoldKoopa && !isHoldTroopa && vy < 0)
+				aniId = ID_ANI_MARIO_MAX_JUMP_WALK_RIGHT;
+			else if (nx >= 0 && (isHoldKoopa || isHoldTroopa) && vy < 0)
+				aniId = ID_ANI_MARIO_MAX_IDLE_CARRY_RIGHT;
+			else if (nx < 0 && (isHoldKoopa || isHoldTroopa) && vy < 0)
+				aniId = ID_ANI_MARIO_MAX_IDLE_CARRY_LEFT;
+			else if (nx < 0 && !isHoldKoopa && !isHoldTroopa && vy < 0)
+				aniId = ID_ANI_MARIO_MAX_JUMP_WALK_LEFT;
+			else if (nx >= 0 && !isHoldKoopa && !isHoldTroopa && vy > 0)
+				aniId = ID_ANI_MARIO_MAX_FALL_WALK_RIGHT;
+			else if (nx >= 0 && (isHoldKoopa || isHoldTroopa) && vy > 0)
+				aniId = ID_ANI_MARIO_MAX_IDLE_CARRY_RIGHT;
+			else if (nx < 0 && (isHoldKoopa || isHoldTroopa) && vy > 0)
+				aniId = ID_ANI_MARIO_MAX_IDLE_CARRY_LEFT;
+			else if (nx < 0 && !isHoldKoopa && !isHoldTroopa && vy > 0)
+				aniId = ID_ANI_MARIO_MAX_FALL_WALK_LEFT;
+		}
+	}
+	else
+		if (isSitting)
+		{
+			if (nx > 0)
+				aniId = ID_ANI_MARIO_MAX_SIT_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_MAX_SIT_LEFT;
+		}
+		else
+			if (vx == 0)
+			{
+				if (isRight1)
+				{
+					aniId = nx > 0 ? ID_ANI_MARIO_MAX_KICKING_RIGHT : ID_ANI_MARIO_MAX_KICKING_LEFT;
+				}
+				else if (nx > 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_MAX_IDLE_RIGHT;
+				else if (nx > 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_MAX_IDLE_CARRY_RIGHT;
+				else if (nx < 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_MAX_IDLE_LEFT;
+				else if (nx < 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_MAX_IDLE_CARRY_LEFT;
+			}
+			else if (vx > 0)
+			{
+				if (ax < 0)
+					aniId = ID_ANI_MARIO_MAX_BRACE_RIGHT;
+				else if (ax == MARIO_ACCEL_RUN_X)
+					aniId = ID_ANI_MARIO_MAX_RUNNING_RIGHT;
+				else if (ax > 0 && ax < MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_RIGHT)
+					aniId = ID_ANI_MARIO_WALK_TO_RUN_RIGHT;
+				else if (ax == 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_MAX_WALKING_RIGHT;
+				else if (ax == 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_MAX_WALKING_CARRY_RIGHT;
+				else if (ax == MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_RIGHT)
+				{
+					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
+					{
+						aniId = ID_ANI_MARIO_MAX_WALKING_CARRY_RIGHT;
+					}
+					else if (!isHoldKoopa && !isHoldTroopa && !isRight1)
+					{
+						aniId = ID_ANI_MARIO_MAX_WALKING_RIGHT;
+					}
+					else if ((isHoldKoopa || isHoldTroopa) && isRight1)
+					{
+						aniId = ID_ANI_MARIO_MAX_KICKING_RIGHT;
+					}
+					else if (!isHoldKoopa && !isHoldTroopa && isRight1)
+					{
+						aniId = ID_ANI_MARIO_MAX_KICKING_RIGHT;
+					}
+
+					//if (!isRight1) DebugOut(L"ISRIGHT FALSEEEEEEEEEEEEEEEEEE");
+				}
+			}
+			else // vx < 0
+			{
+				if (ax > 0)
+					aniId = ID_ANI_MARIO_MAX_BRACE_LEFT;
+				else if (ax == -MARIO_ACCEL_RUN_X)
+					aniId = ID_ANI_MARIO_MAX_RUNNING_LEFT;
+				else if (ax < 0 && ax > -MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_LEFT)
+					aniId = ID_ANI_MARIO_WALK_TO_RUN_LEFT;
+				else if (ax == 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_MAX_WALKING_LEFT;
+				else if (ax == 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_MAX_WALKING_CARRY_LEFT;
+				else if (ax == -MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_LEFT)
+				{
+					if ((isHoldKoopa || isHoldTroopa) && !isRight1)
+					{
+						aniId = ID_ANI_MARIO_MAX_WALKING_CARRY_LEFT;
+					}
+					else if (!isHoldKoopa && !isHoldTroopa && !isRight1)
+					{
+						aniId = ID_ANI_MARIO_MAX_WALKING_LEFT;
+					}
+					else if ((isHoldKoopa || isHoldTroopa) && isRight1)
+					{
+						aniId = ID_ANI_MARIO_MAX_KICKING_LEFT;
+					}
+					else if (!isHoldKoopa && !isHoldTroopa && isRight1)
+					{
+						aniId = ID_ANI_MARIO_MAX_KICKING_LEFT;
+					}
+				}
+			}
+
+	if (aniId == -1) aniId = ID_ANI_MARIO_MAX_IDLE_RIGHT;
+
+	return aniId;
+}
 void CMario::Render()
 {
 	CAnimations* animations = CAnimations::GetInstance();
 	int aniId = -1;
 
 	
-	 if (level == 3)
-	 {
+	if (level == 3)
+	{
 		if (this->nx > 0) aniId = ID_ANI_MARIO_TRANSFORM_SMALL_TO_BIG_RIGHT;
 		else aniId = ID_ANI_MARIO_TRANSFORM_SMALL_TO_BIG_LEFT;
-	 }
-	 else if (level == 4)
-	 {
-		 if (this->nx > 0) aniId = ID_ANI_MARIO_TRANSFORM_BIG_TO_SMALL_RIGHT;
-		 else aniId = ID_ANI_MARIO_TRANSFORM_BIG_TO_SMALL_LEFT;
-	 }
+	}
+	else if (level == 4)
+	{
+		if (this->nx > 0) aniId = ID_ANI_MARIO_TRANSFORM_BIG_TO_SMALL_RIGHT;
+		else aniId = ID_ANI_MARIO_TRANSFORM_BIG_TO_SMALL_LEFT;
+	}
 	else  if (state == MARIO_STATE_DIE)
 		aniId = ID_ANI_MARIO_DIE;
 	else if (level == MARIO_LEVEL_BIG)
 		aniId = GetAniIdBig();
 	else if (level == MARIO_LEVEL_SMALL)
 		aniId = GetAniIdSmall();
+	else if (level == MARIO_LEVEL_MAX)
+		aniId = GetAniIdMax();
 	 
 	
 
@@ -1043,6 +1180,23 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 		top = y - MARIO_BIG_BBOX_HEIGHT / 2;
 		right = left + MARIO_BIG_BBOX_WIDTH;
 		bottom = top + MARIO_BIG_BBOX_HEIGHT;
+	}
+	else if (level == MARIO_LEVEL_MAX)
+	{
+		if (isSitting)
+		{
+			left = x - MARIO_BIG_SITTING_BBOX_WIDTH / 2 - 2;
+			top = y - MARIO_BIG_SITTING_BBOX_HEIGHT / 2;
+			right = left + MARIO_BIG_SITTING_BBOX_WIDTH + 2;
+			bottom = top + MARIO_BIG_SITTING_BBOX_HEIGHT;
+		}
+		else
+		{
+			left = x - MARIO_BIG_BBOX_WIDTH / 2 - 2;
+			top = y - MARIO_BIG_BBOX_HEIGHT / 2;
+			right = left + MARIO_BIG_BBOX_WIDTH + 2;
+			bottom = top + MARIO_BIG_BBOX_HEIGHT;
+		}
 	}
 }
 

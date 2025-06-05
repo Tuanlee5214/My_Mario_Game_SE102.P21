@@ -333,6 +333,39 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_RIGHT, 506, 53, 521, 72, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_NOTHING, 182, 315, 198, 339, texMario);
 
+	sprites->Add(ID_SPRITE_MARIO_MAX_IDLE_LEFT, 1, 348, 22, 379, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_IDLE_RIGHT, 498, 439, 521, 470, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_IDLE_CARRY_LEFT, 0, 382, 23, 415, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_IDLE_CARRY_RIGHT, 498, 473, 521, 504, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_WALKING_CARRY_LEFT1, 24, 382, 51, 415, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_WALKING_CARRY_LEFT2, 51, 382, 76, 415, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_WALKING_CARRY_RIGHT1, 470, 473, 499, 502, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_WALKING_CARRY_RIGHT2, 444, 473, 471, 502, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT1, 25, 348, 50, 381, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT2, 51, 347, 76, 380, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT1, 472, 439, 497, 470, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT2, 445, 437, 472, 470, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_KICKING_LEFT, 79, 382, 104, 413, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_KICKING_RIGHT, 417, 473, 442, 504, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_RUNNING_LEFT1, 179, 347, 208, 380, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_RUNNING_LEFT2, 207, 347, 234, 380, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_RUNNING_LEFT3, 233, 347, 260, 380, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_RUNNING_RIGHT1, 313, 437, 340, 470, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_RUNNING_RIGHT2, 288, 437, 314, 470, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_RUNNING_RIGHT3, 261, 437, 288, 470, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_WALK_LEFT, 101, 348, 128, 377, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_WALK_RIGHT, 392, 439, 419, 469, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT, 259, 347, 286, 380, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT, 235, 436, 262, 469, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_SIT_LEFT, 77, 355, 103, 380, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_SIT_RIGHT, 419, 448, 444, 469, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_BRACE_LEFT, 337, 346, 356, 379, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_BRACE_RIGHT, 165, 436, 184, 469, texMario3);
+
+
+
+
+
 	//Leaf sprite
 	sprites->Add(ID_SPRITE_LEAF_LEFT, 179 ,121 ,196, 138, texMisc3);
 	sprites->Add(ID_SPRITE_LEAF_RIGHT, 382, 121, 400, 138, texMisc3);
@@ -549,6 +582,106 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_LEFT);
 	ani->Add(ID_SPRITE_MARIO_SMALL_TRANS_LEFT);
 	animations->Add(ID_ANI_MARIO_TRANSFORM_BIG_TO_SMALL_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_LEFT);
+	animations->Add(ID_ANI_MARIO_MAX_IDLE_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_RIGHT);
+	animations->Add(ID_ANI_MARIO_MAX_IDLE_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_CARRY_RIGHT);
+	animations->Add(ID_ANI_MARIO_MAX_IDLE_CARRY_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_CARRY_LEFT);
+	animations->Add(ID_ANI_MARIO_MAX_IDLE_CARRY_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_LEFT);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT2);
+	animations->Add(ID_ANI_MARIO_MAX_WALKING_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_RIGHT);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT2);
+	animations->Add(ID_ANI_MARIO_MAX_WALKING_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_CARRY_LEFT);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_CARRY_LEFT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_CARRY_LEFT2);
+	animations->Add(ID_ANI_MARIO_MAX_WALKING_CARRY_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_CARRY_RIGHT);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_CARRY_RIGHT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_CARRY_RIGHT2);
+	animations->Add(ID_ANI_MARIO_MAX_WALKING_CARRY_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_KICKING_LEFT);
+	animations->Add(ID_ANI_MARIO_MAX_KICKING_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_KICKING_RIGHT);
+	animations->Add(ID_ANI_MARIO_MAX_KICKING_RIGHT, ani);
+
+	ani = new CAnimation(30);
+	ani->Add(ID_SPRITE_MARIO_MAX_RUNNING_LEFT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_RUNNING_LEFT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_RUNNING_LEFT3);
+	animations->Add(ID_ANI_MARIO_MAX_RUNNING_LEFT, ani);
+
+	ani = new CAnimation(30);
+	ani->Add(ID_SPRITE_MARIO_MAX_RUNNING_RIGHT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_RUNNING_RIGHT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_RUNNING_RIGHT3);
+	animations->Add(ID_ANI_MARIO_MAX_RUNNING_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_WALK_LEFT);
+	animations->Add(ID_ANI_MARIO_MAX_JUMP_WALK_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_WALK_RIGHT);
+	animations->Add(ID_ANI_MARIO_MAX_JUMP_WALK_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT2);
+	animations->Add(ID_ANI_MARIO_MAX_FALL_WALK_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT2);
+	animations->Add(ID_ANI_MARIO_MAX_FALL_WALK_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT);
+	animations->Add(ID_ANI_MARIO_MAX_JUMP_RUN_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT);
+	animations->Add(ID_ANI_MARIO_MAX_JUMP_RUN_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_SIT_LEFT);
+	animations->Add(ID_ANI_MARIO_MAX_SIT_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_SIT_RIGHT);
+	animations->Add(ID_ANI_MARIO_MAX_SIT_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_BRACE_RIGHT);
+	animations->Add(ID_ANI_MARIO_MAX_BRACE_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_BRACE_LEFT);
+	animations->Add(ID_ANI_MARIO_MAX_BRACE_LEFT, ani);
 
 
 

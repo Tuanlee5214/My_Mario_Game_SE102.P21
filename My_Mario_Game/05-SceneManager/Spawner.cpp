@@ -52,6 +52,7 @@ void CSpawner::Update(DWORD dt, vector<LPGAMEOBJECT>* coObject)
 void CSpawner::Spawn(CPlayScene* playScene)
 {
 	LPGAMEOBJECT enemy = nullptr;
+	CMario* player = (CMario*)(playScene->GetPlayer());
 
 	switch (typeObjectToSpawn)
 	{
@@ -74,7 +75,7 @@ void CSpawner::Spawn(CPlayScene* playScene)
 	if (enemy)
 	{
 		currentEnemy = enemy;
-		playScene->AddObject(enemy);
+		playScene->InsertObjectBefore(enemy, player);
 	}
 }
 

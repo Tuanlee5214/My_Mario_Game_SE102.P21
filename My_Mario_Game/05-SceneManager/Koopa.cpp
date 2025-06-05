@@ -178,6 +178,11 @@ void CKoopa::Set_vx(float vx)
 	this->vx = vx;
 }
 
+void CKoopa::Set_vy(float vy)
+{
+	this->vy = vy;
+}
+
 void CKoopa::Set_vx1()
 {
 	this->vx = -vx;

@@ -57,6 +57,7 @@ public:
 	virtual void Set_Y(float y);
 	virtual void Set_ax(float ax);
 	virtual void Set_vx(float vx);
+	virtual void Set_vy(float vy);
 	virtual void Set_vx1();
 	virtual void Set_ay(float ay);
 	virtual ULONGLONG GetKoopaDieStart();
