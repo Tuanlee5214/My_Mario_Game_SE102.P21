@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Mario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Mario.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\SampleKeyEventHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|solutionrelative:05-SceneManager\\Mario.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30B52332-21EE-43B1-91BF-B2494C04C34F}|05-SceneManager\\05-SceneManager.vcxproj|D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Troopa.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -266,7 +266,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
@@ -322,7 +322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\main.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\main.cpp",
@@ -385,7 +385,8 @@
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-30T16:26:53.791Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -402,13 +403,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Mario.cpp",
               "DocumentMoniker": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp",
               "RelativeDocumentMoniker": "05-SceneManager\\Mario.cpp",
               "ToolTip": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.cpp",
               "RelativeToolTip": "05-SceneManager\\Mario.cpp",
-              "ViewState": "AgIAALoCAAAAAAAAAAAAwMICAABRAAAAAAAAAA==",
+              "ViewState": "AgIAAOECAAAAAAAAAAAAwMICAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-19T14:13:23.699Z",
               "IsPinned": true,
@@ -416,15 +417,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SampleKeyEventHandler.cpp",
-              "DocumentMoniker": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp",
-              "RelativeDocumentMoniker": "05-SceneManager\\SampleKeyEventHandler.cpp",
-              "ToolTip": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp",
-              "RelativeToolTip": "05-SceneManager\\SampleKeyEventHandler.cpp",
-              "ViewState": "AgIAADcBAAAAAAAAAAAQwDwBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-29T02:59:36.628Z",
+              "DocumentIndex": 0,
+              "Title": "Mario.h",
+              "DocumentMoniker": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h",
+              "RelativeDocumentMoniker": "05-SceneManager\\Mario.h",
+              "ToolTip": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h",
+              "RelativeToolTip": "05-SceneManager\\Mario.h",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-19T14:07:57.579Z",
               "EditorCaption": ""
             },
             {
@@ -442,6 +443,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SampleKeyEventHandler.cpp",
+              "DocumentMoniker": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp",
+              "RelativeDocumentMoniker": "05-SceneManager\\SampleKeyEventHandler.cpp",
+              "ToolTip": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\SampleKeyEventHandler.cpp",
+              "RelativeToolTip": "05-SceneManager\\SampleKeyEventHandler.cpp",
+              "ViewState": "AgIAADcBAAAAAAAAAAAQwDwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-29T02:59:36.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Koopa.cpp",
               "DocumentMoniker": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Koopa.cpp",
@@ -450,19 +464,7 @@
               "RelativeToolTip": "05-SceneManager\\Koopa.cpp",
               "ViewState": "AgIAAG4AAAAAAAAAAAAowHoAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-27T08:05:04.507Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Mario.h",
-              "DocumentMoniker": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h",
-              "RelativeDocumentMoniker": "05-SceneManager\\Mario.h",
-              "ToolTip": "D:\\NHPTGAMEBACKUP\\My_Mario_Game_SE102.P21\\My_Mario_Game\\05-SceneManager\\Mario.h",
-              "RelativeToolTip": "05-SceneManager\\Mario.h",
-              "ViewState": "AgIAAOcAAAAAAAAAAAAQwPEAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T14:07:57.579Z",
+              "WhenOpened": "2025-05-27T08:05:04.507Z",
               "EditorCaption": ""
             },
             {
@@ -778,7 +780,8 @@
               "RelativeToolTip": "05-SceneManager\\RedGoomba.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-31T07:38:47.538Z"
+              "WhenOpened": "2025-05-31T07:38:47.538Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -790,7 +793,8 @@
               "RelativeToolTip": "05-SceneManager\\Goomba.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-31T07:35:32.934Z"
+              "WhenOpened": "2025-05-31T07:35:32.934Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -875,7 +879,8 @@
               "RelativeToolTip": "05-SceneManager\\Troopa.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-29T13:13:18.045Z"
+              "WhenOpened": "2025-05-29T13:13:18.045Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -923,7 +928,8 @@
               "RelativeToolTip": "05-SceneManager\\RedGoomba.cpp",
               "ViewState": "AgIAABsAAAAAAAAAAAAAACcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-29T08:30:41.287Z"
+              "WhenOpened": "2025-05-29T08:30:41.287Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -959,7 +965,8 @@
               "RelativeToolTip": "05-SceneManager\\ParaTroopa.h",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-27T16:48:12.505Z"
+              "WhenOpened": "2025-05-27T16:48:12.505Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -971,7 +978,8 @@
               "RelativeToolTip": "05-SceneManager\\ParaTroopa.cpp",
               "ViewState": "AgIAAIEAAAAAAAAAAAAAAIEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-27T16:48:40.302Z"
+              "WhenOpened": "2025-05-27T16:48:40.302Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
