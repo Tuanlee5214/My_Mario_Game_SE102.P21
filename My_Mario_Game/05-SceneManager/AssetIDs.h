@@ -14,6 +14,7 @@
 #define ID_TEX_MISC3 50
 #define ID_TEX_MISC 60
 #define ID_TEX_GOAL 70
+#define ID_TEX_MARIO3 80
 
 
 #define OBJECT_TYPE_MARIO	0

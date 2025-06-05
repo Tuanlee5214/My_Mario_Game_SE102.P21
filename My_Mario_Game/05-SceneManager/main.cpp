@@ -75,6 +75,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define TEXTURE_PATH_MICS3 TEXTURES_DIR "\\misc-3.png"
 #define TEXTURE_PATH_MISC TEXTURES_DIR "\\misc.png"
 #define TEXTURE_PATH_GOAL TEXTURES_DIR "\\goal.png"
+#define TEXTURE_PATH_MARIO3	TEXTURES_DIR "\\mariobros3.png"
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 230
 
@@ -144,6 +145,7 @@ void LoadResourceForGame() {
 	textures->Add(ID_TEX_MISC3, TEXTURE_PATH_MICS3);
 	textures->Add(ID_TEX_MISC, TEXTURE_PATH_MISC);
 	textures->Add(ID_TEX_GOAL, TEXTURE_PATH_GOAL);
+	textures->Add(ID_TEX_MARIO3, TEXTURE_PATH_MARIO3);
 
 	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
 	LPTEXTURE texMap = textures->Get(ID_TEX_MAP);
@@ -152,6 +154,7 @@ void LoadResourceForGame() {
 	LPTEXTURE texMisc3 = textures->Get(ID_TEX_MISC3);
 	LPTEXTURE texMisc = textures->Get(ID_TEX_MISC);
 	LPTEXTURE texGoal = textures->Get(ID_TEX_GOAL);
+	LPTEXTURE texMario3 = textures->Get(ID_TEX_MARIO3);
 
 	CSprites* sprites = CSprites::GetInstance();
 
@@ -307,27 +310,27 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_RED_MUSHROOM, 126, 154, 144, 172, texMap);
 
 	//Sprite Mario
-	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 93, 233, 111, 261, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT, 334, 233, 351, 261, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT1, 152, 312, 171, 342, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT2, 122, 312, 141, 342, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT1, 273, 312, 292, 342, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT2, 302, 311, 321, 342, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_LEFT, 0, 272, 24, 302, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT, 420, 272, 445, 301, texMario);
+	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_LEFT, 247, 91, 264, 120, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_BIG_IDLE_CARRY_RIGHT, 257, 183, 274, 212, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT1, 265, 91, 283, 120, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_LEFT2, 283, 91, 303, 120, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT1, 238, 183, 257, 212, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_BIG_WALKING_CARRY_RIGHT2, 220, 183, 238, 212, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_LEFT, 303, 91, 328, 120, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_BIG_KICKING_RIGHT, 193, 183, 216, 212, texMario3);
 
-	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_LEFT, 184, 119, 199, 136, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_RIGHT, 245, 119, 261, 136, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_LEFT, 153, 119, 170, 136, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_RIGHT, 273, 119, 291, 136, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_LEFT, 2, 79, 21, 97, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_RIGHT, 424, 79, 442, 97, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_LEFT, 63, 233, 81, 261, texMario);
-	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_RIGHT, 363, 233, 381, 261, texMario);
-	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_LEFT, 63, 275, 80, 300, texMario);
-	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_RIGHT, 363, 275, 380, 300, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_LEFT, 186, 0, 199, 15, texMario);
-	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_RIGHT, 245, 0, 258, 15, texMario);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_LEFT, 144, 13, 160, 32, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_IDLE_CARRY_RIGHT, 362, 53, 377, 72, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_LEFT, 162, 13, 179, 32, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_WALKING_CARRY_RIGHT, 342, 53, 360, 72, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_LEFT, 180, 13, 198, 32, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_KICKING_RIGHT, 323, 53, 342, 72, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_LEFT, 0, 91, 17, 120, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_BIG_TRANS_RIGHT, 505, 183, 522, 214, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_LEFT, 208, 130, 224, 155, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MIDDLE_TRANS_RIGHT, 297, 223, 314, 248, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_LEFT, 1, 15, 16, 32, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_SMALL_TRANS_RIGHT, 506, 53, 521, 72, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_NOTHING, 182, 315, 198, 339, texMario);
 
 	//Leaf sprite

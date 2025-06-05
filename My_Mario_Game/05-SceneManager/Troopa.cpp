@@ -5,6 +5,7 @@
 #include "Game.h"
 #include "ParaTroopa.h"
 #include "Textures.h"
+#include "PlayScene.h"
 
 CTroopa::CTroopa(float x, float y, float leftBound, float rightBound) :CGameObject(x, y)
 {
@@ -98,6 +99,11 @@ void CTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	vy += ay * dt;
 	vx += ax * dt;
+	CPlayScene* playScene = dynamic_cast<CPlayScene*>(CGame::GetInstance()->GetCurrentScene());
+	if (!playScene) return;
+
+	CMario* mario = dynamic_cast<CMario*>(playScene->GetPlayer());
+	if (!mario) return;
 
 	if ((state == TROOPA_STATE_DIE) && (GetTickCount64() - die_start > TROOPA_DIE_TIMEOUT))
 	{
@@ -108,6 +114,16 @@ void CTroopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	if (state == TROOPA_STATE_DIE && (GetTickCount64() - die_start > TROOPA_DIE_TO_WALK_TIMEOUT))
 	{
 		this->SetState(TROOPA_STATE_WALKING);
+		if (mario->GetIsHoldingTroopa() && mario->Get_nx() > 0)
+		{
+			mario->SetState(MARIO_STATE_WALKING_RIGHT);
+			mario->SetIsHoldingTroopa(false);
+		}
+		else if (mario->GetIsHoldingTroopa() && mario->Get_nx() < 0)
+		{
+			mario->SetState(MARIO_STATE_WALKING_LEFT);
+			mario->SetIsHoldingTroopa(false);
+		}
 		this->SetY((TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE + 2) / 2);
 	}
 	float y = GetY();

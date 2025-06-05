@@ -139,6 +139,16 @@ void CKoopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	if (state == KOOPA_STATE_DIE && (GetTickCount64() - die_start > KOOPA_DIE_TO_WALK_TIMEOUT))
 	{
 		this->SetState(KOOPA_STATE_WALKING);
+		if (mario->GetIsHoldingKoopa() && mario->Get_nx() > 0)
+		{
+			mario->SetState(MARIO_STATE_WALKING_RIGHT);
+			mario->SetIsHoldingKoopa(false);
+		}
+		else if (mario->GetIsHoldingKoopa() && mario->Get_nx() < 0)
+		{
+			mario->SetState(MARIO_STATE_WALKING_LEFT);
+			mario->SetIsHoldingKoopa(false);
+		}
 		this->SetBound(510, 600);
 		this->Set_Y((KOOPA_BBOX_HEIGHT - KOOPA_BBOX_HEIGHT_DIE + 2) / 2);
 	}

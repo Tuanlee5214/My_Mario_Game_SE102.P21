@@ -371,7 +371,6 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		koopa->SetBound(-10.0f, 10000.0f);
 	}
 
-
 	if (mario->GetIsOnPlatform() && !game->IsKeyDown(DIK_A) && koopa && koopa->GetState() == KOOPA_STATE_DIE &&
 		abs(koopaX - marioX) <= DISTANCE_TO_PICKUP_KOOPA && mario->GetIsHoldingKoopa()
 		&& mario->Get_nx() > 0)
@@ -523,4 +522,6 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		mario->SetIsInKickStateNow(GetTickCount64());
 		mario->SetIsHoldingTroopa(false);
 	}
+
+	
 }
