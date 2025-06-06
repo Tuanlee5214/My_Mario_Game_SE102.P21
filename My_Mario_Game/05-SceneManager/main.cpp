@@ -368,6 +368,15 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MARIO_MAX_TURN_RIGHT, 264, 284, 293, 317, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_MAX_IS_IN_FRONT_OF, 356, 346, 375, 379, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_MAX_IS_BACK, 399, 347, 417, 378, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_FALL_LEFT1, 129, 346, 156, 379, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_FALL_LEFT2, 155, 346, 180, 379, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_FALL_RIGHT1, 366, 436, 393, 469, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_FALL_RIGHT2, 340, 436, 367, 469, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT1, 287, 348, 311, 377, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT2, 311, 348, 337, 377, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT1, 210, 438, 236, 469, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT2, 185, 438, 210, 469, texMario3);
+
 
 
 
@@ -667,12 +676,43 @@ void LoadResourceForGame() {
 	animations->Add(ID_ANI_MARIO_MAX_JUMP_WALK_RIGHT, ani);
 
 	ani = new CAnimation(100);
-	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_FALL_LEFT1);
 	animations->Add(ID_ANI_MARIO_MAX_FALL_WALK_LEFT, ani);
 
 	ani = new CAnimation(100);
-	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_FALL_RIGHT1);
 	animations->Add(ID_ANI_MARIO_MAX_FALL_WALK_RIGHT, ani);
+
+	ani = new CAnimation(60);
+	ani->Add(ID_SPRITE_MARIO_MAX_FALL_LEFT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_FALL_LEFT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT2);
+	animations->Add(ID_ANI_MARIO_MAX_FALL_SLOW_LEFT, ani);
+
+	ani = new CAnimation(60);
+	ani->Add(ID_SPRITE_MARIO_MAX_FALL_RIGHT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_FALL_RIGHT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT2);
+	animations->Add(ID_ANI_MARIO_MAX_FALL_SLOW_RIGHT, ani);
+
+	ani = new CAnimation(80);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT1);
+	animations->Add(ID_ANI_MARIO_JUMP_RUN_HIGH_L, ani);
+
+	ani = new CAnimation(80);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT2);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT1);
+	animations->Add(ID_ANI_MARIO_JUMP_RUN_HIGH_R, ani);
+
+
+
 
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT);

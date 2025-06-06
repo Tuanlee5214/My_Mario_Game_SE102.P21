@@ -1,5 +1,4 @@
-﻿#include "QuestionBlock.h"
-#include "Textures.h"
+﻿#include "Textures.h"
 #include "Game.h"
 #include "Mario.h"
 #include "PlayScene.h"
@@ -7,6 +6,7 @@
 #include "Leaf.h"
 #include "MushRoom.h"
 #include "Point.h"
+#include "QuestionBlock.h"
 
 CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 {
@@ -22,9 +22,9 @@ CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 
 void CQuestionBlock::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	left = this->x - QUESBLOCK_BBOX_WIDTH / 2;
+	left = this->x - QUESBLOCK_BBOX_WIDTH / 2 - 3;
 	top = this->y - QUESBLOCK_BBOX_HEIGHT / 2;
-	right = left + QUESBLOCK_BBOX_WIDTH;
+	right = left + QUESBLOCK_BBOX_WIDTH + 3;
 	bottom = top + QUESBLOCK_BBOX_HEIGHT;
 }
 
@@ -82,6 +82,23 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 		mario->Set_vy(0);
 	}
 
+	if (mario && mario->GetLevel() == MARIO_LEVEL_MAX && mario->GetIsTurn() &&
+		state == QUESBLOCK_STATE_INI)
+	{
+		SetState(QUESBLOCK_STATE_JUMPED);
+		DebugOut(L"Turn tail hit question block!\n");
+		if (playScene && this->type == 1)
+		{
+			ECoin* ecoin = new ECoin(this->x, this->y - 4);
+			playScene->InsertObjectBefore(ecoin, this);
+		}
+		else if (playScene && this->type == 2 && player->GetLevel() >= MARIO_LEVEL_BIG)
+		{
+			CLeaf* leaf = new CLeaf(this->x, this->y - 4, x - 8, x + 40);
+			playScene->InsertObjectBefore(leaf, this);
+		}
+	}
+	
 
 	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
 	if (koopa && e->nx != 0 && state == QUESBLOCK_STATE_INI)

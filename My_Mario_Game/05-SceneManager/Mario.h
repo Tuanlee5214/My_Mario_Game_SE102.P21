@@ -43,6 +43,8 @@
 #define MARIO_STATE_TRANSFORM_BIG_TO_SMALL	800
 
 #define MARIO_STATE_TURN_TAIL 900
+#define MARIO_STATE_FALL_SLOW 901
+#define MARIO_STATE_JUMP_HIGH 902
 
 
 #pragma region ANIMATION_ID
@@ -71,6 +73,8 @@
 
 #define ID_ANI_MARIO_JUMP_RUN_RIGHT 800
 #define ID_ANI_MARIO_JUMP_RUN_LEFT 801
+#define ID_ANI_MARIO_JUMP_RUN_HIGH_R 802
+#define ID_ANI_MARIO_JUMP_RUN_HIGH_L 803
 
 #define ID_ANI_MARIO_SIT_RIGHT 900
 #define ID_ANI_MARIO_SIT_LEFT 901
@@ -134,6 +138,8 @@
 #define ID_ANI_MARIO_MAX_JUMP_WALK_LEFT 114
 #define ID_ANI_MARIO_MAX_FALL_WALK_LEFT 115
 #define ID_ANI_MARIO_MAX_FALL_WALK_RIGHT 116
+#define ID_ANI_MARIO_MAX_FALL_SLOW_LEFT 126
+#define ID_ANI_MARIO_MAX_FALL_SLOW_RIGHT 127
 
 #define ID_ANI_MARIO_MAX_JUMP_RUN_RIGHT 117
 #define ID_ANI_MARIO_MAX_JUMP_RUN_LEFT 118
@@ -189,6 +195,8 @@ class CMario : public CGameObject
 	bool isHoldingKoopa = false;
 	bool isHoldingTroopa = false;
 	bool isTurn = false;
+	bool isFlyHigh;
+	ULONGLONG timeStartFlyHigh;
 	ULONGLONG startTurnTail;
 	ULONGLONG isInKickStateNow;
 
@@ -247,10 +255,15 @@ public:
 		return isOnPlatform;
 	}
 
+	void SetIsFlyHigh(bool a) { isFlyHigh = a; }
+	bool GetIsFlyHigh() { return isFlyHigh; }
+	void SetTimeStartFly(ULONGLONG a) { timeStartFlyHigh = a; }
 	void SetIsHoldingKoopa(float a)
 	{
 		this->isHoldingKoopa = a;
 	}
+
+	float Get_vy() { return vy; }
 
 	bool GetIsHoldingKoopa()
 	{
@@ -283,6 +296,7 @@ public:
 	}
 
 	float Get_vx() { return this->vx; }
+	float Get_ax() { return this->ax; }
 
 	bool GetIsTurn() { return isTurn; }
 

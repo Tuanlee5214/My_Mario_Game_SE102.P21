@@ -21,10 +21,11 @@
 #include "Leaf.h"
 #include "SwitchPos.h"
 #include "Point.h"
+#include "ECoin.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
-	vy += ay * dt;
+	if(state != MARIO_STATE_FALL_SLOW && state != MARIO_STATE_JUMP_HIGH) vy += ay * dt;
 	vx += ax * dt;
 
 
@@ -87,8 +88,10 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			SetState(MARIO_STATE_IDLE);
 	}
 
+	if (isFlyHigh) SetState(MARIO_STATE_JUMP_HIGH);
 
-
+	if (isFlyHigh && GetTickCount64() - timeStartFlyHigh > 150)
+		isFlyHigh = false;
 
 	if (GetTickCount64() - isInKickStateNow > MARIO_IN_KICKSTATE_TIME && isRight1)
 	{
@@ -976,6 +979,18 @@ int CMario::GetAniIdMax()
 		aniId = nx > 0 ? ID_ANI_MARIO_MAX_TURN_RIGHT : ID_ANI_MARIO_MAX_TURN_LEFT;
 		return aniId;
 	}
+
+	if (state == MARIO_STATE_FALL_SLOW)
+	{
+		aniId = nx < 0 ? ID_ANI_MARIO_MAX_FALL_SLOW_LEFT : ID_ANI_MARIO_MAX_FALL_SLOW_RIGHT;
+		return aniId;
+	}
+
+	if (state == MARIO_STATE_JUMP_HIGH)
+	{
+		aniId = nx > 0 ? ID_ANI_MARIO_JUMP_RUN_HIGH_R : ID_ANI_MARIO_JUMP_RUN_HIGH_L;
+		return aniId;
+	}
 	if (!isOnPlatform)
 	{
 		if (abs(ax) == MARIO_ACCEL_RUN_X)
@@ -1121,7 +1136,7 @@ void CMario::Render()
 
 	animations->Get(aniId)->Render(x, y);
 
-	RenderBoundingBox();
+	//RenderBoundingBox();
 	
 	DebugOutTitle(L"Coins: %d", coin);
 }
@@ -1179,6 +1194,12 @@ void CMario::SetState(int state)
 		if (vy < 0) vy += MARIO_JUMP_SPEED_Y / 2;
 		break;
 
+	case MARIO_STATE_FALL_SLOW:
+		vy = 0.04f;
+		break;
+	case MARIO_STATE_JUMP_HIGH:
+		vy = -0.13f;
+		break;
 	case MARIO_STATE_SIT:
 		if (isOnPlatform && level != MARIO_LEVEL_SMALL)
 		{
@@ -1268,18 +1289,18 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 			right = left + MARIO_BIG_SITTING_BBOX_WIDTH + 2;
 			bottom = top + MARIO_BIG_SITTING_BBOX_HEIGHT;
 		}
-		else if (state == MARIO_STATE_TURN_TAIL)
+		else if (isTurn)
 		{
-			left = x - MARIO_BIG_BBOX_WIDTH / 2 - 10;
+			left = x - MARIO_BIG_BBOX_WIDTH / 2 - 7;
 			top = y - MARIO_BIG_BBOX_HEIGHT / 2;
-			right = left + MARIO_BIG_BBOX_WIDTH + 10;
+			right = left + MARIO_BIG_BBOX_WIDTH + 7;
 			bottom = top + MARIO_BIG_BBOX_HEIGHT;
 		}
 		else
 		{
-			left = x - MARIO_BIG_BBOX_WIDTH / 2 - 2;
+			left = x - MARIO_BIG_BBOX_WIDTH / 2 - 7;
 			top = y - MARIO_BIG_BBOX_HEIGHT / 2;
-			right = left + MARIO_BIG_BBOX_WIDTH + 4;
+			right = left + MARIO_BIG_BBOX_WIDTH + 7;
 			bottom = top + MARIO_BIG_BBOX_HEIGHT;
 		}
 	}

@@ -23,11 +23,11 @@
 #include "Parinha.h"
 #include "Troopa.h"
 #include "ParaTroopa.h"
-#include "QuestionBlock.h"
 #include "MushRoom.h"
 #include "Spawner.h"
 #include "Brick.h"
 #include "SwitchPos.h"
+#include "QuestionBlock.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -609,7 +609,6 @@ void CPlayScene::Update(DWORD dt)
 	else if (y > 0 && y <= 200) cy = 0;
 	else if (y > 200 && !this->GetIsInSecret()) cy = 0;
 
-	DebugOut(L"game->GetBackBufferHeight() : %d", game->GetBackBufferHeight());
 	
 
 
