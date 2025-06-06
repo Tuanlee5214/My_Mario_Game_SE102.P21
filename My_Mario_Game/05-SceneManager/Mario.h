@@ -201,6 +201,7 @@ class CMario : public CGameObject
 	bool isFlyHigh;
 	bool isReadyToGoDown = false;
 	bool isGoDownPipe = false;
+	bool isGoUpPipe = false;
 	ULONGLONG timeStartFlyHigh;
 	ULONGLONG startTurnTail;
 	ULONGLONG isInKickStateNow;

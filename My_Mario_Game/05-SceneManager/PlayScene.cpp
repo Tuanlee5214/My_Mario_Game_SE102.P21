@@ -326,11 +326,11 @@ void CPlayScene::InitiateObjectWithOutTxt()
 	CPlatform* platform21 = new CPlatform(394, 230, 16, 16, 8, 60001, 60001, 60001);
 	CPlatform* platform22 = new CPlatform(170, 230, 16, 16, 12, 60001, 60001, 60001);
 	CPipe* pipe1 = new CPipe(146, 238, 32, 32, 1, 77600, 3);
-	CPipe* pipe2 = new CPipe(369, 238, 32, 32, 1, 77600, 3);
+	CPipe* pipe2 = new CPipe(369, 238, 32, 32, 1, 77600, 2);
 	CPipe* pipe3 = new CPipe(2304, -13,	32,	193, 1,	77400, 2);
 
 	CSwitchPos* pos1 = new CSwitchPos(2304, -61, 2320, -20, 1);
-	CSwitchPos* pos2 = new CSwitchPos(368, 238, 382, 250, 2);
+	CSwitchPos* pos2 = new CSwitchPos(368, 210, 382, 250, 2);
 	CTree* b = new CTree(250, 300, ID_SPRITE_BLACKBACKGROUND2);
 	CCoin* coin1 = new CCoin(220, 270, 1);
 	CCoin* coin2 = new CCoin(220, 334, 1);

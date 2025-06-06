@@ -31,6 +31,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	vx += ax * dt;
 
 	if (isGoDownPipe) SetState(MARIO_STATE_GO_IN_PIPE_DOWN);
+	if (isGoUpPipe) SetState(MARIO_STATE_GO_IN_PIPE_UP);
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
 	if (state == MARIO_STATE_RUNNING_RIGHT)
 	{
@@ -644,9 +645,14 @@ void CMario::OnCollisionWithParinha(LPCOLLISIONEVENT e)
 void CMario::OnCollisiosnWithPipe(LPCOLLISIONEVENT e)
 {
 	CPipe* p = dynamic_cast<CPipe*>(e->obj);
-	if (p && isOnPlatform && p->GetType() == 2)
+	if (p && isOnPlatform && p->GetType() == 2 && e->ny < 0)
 	{
 		isReadyToGoDown = true;
+	}
+	if (p && e->ny > 0 && p->GetType() == 2)
+	{
+		isGoUpPipe = true;
+		DebugOut(L"Va cham tu duoi len pipe2, set isGoUpPipe = true\n");
 	}
 }
 
@@ -1209,6 +1215,13 @@ void CMario::SetState(int state)
 	case MARIO_STATE_GO_IN_PIPE_UP:
 		vy = -0.01f;
 		vx = 0;
+		ay = 0;
+		for (auto obj : playScene->GetObjects()) {
+			CPipe* pipe = dynamic_cast<CPipe*>(obj);
+			if (pipe && pipe->GetType() == 2) {
+				pipe->SetBlocking(false);
+			}
+		}
 		break;
 	case MARIO_STATE_JUMP:
 		if (isSitting) break;
@@ -1258,6 +1271,7 @@ void CMario::SetState(int state)
 	case MARIO_STATE_IDLE:
 		isReadyToGoDown = false;
 		isGoDownPipe = false;
+		isGoUpPipe = false;
 		ax = 0.0f;
 		vx = 0.0f;
 		ay = MARIO_GRAVITY;

@@ -62,6 +62,7 @@ int CPipe::IsDirectionColliable(float nx, float ny)
 	if (nx == 0 && ny == -1 && type == 0) return 1;
 	if (nx == 0 && ny == -1 && type == 1) return 1;
 	if (nx == 0 && ny == -1 && type == 2) return 1;
+	if (nx == 0 && ny == 1 && type == 2) return 1;
 	if ((nx == 1 || nx == -1) && ny == 0 && type == 0) return 0;
 	if ((nx == 1 || nx == -1) && ny == 0 && type == 1) return 1;
 	if ((nx == 1 || nx == -1) && ny == 0 && type == 2) return 1;
