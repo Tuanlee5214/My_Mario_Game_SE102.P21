@@ -407,8 +407,8 @@ void LoadResourceForGame() {
 
 	//SPRITE OUT GAME
 	sprites->Add(ID_SPRITE_GOOMBA_OUT_GAME, 3, 21, 21, 42, texEnemies2);
-	sprites->Add(ID_SPRITE_REDGOOMBA_OUT_GAME, 21, 21, 37, 42, texEnemies2);
-	sprites->Add(ID_SPRITE_KOOPA_OUTGAME, 37, 22, 53, 40, texEnemies2);
+	sprites->Add(ID_SPRITE_REDGOOMBA_OUT_GAME, 22, 22, 37, 42, texEnemies2);
+	sprites->Add(ID_SPRITE_KOOPA_OUTGAME, 38, 21, 53, 42, texEnemies2);
 
 	
 
@@ -699,7 +699,7 @@ void LoadResourceForGame() {
 	animations->Add(ID_ANI_MARIO_MAX_BRACE_LEFT, ani);
 
 
-	ani = new CAnimation(80);
+	ani = new CAnimation(60);
 	ani->Add(ID_SPRITE_MARIO_MAX_TURN_RIGHT);
 	ani->Add(ID_SPRITE_MARIO_MAX_IS_IN_FRONT_OF);
 	ani->Add(ID_SPRITE_MARIO_MAX_TURN_LEFT);
@@ -707,7 +707,7 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_MARIO_MAX_TURN_RIGHT);
 	animations->Add(ID_ANI_MARIO_MAX_TURN_RIGHT, ani);
 
-	ani = new CAnimation(80);
+	ani = new CAnimation(60);
 	ani->Add(ID_SPRITE_MARIO_MAX_TURN_LEFT);
 	ani->Add(ID_SPRITE_MARIO_MAX_IS_IN_FRONT_OF);
 	ani->Add(ID_SPRITE_MARIO_MAX_TURN_RIGHT);
@@ -889,12 +889,12 @@ void LoadResourceForGame() {
 	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_1);
 	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
+	animations->Add(ID_ANI_REDGOOMBA_JUMPLOW, ani);
 
 	ani = new CAnimation(100);
 	ani->Add(ID_SPRITE_REDGOOMBA_OUT_GAME);
 	animations->Add(ID_ANI_REDGOOMBA_OUTGAME, ani);
 
-	animations->Add(ID_ANI_REDGOOMBA_JUMPLOW, ani);
 	
 	ani = new CAnimation(50);
 	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_1);

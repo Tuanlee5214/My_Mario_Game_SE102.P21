@@ -1,2 +1,91 @@
-﻿  Koopa.cpp
+﻿  Brick.cpp
+  Button.cpp
+  ECoin.cpp
+  Game.cpp
+  GreenPlant.cpp
+  Koopa.cpp
+  Leaf.cpp
+  Mario.cpp
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(6,9):
+      see previous definition of 'speed_Y'
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9):
+      see previous definition of 'top_Y'
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(6,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'Mario.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9):
+      see previous definition of 'speed_Y'
+  
+  MushRoom.cpp
+  ParaTroopa.cpp
+  Parinha.cpp
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.cpp(71,48): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.cpp(86,50): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.cpp(138,14): warning C4305: '=': truncation from 'double' to 'float'
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.cpp(146,14): warning C4305: '=': truncation from 'double' to 'float'
+  PlayScene.cpp
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'PlayScene.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'PlayScene.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'PlayScene.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(6,9):
+      see previous definition of 'speed_Y'
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.h(33,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+  (compiling source file 'PlayScene.cpp')
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(104,20): warning C4018: '<': signed/unsigned mismatch
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(631,20): warning C4018: '<': signed/unsigned mismatch
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\PlayScene.cpp(658,20): warning C4018: '<': signed/unsigned mismatch
+  QuestionBlock.cpp
+  RedPlant.cpp
+  SampleKeyEventHandler.cpp
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\SampleKeyEventHandler.cpp(38,67): warning C4390: ';': empty controlled statement found; is this the intent?
+  Spawner.cpp
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.h(33,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+  (compiling source file 'Spawner.cpp')
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.cpp(33,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.cpp(40,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.cpp(47,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+  Troopa.cpp
+  main.cpp
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'main.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(4,9): warning C4005: 'top_Y': macro redefinition
+  (compiling source file 'main.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\GreenPlant.h(5,9):
+      see previous definition of 'top_Y'
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Parinha.h(5,9): warning C4005: 'speed_Y': macro redefinition
+  (compiling source file 'main.cpp')
+      D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\RedPlant.h(6,9):
+      see previous definition of 'speed_Y'
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\Spawner.h(33,33): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+  (compiling source file 'main.cpp')
+  
+D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\05-SceneManager\main.cpp(220,36): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
   05-SceneManager.vcxproj -> D:\NHPTGAMEBACKUP\My_Mario_Game_SE102.P21\My_Mario_Game\Debug\05-SceneManager.exe

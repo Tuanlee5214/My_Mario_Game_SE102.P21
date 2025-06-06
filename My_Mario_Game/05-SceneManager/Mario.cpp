@@ -80,7 +80,12 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	}
 
 	if (isTurn && GetTickCount64() - startTurnTail > MARIO_TURN_TAIL_TIMEOUT)
+	{
 		isTurn = false;
+		if (vx != 0) return;
+		else 
+			SetState(MARIO_STATE_IDLE);
+	}
 
 
 
@@ -1274,7 +1279,7 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 		{
 			left = x - MARIO_BIG_BBOX_WIDTH / 2 - 2;
 			top = y - MARIO_BIG_BBOX_HEIGHT / 2;
-			right = left + MARIO_BIG_BBOX_WIDTH + 2;
+			right = left + MARIO_BIG_BBOX_WIDTH + 4;
 			bottom = top + MARIO_BIG_BBOX_HEIGHT;
 		}
 	}
