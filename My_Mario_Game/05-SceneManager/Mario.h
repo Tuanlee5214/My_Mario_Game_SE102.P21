@@ -45,6 +45,8 @@
 #define MARIO_STATE_TURN_TAIL 900
 #define MARIO_STATE_FALL_SLOW 901
 #define MARIO_STATE_JUMP_HIGH 902
+#define MARIO_STATE_GO_IN_PIPE_DOWN 903
+#define MARIO_STATE_GO_IN_PIPE_UP 904
 
 
 #pragma region ANIMATION_ID
@@ -140,6 +142,7 @@
 #define ID_ANI_MARIO_MAX_FALL_WALK_RIGHT 116
 #define ID_ANI_MARIO_MAX_FALL_SLOW_LEFT 126
 #define ID_ANI_MARIO_MAX_FALL_SLOW_RIGHT 127
+#define ID_ANI_MARIO_MAX_IN_PIPE 128
 
 #define ID_ANI_MARIO_MAX_JUMP_RUN_RIGHT 117
 #define ID_ANI_MARIO_MAX_JUMP_RUN_LEFT 118
@@ -196,6 +199,8 @@ class CMario : public CGameObject
 	bool isHoldingTroopa = false;
 	bool isTurn = false;
 	bool isFlyHigh;
+	bool isReadyToGoDown = false;
+	bool isGoDownPipe = false;
 	ULONGLONG timeStartFlyHigh;
 	ULONGLONG startTurnTail;
 	ULONGLONG isInKickStateNow;
@@ -214,6 +219,7 @@ class CMario : public CGameObject
 	void OnCollisionWithMushRoom(LPCOLLISIONEVENT e);
 	void OnCollisionWihtLeaf(LPCOLLISIONEVENT e);
 	void OnCollisionWithSwitchPos(LPCOLLISIONEVENT e);
+	void OnCollisiosnWithPipe(LPCOLLISIONEVENT e);
 
 
 
@@ -235,11 +241,14 @@ public:
 	void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
 	void Render();
 	void SetState(int state);
+	void SetIsGoDownPipe(bool a) { isGoDownPipe = a; }
 	int GetLevel()
 	{
 		return level;
 	}
 
+	void SetIsReadyToGoDown(bool a) { isReadyToGoDown = a; }
+	bool GetIsReadyToGoDown() { return isReadyToGoDown; }
 	int IsCollidable()
 	{
 		return (state != MARIO_STATE_DIE);

@@ -8,6 +8,7 @@ protected:
 	float cellWidth;
 	float cellHeight;
 	int spritePipeID;
+	bool isBlocking = true;
 	int type; // 0: ground, 1: groungBig
 
 public:
@@ -26,7 +27,10 @@ public:
 	void Update(DWORD dt) {}
 	void GetBoundingBox(float& l, float& t, float& r, float& b);
 	void RenderBoundingBox();
+	void SetBlocking(bool block) { isBlocking = block; }
+	int IsBlocking() override { return isBlocking ? 1 : 0; }
 
+	int GetType() { return type; }
 	int IsDirectionColliable(float nx, float ny);
 
 };

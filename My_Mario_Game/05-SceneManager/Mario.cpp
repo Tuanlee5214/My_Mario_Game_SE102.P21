@@ -22,13 +22,15 @@
 #include "SwitchPos.h"
 #include "Point.h"
 #include "ECoin.h"
+#include "Pipe.h"
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
-	if(state != MARIO_STATE_FALL_SLOW && state != MARIO_STATE_JUMP_HIGH) vy += ay * dt;
+	if(state != MARIO_STATE_FALL_SLOW && state != MARIO_STATE_JUMP_HIGH
+		&& state != MARIO_STATE_GO_IN_PIPE_DOWN && state != MARIO_STATE_GO_IN_PIPE_UP) vy += ay * dt;
 	vx += ax * dt;
 
-
+	if (isGoDownPipe) SetState(MARIO_STATE_GO_IN_PIPE_DOWN);
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
 	if (state == MARIO_STATE_RUNNING_RIGHT)
 	{
@@ -158,6 +160,8 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWihtLeaf(e);
 	else if (dynamic_cast<CSwitchPos*>(e->obj))
 		OnCollisionWithSwitchPos(e);
+	else if (dynamic_cast<CPipe*>(e->obj))
+		OnCollisiosnWithPipe(e);
 }
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
@@ -637,6 +641,15 @@ void CMario::OnCollisionWithParinha(LPCOLLISIONEVENT e)
 	}
 }
 
+void CMario::OnCollisiosnWithPipe(LPCOLLISIONEVENT e)
+{
+	CPipe* p = dynamic_cast<CPipe*>(e->obj);
+	if (p && isOnPlatform && p->GetType() == 2)
+	{
+		isReadyToGoDown = true;
+	}
+}
+
 void CMario::OnCollisionWithGreenPlant(LPCOLLISIONEVENT e)
 {
 
@@ -708,12 +721,14 @@ void CMario::OnCollisionWithSwitchPos(LPCOLLISIONEVENT e)
 	if (p->GetType() == 1)
 	{
 		this->SetPosition(146, 238);
+		SetState(MARIO_STATE_IDLE);
 		playScene->SetIsInSecret(true);
 
 	}
 	else if (p->GetType() == 2)
 	{
 		this->SetPosition(2366, 142);
+		SetState(MARIO_STATE_IDLE);
 		playScene->SetIsInSecret(false);
 	}
 }
@@ -980,12 +995,16 @@ int CMario::GetAniIdMax()
 		return aniId;
 	}
 
-	if (state == MARIO_STATE_FALL_SLOW)
+	if (state == MARIO_STATE_FALL_SLOW && !isFlyHigh)
 	{
 		aniId = nx < 0 ? ID_ANI_MARIO_MAX_FALL_SLOW_LEFT : ID_ANI_MARIO_MAX_FALL_SLOW_RIGHT;
 		return aniId;
 	}
-
+	if (state == MARIO_STATE_GO_IN_PIPE_DOWN || state == MARIO_STATE_GO_IN_PIPE_UP)
+	{
+		aniId = ID_ANI_MARIO_MAX_IN_PIPE;
+		return aniId;
+	}
 	if (state == MARIO_STATE_JUMP_HIGH)
 	{
 		aniId = nx > 0 ? ID_ANI_MARIO_JUMP_RUN_HIGH_R : ID_ANI_MARIO_JUMP_RUN_HIGH_L;
@@ -1145,6 +1164,8 @@ void CMario::SetState(int state)
 {
 	// DIE is the end state, cannot be changed! 
 	if (this->state == MARIO_STATE_DIE) return; 
+	CPlayScene* playScene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
+
 
 	switch (state)
 	{
@@ -1173,6 +1194,21 @@ void CMario::SetState(int state)
 		maxVx = -MARIO_WALKING_SPEED;
 		ax = -MARIO_ACCEL_WALK_X;
 		nx = -1;
+		break;
+	case MARIO_STATE_GO_IN_PIPE_DOWN:
+		vy = 0.01f;
+		vx = 0;
+		ay = 0;
+		for (auto obj : playScene->GetObjects()) {
+			CPipe* pipe = dynamic_cast<CPipe*>(obj);
+			if (pipe && pipe->GetType() == 2) {
+					pipe->SetBlocking(false);
+			}
+		}
+		break;
+	case MARIO_STATE_GO_IN_PIPE_UP:
+		vy = -0.01f;
+		vx = 0;
 		break;
 	case MARIO_STATE_JUMP:
 		if (isSitting) break;
@@ -1220,8 +1256,17 @@ void CMario::SetState(int state)
 		break;
 
 	case MARIO_STATE_IDLE:
+		isReadyToGoDown = false;
+		isGoDownPipe = false;
 		ax = 0.0f;
 		vx = 0.0f;
+		ay = MARIO_GRAVITY;
+		for (auto obj : playScene->GetObjects()) {
+			CPipe* pipe = dynamic_cast<CPipe*>(obj);
+			if (pipe && pipe->GetType() == 2) {
+					pipe->SetBlocking(true);
+			}
+		}
 		break;
 
 	case MARIO_STATE_DIE:

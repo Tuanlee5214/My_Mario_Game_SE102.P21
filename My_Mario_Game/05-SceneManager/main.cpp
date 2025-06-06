@@ -373,7 +373,7 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MARIO_MAX_FALL_RIGHT1, 366, 436, 393, 469, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_MAX_FALL_RIGHT2, 340, 436, 367, 469, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT1, 287, 348, 311, 377, texMario3);
-	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT2, 311, 348, 337, 377, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT2, 312, 348, 337, 377, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT1, 210, 438, 236, 469, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT2, 185, 438, 210, 469, texMario3);
 
@@ -766,6 +766,10 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT1);
 	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT2);
 	animations->Add(ID_ANI_MARIO_MAX_WALK_TO_RUN_RIGHT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_IS_IN_FRONT_OF);
+	animations->Add(ID_ANI_MARIO_MAX_IN_PIPE, ani);
 
 
 	//ECoin

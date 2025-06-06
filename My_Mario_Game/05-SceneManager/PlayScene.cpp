@@ -327,7 +327,9 @@ void CPlayScene::InitiateObjectWithOutTxt()
 	CPlatform* platform22 = new CPlatform(170, 230, 16, 16, 12, 60001, 60001, 60001);
 	CPipe* pipe1 = new CPipe(146, 238, 32, 32, 1, 77600, 3);
 	CPipe* pipe2 = new CPipe(369, 238, 32, 32, 1, 77600, 3);
-	CSwitchPos* pos1 = new CSwitchPos(200, 100, 220, 110, 1);
+	CPipe* pipe3 = new CPipe(2304, -13,	32,	193, 1,	77400, 2);
+
+	CSwitchPos* pos1 = new CSwitchPos(2304, -61, 2320, -20, 1);
 	CSwitchPos* pos2 = new CSwitchPos(368, 238, 382, 250, 2);
 	CTree* b = new CTree(250, 300, ID_SPRITE_BLACKBACKGROUND2);
 	CCoin* coin1 = new CCoin(220, 270, 1);
@@ -348,7 +350,7 @@ void CPlayScene::InitiateObjectWithOutTxt()
 
 	if (this->GetId() == 5)
 	{
-		this->AddObject(b);
+		this->InsertObjectBefore(b, player);
 		this->AddObject(spawn1);
 		this->AddObject(spawn2);
 		this->AddObject(spawn3);
@@ -398,6 +400,7 @@ void CPlayScene::InitiateObjectWithOutTxt()
 		this->AddObject(coin10);
 		this->AddObject(coin11);
 		this->AddObject(coin12);
+		this->AddObject(pipe3);
 	}
 }
 
@@ -608,9 +611,6 @@ void CPlayScene::Update(DWORD dt)
 	}
 	else if (y > 0 && y <= 200) cy = 0;
 	else if (y > 200 && !this->GetIsInSecret()) cy = 0;
-
-	
-
 
 
 	if (game->GetCurrentScene()->GetId() == 5)
