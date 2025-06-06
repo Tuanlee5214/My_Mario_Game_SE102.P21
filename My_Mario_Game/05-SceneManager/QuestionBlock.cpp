@@ -72,7 +72,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 			ECoin* ecoin = new ECoin(this->x, this->y - 4);
 			playScene->InsertObjectBefore(ecoin, this);
 		}
-		else if (playScene && this->type == 2 && player->GetLevel() == MARIO_LEVEL_BIG)
+		else if (playScene && this->type == 2 && player->GetLevel() >= MARIO_LEVEL_BIG)
 		{
 			CLeaf* leaf = new CLeaf(this->x, this->y - 4, x - 8, x + 40);
 			playScene->InsertObjectBefore(leaf, this);
@@ -92,7 +92,7 @@ void CQuestionBlock::OnCollisionWith(LPCOLLISIONEVENT e)
 			ECoin* ecoin = new ECoin(this->x, this->y - 4);
 			playScene->InsertObjectBefore(ecoin, this);
 		}
-		else if (playScene && player && this->type == 2 && player->GetLevel() == MARIO_LEVEL_BIG)
+		else if (playScene && player && this->type == 2 && player->GetLevel() >= MARIO_LEVEL_BIG)
 		{
 			CLeaf* leaf = new CLeaf(this->x, this->y - 4, x - 8, x + 40);
 			playScene->InsertObjectBefore(leaf, this);

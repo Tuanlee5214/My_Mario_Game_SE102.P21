@@ -76,6 +76,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define TEXTURE_PATH_MISC TEXTURES_DIR "\\misc.png"
 #define TEXTURE_PATH_GOAL TEXTURES_DIR "\\goal.png"
 #define TEXTURE_PATH_MARIO3	TEXTURES_DIR "\\mariobros3.png"
+#define TEXTURE_PATH_ENEMIES2 TEXTURES_DIR "\\enemies2.png"
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 230
 
@@ -146,6 +147,7 @@ void LoadResourceForGame() {
 	textures->Add(ID_TEX_MISC, TEXTURE_PATH_MISC);
 	textures->Add(ID_TEX_GOAL, TEXTURE_PATH_GOAL);
 	textures->Add(ID_TEX_MARIO3, TEXTURE_PATH_MARIO3);
+	textures->Add(ID_TEX_ENEMIES2, TEXTURE_PATH_ENEMIES2);
 
 	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
 	LPTEXTURE texMap = textures->Get(ID_TEX_MAP);
@@ -155,6 +157,7 @@ void LoadResourceForGame() {
 	LPTEXTURE texMisc = textures->Get(ID_TEX_MISC);
 	LPTEXTURE texGoal = textures->Get(ID_TEX_GOAL);
 	LPTEXTURE texMario3 = textures->Get(ID_TEX_MARIO3);
+	LPTEXTURE texEnemies2 = textures->Get(ID_TEX_ENEMIES2);
 
 	CSprites* sprites = CSprites::GetInstance();
 
@@ -361,6 +364,10 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MARIO_MAX_SIT_RIGHT, 419, 448, 444, 469, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_MAX_BRACE_LEFT, 337, 346, 356, 379, texMario3);
 	sprites->Add(ID_SPRITE_MARIO_MAX_BRACE_RIGHT, 165, 436, 184, 469, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_TURN_LEFT, 215, 284, 242, 317, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_TURN_RIGHT, 264, 284, 293, 317, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_IS_IN_FRONT_OF, 356, 346, 375, 379, texMario3);
+	sprites->Add(ID_SPRITE_MARIO_MAX_IS_BACK, 399, 347, 417, 378, texMario3);
 
 
 
@@ -397,6 +404,11 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_1UP, 594, 170, 625, 190, texMisc);
 	sprites->Add(ID_SPRITE_MUSH_EFFECT1, 255, 370, 275, 390, texGoal);
 	sprites->Add(ID_SPRITE_MUSH_EFFECT2, 315, 371, 329, 390, texGoal);
+
+	//SPRITE OUT GAME
+	sprites->Add(ID_SPRITE_GOOMBA_OUT_GAME, 3, 21, 21, 42, texEnemies2);
+	sprites->Add(ID_SPRITE_REDGOOMBA_OUT_GAME, 21, 21, 37, 42, texEnemies2);
+	sprites->Add(ID_SPRITE_KOOPA_OUTGAME, 37, 22, 53, 40, texEnemies2);
 
 	
 
@@ -438,7 +450,10 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_BUTTON_AFTER_USE);
 	animations->Add(ID_ANI_BUTTON_AFTER_USE, ani);
 
-
+	//Goomba
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_GOOMBA_OUT_GAME);
+	animations->Add(ID_ANI_GOOMBA_OUT_GAME, ani);
 
 	//Brick
 	ani = new CAnimation(300);
@@ -684,6 +699,33 @@ void LoadResourceForGame() {
 	animations->Add(ID_ANI_MARIO_MAX_BRACE_LEFT, ani);
 
 
+	ani = new CAnimation(80);
+	ani->Add(ID_SPRITE_MARIO_MAX_TURN_RIGHT);
+	ani->Add(ID_SPRITE_MARIO_MAX_IS_IN_FRONT_OF);
+	ani->Add(ID_SPRITE_MARIO_MAX_TURN_LEFT);
+	ani->Add(ID_SPRITE_MARIO_MAX_IS_BACK);
+	ani->Add(ID_SPRITE_MARIO_MAX_TURN_RIGHT);
+	animations->Add(ID_ANI_MARIO_MAX_TURN_RIGHT, ani);
+
+	ani = new CAnimation(80);
+	ani->Add(ID_SPRITE_MARIO_MAX_TURN_LEFT);
+	ani->Add(ID_SPRITE_MARIO_MAX_IS_IN_FRONT_OF);
+	ani->Add(ID_SPRITE_MARIO_MAX_TURN_RIGHT);
+	ani->Add(ID_SPRITE_MARIO_MAX_IS_BACK);
+	ani->Add(ID_SPRITE_MARIO_MAX_TURN_LEFT);
+	animations->Add(ID_ANI_MARIO_MAX_TURN_LEFT, ani);
+
+	ani = new CAnimation(40);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_LEFT);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_LEFT2);
+	animations->Add(ID_ANI_MARIO_MAX_WALK_TO_RUN_LEFT, ani);
+
+	ani = new CAnimation(40);
+	ani->Add(ID_SPRITE_MARIO_MAX_IDLE_RIGHT);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT1);
+	ani->Add(ID_SPRITE_MARIO_MAX_WALKING_RIGHT2);
+	animations->Add(ID_ANI_MARIO_MAX_WALK_TO_RUN_RIGHT, ani);
 
 
 	//ECoin
@@ -748,6 +790,10 @@ void LoadResourceForGame() {
 	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_KOOPA_DIE3R);
 	animations->Add(ID_ANI_KOOPA_DIE, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_KOOPA_OUTGAME);
+	animations->Add(ID_ANI_KOOPA_OUT_GAME, ani);
 
 
 	//Troopa ani
@@ -843,6 +889,10 @@ void LoadResourceForGame() {
 	ani = new CAnimation(150);
 	ani->Add(ID_SPRITE_REDGOOMBA_FLY2_1);
 	ani->Add(ID_SPRITE_REDGOOMBA_WALK2_1);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_REDGOOMBA_OUT_GAME);
+	animations->Add(ID_ANI_REDGOOMBA_OUTGAME, ani);
 
 	animations->Add(ID_ANI_REDGOOMBA_JUMPLOW, ani);
 	

@@ -30,6 +30,10 @@ void CKoopa::GetBoundingBox(float& left, float& top, float& right, float& bottom
 		right = left + KOOPA_BBOX_WIDTH;
 		bottom = top + KOOPA_BBOX_HEIGHT_DIE;
 	}
+	else if (state == KOOPA_STATE_OUT_GAME)
+	{
+		left = top = right = bottom = 0;
+	}
 	else
 	{
 		left = x - KOOPA_BBOX_WIDTH / 2;
@@ -135,7 +139,7 @@ void CKoopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		isDeleted = true;
 		return;
 	}
-
+	if (this->y > 200) isDeleted = true;
 	if (state == KOOPA_STATE_DIE && (GetTickCount64() - die_start > KOOPA_DIE_TO_WALK_TIMEOUT))
 	{
 		this->SetState(KOOPA_STATE_WALKING);
@@ -208,6 +212,7 @@ void CKoopa::Render()
 	{
 		aniId = ID_ANI_KOOPA_DIE_RUN_R;
 	}
+	else if (state == KOOPA_STATE_OUT_GAME) aniId = ID_ANI_KOOPA_OUT_GAME;
 	else {
 		aniId = (vx > 0) ? ID_ANI_KOOPA_WALKING_R : ID_ANI_KOOPA_WALKING_L;
 	}
@@ -254,6 +259,11 @@ void CKoopa::SetState(int state)
 		vx = KOOPA_WALKING_DIE_SPEED * 10;
 		ay = KOOPA_GRAVITY * 2;
 		//y += (TROOPA_BBOX_HEIGHT - TROOPA_BBOX_HEIGHT_DIE) / 2;
+		break;
+	case KOOPA_STATE_OUT_GAME:
+		vx = 0;
+		ax = 0;
+		vy = -MARIO_JUMP_DEFLECT_SPEED / 2.5f;
 		break;
 	}
 }

@@ -20,6 +20,7 @@
 #define KOOPA_STATE_DIE 200
 #define KOOPA_STATE_DIE_RUNL 300
 #define KOOPA_STATE_DIE_RUNR 400
+#define KOOPA_STATE_OUT_GAME 500
 
 
 #define ID_ANI_KOOPA_WALKING_R 6000
@@ -27,6 +28,7 @@
 #define ID_ANI_KOOPA_DIE_RUN_R	6003 
 #define ID_ANI_KOOPA_DIE_RUN_L 6004
 #define ID_ANI_KOOPA_DIE 6002
+#define ID_ANI_KOOPA_OUT_GAME 6005
 
 class CKoopa : public CGameObject
 {

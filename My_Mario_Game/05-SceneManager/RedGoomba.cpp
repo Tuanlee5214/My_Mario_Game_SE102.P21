@@ -177,7 +177,7 @@ void CRedGoomba::Render()
 	}
 	else if (state == REDGOOMBA_STATE_OUT_GAME)
 	{
-		aniId = ID_ANI_REDGOOMBA_WALKING;
+		aniId = ID_ANI_REDGOOMBA_OUTGAME;
 	}
 	
 

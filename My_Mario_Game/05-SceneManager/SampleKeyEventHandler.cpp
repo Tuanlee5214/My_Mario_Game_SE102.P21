@@ -34,6 +34,13 @@ void CSampleKeyHandler::OnKeyDown(int KeyCode)
 	case DIK_S:
 		 mario->SetState(MARIO_STATE_JUMP);
 		break;
+	case DIK_A:
+		if (mario->GetLevel() == MARIO_LEVEL_MAX && !mario->GetIsTurn());
+		{
+			mario->SetState(MARIO_STATE_TURN_TAIL);
+		}
+		break;
+
 	case DIK_1:
 		mario->SetLevel(MARIO_LEVEL_SMALL);
 		break;

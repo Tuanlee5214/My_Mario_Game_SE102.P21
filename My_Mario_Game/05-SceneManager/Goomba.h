@@ -19,6 +19,7 @@
 #define ID_ANI_GOOMBA_WALKING 5000
 #define ID_ANI_GOOMBA_DIE 5001
 #define ID_ANI_GOOMBA_IDLE 5002
+#define ID_ANI_GOOMBA_OUT_GAME 5003
 
 class CGoomba : public CGameObject
 {

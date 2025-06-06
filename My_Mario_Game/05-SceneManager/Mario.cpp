@@ -42,7 +42,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 
 	if (abs(ax) == 0 && abs(vx) != 0)
 	{
-		if (vx > 0)
+		if (vx > 0 && vx <= MARIO_WALKING_SPEED)
 		{
 			vx -= 0.008f;
 			if (vx < 0)
@@ -50,13 +50,26 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 				vx = 0;
 			}
 		}
-		else if (vx < 0)
+		else if (vx > MARIO_WALKING_SPEED && vx <= MARIO_RUNNING_SPEED)
+		{
+			vx -= 0.011f;
+			if (vx < 0)
+			{
+				vx = 0;
+			}
+		}
+		else if (vx < 0 && vx >= -MARIO_WALKING_SPEED)
 		{
 			vx += 0.008f;
 			if (vx > 0)
 			{
 				vx = 0;
 			}
+		}
+		else if (vx < -MARIO_WALKING_SPEED && vx >= -MARIO_RUNNING_SPEED)
+		{
+			vx += 0.011f;
+			if (vx > 0) vx = 0;
 		}
 	}
 	// reset untouchable timer if untouchable time has passed
@@ -65,6 +78,11 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		untouchable_start = 0;
 		untouchable = 0;
 	}
+
+	if (isTurn && GetTickCount64() - startTurnTail > MARIO_TURN_TAIL_TIMEOUT)
+		isTurn = false;
+
+
 
 
 	if (GetTickCount64() - isInKickStateNow > MARIO_IN_KICKSTATE_TIME && isRight1)
@@ -152,6 +170,15 @@ void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
 	}
+	else if (goomba->GetState() != GOOMBA_STATE_DIE && state == MARIO_STATE_TURN_TAIL && (e->nx != 0 || e->ny != 0))
+	{
+		float x, y;
+		goomba->GetPosition(x, y);
+		goomba->SetState(GOOMBA_STATE_OUT_GAME);
+		CPoint* point = new CPoint(x, y - 4, 1, y - 50);
+		playScene->AddObject(point);
+		return;
+	}
 	else // hit by Goomba
 	{
 		if (untouchable == 0)
@@ -196,6 +223,15 @@ void CMario::OnCollisionWithRedGoomba(LPCOLLISIONEVENT e)
 			playScene->AddObject(point);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
+	}
+	else if (redGoomba->GetState() != REDGOOMBA_STATE_DIE && state == MARIO_STATE_TURN_TAIL && (e->nx != 0 || e->ny != 0))
+	{
+		float x, y;
+		redGoomba->GetPosition(x, y);
+		redGoomba->SetState(REDGOOMBA_STATE_OUT_GAME);
+		CPoint* point = new CPoint(x, y - 4, 1, y - 50);
+		playScene->AddObject(point);
+		return;
 	}
 	else 
 	{
@@ -266,6 +302,15 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e)
 			}
 			//vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
+	}
+	else if (koopa->GetState() != KOOPA_STATE_DIE && state == MARIO_STATE_TURN_TAIL && (e->nx != 0 || e->ny != 0))
+	{
+		float x, y;
+		koopa->GetPosition(x, y);
+		koopa->SetState(KOOPA_STATE_OUT_GAME);
+		CPoint* point = new CPoint(x, y - 4, 1, y - 50);
+		playScene->AddObject(point);
+		return;
 	}
 	else // hit by Koopa
 	{
@@ -412,6 +457,15 @@ void CMario::OnCollisionWithParaTroopa(LPCOLLISIONEVENT e)
 				//vy = -MARIO_JUMP_DEFLECT_SPEED;
 			}
 	}
+	else if (paraTroopa->GetState() != PARATROOPA_STATE_DIE && state == MARIO_STATE_TURN_TAIL && (e->nx != 0 || e->ny != 0))
+	{
+		float x, y;
+		paraTroopa->GetPosition(x, y);
+		paraTroopa->SetState(PARATROOPA_STATE_OUT_GAME);
+		CPoint* point = new CPoint(x, y - 4, 1, y - 50);
+		playScene->AddObject(point);
+		return;
+	}
 	else
 	{
 		if (untouchable == 0)
@@ -501,6 +555,15 @@ void CMario::OnCollisionWithTroopa(LPCOLLISIONEVENT e)
 			}
 			//vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
+	}
+	else if (troopa->GetState() != TROOPA_STATE_DIE && state == MARIO_STATE_TURN_TAIL && (e->nx != 0 || e->ny != 0))
+	{
+		float x, y;
+		troopa->GetPosition(x, y);
+		troopa->SetState(TROOPA_STATE_OUT_GAME);
+		CPoint* point = new CPoint(x, y - 4, 1, y - 50);
+		playScene->AddObject(point);
+		return;
 	}
 	else // hit by troopa
 	{
@@ -903,6 +966,11 @@ int CMario::GetAniIdMax()
 	bool isHoldTroopa = this->GetIsHoldingTroopa();
 	bool isHoldKoopa = this->GetIsHoldingKoopa();
 	int aniId = -1;
+	if (!isSitting && !isHoldingKoopa && !isHoldingTroopa && isTurn)
+	{
+		aniId = nx > 0 ? ID_ANI_MARIO_MAX_TURN_RIGHT : ID_ANI_MARIO_MAX_TURN_LEFT;
+		return aniId;
+	}
 	if (!isOnPlatform)
 	{
 		if (abs(ax) == MARIO_ACCEL_RUN_X)
@@ -959,7 +1027,7 @@ int CMario::GetAniIdMax()
 				else if (ax == MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_MAX_RUNNING_RIGHT;
 				else if (ax > 0 && ax < MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_RIGHT)
-					aniId = ID_ANI_MARIO_WALK_TO_RUN_RIGHT;
+					aniId = ID_ANI_MARIO_MAX_WALK_TO_RUN_RIGHT;
 				else if (ax == 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_MAX_WALKING_RIGHT;
 				else if (ax == 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_MAX_WALKING_CARRY_RIGHT;
 				else if (ax == MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_RIGHT)
@@ -991,7 +1059,7 @@ int CMario::GetAniIdMax()
 				else if (ax == -MARIO_ACCEL_RUN_X)
 					aniId = ID_ANI_MARIO_MAX_RUNNING_LEFT;
 				else if (ax < 0 && ax > -MARIO_ACCEL_RUN_X && state == MARIO_STATE_RUNNING_LEFT)
-					aniId = ID_ANI_MARIO_WALK_TO_RUN_LEFT;
+					aniId = ID_ANI_MARIO_MAX_WALK_TO_RUN_LEFT;
 				else if (ax == 0 && !isHoldKoopa && !isHoldTroopa) aniId = ID_ANI_MARIO_MAX_WALKING_LEFT;
 				else if (ax == 0 && (isHoldKoopa || isHoldTroopa)) aniId = ID_ANI_MARIO_MAX_WALKING_CARRY_LEFT;
 				else if (ax == -MARIO_ACCEL_WALK_X && state != MARIO_STATE_RUNNING_LEFT)
@@ -1048,7 +1116,7 @@ void CMario::Render()
 
 	animations->Get(aniId)->Render(x, y);
 
-	//RenderBoundingBox();
+	RenderBoundingBox();
 	
 	DebugOutTitle(L"Coins: %d", coin);
 }
@@ -1096,7 +1164,12 @@ void CMario::SetState(int state)
 				vy = -MARIO_JUMP_SPEED_Y;
 		}
 		break;
-
+	case MARIO_STATE_TURN_TAIL:
+		if (isSitting) break;
+		if (isHoldingKoopa || isHoldingTroopa) break;
+		isTurn = true;
+		startTurnTail = GetTickCount64();
+		break;
 	case MARIO_STATE_RELEASE_JUMP:
 		if (vy < 0) vy += MARIO_JUMP_SPEED_Y / 2;
 		break;
@@ -1189,6 +1262,13 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 			top = y - MARIO_BIG_SITTING_BBOX_HEIGHT / 2;
 			right = left + MARIO_BIG_SITTING_BBOX_WIDTH + 2;
 			bottom = top + MARIO_BIG_SITTING_BBOX_HEIGHT;
+		}
+		else if (state == MARIO_STATE_TURN_TAIL)
+		{
+			left = x - MARIO_BIG_BBOX_WIDTH / 2 - 10;
+			top = y - MARIO_BIG_BBOX_HEIGHT / 2;
+			right = left + MARIO_BIG_BBOX_WIDTH + 10;
+			bottom = top + MARIO_BIG_BBOX_HEIGHT;
 		}
 		else
 		{

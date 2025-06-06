@@ -15,6 +15,7 @@
 #define MARIO_IN_KICKSTATE_TIME 200
 #define MARIO_TRANSFORM_SMALL_TO_BIG_TIMEOUT 900
 #define MARIO_TRANSFORM_BIG_TO_SMALL_TIMEOUT 900
+#define MARIO_TURN_TAIL_TIMEOUT 410
 
 
 #define MARIO_JUMP_SPEED_Y		0.350f
@@ -41,6 +42,7 @@
 #define MARIO_STATE_TRANSFORM_SMALL_TO_BIG	700
 #define MARIO_STATE_TRANSFORM_BIG_TO_SMALL	800
 
+#define MARIO_STATE_TURN_TAIL 900
 
 
 #pragma region ANIMATION_ID
@@ -142,6 +144,9 @@
 #define ID_ANI_MARIO_MAX_BRACE_RIGHT 121
 #define ID_ANI_MARIO_MAX_BRACE_LEFT 122
 
+#define ID_ANI_MARIO_MAX_TURN_LEFT 124
+#define ID_ANI_MARIO_MAX_TURN_RIGHT 125
+
 
 #pragma endregion
 
@@ -183,6 +188,8 @@ class CMario : public CGameObject
 	bool isRight1 = false;
 	bool isHoldingKoopa = false;
 	bool isHoldingTroopa = false;
+	bool isTurn = false;
+	ULONGLONG startTurnTail;
 	ULONGLONG isInKickStateNow;
 
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
@@ -276,6 +283,8 @@ public:
 	}
 
 	float Get_vx() { return this->vx; }
+
+	bool GetIsTurn() { return isTurn; }
 
 	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable==0); }
 

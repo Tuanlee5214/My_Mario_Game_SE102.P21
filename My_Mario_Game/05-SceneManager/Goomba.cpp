@@ -97,7 +97,7 @@ void CGoomba::Render()
 	}
 	else if (state == GOOMBA_STATE_OUT_GAME)
 	{
-		aniId = ID_ANI_GOOMBA_WALKING;
+		aniId = ID_ANI_GOOMBA_OUT_GAME;
 	}
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x,y);
