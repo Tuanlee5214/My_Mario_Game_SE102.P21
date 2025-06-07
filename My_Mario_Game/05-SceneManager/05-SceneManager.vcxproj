@@ -168,6 +168,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="MushRoom.cpp" />
+    <ClCompile Include="NumberText.cpp" />
+    <ClCompile Include="PanelUI.cpp" />
     <ClCompile Include="ParaTroopa.cpp" />
     <ClCompile Include="Parinha.cpp" />
     <ClCompile Include="Pipe.cpp" />
@@ -186,6 +188,7 @@
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Troopa.cpp" />
+    <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +216,8 @@
     <ClInclude Include="Leaf.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="MushRoom.h" />
+    <ClInclude Include="NumberText.h" />
+    <ClInclude Include="PanelUI.h" />
     <ClInclude Include="ParaTroopa.h" />
     <ClInclude Include="Parinha.h" />
     <ClInclude Include="Pipe.h" />
@@ -234,6 +239,7 @@
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="Troopa.h" />
+    <ClInclude Include="UIManager.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

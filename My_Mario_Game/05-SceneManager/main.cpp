@@ -57,6 +57,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #include "Effect.h"
 #include "Button.h"
 #include "Point.h"
+#include "NumberText.h"
 
 #include "AssetIDs.h"
 
@@ -77,6 +78,7 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define TEXTURE_PATH_GOAL TEXTURES_DIR "\\goal.png"
 #define TEXTURE_PATH_MARIO3	TEXTURES_DIR "\\mariobros3.png"
 #define TEXTURE_PATH_ENEMIES2 TEXTURES_DIR "\\enemies2.png"
+#define TEXTURE_PATH_HUB TEXTURES_DIR "\\hub.png"
 #define SCREEN_WIDTH 272
 #define SCREEN_HEIGHT 264
 
@@ -148,6 +150,7 @@ void LoadResourceForGame() {
 	textures->Add(ID_TEX_GOAL, TEXTURE_PATH_GOAL);
 	textures->Add(ID_TEX_MARIO3, TEXTURE_PATH_MARIO3);
 	textures->Add(ID_TEX_ENEMIES2, TEXTURE_PATH_ENEMIES2);
+	textures->Add(ID_TEX_HUB, TEXTURE_PATH_HUB);
 
 	LPTEXTURE texMainMap = textures->Get(ID_TEX_MAINMAP);
 	LPTEXTURE texMap = textures->Get(ID_TEX_MAP);
@@ -158,6 +161,7 @@ void LoadResourceForGame() {
 	LPTEXTURE texGoal = textures->Get(ID_TEX_GOAL);
 	LPTEXTURE texMario3 = textures->Get(ID_TEX_MARIO3);
 	LPTEXTURE texEnemies2 = textures->Get(ID_TEX_ENEMIES2);
+	LPTEXTURE texHub = textures->Get(ID_TEX_HUB);
 
 	CSprites* sprites = CSprites::GetInstance();
 
@@ -378,7 +382,20 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT2, 185, 438, 210, 469, texMario3);
 
 
+	//HUB sprite
+	sprites->Add(NUMBER_TEXT_0, 77, 30, 84, 37, texHub);
+	sprites->Add(NUMBER_TEXT_1, 87, 30, 94, 37, texHub);
+	sprites->Add(NUMBER_TEXT_2, 97, 30, 104, 37, texHub);
+	sprites->Add(NUMBER_TEXT_3, 107, 30, 114, 37, texHub);
+	sprites->Add(NUMBER_TEXT_4, 117, 30, 124, 37, texHub);
+	sprites->Add(NUMBER_TEXT_5, 127, 30, 134, 37, texHub);
+	sprites->Add(NUMBER_TEXT_6, 137, 30, 144, 37, texHub);
+	sprites->Add(NUMBER_TEXT_7, 147, 30, 154, 37, texHub);
+	sprites->Add(NUMBER_TEXT_8, 157, 30, 164, 37, texHub);
+	sprites->Add(NUMBER_TEXT_9, 167, 30, 174, 37, texHub);
 
+	sprites->Add(ID_SPRITE_ENERGY, 63, 251, 126, 258, texHub);
+	sprites->Add(ID_SPRITE_HUB, 0, 98, 263, 143, texHub);
 
 
 

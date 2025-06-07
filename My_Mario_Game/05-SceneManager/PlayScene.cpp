@@ -28,6 +28,7 @@
 #include "Brick.h"
 #include "SwitchPos.h"
 #include "QuestionBlock.h"
+#include "PanelUI.h"
 
 #include "SampleKeyEventHandler.h"
 
@@ -344,6 +345,8 @@ void CPlayScene::InitiateObjectWithOutTxt()
 	CCoin* coin10 = new CCoin(268, 334, 1);
 	CCoin* coin11 = new CCoin(268, 286, 1);
 	CCoin* coin12 = new CCoin(268, 318, 1);
+	CPanelUI* p = new CPanelUI(130, 230, 152, 28, ID_SPRITE_HUB);
+	panel = (CPanelUI*)p;
 
 
 
@@ -401,6 +404,7 @@ void CPlayScene::InitiateObjectWithOutTxt()
 		this->AddObject(coin11);
 		this->AddObject(coin12);
 		this->AddObject(pipe3);
+		this->AddObject(panel);
 	}
 }
 
@@ -612,6 +616,10 @@ void CPlayScene::Update(DWORD dt)
 	else if (y > 0 && y <= 200) cy = 0;
 	else if (y > 200 && !this->GetIsInSecret()) cy = 0;
 
+	if (panel != NULL)
+	{
+		panel->SetPosition(cx + 10 + 115, cy + 225);
+	}
 
 	if (game->GetCurrentScene()->GetId() == 5)
 	{

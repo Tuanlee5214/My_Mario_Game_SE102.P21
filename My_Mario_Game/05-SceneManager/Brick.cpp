@@ -108,7 +108,7 @@ void CBrick::GetBoundingBox(float &left, float &top, float &right, float &bottom
 {
 	left = x - BRICK_BBOX_WIDTH/2 - 2;
 	top = y - BRICK_BBOX_HEIGHT/2;
-	right = left + BRICK_BBOX_WIDTH;
+	right = left + BRICK_BBOX_WIDTH + 2;
 	bottom = top + BRICK_BBOX_HEIGHT - 2;
 }
 

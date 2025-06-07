@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-#define POINT_JUMP_SPEED 0.075f
+#define POINT_JUMP_SPEED 0.06f
 
 #define POINT_STATE_JUMP 100
 

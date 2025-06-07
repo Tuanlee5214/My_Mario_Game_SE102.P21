@@ -22,7 +22,7 @@ CQuestionBlock::CQuestionBlock(float x, float y, int type) : CGameObject(x, y)
 
 void CQuestionBlock::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	left = this->x - QUESBLOCK_BBOX_WIDTH / 2;
+	left = this->x - QUESBLOCK_BBOX_WIDTH / 2 - 1;
 	top = this->y - QUESBLOCK_BBOX_HEIGHT / 2;
 	right = left + QUESBLOCK_BBOX_WIDTH;
 	bottom = top + QUESBLOCK_BBOX_HEIGHT;
