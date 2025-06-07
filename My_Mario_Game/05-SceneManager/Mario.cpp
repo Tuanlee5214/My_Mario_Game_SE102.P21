@@ -108,6 +108,9 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			SetState(MARIO_STATE_IDLE);
 	}
 
+	if (isFallSlow && GetTickCount64() - timeStartFallSlow > 100)
+		isFallSlow = false;
+
 	if (isFlyHigh) SetState(MARIO_STATE_JUMP_HIGH);
 
 	if (isFlyHigh && GetTickCount64() - timeStartFlyHigh > 150)
@@ -750,7 +753,7 @@ void CMario::OnCollisionWithSwitchPos(LPCOLLISIONEVENT e)
 	}
 	else if (p->GetType() == 2)
 	{
-		this->SetPosition(2366, 142);
+		this->SetPosition(2366, 140);
 		SetState(MARIO_STATE_IDLE);
 		playScene->SetIsInSecret(false);
 	}

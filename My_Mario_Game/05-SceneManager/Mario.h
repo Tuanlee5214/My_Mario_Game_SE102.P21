@@ -204,8 +204,10 @@ class CMario : public CGameObject
 	bool isFlyHigh;
 	bool isReadyToGoDown = false;
 	bool isGoDownPipe = false;
+	bool isFallSlow;
 	bool isGoUpPipe = false;
 	bool isFallRunState = false;
+	ULONGLONG timeStartFallSlow;
 	ULONGLONG timeStartFlyHigh;
 	ULONGLONG startTurnTail;
 	ULONGLONG isInKickStateNow;
@@ -251,6 +253,9 @@ public:
 	{
 		return level;
 	}
+	void SetTimeStartFallSlow(ULONGLONG a) { timeStartFallSlow = a; }
+	void SetIsFallSlow(bool a) { isFallSlow = a; }
+	bool GetIsFallSlow() { return isFallSlow; }
 
 	void SetIsReadyToGoDown(bool a) { isReadyToGoDown = a; }
 	bool GetIsReadyToGoDown() { return isReadyToGoDown; }

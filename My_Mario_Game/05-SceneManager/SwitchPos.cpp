@@ -35,7 +35,7 @@ void CSwitchPos::RenderBoundingBox()
 
 void CSwitchPos::Render()
 {
-	RenderBoundingBox();
+	//RenderBoundingBox();
 }
 
 void CSwitchPos::GetBoundingBox(float& l, float& t, float& r, float& b)

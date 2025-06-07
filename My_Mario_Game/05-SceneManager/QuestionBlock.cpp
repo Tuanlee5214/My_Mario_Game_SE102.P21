@@ -167,7 +167,7 @@ void CQuestionBlock::Render()
 	}
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
-	RenderBoundingBox();
+	//RenderBoundingBox();
 }
 
 void CQuestionBlock::SetState(int state)

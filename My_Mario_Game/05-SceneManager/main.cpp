@@ -77,8 +77,8 @@ HOW TO INSTALL Microsoft.DXSDK.D3DX
 #define TEXTURE_PATH_GOAL TEXTURES_DIR "\\goal.png"
 #define TEXTURE_PATH_MARIO3	TEXTURES_DIR "\\mariobros3.png"
 #define TEXTURE_PATH_ENEMIES2 TEXTURES_DIR "\\enemies2.png"
-#define SCREEN_WIDTH 400
-#define SCREEN_HEIGHT 230
+#define SCREEN_WIDTH 272
+#define SCREEN_HEIGHT 264
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -411,8 +411,8 @@ void LoadResourceForGame() {
 	sprites->Add(ID_SPRITE_POINT_TYPE2, 453, 231, 468, 240, texMisc);
 	sprites->Add(ID_SPRITE_POINT_TYPE10, 470, 218, 489, 231, texMisc);
 	sprites->Add(ID_SPRITE_1UP, 594, 170, 625, 190, texMisc);
-	sprites->Add(ID_SPRITE_MUSH_EFFECT1, 255, 370, 275, 390, texGoal);
-	sprites->Add(ID_SPRITE_MUSH_EFFECT2, 315, 371, 329, 390, texGoal);
+	sprites->Add(ID_SPRITE_MUSH_EFFECT1, 257, 372, 273, 388, texGoal);
+	sprites->Add(ID_SPRITE_MUSH_EFFECT2, 317, 372, 331, 388, texGoal);
 
 	//SPRITE OUT GAME
 	sprites->Add(ID_SPRITE_GOOMBA_OUT_GAME, 3, 21, 21, 42, texEnemies2);

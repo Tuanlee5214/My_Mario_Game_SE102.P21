@@ -601,13 +601,13 @@ void CPlayScene::Update(DWORD dt)
 	if (cx < 0) cx = 0;
 	if (game->GetCurrentScene()->GetId() == 5)
 	{
-		if (cx > 2463) cx = 2463;
+		if (cx > 2590) cx = 2590;
 	}
 
 	if (y > 200 && this->GetIsInSecret())
 	{
-		if (cx > 127) cx = 127;
-		cy = 210;
+		if (cx > 210) cx = 210;
+		cy = 213;
 	}
 	else if (y > 0 && y <= 200) cy = 0;
 	else if (y > 200 && !this->GetIsInSecret()) cy = 0;

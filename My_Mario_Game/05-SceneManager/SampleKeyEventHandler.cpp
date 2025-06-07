@@ -37,42 +37,50 @@ void CSampleKeyHandler::OnKeyDown(int KeyCode)
 		else mario->SetState(MARIO_STATE_SIT);
 		break;
 	case DIK_S:
-		if (mario->GetState() == MARIO_STATE_FALL_RUN)
+		if (mario->GetState() == MARIO_STATE_FALL_RUN && !mario->GetIsFlyHigh())
 		{
 			mario->SetState(MARIO_STATE_FALL_SLOW);
 			mario->SetIsFlyHigh(false);
 			mario->SetIsFallRunState(false);
+			mario->SetIsFallSlow(true);
+			mario->SetTimeStartFallSlow(GetTickCount64());
 		}
-		if (isPressKeyA && mario->Get_vy() > 0)
+		if (isPressKeyA && mario->Get_vy() > 0 && !mario->GetIsFlyHigh())
 		{
 				mario->SetState(MARIO_STATE_FALL_SLOW);
 				mario->SetIsFlyHigh(false);
 				mario->SetIsFallRunState(false);
+				mario->SetIsFallSlow(true);
+				mario->SetTimeStartFallSlow(GetTickCount64());
 		}
 
-		if ((isPressLeft || isPressRight) && mario->Get_vy() > 0)
+		if ((isPressLeft || isPressRight) && mario->Get_vy() > 0 && !mario->GetIsFlyHigh())
 		{
 			mario->SetState(MARIO_STATE_FALL_SLOW);
 			mario->SetIsFlyHigh(false);
 			mario->SetIsFallRunState(false);
+			mario->SetIsFallSlow(true);
+			mario->SetTimeStartFallSlow(GetTickCount64());
 		}
 		if (mario->GetLevel() == MARIO_LEVEL_MAX && !mario->GetIsOnPlatform() &&
-			mario->Get_vy() > 0)
+			mario->Get_vy() > 0 && !mario->GetIsFlyHigh())
 		{
 			mario->SetState(MARIO_STATE_FALL_SLOW);
 			mario->SetIsFlyHigh(false);
 			mario->SetIsFallRunState(false);
+			mario->SetIsFallSlow(true);
+			mario->SetTimeStartFallSlow(GetTickCount64());
 		}
 		else if (mario->GetLevel() == MARIO_LEVEL_MAX	&&
 				(mario->GetState() == MARIO_STATE_RUNNING_LEFT || 
 				 mario->GetState() == MARIO_STATE_RUNNING_RIGHT) &&
-				 mario->Get_vy() < 0)
+				 mario->Get_vy() < 0 && !mario->GetIsFallSlow())
 		{
 			mario->SetIsFlyHigh(true);
 			mario->SetTimeStartFly(GetTickCount64());
 		}
 		else if (mario->GetLevel() == MARIO_LEVEL_MAX &&
-			mario->GetIsFlyHigh() && mario->Get_vy() < 0)
+			mario->GetIsFlyHigh() && mario->Get_vy() < 0 && !mario->GetIsFallSlow())
 		{
 			mario->SetIsFlyHigh(true);
 			mario->SetTimeStartFly(GetTickCount64());
