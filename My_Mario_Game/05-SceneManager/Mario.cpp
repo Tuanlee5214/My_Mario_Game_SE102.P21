@@ -29,9 +29,20 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	if(state != MARIO_STATE_FALL_SLOW && state != MARIO_STATE_JUMP_HIGH
 		&& state != MARIO_STATE_GO_IN_PIPE_DOWN && state != MARIO_STATE_GO_IN_PIPE_UP) vy += ay * dt;
 	vx += ax * dt;
+	CPlayScene* playScene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
 
 	if (isGoDownPipe) SetState(MARIO_STATE_GO_IN_PIPE_DOWN);
-	if (isGoUpPipe) SetState(MARIO_STATE_GO_IN_PIPE_UP);
+	if (isGoUpPipe)
+	{
+		SetState(MARIO_STATE_GO_IN_PIPE_UP);
+		for (auto obj : playScene->GetObjects()) {
+			CPipe* pipe = dynamic_cast<CPipe*>(obj);
+			if (pipe && pipe->GetType() == 2) {
+				pipe->SetBlocking(false);
+			}
+		}
+	}
+
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
 	if (state == MARIO_STATE_RUNNING_RIGHT)
 	{

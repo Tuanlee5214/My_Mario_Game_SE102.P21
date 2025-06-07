@@ -45,18 +45,9 @@ void CSampleKeyHandler::OnKeyDown(int KeyCode)
 		}
 		if (isPressKeyA && mario->Get_vy() > 0)
 		{
-			if (isPressLeft || isPressRight)
-			{
 				mario->SetState(MARIO_STATE_FALL_SLOW);
 				mario->SetIsFlyHigh(false);
 				mario->SetIsFallRunState(false);
-			}
-			else
-			{
-				mario->SetState(MARIO_STATE_FALL_SLOW);
-				mario->SetIsFlyHigh(false);
-				mario->SetIsFallRunState(false);
-			}
 		}
 
 		if ((isPressLeft || isPressRight) && mario->Get_vy() > 0)
