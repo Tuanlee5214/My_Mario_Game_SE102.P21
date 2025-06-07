@@ -47,6 +47,7 @@
 #define MARIO_STATE_JUMP_HIGH 902
 #define MARIO_STATE_GO_IN_PIPE_DOWN 903
 #define MARIO_STATE_GO_IN_PIPE_UP 904
+#define MARIO_STATE_FALL_RUN 905
 
 
 #pragma region ANIMATION_ID
@@ -143,6 +144,8 @@
 #define ID_ANI_MARIO_MAX_FALL_SLOW_LEFT 126
 #define ID_ANI_MARIO_MAX_FALL_SLOW_RIGHT 127
 #define ID_ANI_MARIO_MAX_IN_PIPE 128
+#define ID_ANI_MARIO_MAX_FALL_RUN_LEFT 129
+#define ID_ANI_MARIO_MAX_FALL_RUN_RIGHT 130
 
 #define ID_ANI_MARIO_MAX_JUMP_RUN_RIGHT 117
 #define ID_ANI_MARIO_MAX_JUMP_RUN_LEFT 118
@@ -202,6 +205,7 @@ class CMario : public CGameObject
 	bool isReadyToGoDown = false;
 	bool isGoDownPipe = false;
 	bool isGoUpPipe = false;
+	bool isFallRunState = false;
 	ULONGLONG timeStartFlyHigh;
 	ULONGLONG startTurnTail;
 	ULONGLONG isInKickStateNow;
@@ -250,6 +254,7 @@ public:
 
 	void SetIsReadyToGoDown(bool a) { isReadyToGoDown = a; }
 	bool GetIsReadyToGoDown() { return isReadyToGoDown; }
+	void SetIsFallRunState(bool a) { isFallRunState = a; }
 	int IsCollidable()
 	{
 		return (state != MARIO_STATE_DIE);

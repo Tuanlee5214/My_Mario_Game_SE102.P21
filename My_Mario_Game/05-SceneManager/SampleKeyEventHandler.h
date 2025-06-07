@@ -8,6 +8,10 @@
 
 class CSampleKeyHandler: public CSceneKeyHandler
 {
+protected:
+	bool isPressKeyA;
+	bool isPressLeft;
+	bool isPressRight;
 public:
 	virtual void KeyState(BYTE *states);
 	virtual void OnKeyDown(int KeyCode);

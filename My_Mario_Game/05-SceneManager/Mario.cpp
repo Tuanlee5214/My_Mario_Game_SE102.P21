@@ -41,9 +41,15 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	{
 		if (abs(ax) > abs(MARIO_ACCEL_RUN_X)) ax = -MARIO_ACCEL_RUN_X;
 	}
+	if (isFlyHigh && y < 40) SetState(MARIO_STATE_FALL_RUN);
 
+	if (isOnPlatform && isFallRunState)
+	{
+		isFallRunState = false;
+		SetState(MARIO_STATE_IDLE);
+	}
 
-
+	if (isFallRunState) SetState(MARIO_STATE_FALL_RUN);
 	if (abs(ax) == 0 && abs(vx) != 0)
 	{
 		if (vx > 0 && vx <= MARIO_WALKING_SPEED)
@@ -1000,7 +1006,11 @@ int CMario::GetAniIdMax()
 		aniId = nx > 0 ? ID_ANI_MARIO_MAX_TURN_RIGHT : ID_ANI_MARIO_MAX_TURN_LEFT;
 		return aniId;
 	}
-
+	if (state == MARIO_STATE_FALL_RUN)
+	{
+		aniId = nx > 0 ? ID_ANI_MARIO_MAX_FALL_RUN_RIGHT : ID_ANI_MARIO_MAX_FALL_RUN_LEFT;
+		return aniId;
+	}
 	if (state == MARIO_STATE_FALL_SLOW && !isFlyHigh)
 	{
 		aniId = nx < 0 ? ID_ANI_MARIO_MAX_FALL_SLOW_LEFT : ID_ANI_MARIO_MAX_FALL_SLOW_RIGHT;
@@ -1020,10 +1030,14 @@ int CMario::GetAniIdMax()
 	{
 		if (abs(ax) == MARIO_ACCEL_RUN_X)
 		{
-			if (nx >= 0)
+			if (nx >= 0 && vy < 0)
 				aniId = ID_ANI_MARIO_MAX_JUMP_RUN_RIGHT;
-			else
+			else if (nx < 0 && vy < 0)
 				aniId = ID_ANI_MARIO_MAX_JUMP_RUN_LEFT;
+			else if (nx >= 0 && vy > 0)
+				aniId = ID_ANI_MARIO_MAX_FALL_RUN_RIGHT;
+			else if (nx < 0 && vy > 0)
+				aniId = ID_ANI_MARIO_MAX_FALL_RUN_LEFT;
 		}
 		else
 		{
@@ -1188,6 +1202,10 @@ void CMario::SetState(int state)
 		if (ax > -MARIO_ACCEL_WALK_X) ax = -MARIO_ACCEL_WALK_X;
 		ax -= 0.000005f;
 		nx = -1;
+		break;
+	case MARIO_STATE_FALL_RUN:
+		isFallRunState = true;
+		ay = MARIO_GRAVITY;
 		break;
 	case MARIO_STATE_WALKING_RIGHT:
 		if (isSitting) break;

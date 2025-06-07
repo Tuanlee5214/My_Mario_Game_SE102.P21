@@ -37,24 +37,54 @@ void CSampleKeyHandler::OnKeyDown(int KeyCode)
 		else mario->SetState(MARIO_STATE_SIT);
 		break;
 	case DIK_S:
+		if (mario->GetState() == MARIO_STATE_FALL_RUN)
+		{
+			mario->SetState(MARIO_STATE_FALL_SLOW);
+			mario->SetIsFlyHigh(false);
+			mario->SetIsFallRunState(false);
+		}
+		if (isPressKeyA && mario->Get_vy() > 0)
+		{
+			if (isPressLeft || isPressRight)
+			{
+				mario->SetState(MARIO_STATE_FALL_SLOW);
+				mario->SetIsFlyHigh(false);
+				mario->SetIsFallRunState(false);
+			}
+			else
+			{
+				mario->SetState(MARIO_STATE_FALL_SLOW);
+				mario->SetIsFlyHigh(false);
+				mario->SetIsFallRunState(false);
+			}
+		}
+
+		if ((isPressLeft || isPressRight) && mario->Get_vy() > 0)
+		{
+			mario->SetState(MARIO_STATE_FALL_SLOW);
+			mario->SetIsFlyHigh(false);
+			mario->SetIsFallRunState(false);
+		}
 		if (mario->GetLevel() == MARIO_LEVEL_MAX && !mario->GetIsOnPlatform() &&
 			mario->Get_vy() > 0)
 		{
 			mario->SetState(MARIO_STATE_FALL_SLOW);
 			mario->SetIsFlyHigh(false);
+			mario->SetIsFallRunState(false);
 		}
 		else if (mario->GetLevel() == MARIO_LEVEL_MAX	&&
 				(mario->GetState() == MARIO_STATE_RUNNING_LEFT || 
-				 mario->GetState() == MARIO_STATE_RUNNING_RIGHT))
+				 mario->GetState() == MARIO_STATE_RUNNING_RIGHT) &&
+				 mario->Get_vy() < 0)
 		{
 			mario->SetIsFlyHigh(true);
 			mario->SetTimeStartFly(GetTickCount64());
 		}
 		else if (mario->GetLevel() == MARIO_LEVEL_MAX &&
-			mario->GetIsFlyHigh())
+			mario->GetIsFlyHigh() && mario->Get_vy() < 0)
 		{
-			//mario->SetIsFlyHigh(true);
-			//mario->SetTimeStartFly(GetTickCount64());
+			mario->SetIsFlyHigh(true);
+			mario->SetTimeStartFly(GetTickCount64());
 		}
 		else mario->SetState(MARIO_STATE_JUMP);
 		break;
@@ -136,6 +166,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 
 	if (game->IsKeyDown(DIK_RIGHT))
 	{
+		isPressRight = true;
 		if (koopa)
 		{
 			if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE && !mario->GetIsHoldingTroopa())
@@ -241,6 +272,7 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 	}
 	else if (game->IsKeyDown(DIK_LEFT))
 	{
+		isPressLeft = true;
 		if (koopa)
 		{
 			if (game->IsKeyDown(DIK_A) && koopa && koopa->GetState() != KOOPA_STATE_DIE && !mario->GetIsHoldingTroopa())
@@ -559,5 +591,9 @@ void CSampleKeyHandler::KeyState(BYTE* states)
 		mario->SetIsHoldingTroopa(false);
 	}
 
-	
+	if (game->IsKeyDown(DIK_A)) isPressKeyA = true;
+	else if (!game->IsKeyDown(DIK_A)) isPressKeyA = false;
+
+	if (!game->IsKeyDown(DIK_LEFT)) isPressLeft = false;
+	if (!game->IsKeyDown(DIK_RIGHT)) isPressRight = false;
 }

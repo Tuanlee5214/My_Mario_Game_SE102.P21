@@ -711,6 +711,14 @@ void LoadResourceForGame() {
 	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT1);
 	animations->Add(ID_ANI_MARIO_JUMP_RUN_HIGH_R, ani);
 
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_LEFT2);
+	animations->Add(ID_ANI_MARIO_MAX_FALL_RUN_LEFT, ani);
+
+	ani = new CAnimation(100);
+	ani->Add(ID_SPRITE_MARIO_MAX_JUMP_RUN_RIGHT2);
+	animations->Add(ID_ANI_MARIO_MAX_FALL_RUN_RIGHT, ani);
+
 
 
 
